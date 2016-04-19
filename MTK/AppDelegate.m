@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "ViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -17,6 +17,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+   NSString *firLun = [MTKDefaultinfos getValueforKey:FIRSTLUN];
+    if (!firLun || [firLun isEqualToString:@""]) {
+        FirstLunViewController *first = [MainStoryBoard instantiateViewControllerWithIdentifier:@"FirstLunViewController"];
+//        ViewController *first = [[ViewController alloc] init];
+        MTKNavViewController *nav = [[MTKNavViewController alloc] initWithRootViewController:first];
+        self.window.rootViewController = nav;
+    }
+
     return YES;
 }
 

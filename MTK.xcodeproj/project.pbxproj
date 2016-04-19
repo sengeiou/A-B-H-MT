@@ -15,6 +15,14 @@
 		EEC996091CC46ADA00BD5A45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEC996071CC46ADA00BD5A45 /* LaunchScreen.storyboard */; };
 		EEC996141CC46ADA00BD5A45 /* MTKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC996131CC46ADA00BD5A45 /* MTKTests.m */; };
 		EEC9961F1CC46ADA00BD5A45 /* MTKUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC9961E1CC46ADA00BD5A45 /* MTKUITests.m */; };
+		EEC996361CC478F800BD5A45 /* AccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC996351CC478F800BD5A45 /* AccountTool.m */; };
+		EEC9963C1CC4798000BD5A45 /* MTKuserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC9963B1CC4798000BD5A45 /* MTKuserInfo.m */; };
+		EEC996441CC47EAC00BD5A45 /* MTKDefaultinfos.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC996431CC47EAC00BD5A45 /* MTKDefaultinfos.m */; };
+		EEC996481CC4851C00BD5A45 /* FirstLunViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC996471CC4851C00BD5A45 /* FirstLunViewController.m */; };
+		EEC9964F1CC4880900BD5A45 /* MTKNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC9964E1CC4880900BD5A45 /* MTKNavViewController.m */; };
+		EEC996521CC4918100BD5A45 /* MTKLocalized.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC996511CC4918100BD5A45 /* MTKLocalized.m */; };
+		EEC9965D1CC4ABEA00BD5A45 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EEC9965F1CC4ABEA00BD5A45 /* Localizable.strings */; };
+		EEC996641CC4CCF400BD5A45 /* MTKLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC996631CC4CCF400BD5A45 /* MTKLoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +59,24 @@
 		EEC9961A1CC46ADA00BD5A45 /* MTKUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MTKUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEC9961E1CC46ADA00BD5A45 /* MTKUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTKUITests.m; sourceTree = "<group>"; };
 		EEC996201CC46ADA00BD5A45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EEC996341CC478F800BD5A45 /* AccountTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccountTool.h; path = Login/AccountTool.h; sourceTree = SOURCE_ROOT; };
+		EEC996351CC478F800BD5A45 /* AccountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccountTool.m; path = Login/AccountTool.m; sourceTree = SOURCE_ROOT; };
+		EEC9963A1CC4798000BD5A45 /* MTKuserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MTKuserInfo.h; path = Login/MTKuserInfo.h; sourceTree = SOURCE_ROOT; };
+		EEC9963B1CC4798000BD5A45 /* MTKuserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MTKuserInfo.m; path = Login/MTKuserInfo.m; sourceTree = SOURCE_ROOT; };
+		EEC996421CC47EAC00BD5A45 /* MTKDefaultinfos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKDefaultinfos.h; sourceTree = "<group>"; };
+		EEC996431CC47EAC00BD5A45 /* MTKDefaultinfos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTKDefaultinfos.m; sourceTree = "<group>"; };
+		EEC996451CC47F0A00BD5A45 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		EEC996461CC4851C00BD5A45 /* FirstLunViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FirstLunViewController.h; path = Login/FirstLunViewController.h; sourceTree = SOURCE_ROOT; };
+		EEC996471CC4851C00BD5A45 /* FirstLunViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FirstLunViewController.m; path = Login/FirstLunViewController.m; sourceTree = SOURCE_ROOT; };
+		EEC9964D1CC4880900BD5A45 /* MTKNavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKNavViewController.h; sourceTree = "<group>"; };
+		EEC9964E1CC4880900BD5A45 /* MTKNavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTKNavViewController.m; sourceTree = "<group>"; };
+		EEC996501CC4918100BD5A45 /* MTKLocalized.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKLocalized.h; sourceTree = "<group>"; };
+		EEC996511CC4918100BD5A45 /* MTKLocalized.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTKLocalized.m; sourceTree = "<group>"; };
+		EEC9965E1CC4ABEA00BD5A45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EEC996601CC4AC3400BD5A45 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EEC996611CC4AC4000BD5A45 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		EEC996621CC4CCF400BD5A45 /* MTKLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MTKLoginViewController.h; path = Login/MTKLoginViewController.h; sourceTree = SOURCE_ROOT; };
+		EEC996631CC4CCF400BD5A45 /* MTKLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MTKLoginViewController.m; path = Login/MTKLoginViewController.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +107,9 @@
 		EEC995ED1CC46ADA00BD5A45 = {
 			isa = PBXGroup;
 			children = (
+				EEC996491CC486E700BD5A45 /* Navigation */,
+				EEC996411CC47E7900BD5A45 /* Method */,
+				EEC9962C1CC46F9900BD5A45 /* Login */,
 				EEC995F81CC46ADA00BD5A45 /* MTK */,
 				EEC996121CC46ADA00BD5A45 /* MTKTests */,
 				EEC9961D1CC46ADA00BD5A45 /* MTKUITests */,
@@ -103,6 +132,7 @@
 			children = (
 				EEC995FC1CC46ADA00BD5A45 /* AppDelegate.h */,
 				EEC995FD1CC46ADA00BD5A45 /* AppDelegate.m */,
+				EEC996451CC47F0A00BD5A45 /* PrefixHeader.pch */,
 				EEC995FF1CC46ADA00BD5A45 /* ViewController.h */,
 				EEC996001CC46ADA00BD5A45 /* ViewController.m */,
 				EEC996021CC46ADA00BD5A45 /* Main.storyboard */,
@@ -118,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				EEC995FA1CC46ADA00BD5A45 /* main.m */,
+				EEC9965F1CC4ABEA00BD5A45 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -138,6 +169,66 @@
 				EEC996201CC46ADA00BD5A45 /* Info.plist */,
 			);
 			path = MTKUITests;
+			sourceTree = "<group>";
+		};
+		EEC9962C1CC46F9900BD5A45 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				EEC9963D1CC47AB000BD5A45 /* Controller */,
+				EEC9962D1CC46FBF00BD5A45 /* Business */,
+				EEC996391CC4794600BD5A45 /* Model */,
+			);
+			name = Login;
+			path = "注册登录";
+			sourceTree = "<group>";
+		};
+		EEC9962D1CC46FBF00BD5A45 /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				EEC996341CC478F800BD5A45 /* AccountTool.h */,
+				EEC996351CC478F800BD5A45 /* AccountTool.m */,
+			);
+			name = Business;
+			sourceTree = "<group>";
+		};
+		EEC996391CC4794600BD5A45 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EEC9963A1CC4798000BD5A45 /* MTKuserInfo.h */,
+				EEC9963B1CC4798000BD5A45 /* MTKuserInfo.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		EEC9963D1CC47AB000BD5A45 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				EEC996461CC4851C00BD5A45 /* FirstLunViewController.h */,
+				EEC996471CC4851C00BD5A45 /* FirstLunViewController.m */,
+				EEC996621CC4CCF400BD5A45 /* MTKLoginViewController.h */,
+				EEC996631CC4CCF400BD5A45 /* MTKLoginViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		EEC996411CC47E7900BD5A45 /* Method */ = {
+			isa = PBXGroup;
+			children = (
+				EEC996421CC47EAC00BD5A45 /* MTKDefaultinfos.h */,
+				EEC996431CC47EAC00BD5A45 /* MTKDefaultinfos.m */,
+				EEC996501CC4918100BD5A45 /* MTKLocalized.h */,
+				EEC996511CC4918100BD5A45 /* MTKLocalized.m */,
+			);
+			path = Method;
+			sourceTree = "<group>";
+		};
+		EEC996491CC486E700BD5A45 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				EEC9964D1CC4880900BD5A45 /* MTKNavViewController.h */,
+				EEC9964E1CC4880900BD5A45 /* MTKNavViewController.m */,
+			);
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,8 +314,9 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
+				en,
+				"zh-Hans",
 			);
 			mainGroup = EEC995ED1CC46ADA00BD5A45;
 			productRefGroup = EEC995F71CC46ADA00BD5A45 /* Products */;
@@ -244,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEC996091CC46ADA00BD5A45 /* LaunchScreen.storyboard in Resources */,
+				EEC9965D1CC4ABEA00BD5A45 /* Localizable.strings in Resources */,
 				EEC996061CC46ADA00BD5A45 /* Assets.xcassets in Resources */,
 				EEC996041CC46ADA00BD5A45 /* Main.storyboard in Resources */,
 			);
@@ -271,8 +364,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEC996011CC46ADA00BD5A45 /* ViewController.m in Sources */,
+				EEC996641CC4CCF400BD5A45 /* MTKLoginViewController.m in Sources */,
+				EEC9964F1CC4880900BD5A45 /* MTKNavViewController.m in Sources */,
 				EEC995FE1CC46ADA00BD5A45 /* AppDelegate.m in Sources */,
+				EEC996521CC4918100BD5A45 /* MTKLocalized.m in Sources */,
+				EEC996441CC47EAC00BD5A45 /* MTKDefaultinfos.m in Sources */,
 				EEC995FB1CC46ADA00BD5A45 /* main.m in Sources */,
+				EEC996361CC478F800BD5A45 /* AccountTool.m in Sources */,
+				EEC9963C1CC4798000BD5A45 /* MTKuserInfo.m in Sources */,
+				EEC996481CC4851C00BD5A45 /* FirstLunViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +422,16 @@
 				EEC996081CC46ADA00BD5A45 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		EEC9965F1CC4ABEA00BD5A45 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EEC9965E1CC4ABEA00BD5A45 /* Base */,
+				EEC996601CC4AC3400BD5A45 /* en */,
+				EEC996611CC4AC4000BD5A45 /* zh-Hans */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -413,7 +523,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				GCC_PREFIX_HEADER = /Users/aibaohu/Desktop/MTK/MTK/PrefixHeader.pch;
 				INFOPLIST_FILE = MTK/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.smawatch.MTK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -424,7 +537,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				GCC_PREFIX_HEADER = /Users/aibaohu/Desktop/MTK/MTK/PrefixHeader.pch;
 				INFOPLIST_FILE = MTK/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.smawatch.MTK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
