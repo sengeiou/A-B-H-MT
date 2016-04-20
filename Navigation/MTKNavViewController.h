@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface MTKNavViewController : UINavigationController
+#import "UIBarButtonItem+CKQ.h"
+#import "UINavigationController+MTKNaVC.h"
+@interface MTKNavViewController : UINavigationController<UINavigationControllerDelegate>
 
 @end

@@ -65,10 +65,10 @@
 - (void)experienceClick{
     NSLog(@"开始体验了");
      MTKLoginViewController *loginVC = [MainStoryBoard instantiateViewControllerWithIdentifier:@"MTKLoginViewController"];
-//    [self.navigationController pushViewController:loginVC animated:YES];
-    [self presentViewController:loginVC animated:NO completion:^{
-        
-    }];
+    [self.navigationController pushViewController:loginVC animated:NO];
+//    [self presentViewController:loginVC animated:NO completion:^{
+    
+//    }];
 }
 
 

@@ -7,3 +7,13 @@
 */
 //首次启动
 "first_exper" = "开始体验";
+//登录
+"login_loginbtn" = "登陆";
+"login_register" = "注册";
+"login_tryout" = "直接试用";
+
+//注册
+"register_choose_cou" = "国家选择";
+"register_modi_pass" = "修改密码";
+//弹框
+"alera_back" = "< 返回";

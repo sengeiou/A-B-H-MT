@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "MTKRegisViewController.h"
 @interface MTKLoginViewController : UIViewController
-
+@property (nonatomic, weak) IBOutlet UIButton *areaBut, *changPass, *loginBut, *registerBut, *trialBut;
+@property (nonatomic, weak) IBOutlet UILabel *areaLab;
+@property (nonatomic, weak) IBOutlet UITextField *accountFi, *passwordFi;
 @end

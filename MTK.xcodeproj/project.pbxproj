@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE8634A91CC71A66005378C9 /* libAbleCloudLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE8634781CC71A66005378C9 /* libAbleCloudLib.a */; };
+		EE8634AC1CC71B33005378C9 /* MTKWebService.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8634AB1CC71B33005378C9 /* MTKWebService.m */; };
+		EE8634AF1CC72839005378C9 /* country.plist in Resources */ = {isa = PBXBuildFile; fileRef = EE8634B11CC72839005378C9 /* country.plist */; };
+		EE8634D61CC728FD005378C9 /* NSDictionary-DeepMutableCopy.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8634BD1CC728FD005378C9 /* NSDictionary-DeepMutableCopy.m */; };
+		EE8634D71CC728FD005378C9 /* SMS_HYZBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8634BF1CC728FD005378C9 /* SMS_HYZBadgeView.m */; };
+		EE8634DD1CC728FD005378C9 /* SectionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8634CE1CC728FD005378C9 /* SectionsViewController.m */; };
+		EE8634E41CC73178005378C9 /* UIImage+CKQ.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8634E31CC73178005378C9 /* UIImage+CKQ.m */; };
+		EE8634E71CC73590005378C9 /* MTKRegisViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8634E61CC73590005378C9 /* MTKRegisViewController.m */; };
+		EE8634EA1CC76050005378C9 /* UIBarButtonItem+CKQ.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8634E91CC76050005378C9 /* UIBarButtonItem+CKQ.m */; };
+		EE8634F01CC76C25005378C9 /* UINavigationController+SmaNaVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8634EF1CC76C25005378C9 /* UINavigationController+SmaNaVC.m */; };
+		EE8634F31CC76C59005378C9 /* UINavigationController+MTKNaVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8634F21CC76C59005378C9 /* UINavigationController+MTKNaVC.m */; };
 		EEC995FB1CC46ADA00BD5A45 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC995FA1CC46ADA00BD5A45 /* main.m */; };
 		EEC995FE1CC46ADA00BD5A45 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC995FD1CC46ADA00BD5A45 /* AppDelegate.m */; };
 		EEC996011CC46ADA00BD5A45 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC996001CC46ADA00BD5A45 /* ViewController.m */; };
@@ -43,6 +54,74 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EE8634761CC71A66005378C9 /* ACHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACHelper.h; sourceTree = "<group>"; };
+		EE8634771CC71A66005378C9 /* ACloudLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACloudLib.h; sourceTree = "<group>"; };
+		EE8634781CC71A66005378C9 /* libAbleCloudLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAbleCloudLib.a; sourceTree = "<group>"; };
+		EE86347A1CC71A66005378C9 /* ACBindUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACBindUser.h; sourceTree = "<group>"; };
+		EE86347B1CC71A66005378C9 /* ACContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACContext.h; sourceTree = "<group>"; };
+		EE86347C1CC71A66005378C9 /* ACDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACDevice.h; sourceTree = "<group>"; };
+		EE86347E1CC71A66005378C9 /* ACDeviceMsg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACDeviceMsg.h; sourceTree = "<group>"; };
+		EE86347F1CC71A66005378C9 /* ACDeviceMsgHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACDeviceMsgHead.h; sourceTree = "<group>"; };
+		EE8634801CC71A66005378C9 /* ACDeviceMsgOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACDeviceMsgOption.h; sourceTree = "<group>"; };
+		EE8634811CC71A66005378C9 /* ACDeviceMsgPayload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACDeviceMsgPayload.h; sourceTree = "<group>"; };
+		EE8634821CC71A66005378C9 /* ACDeviceMsgSecHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACDeviceMsgSecHead.h; sourceTree = "<group>"; };
+		EE8634831CC71A66005378C9 /* ACFileInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACFileInfo.h; sourceTree = "<group>"; };
+		EE8634841CC71A66005378C9 /* ACGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACGroup.h; sourceTree = "<group>"; };
+		EE8634861CC71A66005378C9 /* ACKLVDeviceMsg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACKLVDeviceMsg.h; sourceTree = "<group>"; };
+		EE8634871CC71A66005378C9 /* ACKLVDeviceMsgMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACKLVDeviceMsgMarshaller.h; sourceTree = "<group>"; };
+		EE8634881CC71A66005378C9 /* ACKLVObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACKLVObject.h; sourceTree = "<group>"; };
+		EE8634891CC71A66005378C9 /* ACLocalDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACLocalDevice.h; sourceTree = "<group>"; };
+		EE86348A1CC71A66005378C9 /* ACMember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMember.h; sourceTree = "<group>"; };
+		EE86348B1CC71A66005378C9 /* ACMsg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMsg.h; sourceTree = "<group>"; };
+		EE86348C1CC71A66005378C9 /* ACObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACObject.h; sourceTree = "<group>"; };
+		EE86348D1CC71A66005378C9 /* ACOTACheckInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACOTACheckInfo.h; sourceTree = "<group>"; };
+		EE86348E1CC71A66005378C9 /* ACOTAFileInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACOTAFileInfo.h; sourceTree = "<group>"; };
+		EE86348F1CC71A66005378C9 /* ACOTAUpgradeInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACOTAUpgradeInfo.h; sourceTree = "<group>"; };
+		EE8634901CC71A66005378C9 /* ACPushReceive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACPushReceive.h; sourceTree = "<group>"; };
+		EE8634911CC71A66005378C9 /* ACPushTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACPushTable.h; sourceTree = "<group>"; };
+		EE8634921CC71A66005378C9 /* ACTimerTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACTimerTask.h; sourceTree = "<group>"; };
+		EE8634931CC71A66005378C9 /* ACUserDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACUserDevice.h; sourceTree = "<group>"; };
+		EE8634941CC71A66005378C9 /* ACUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACUserInfo.h; sourceTree = "<group>"; };
+		EE8634961CC71A66005378C9 /* ACAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACAccountManager.h; sourceTree = "<group>"; };
+		EE8634971CC71A66005378C9 /* ACACL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACACL.h; sourceTree = "<group>"; };
+		EE8634981CC71A66005378C9 /* ACAnalysisManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACAnalysisManager.h; sourceTree = "<group>"; };
+		EE8634991CC71A66005378C9 /* ACBindManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACBindManager.h; sourceTree = "<group>"; };
+		EE86349A1CC71A66005378C9 /* ACCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACCache.h; sourceTree = "<group>"; };
+		EE86349B1CC71A66005378C9 /* ACConnectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACConnectManager.h; sourceTree = "<group>"; };
+		EE86349C1CC71A66005378C9 /* ACDeviceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACDeviceClient.h; sourceTree = "<group>"; };
+		EE86349D1CC71A66005378C9 /* ACDeviceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACDeviceManager.h; sourceTree = "<group>"; };
+		EE86349E1CC71A66005378C9 /* ACFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACFileManager.h; sourceTree = "<group>"; };
+		EE86349F1CC71A66005378C9 /* ACFindDevicesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACFindDevicesManager.h; sourceTree = "<group>"; };
+		EE8634A01CC71A66005378C9 /* ACKeyChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACKeyChain.h; sourceTree = "<group>"; };
+		EE8634A11CC71A66005378C9 /* ACOTAManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACOTAManager.h; sourceTree = "<group>"; };
+		EE8634A21CC71A66005378C9 /* ACPushManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACPushManager.h; sourceTree = "<group>"; };
+		EE8634A31CC71A66005378C9 /* ACServiceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACServiceClient.h; sourceTree = "<group>"; };
+		EE8634A51CC71A66005378C9 /* ACDeviceStub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACDeviceStub.h; sourceTree = "<group>"; };
+		EE8634A61CC71A66005378C9 /* ACServiceStub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACServiceStub.h; sourceTree = "<group>"; };
+		EE8634A71CC71A66005378C9 /* ACTimerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACTimerManager.h; sourceTree = "<group>"; };
+		EE8634A81CC71A66005378C9 /* ACWifiLinkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACWifiLinkManager.h; sourceTree = "<group>"; };
+		EE8634AA1CC71B33005378C9 /* MTKWebService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKWebService.h; sourceTree = "<group>"; };
+		EE8634AB1CC71B33005378C9 /* MTKWebService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTKWebService.m; sourceTree = "<group>"; };
+		EE8634B01CC72839005378C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/country.plist; sourceTree = "<group>"; };
+		EE8634B21CC7283D005378C9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/country.plist; sourceTree = "<group>"; };
+		EE8634B31CC72846005378C9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/country.plist"; sourceTree = "<group>"; };
+		EE8634BB1CC728FD005378C9 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		EE8634BC1CC728FD005378C9 /* NSDictionary-DeepMutableCopy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary-DeepMutableCopy.h"; sourceTree = "<group>"; };
+		EE8634BD1CC728FD005378C9 /* NSDictionary-DeepMutableCopy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary-DeepMutableCopy.m"; sourceTree = "<group>"; };
+		EE8634BE1CC728FD005378C9 /* SMS_HYZBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMS_HYZBadgeView.h; sourceTree = "<group>"; };
+		EE8634BF1CC728FD005378C9 /* SMS_HYZBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMS_HYZBadgeView.m; sourceTree = "<group>"; };
+		EE8634CD1CC728FD005378C9 /* SectionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionsViewController.h; sourceTree = "<group>"; };
+		EE8634CE1CC728FD005378C9 /* SectionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionsViewController.m; sourceTree = "<group>"; };
+		EE8634E21CC73178005378C9 /* UIImage+CKQ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CKQ.h"; sourceTree = "<group>"; };
+		EE8634E31CC73178005378C9 /* UIImage+CKQ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CKQ.m"; sourceTree = "<group>"; };
+		EE8634E51CC73590005378C9 /* MTKRegisViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKRegisViewController.h; sourceTree = SOURCE_ROOT; };
+		EE8634E61CC73590005378C9 /* MTKRegisViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTKRegisViewController.m; sourceTree = SOURCE_ROOT; };
+		EE8634E81CC76050005378C9 /* UIBarButtonItem+CKQ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+CKQ.h"; sourceTree = "<group>"; };
+		EE8634E91CC76050005378C9 /* UIBarButtonItem+CKQ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+CKQ.m"; sourceTree = "<group>"; };
+		EE8634EE1CC76C25005378C9 /* UINavigationController+SmaNaVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+SmaNaVC.h"; sourceTree = "<group>"; };
+		EE8634EF1CC76C25005378C9 /* UINavigationController+SmaNaVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+SmaNaVC.m"; sourceTree = "<group>"; };
+		EE8634F11CC76C59005378C9 /* UINavigationController+MTKNaVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+MTKNaVC.h"; sourceTree = "<group>"; };
+		EE8634F21CC76C59005378C9 /* UINavigationController+MTKNaVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+MTKNaVC.m"; sourceTree = "<group>"; };
 		EEC995F61CC46ADA00BD5A45 /* MTK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MTK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEC995FA1CC46ADA00BD5A45 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EEC995FC1CC46ADA00BD5A45 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -84,6 +163,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE8634A91CC71A66005378C9 /* libAbleCloudLib.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,9 +184,165 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EE8634731CC71A5F005378C9 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				EE8634B41CC728FD005378C9 /* ShareSMS */,
+				EE8634741CC71A66005378C9 /* ableCloudLibSDK */,
+			);
+			path = Framework;
+			sourceTree = "<group>";
+		};
+		EE8634741CC71A66005378C9 /* ableCloudLibSDK */ = {
+			isa = PBXGroup;
+			children = (
+				EE8634751CC71A66005378C9 /* ACHelper */,
+				EE8634771CC71A66005378C9 /* ACloudLib.h */,
+				EE8634781CC71A66005378C9 /* libAbleCloudLib.a */,
+				EE8634791CC71A66005378C9 /* Model */,
+				EE8634951CC71A66005378C9 /* Services */,
+			);
+			path = ableCloudLibSDK;
+			sourceTree = "<group>";
+		};
+		EE8634751CC71A66005378C9 /* ACHelper */ = {
+			isa = PBXGroup;
+			children = (
+				EE8634761CC71A66005378C9 /* ACHelper.h */,
+			);
+			path = ACHelper;
+			sourceTree = "<group>";
+		};
+		EE8634791CC71A66005378C9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EE86347A1CC71A66005378C9 /* ACBindUser.h */,
+				EE86347B1CC71A66005378C9 /* ACContext.h */,
+				EE86347C1CC71A66005378C9 /* ACDevice.h */,
+				EE86347D1CC71A66005378C9 /* ACDeviceMsg */,
+				EE8634841CC71A66005378C9 /* ACGroup.h */,
+				EE8634851CC71A66005378C9 /* ACKLVDeviceMsg */,
+				EE8634881CC71A66005378C9 /* ACKLVObject.h */,
+				EE8634891CC71A66005378C9 /* ACLocalDevice.h */,
+				EE86348A1CC71A66005378C9 /* ACMember.h */,
+				EE86348B1CC71A66005378C9 /* ACMsg.h */,
+				EE86348C1CC71A66005378C9 /* ACObject.h */,
+				EE86348D1CC71A66005378C9 /* ACOTACheckInfo.h */,
+				EE86348E1CC71A66005378C9 /* ACOTAFileInfo.h */,
+				EE86348F1CC71A66005378C9 /* ACOTAUpgradeInfo.h */,
+				EE8634901CC71A66005378C9 /* ACPushReceive.h */,
+				EE8634911CC71A66005378C9 /* ACPushTable.h */,
+				EE8634921CC71A66005378C9 /* ACTimerTask.h */,
+				EE8634931CC71A66005378C9 /* ACUserDevice.h */,
+				EE8634941CC71A66005378C9 /* ACUserInfo.h */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EE86347D1CC71A66005378C9 /* ACDeviceMsg */ = {
+			isa = PBXGroup;
+			children = (
+				EE86347E1CC71A66005378C9 /* ACDeviceMsg.h */,
+				EE86347F1CC71A66005378C9 /* ACDeviceMsgHead.h */,
+				EE8634801CC71A66005378C9 /* ACDeviceMsgOption.h */,
+				EE8634811CC71A66005378C9 /* ACDeviceMsgPayload.h */,
+				EE8634821CC71A66005378C9 /* ACDeviceMsgSecHead.h */,
+				EE8634831CC71A66005378C9 /* ACFileInfo.h */,
+			);
+			path = ACDeviceMsg;
+			sourceTree = "<group>";
+		};
+		EE8634851CC71A66005378C9 /* ACKLVDeviceMsg */ = {
+			isa = PBXGroup;
+			children = (
+				EE8634861CC71A66005378C9 /* ACKLVDeviceMsg.h */,
+				EE8634871CC71A66005378C9 /* ACKLVDeviceMsgMarshaller.h */,
+			);
+			path = ACKLVDeviceMsg;
+			sourceTree = "<group>";
+		};
+		EE8634951CC71A66005378C9 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				EE8634961CC71A66005378C9 /* ACAccountManager.h */,
+				EE8634971CC71A66005378C9 /* ACACL.h */,
+				EE8634981CC71A66005378C9 /* ACAnalysisManager.h */,
+				EE8634991CC71A66005378C9 /* ACBindManager.h */,
+				EE86349A1CC71A66005378C9 /* ACCache.h */,
+				EE86349B1CC71A66005378C9 /* ACConnectManager.h */,
+				EE86349C1CC71A66005378C9 /* ACDeviceClient.h */,
+				EE86349D1CC71A66005378C9 /* ACDeviceManager.h */,
+				EE86349E1CC71A66005378C9 /* ACFileManager.h */,
+				EE86349F1CC71A66005378C9 /* ACFindDevicesManager.h */,
+				EE8634A01CC71A66005378C9 /* ACKeyChain.h */,
+				EE8634A11CC71A66005378C9 /* ACOTAManager.h */,
+				EE8634A21CC71A66005378C9 /* ACPushManager.h */,
+				EE8634A31CC71A66005378C9 /* ACServiceClient.h */,
+				EE8634A41CC71A66005378C9 /* ACStub */,
+				EE8634A71CC71A66005378C9 /* ACTimerManager.h */,
+				EE8634A81CC71A66005378C9 /* ACWifiLinkManager.h */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		EE8634A41CC71A66005378C9 /* ACStub */ = {
+			isa = PBXGroup;
+			children = (
+				EE8634A51CC71A66005378C9 /* ACDeviceStub.h */,
+				EE8634A61CC71A66005378C9 /* ACServiceStub.h */,
+			);
+			path = ACStub;
+			sourceTree = "<group>";
+		};
+		EE8634B41CC728FD005378C9 /* ShareSMS */ = {
+			isa = PBXGroup;
+			children = (
+				EE8634BA1CC728FD005378C9 /* SMS_UILib */,
+				EE8634C01CC728FD005378C9 /* UI */,
+			);
+			path = ShareSMS;
+			sourceTree = "<group>";
+		};
+		EE8634BA1CC728FD005378C9 /* SMS_UILib */ = {
+			isa = PBXGroup;
+			children = (
+				EE8634BB1CC728FD005378C9 /* FMDatabase.h */,
+				EE8634BC1CC728FD005378C9 /* NSDictionary-DeepMutableCopy.h */,
+				EE8634BD1CC728FD005378C9 /* NSDictionary-DeepMutableCopy.m */,
+				EE8634BE1CC728FD005378C9 /* SMS_HYZBadgeView.h */,
+				EE8634BF1CC728FD005378C9 /* SMS_HYZBadgeView.m */,
+			);
+			path = SMS_UILib;
+			sourceTree = "<group>";
+		};
+		EE8634C01CC728FD005378C9 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				EE8634CD1CC728FD005378C9 /* SectionsViewController.h */,
+				EE8634CE1CC728FD005378C9 /* SectionsViewController.m */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		EE8634E11CC73165005378C9 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				EE8634E81CC76050005378C9 /* UIBarButtonItem+CKQ.h */,
+				EE8634E91CC76050005378C9 /* UIBarButtonItem+CKQ.m */,
+				EE8634E21CC73178005378C9 /* UIImage+CKQ.h */,
+				EE8634E31CC73178005378C9 /* UIImage+CKQ.m */,
+				EE8634F11CC76C59005378C9 /* UINavigationController+MTKNaVC.h */,
+				EE8634F21CC76C59005378C9 /* UINavigationController+MTKNaVC.m */,
+				EE8634EE1CC76C25005378C9 /* UINavigationController+SmaNaVC.h */,
+				EE8634EF1CC76C25005378C9 /* UINavigationController+SmaNaVC.m */,
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
 		EEC995ED1CC46ADA00BD5A45 = {
 			isa = PBXGroup;
 			children = (
+				EE8634731CC71A5F005378C9 /* Framework */,
 				EEC996491CC486E700BD5A45 /* Navigation */,
 				EEC996411CC47E7900BD5A45 /* Method */,
 				EEC9962C1CC46F9900BD5A45 /* Login */,
@@ -148,6 +384,7 @@
 			isa = PBXGroup;
 			children = (
 				EEC995FA1CC46ADA00BD5A45 /* main.m */,
+				EE8634B11CC72839005378C9 /* country.plist */,
 				EEC9965F1CC4ABEA00BD5A45 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
@@ -207,6 +444,8 @@
 				EEC996471CC4851C00BD5A45 /* FirstLunViewController.m */,
 				EEC996621CC4CCF400BD5A45 /* MTKLoginViewController.h */,
 				EEC996631CC4CCF400BD5A45 /* MTKLoginViewController.m */,
+				EE8634E51CC73590005378C9 /* MTKRegisViewController.h */,
+				EE8634E61CC73590005378C9 /* MTKRegisViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -214,10 +453,13 @@
 		EEC996411CC47E7900BD5A45 /* Method */ = {
 			isa = PBXGroup;
 			children = (
+				EE8634E11CC73165005378C9 /* Category */,
 				EEC996421CC47EAC00BD5A45 /* MTKDefaultinfos.h */,
 				EEC996431CC47EAC00BD5A45 /* MTKDefaultinfos.m */,
 				EEC996501CC4918100BD5A45 /* MTKLocalized.h */,
 				EEC996511CC4918100BD5A45 /* MTKLocalized.m */,
+				EE8634AA1CC71B33005378C9 /* MTKWebService.h */,
+				EE8634AB1CC71B33005378C9 /* MTKWebService.m */,
 			);
 			path = Method;
 			sourceTree = "<group>";
@@ -335,6 +577,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE8634AF1CC72839005378C9 /* country.plist in Resources */,
 				EEC996091CC46ADA00BD5A45 /* LaunchScreen.storyboard in Resources */,
 				EEC9965D1CC4ABEA00BD5A45 /* Localizable.strings in Resources */,
 				EEC996061CC46ADA00BD5A45 /* Assets.xcassets in Resources */,
@@ -363,14 +606,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE8634D61CC728FD005378C9 /* NSDictionary-DeepMutableCopy.m in Sources */,
+				EE8634EA1CC76050005378C9 /* UIBarButtonItem+CKQ.m in Sources */,
+				EE8634F31CC76C59005378C9 /* UINavigationController+MTKNaVC.m in Sources */,
+				EE8634F01CC76C25005378C9 /* UINavigationController+SmaNaVC.m in Sources */,
 				EEC996011CC46ADA00BD5A45 /* ViewController.m in Sources */,
 				EEC996641CC4CCF400BD5A45 /* MTKLoginViewController.m in Sources */,
 				EEC9964F1CC4880900BD5A45 /* MTKNavViewController.m in Sources */,
 				EEC995FE1CC46ADA00BD5A45 /* AppDelegate.m in Sources */,
+				EE8634DD1CC728FD005378C9 /* SectionsViewController.m in Sources */,
+				EE8634E41CC73178005378C9 /* UIImage+CKQ.m in Sources */,
 				EEC996521CC4918100BD5A45 /* MTKLocalized.m in Sources */,
+				EE8634E71CC73590005378C9 /* MTKRegisViewController.m in Sources */,
 				EEC996441CC47EAC00BD5A45 /* MTKDefaultinfos.m in Sources */,
 				EEC995FB1CC46ADA00BD5A45 /* main.m in Sources */,
+				EE8634D71CC728FD005378C9 /* SMS_HYZBadgeView.m in Sources */,
 				EEC996361CC478F800BD5A45 /* AccountTool.m in Sources */,
+				EE8634AC1CC71B33005378C9 /* MTKWebService.m in Sources */,
 				EEC9963C1CC4798000BD5A45 /* MTKuserInfo.m in Sources */,
 				EEC996481CC4851C00BD5A45 /* FirstLunViewController.m in Sources */,
 			);
@@ -408,6 +660,16 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		EE8634B11CC72839005378C9 /* country.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE8634B01CC72839005378C9 /* Base */,
+				EE8634B21CC7283D005378C9 /* en */,
+				EE8634B31CC72846005378C9 /* zh-Hans */,
+			);
+			name = country.plist;
+			sourceTree = "<group>";
+		};
 		EEC996021CC46ADA00BD5A45 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -524,10 +786,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Framework/ShareSMS/SMS_SDK",
+				);
 				GCC_PREFIX_HEADER = /Users/aibaohu/Desktop/MTK/MTK/PrefixHeader.pch;
 				INFOPLIST_FILE = MTK/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Framework/ableCloudLibSDK",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.smawatch.MTK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -538,10 +809,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Framework/ShareSMS/SMS_SDK",
+				);
 				GCC_PREFIX_HEADER = /Users/aibaohu/Desktop/MTK/MTK/PrefixHeader.pch;
 				INFOPLIST_FILE = MTK/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Framework/ableCloudLibSDK",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.smawatch.MTK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -612,6 +892,7 @@
 				EEC996251CC46ADA00BD5A45 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EEC996261CC46ADA00BD5A45 /* Build configuration list for PBXNativeTarget "MTKTests" */ = {
 			isa = XCConfigurationList;
@@ -620,6 +901,7 @@
 				EEC996281CC46ADA00BD5A45 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EEC996291CC46ADA00BD5A45 /* Build configuration list for PBXNativeTarget "MTKUITests" */ = {
 			isa = XCConfigurationList;
@@ -628,6 +910,7 @@
 				EEC9962B1CC46ADA00BD5A45 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
