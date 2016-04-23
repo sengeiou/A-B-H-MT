@@ -17,7 +17,12 @@
  */
 #import "FirstLunViewController.h"
 #import "MTKNavViewController.h"
+#import "MTKTabBarViewController.h"
 #import "MTKLoginViewController.h"
+#import "MTKSportViewController.h"
+#import "MTKSleepViewController.h"
+#import "MTKNoticViewController.h"
+#import "MTKSettingViewController.h"
 
 /**** category
  */

@@ -20,16 +20,18 @@
     //ableCloud初始化
     [ACloudLib setMode:TEST_MODE Region:REGIONAL_CHINA];//指定地区及开发环境（测试或正式）
     [ACloudLib setMajorDomain:@"lijunhu" majorDomainId:282];//指定主域
-    
-   NSString *firLun = [MTKDefaultinfos getValueforKey:FIRSTLUN];
-    if (!firLun || [firLun isEqualToString:@""]) {
-        FirstLunViewController *first = [MainStoryBoard instantiateViewControllerWithIdentifier:@"FirstLunViewController"];
-//        ViewController *first = [[ViewController alloc] init];
-        MTKNavViewController *nav = [[MTKNavViewController alloc] initWithRootViewController:first];
-        self.window.rootViewController = nav;
-    }
-//    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     [[UINavigationBar appearance] setBarStyle:UIBarStyleBlackTranslucent];
+      NSString *firLun = [MTKDefaultinfos getValueforKey:FIRSTLUN];
+//    if (!firLun || [firLun isEqualToString:@""]) {
+//        FirstLunViewController *first = [MainStoryBoard instantiateViewControllerWithIdentifier:@"FirstLunViewController"];
+////        ViewController *first = [[ViewController alloc] init];
+//        MTKNavViewController *nav = [[MTKNavViewController alloc] initWithRootViewController:first];
+//        self.window.rootViewController = nav;
+//    }
+//    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    MTKTabBarViewController *tabVC = [[MTKTabBarViewController alloc] init];
+    self.window.rootViewController = tabVC;
+    [UIApplication sharedApplication].statusBarHidden=NO;
     return YES;
 }
 

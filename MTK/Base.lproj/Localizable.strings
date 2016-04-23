@@ -17,5 +17,27 @@
 "register_choose_cou" = "countryChoose";
 "register_modi_pass" = "Modify password";
 
+//运动
+"sport_navtilte"="Sport";
+
+//睡眠
+"sleep_navtilte"="Sleep";
+
+//提醒
+"remind_navtilte"="Notice";
+
+//设置
+"setting_navtitle"="Settings";
+"setting_myinfo"="Personal info.";
+"setting_myplan"="Personal goal";
+"setting_boundsmawatch"="Pair my watch";
+"setting_unbindbound"="Unpair my watch";
+
+"seatch_title"="Please make sure that the watch battery is enough, and close to the phone";
+"seatch_remind" = "If you can't find K88H WATCH bluetooth signal,please go to iphone Setting-bluetooth-forget the device（K88H).";
+
+"beginingseatch_title"="Searching...";
+"binging_title"="Connecting..."
+"begin_experience"="Start Now";
 //弹框
 "alera_back" = "< Back";

@@ -18,6 +18,16 @@
 		EE8634EA1CC76050005378C9 /* UIBarButtonItem+CKQ.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8634E91CC76050005378C9 /* UIBarButtonItem+CKQ.m */; };
 		EE8634F01CC76C25005378C9 /* UINavigationController+SmaNaVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8634EF1CC76C25005378C9 /* UINavigationController+SmaNaVC.m */; };
 		EE8634F31CC76C59005378C9 /* UINavigationController+MTKNaVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8634F21CC76C59005378C9 /* UINavigationController+MTKNaVC.m */; };
+		EE8B1D1B1CCA084A00F990FC /* MTKTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8B1D1A1CCA084A00F990FC /* MTKTabBarViewController.m */; };
+		EE8B1D1F1CCA08ED00F990FC /* MTKTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8B1D1E1CCA08ED00F990FC /* MTKTabBar.m */; };
+		EE8B1D221CCA097100F990FC /* MTKTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8B1D211CCA097100F990FC /* MTKTabBarButton.m */; };
+		EE8B1D251CCA09CB00F990FC /* MTKBadgeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8B1D241CCA09CB00F990FC /* MTKBadgeButton.m */; };
+		EE8B1D2E1CCA0C2200F990FC /* MTKSportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8B1D2D1CCA0C2200F990FC /* MTKSportViewController.m */; };
+		EE8B1D311CCA0C2E00F990FC /* MTKSleepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8B1D301CCA0C2E00F990FC /* MTKSleepViewController.m */; };
+		EE8B1D341CCA0C3900F990FC /* MTKNoticViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8B1D331CCA0C3900F990FC /* MTKNoticViewController.m */; };
+		EE8B1D371CCA0C4800F990FC /* MTKSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8B1D361CCA0C4800F990FC /* MTKSettingViewController.m */; };
+		EE8B1D3A1CCA26E700F990FC /* MTKPairViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8B1D391CCA26E700F990FC /* MTKPairViewController.m */; };
+		EE8B1D3E1CCA28F900F990FC /* MTKSetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8B1D3D1CCA28F900F990FC /* MTKSetTableViewCell.m */; };
 		EEC995FB1CC46ADA00BD5A45 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC995FA1CC46ADA00BD5A45 /* main.m */; };
 		EEC995FE1CC46ADA00BD5A45 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC995FD1CC46ADA00BD5A45 /* AppDelegate.m */; };
 		EEC996011CC46ADA00BD5A45 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC996001CC46ADA00BD5A45 /* ViewController.m */; };
@@ -122,6 +132,26 @@
 		EE8634EF1CC76C25005378C9 /* UINavigationController+SmaNaVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+SmaNaVC.m"; sourceTree = "<group>"; };
 		EE8634F11CC76C59005378C9 /* UINavigationController+MTKNaVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+MTKNaVC.h"; sourceTree = "<group>"; };
 		EE8634F21CC76C59005378C9 /* UINavigationController+MTKNaVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+MTKNaVC.m"; sourceTree = "<group>"; };
+		EE8B1D191CCA084A00F990FC /* MTKTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKTabBarViewController.h; sourceTree = "<group>"; };
+		EE8B1D1A1CCA084A00F990FC /* MTKTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTKTabBarViewController.m; sourceTree = "<group>"; };
+		EE8B1D1D1CCA08ED00F990FC /* MTKTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKTabBar.h; sourceTree = "<group>"; };
+		EE8B1D1E1CCA08ED00F990FC /* MTKTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTKTabBar.m; sourceTree = "<group>"; };
+		EE8B1D201CCA097100F990FC /* MTKTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKTabBarButton.h; sourceTree = "<group>"; };
+		EE8B1D211CCA097100F990FC /* MTKTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTKTabBarButton.m; sourceTree = "<group>"; };
+		EE8B1D231CCA09CB00F990FC /* MTKBadgeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKBadgeButton.h; sourceTree = "<group>"; };
+		EE8B1D241CCA09CB00F990FC /* MTKBadgeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTKBadgeButton.m; sourceTree = "<group>"; };
+		EE8B1D2C1CCA0C2200F990FC /* MTKSportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKSportViewController.h; sourceTree = "<group>"; };
+		EE8B1D2D1CCA0C2200F990FC /* MTKSportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTKSportViewController.m; sourceTree = "<group>"; };
+		EE8B1D2F1CCA0C2E00F990FC /* MTKSleepViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKSleepViewController.h; sourceTree = "<group>"; };
+		EE8B1D301CCA0C2E00F990FC /* MTKSleepViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTKSleepViewController.m; sourceTree = "<group>"; };
+		EE8B1D321CCA0C3900F990FC /* MTKNoticViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKNoticViewController.h; sourceTree = "<group>"; };
+		EE8B1D331CCA0C3900F990FC /* MTKNoticViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTKNoticViewController.m; sourceTree = "<group>"; };
+		EE8B1D351CCA0C4800F990FC /* MTKSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKSettingViewController.h; sourceTree = "<group>"; };
+		EE8B1D361CCA0C4800F990FC /* MTKSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTKSettingViewController.m; sourceTree = "<group>"; };
+		EE8B1D381CCA26E700F990FC /* MTKPairViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKPairViewController.h; sourceTree = "<group>"; };
+		EE8B1D391CCA26E700F990FC /* MTKPairViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTKPairViewController.m; sourceTree = "<group>"; };
+		EE8B1D3C1CCA28F900F990FC /* MTKSetTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKSetTableViewCell.h; sourceTree = "<group>"; };
+		EE8B1D3D1CCA28F900F990FC /* MTKSetTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTKSetTableViewCell.m; sourceTree = "<group>"; };
 		EEC995F61CC46ADA00BD5A45 /* MTK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MTK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEC995FA1CC46ADA00BD5A45 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EEC995FC1CC46ADA00BD5A45 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -339,13 +369,86 @@
 			name = Category;
 			sourceTree = "<group>";
 		};
+		EE8B1D1C1CCA08C400F990FC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EE8B1D1D1CCA08ED00F990FC /* MTKTabBar.h */,
+				EE8B1D1E1CCA08ED00F990FC /* MTKTabBar.m */,
+				EE8B1D201CCA097100F990FC /* MTKTabBarButton.h */,
+				EE8B1D211CCA097100F990FC /* MTKTabBarButton.m */,
+				EE8B1D231CCA09CB00F990FC /* MTKBadgeButton.h */,
+				EE8B1D241CCA09CB00F990FC /* MTKBadgeButton.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		EE8B1D271CCA0BF500F990FC /* MTKMain */ = {
+			isa = PBXGroup;
+			children = (
+				EE8B1D2B1CCA0BF500F990FC /* MTKSport */,
+				EE8B1D2A1CCA0BF500F990FC /* MTKSleep */,
+				EE8B1D281CCA0BF500F990FC /* MTKNotic */,
+				EE8B1D291CCA0BF500F990FC /* MTKSetting */,
+			);
+			path = MTKMain;
+			sourceTree = "<group>";
+		};
+		EE8B1D281CCA0BF500F990FC /* MTKNotic */ = {
+			isa = PBXGroup;
+			children = (
+				EE8B1D321CCA0C3900F990FC /* MTKNoticViewController.h */,
+				EE8B1D331CCA0C3900F990FC /* MTKNoticViewController.m */,
+			);
+			path = MTKNotic;
+			sourceTree = "<group>";
+		};
+		EE8B1D291CCA0BF500F990FC /* MTKSetting */ = {
+			isa = PBXGroup;
+			children = (
+				EE8B1D351CCA0C4800F990FC /* MTKSettingViewController.h */,
+				EE8B1D361CCA0C4800F990FC /* MTKSettingViewController.m */,
+				EE8B1D381CCA26E700F990FC /* MTKPairViewController.h */,
+				EE8B1D391CCA26E700F990FC /* MTKPairViewController.m */,
+				EE8B1D3B1CCA28D400F990FC /* View */,
+			);
+			path = MTKSetting;
+			sourceTree = "<group>";
+		};
+		EE8B1D2A1CCA0BF500F990FC /* MTKSleep */ = {
+			isa = PBXGroup;
+			children = (
+				EE8B1D2F1CCA0C2E00F990FC /* MTKSleepViewController.h */,
+				EE8B1D301CCA0C2E00F990FC /* MTKSleepViewController.m */,
+			);
+			path = MTKSleep;
+			sourceTree = "<group>";
+		};
+		EE8B1D2B1CCA0BF500F990FC /* MTKSport */ = {
+			isa = PBXGroup;
+			children = (
+				EE8B1D2C1CCA0C2200F990FC /* MTKSportViewController.h */,
+				EE8B1D2D1CCA0C2200F990FC /* MTKSportViewController.m */,
+			);
+			path = MTKSport;
+			sourceTree = "<group>";
+		};
+		EE8B1D3B1CCA28D400F990FC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EE8B1D3C1CCA28F900F990FC /* MTKSetTableViewCell.h */,
+				EE8B1D3D1CCA28F900F990FC /* MTKSetTableViewCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		EEC995ED1CC46ADA00BD5A45 = {
 			isa = PBXGroup;
 			children = (
 				EE8634731CC71A5F005378C9 /* Framework */,
-				EEC996491CC486E700BD5A45 /* Navigation */,
 				EEC996411CC47E7900BD5A45 /* Method */,
+				EEC996491CC486E700BD5A45 /* Navigation */,
 				EEC9962C1CC46F9900BD5A45 /* Login */,
+				EE8B1D271CCA0BF500F990FC /* MTKMain */,
 				EEC995F81CC46ADA00BD5A45 /* MTK */,
 				EEC996121CC46ADA00BD5A45 /* MTKTests */,
 				EEC9961D1CC46ADA00BD5A45 /* MTKUITests */,
@@ -469,6 +572,9 @@
 			children = (
 				EEC9964D1CC4880900BD5A45 /* MTKNavViewController.h */,
 				EEC9964E1CC4880900BD5A45 /* MTKNavViewController.m */,
+				EE8B1D191CCA084A00F990FC /* MTKTabBarViewController.h */,
+				EE8B1D1A1CCA084A00F990FC /* MTKTabBarViewController.m */,
+				EE8B1D1C1CCA08C400F990FC /* View */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -610,19 +716,29 @@
 				EE8634EA1CC76050005378C9 /* UIBarButtonItem+CKQ.m in Sources */,
 				EE8634F31CC76C59005378C9 /* UINavigationController+MTKNaVC.m in Sources */,
 				EE8634F01CC76C25005378C9 /* UINavigationController+SmaNaVC.m in Sources */,
+				EE8B1D371CCA0C4800F990FC /* MTKSettingViewController.m in Sources */,
+				EE8B1D3E1CCA28F900F990FC /* MTKSetTableViewCell.m in Sources */,
 				EEC996011CC46ADA00BD5A45 /* ViewController.m in Sources */,
 				EEC996641CC4CCF400BD5A45 /* MTKLoginViewController.m in Sources */,
+				EE8B1D221CCA097100F990FC /* MTKTabBarButton.m in Sources */,
 				EEC9964F1CC4880900BD5A45 /* MTKNavViewController.m in Sources */,
+				EE8B1D3A1CCA26E700F990FC /* MTKPairViewController.m in Sources */,
 				EEC995FE1CC46ADA00BD5A45 /* AppDelegate.m in Sources */,
 				EE8634DD1CC728FD005378C9 /* SectionsViewController.m in Sources */,
 				EE8634E41CC73178005378C9 /* UIImage+CKQ.m in Sources */,
 				EEC996521CC4918100BD5A45 /* MTKLocalized.m in Sources */,
 				EE8634E71CC73590005378C9 /* MTKRegisViewController.m in Sources */,
 				EEC996441CC47EAC00BD5A45 /* MTKDefaultinfos.m in Sources */,
+				EE8B1D2E1CCA0C2200F990FC /* MTKSportViewController.m in Sources */,
+				EE8B1D1F1CCA08ED00F990FC /* MTKTabBar.m in Sources */,
 				EEC995FB1CC46ADA00BD5A45 /* main.m in Sources */,
 				EE8634D71CC728FD005378C9 /* SMS_HYZBadgeView.m in Sources */,
+				EE8B1D1B1CCA084A00F990FC /* MTKTabBarViewController.m in Sources */,
+				EE8B1D341CCA0C3900F990FC /* MTKNoticViewController.m in Sources */,
 				EEC996361CC478F800BD5A45 /* AccountTool.m in Sources */,
+				EE8B1D311CCA0C2E00F990FC /* MTKSleepViewController.m in Sources */,
 				EE8634AC1CC71B33005378C9 /* MTKWebService.m in Sources */,
+				EE8B1D251CCA09CB00F990FC /* MTKBadgeButton.m in Sources */,
 				EEC9963C1CC4798000BD5A45 /* MTKuserInfo.m in Sources */,
 				EEC996481CC4851C00BD5A45 /* FirstLunViewController.m in Sources */,
 			);

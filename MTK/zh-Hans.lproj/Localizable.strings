@@ -15,5 +15,29 @@
 //注册
 "register_choose_cou" = "国家选择";
 "register_modi_pass" = "修改密码";
+
+//运动
+"sport_navtilte"="运动";
+
+//睡眠
+"sleep_navtilte"="睡眠";
+
+//提醒
+"remind_navtilte"="提醒";
+
+//设置
+"setting_navtitle"="设置";
+"setting_myinfo"="个人信息";
+"setting_myplan"="个人目标";
+"setting_boundsmawatch"="绑定手表";
+"setting_unbindbound"="解绑";
+
+"seatch_title"="请保证手表电量充足，并靠近手机";
+"seatch_remind" = "如果搜索不到手表蓝牙，请先在设置-蓝牙-K88H-忽略此设备。";
+
+"beginingseatch_title"="正在搜查...";
+"binging_title"="绑定中..."
+"begin_experience"="开始体验";
 //弹框
 "alera_back" = "< 返回";
+

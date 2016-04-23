@@ -275,7 +275,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zNR-Ve-jB7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1914" y="-288"/>
+            <point key="canvasLocation" x="1186" y="-796"/>
         </scene>
         <!--First Lun View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -613,10 +613,203 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="onu-hS-j1k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1914" y="465"/>
+            <point key="canvasLocation" x="1186" y="-43"/>
+        </scene>
+        <!--Sport View Controller-->
+        <scene sceneID="BEy-xJ-cjD">
+            <objects>
+                <viewController storyboardIdentifier="MTKSportViewController" id="y96-DH-Rdu" customClass="MTKSportViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bnT-2L-nBt"/>
+                        <viewControllerLayoutGuide type="bottom" id="5do-1g-nbV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dL5-co-KAo">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.33333333329999998" green="0.7843137255" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FNJ-YR-7jU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1186" y="613"/>
+        </scene>
+        <!--Sleep View Controller-->
+        <scene sceneID="Kqp-VW-m8q">
+            <objects>
+                <viewController storyboardIdentifier="MTKSleepViewController" id="bwZ-Qb-zZU" customClass="MTKSleepViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6uw-l7-5KP"/>
+                        <viewControllerLayoutGuide type="bottom" id="emR-tL-1kM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Sd8-Pj-IoF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.94901960780000005" green="0.58039215690000001" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FGG-az-ip8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1942" y="613"/>
+        </scene>
+        <!--Notic View Controller-->
+        <scene sceneID="Xvh-Vd-y8G">
+            <objects>
+                <viewController storyboardIdentifier="MTKNoticViewController" id="ZOS-Mh-MNR" customClass="MTKNoticViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MMw-Br-vV4"/>
+                        <viewControllerLayoutGuide type="bottom" id="5E7-QS-VvH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="a7J-Mw-dgR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.94509803920000002" green="0.074509803920000006" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DJo-r0-2kd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2688" y="613"/>
+        </scene>
+        <!--Setting View Controller-->
+        <scene sceneID="ydA-2S-o4B">
+            <objects>
+                <viewController storyboardIdentifier="MTKSettingViewController" id="T3f-RU-Fiy" customClass="MTKSettingViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gZj-y5-SV4"/>
+                        <viewControllerLayoutGuide type="bottom" id="UdR-Pq-qb7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qlg-U4-vca">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cR4-Ol-Uqf">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_head_img_en" translatesAutoresizingMaskIntoConstraints="NO" id="g6b-hc-IBe">
+                                        <rect key="frame" x="263" y="8" width="74" height="74"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="74" id="48e-qH-9Tq"/>
+                                            <constraint firstAttribute="height" constant="74" id="Eid-Sb-dYY"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hHs-Ow-Tsb">
+                                        <rect key="frame" x="200" y="90" width="200" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="LFT-fe-L9V"/>
+                                            <constraint firstAttribute="width" constant="200" id="u46-kn-Ift"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.18823529411764706" green="0.54509803921568623" blue="0.99607843137254903" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="g6b-hc-IBe" firstAttribute="top" secondItem="cR4-Ol-Uqf" secondAttribute="top" constant="8" id="MYL-Qy-d9v"/>
+                                    <constraint firstItem="hHs-Ow-Tsb" firstAttribute="top" secondItem="g6b-hc-IBe" secondAttribute="bottom" constant="8" id="W3S-Qq-Ha6"/>
+                                    <constraint firstAttribute="height" constant="150" id="Zk1-Qb-VPv"/>
+                                    <constraint firstItem="hHs-Ow-Tsb" firstAttribute="centerX" secondItem="cR4-Ol-Uqf" secondAttribute="centerX" id="rHo-CY-6ba"/>
+                                    <constraint firstItem="g6b-hc-IBe" firstAttribute="centerX" secondItem="cR4-Ol-Uqf" secondAttribute="centerX" id="s6I-bA-UAx"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NPr-Gq-8Kl">
+                                <rect key="frame" x="0.0" y="150" width="600" height="450"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="UdR-Pq-qb7" firstAttribute="top" secondItem="NPr-Gq-8Kl" secondAttribute="bottom" id="LxV-Ao-MeH"/>
+                            <constraint firstAttribute="trailing" secondItem="NPr-Gq-8Kl" secondAttribute="trailing" id="NmI-Oj-S4f"/>
+                            <constraint firstItem="NPr-Gq-8Kl" firstAttribute="top" secondItem="cR4-Ol-Uqf" secondAttribute="bottom" id="Q5E-Mw-lRj"/>
+                            <constraint firstItem="NPr-Gq-8Kl" firstAttribute="leading" secondItem="qlg-U4-vca" secondAttribute="leading" id="Vkd-ne-BFh"/>
+                            <constraint firstItem="cR4-Ol-Uqf" firstAttribute="leading" secondItem="qlg-U4-vca" secondAttribute="leading" id="jaH-2p-csh"/>
+                            <constraint firstItem="cR4-Ol-Uqf" firstAttribute="top" secondItem="qlg-U4-vca" secondAttribute="top" id="nZe-Ln-FvQ"/>
+                            <constraint firstAttribute="trailing" secondItem="cR4-Ol-Uqf" secondAttribute="trailing" id="vcD-3A-s8Y"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="headView" destination="g6b-hc-IBe" id="l5m-Vn-3Vn"/>
+                        <outlet property="nameLab" destination="hHs-Ow-Tsb" id="a0o-eO-o9Z"/>
+                        <outlet property="setTab" destination="NPr-Gq-8Kl" id="7L5-qo-mDF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PjC-C0-1qy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3422" y="613"/>
+        </scene>
+        <!--Pair View Controller-->
+        <scene sceneID="mzk-nm-roE">
+            <objects>
+                <viewController storyboardIdentifier="MTKPairViewController" id="ebq-FN-91z" customClass="MTKPairViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iBK-ef-Jrb"/>
+                        <viewControllerLayoutGuide type="bottom" id="YBg-5i-yQ2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dNv-nO-BJY">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please make sure that the watch battery is enough, and close to the phone" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HOR-8y-ffe">
+                                <rect key="frame" x="20" y="20" width="560" height="57"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="57" id="KGM-Ae-Eaz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iRv-4r-1Ws">
+                                <rect key="frame" x="180" y="97" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="Bmd-Od-UeS"/>
+                                    <constraint firstAttribute="height" constant="240" id="Yfx-0w-4oz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Connecting..." backgroundImage="bound_ succeed_img"/>
+                                <state key="selected" backgroundImage="bound_ succeed_img"/>
+                                <state key="highlighted" backgroundImage="bound_ succeed_img"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you can't find K88H WATCH bluetooth signal,please go to iphone Setting-bluetooth-forget the device（K88H)." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qIG-gd-uAC">
+                                <rect key="frame" x="20" y="402" width="560" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="3Yn-bW-pD6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E1u-r5-666">
+                                <rect key="frame" x="180" y="357" width="240" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="MXC-0h-ej7"/>
+                                    <constraint firstAttribute="width" constant="240" id="eEW-Yz-wze"/>
+                                </constraints>
+                                <state key="normal" title="Connect later"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.18823529410000001" green="0.5450980392" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="qIG-gd-uAC" firstAttribute="leading" secondItem="dNv-nO-BJY" secondAttribute="leading" constant="20" id="2QO-R0-DB8"/>
+                            <constraint firstAttribute="trailing" secondItem="qIG-gd-uAC" secondAttribute="trailing" constant="20" id="3Bq-WY-yEz"/>
+                            <constraint firstItem="qIG-gd-uAC" firstAttribute="top" secondItem="E1u-r5-666" secondAttribute="bottom" constant="15" id="CEh-m2-Yda"/>
+                            <constraint firstItem="iRv-4r-1Ws" firstAttribute="top" secondItem="HOR-8y-ffe" secondAttribute="bottom" constant="20" id="G4f-XJ-aol"/>
+                            <constraint firstItem="HOR-8y-ffe" firstAttribute="top" secondItem="iBK-ef-Jrb" secondAttribute="bottom" id="JCj-aN-IJf"/>
+                            <constraint firstItem="iRv-4r-1Ws" firstAttribute="centerX" secondItem="dNv-nO-BJY" secondAttribute="centerX" id="VNd-KW-veN"/>
+                            <constraint firstItem="HOR-8y-ffe" firstAttribute="leading" secondItem="dNv-nO-BJY" secondAttribute="leading" constant="20" id="bXp-Pm-TaL"/>
+                            <constraint firstItem="E1u-r5-666" firstAttribute="centerX" secondItem="dNv-nO-BJY" secondAttribute="centerX" id="mbe-fk-sPC"/>
+                            <constraint firstItem="E1u-r5-666" firstAttribute="top" secondItem="iRv-4r-1Ws" secondAttribute="bottom" constant="20" id="njQ-gK-VEJ"/>
+                            <constraint firstAttribute="trailing" secondItem="HOR-8y-ffe" secondAttribute="trailing" constant="20" id="zVp-1A-M5H"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pjW-e2-IPT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3422" y="1305"/>
         </scene>
     </scenes>
     <resources>
+        <image name="bound_ succeed_img" width="480" height="480"/>
+        <image name="default_head_img_en" width="74" height="74"/>
         <image name="login_background" width="320" height="504"/>
         <image name="login_textfield_ico" width="22" height="26"/>
         <image name="mobile_img_bg" width="16" height="26"/>
