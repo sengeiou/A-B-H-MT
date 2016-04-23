@@ -35,9 +35,10 @@
 
 "seatch_title"="Please make sure that the watch battery is enough, and close to the phone";
 "seatch_remind" = "If you can't find K88H WATCH bluetooth signal,please go to iphone Setting-bluetooth-forget the device（K88H).";
+"seatch_bandtitle"="Connect later";
 
 "beginingseatch_title"="Searching...";
-"binging_title"="Connecting..."
+"binging_title"="Connecting...";
 "begin_experience"="Start Now";
 //弹框
 "alera_back" = "< Back";

@@ -13,6 +13,8 @@
 #import "MTKLocalized.h"
 #import "ACloudLib.h"
 #import "MTKWebService.h"
+#import "MTKCoreBlueTool.h"
+#import "MTKArchiveTool.h"
 /**** Controller
  */
 #import "FirstLunViewController.h"

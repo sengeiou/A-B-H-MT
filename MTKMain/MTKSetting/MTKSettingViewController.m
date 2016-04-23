@@ -48,7 +48,6 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"CELL"];
     }
     cell.textLabel.text = settingArr[indexPath.row];
-    cell.textLabel.backgroundColor = [UIColor greenColor];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.detailTextLabel.font = [UIFont systemFontOfSize:13];
     return cell;

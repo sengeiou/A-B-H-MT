@@ -785,7 +785,26 @@
                                     <constraint firstAttribute="width" constant="240" id="eEW-Yz-wze"/>
                                 </constraints>
                                 <state key="normal" title="Connect later"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWith">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="connectMTK:" destination="ebq-FN-91z" eventType="touchUpInside" id="f4Z-9T-tfR"/>
+                                </connections>
                             </button>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="is_succeed_login" translatesAutoresizingMaskIntoConstraints="NO" id="S7u-U7-Jv2">
+                                <rect key="frame" x="220" y="150" width="161" height="134"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="161" id="kJg-go-oyP"/>
+                                    <constraint firstAttribute="height" constant="134" id="ycZ-OV-uvC"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.18823529410000001" green="0.5450980392" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -796,11 +815,20 @@
                             <constraint firstItem="HOR-8y-ffe" firstAttribute="top" secondItem="iBK-ef-Jrb" secondAttribute="bottom" id="JCj-aN-IJf"/>
                             <constraint firstItem="iRv-4r-1Ws" firstAttribute="centerX" secondItem="dNv-nO-BJY" secondAttribute="centerX" id="VNd-KW-veN"/>
                             <constraint firstItem="HOR-8y-ffe" firstAttribute="leading" secondItem="dNv-nO-BJY" secondAttribute="leading" constant="20" id="bXp-Pm-TaL"/>
+                            <constraint firstItem="S7u-U7-Jv2" firstAttribute="top" secondItem="HOR-8y-ffe" secondAttribute="bottom" constant="73" id="dvj-YB-1Vv"/>
+                            <constraint firstItem="S7u-U7-Jv2" firstAttribute="centerX" secondItem="dNv-nO-BJY" secondAttribute="centerX" id="gMH-ST-bcA"/>
                             <constraint firstItem="E1u-r5-666" firstAttribute="centerX" secondItem="dNv-nO-BJY" secondAttribute="centerX" id="mbe-fk-sPC"/>
                             <constraint firstItem="E1u-r5-666" firstAttribute="top" secondItem="iRv-4r-1Ws" secondAttribute="bottom" constant="20" id="njQ-gK-VEJ"/>
                             <constraint firstAttribute="trailing" secondItem="HOR-8y-ffe" secondAttribute="trailing" constant="20" id="zVp-1A-M5H"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="connectBut" destination="E1u-r5-666" id="CO7-de-VGF"/>
+                        <outlet property="footLab" destination="qIG-gd-uAC" id="Kjg-bS-hCX"/>
+                        <outlet property="headLab" destination="HOR-8y-ffe" id="ly1-2v-KeW"/>
+                        <outlet property="imageView" destination="S7u-U7-Jv2" id="EnN-nP-Cw8"/>
+                        <outlet property="stateBut" destination="iRv-4r-1Ws" id="ZJa-1b-hlx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pjW-e2-IPT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -810,6 +838,7 @@
     <resources>
         <image name="bound_ succeed_img" width="480" height="480"/>
         <image name="default_head_img_en" width="74" height="74"/>
+        <image name="is_succeed_login" width="161" height="134"/>
         <image name="login_background" width="320" height="504"/>
         <image name="login_textfield_ico" width="22" height="26"/>
         <image name="mobile_img_bg" width="16" height="26"/>

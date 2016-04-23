@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface MTKPairViewController : UIViewController
-
+@property (nonatomic, weak) IBOutlet UILabel *headLab, *footLab;
+@property (nonatomic, weak) IBOutlet UIButton *connectBut, *stateBut;
+@property (nonatomic, weak) IBOutlet UIImageView *imageView;
 @end

@@ -34,9 +34,10 @@
 
 "seatch_title"="请保证手表电量充足，并靠近手机";
 "seatch_remind" = "如果搜索不到手表蓝牙，请先在设置-蓝牙-K88H-忽略此设备。";
+"seatch_bandtitle"="暂不绑定";
 
 "beginingseatch_title"="正在搜查...";
-"binging_title"="绑定中..."
+"binging_title"="正在连接...";
 "begin_experience"="开始体验";
 //弹框
 "alera_back" = "< 返回";

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE55F82D1CCB3DBA00B99223 /* MTKCoreBlueTool.m in Sources */ = {isa = PBXBuildFile; fileRef = EE55F82C1CCB3DBA00B99223 /* MTKCoreBlueTool.m */; };
+		EE55F82F1CCB460900B99223 /* libMTKBleManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE55F82E1CCB460900B99223 /* libMTKBleManager.a */; };
+		EE55F8351CCB5AA100B99223 /* ScannedPeripheral.m in Sources */ = {isa = PBXBuildFile; fileRef = EE55F8341CCB5AA100B99223 /* ScannedPeripheral.m */; };
+		EE55F83C1CCB7DA300B99223 /* MTKArchiveTool.m in Sources */ = {isa = PBXBuildFile; fileRef = EE55F83B1CCB7DA300B99223 /* MTKArchiveTool.m */; };
+		EE55F83F1CCB7E2F00B99223 /* MTKUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = EE55F83E1CCB7E2F00B99223 /* MTKUserInfo.m */; };
 		EE8634A91CC71A66005378C9 /* libAbleCloudLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE8634781CC71A66005378C9 /* libAbleCloudLib.a */; };
 		EE8634AC1CC71B33005378C9 /* MTKWebService.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8634AB1CC71B33005378C9 /* MTKWebService.m */; };
 		EE8634AF1CC72839005378C9 /* country.plist in Resources */ = {isa = PBXBuildFile; fileRef = EE8634B11CC72839005378C9 /* country.plist */; };
@@ -64,6 +69,35 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EE55F8141CCB3AED00B99223 /* AlertService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertService.h; sourceTree = "<group>"; };
+		EE55F8151CCB3AED00B99223 /* BLEClientProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEClientProfile.h; sourceTree = "<group>"; };
+		EE55F8161CCB3AED00B99223 /* BloodPressureService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BloodPressureService.h; sourceTree = "<group>"; };
+		EE55F8171CCB3AED00B99223 /* BodyTemperatureService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BodyTemperatureService.h; sourceTree = "<group>"; };
+		EE55F8181CCB3AED00B99223 /* Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Controller.h; sourceTree = "<group>"; };
+		EE55F8191CCB3AED00B99223 /* DataParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataParser.h; sourceTree = "<group>"; };
+		EE55F81A1CCB3AED00B99223 /* DefaultAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultAlert.h; sourceTree = "<group>"; };
+		EE55F81B1CCB3AED00B99223 /* FmpCentral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FmpCentral.h; sourceTree = "<group>"; };
+		EE55F81C1CCB3AED00B99223 /* FmpGattClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FmpGattClient.h; sourceTree = "<group>"; };
+		EE55F81D1CCB3AED00B99223 /* GATTLinker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GATTLinker.h; sourceTree = "<group>"; };
+		EE55F81E1CCB3AED00B99223 /* HealthKitManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthKitManager.h; sourceTree = "<group>"; };
+		EE55F81F1CCB3AED00B99223 /* IAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAlert.h; sourceTree = "<group>"; };
+		EE55F8201CCB3AED00B99223 /* Linker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Linker.h; sourceTree = "<group>"; };
+		EE55F8211CCB3AED00B99223 /* MTKBleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKBleManager.h; sourceTree = "<group>"; };
+		EE55F8221CCB3AED00B99223 /* MTKBlePeripheralManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKBlePeripheralManager.h; sourceTree = "<group>"; };
+		EE55F8231CCB3AED00B99223 /* MTKBleProximityService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKBleProximityService.h; sourceTree = "<group>"; };
+		EE55F8241CCB3AED00B99223 /* PdmsSleepService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PdmsSleepService.h; sourceTree = "<group>"; };
+		EE55F8251CCB3AED00B99223 /* SOSCallOperator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOSCallOperator.h; sourceTree = "<group>"; };
+		EE55F8261CCB3AED00B99223 /* SOSContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOSContact.h; sourceTree = "<group>"; };
+		EE55F8271CCB3AED00B99223 /* VolumeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VolumeController.h; sourceTree = "<group>"; };
+		EE55F82B1CCB3DBA00B99223 /* MTKCoreBlueTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKCoreBlueTool.h; sourceTree = "<group>"; };
+		EE55F82C1CCB3DBA00B99223 /* MTKCoreBlueTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTKCoreBlueTool.m; sourceTree = "<group>"; };
+		EE55F82E1CCB460900B99223 /* libMTKBleManager.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMTKBleManager.a; sourceTree = "<group>"; };
+		EE55F8331CCB5AA100B99223 /* ScannedPeripheral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScannedPeripheral.h; sourceTree = "<group>"; };
+		EE55F8341CCB5AA100B99223 /* ScannedPeripheral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScannedPeripheral.m; sourceTree = "<group>"; };
+		EE55F83A1CCB7DA300B99223 /* MTKArchiveTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKArchiveTool.h; sourceTree = "<group>"; };
+		EE55F83B1CCB7DA300B99223 /* MTKArchiveTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTKArchiveTool.m; sourceTree = "<group>"; };
+		EE55F83D1CCB7E2F00B99223 /* MTKUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MTKUserInfo.h; path = Method/MTKUserInfo.h; sourceTree = SOURCE_ROOT; };
+		EE55F83E1CCB7E2F00B99223 /* MTKUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MTKUserInfo.m; path = Method/MTKUserInfo.m; sourceTree = SOURCE_ROOT; };
 		EE8634761CC71A66005378C9 /* ACHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACHelper.h; sourceTree = "<group>"; };
 		EE8634771CC71A66005378C9 /* ACloudLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACloudLib.h; sourceTree = "<group>"; };
 		EE8634781CC71A66005378C9 /* libAbleCloudLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAbleCloudLib.a; sourceTree = "<group>"; };
@@ -193,6 +227,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE55F82F1CCB460900B99223 /* libMTKBleManager.a in Frameworks */,
 				EE8634A91CC71A66005378C9 /* libAbleCloudLib.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -214,6 +249,61 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EE55F8131CCB3AE100B99223 /* MTKBleSdk */ = {
+			isa = PBXGroup;
+			children = (
+				EE55F82E1CCB460900B99223 /* libMTKBleManager.a */,
+				EE55F8141CCB3AED00B99223 /* AlertService.h */,
+				EE55F8151CCB3AED00B99223 /* BLEClientProfile.h */,
+				EE55F8161CCB3AED00B99223 /* BloodPressureService.h */,
+				EE55F8171CCB3AED00B99223 /* BodyTemperatureService.h */,
+				EE55F8181CCB3AED00B99223 /* Controller.h */,
+				EE55F8191CCB3AED00B99223 /* DataParser.h */,
+				EE55F81A1CCB3AED00B99223 /* DefaultAlert.h */,
+				EE55F81B1CCB3AED00B99223 /* FmpCentral.h */,
+				EE55F81C1CCB3AED00B99223 /* FmpGattClient.h */,
+				EE55F81D1CCB3AED00B99223 /* GATTLinker.h */,
+				EE55F81E1CCB3AED00B99223 /* HealthKitManager.h */,
+				EE55F81F1CCB3AED00B99223 /* IAlert.h */,
+				EE55F8201CCB3AED00B99223 /* Linker.h */,
+				EE55F8211CCB3AED00B99223 /* MTKBleManager.h */,
+				EE55F8221CCB3AED00B99223 /* MTKBlePeripheralManager.h */,
+				EE55F8231CCB3AED00B99223 /* MTKBleProximityService.h */,
+				EE55F8241CCB3AED00B99223 /* PdmsSleepService.h */,
+				EE55F8251CCB3AED00B99223 /* SOSCallOperator.h */,
+				EE55F8261CCB3AED00B99223 /* SOSContact.h */,
+				EE55F8271CCB3AED00B99223 /* VolumeController.h */,
+			);
+			path = MTKBleSdk;
+			sourceTree = "<group>";
+		};
+		EE55F82A1CCB3D9200B99223 /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				EE55F82B1CCB3DBA00B99223 /* MTKCoreBlueTool.h */,
+				EE55F82C1CCB3DBA00B99223 /* MTKCoreBlueTool.m */,
+			);
+			name = Business;
+			sourceTree = "<group>";
+		};
+		EE55F8321CCB5A8800B99223 /* Peripherals */ = {
+			isa = PBXGroup;
+			children = (
+				EE55F8331CCB5AA100B99223 /* ScannedPeripheral.h */,
+				EE55F8341CCB5AA100B99223 /* ScannedPeripheral.m */,
+			);
+			name = Peripherals;
+			sourceTree = "<group>";
+		};
+		EE55F8361CCB77C800B99223 /* Archive */ = {
+			isa = PBXGroup;
+			children = (
+				EE55F83A1CCB7DA300B99223 /* MTKArchiveTool.h */,
+				EE55F83B1CCB7DA300B99223 /* MTKArchiveTool.m */,
+			);
+			name = Archive;
+			sourceTree = "<group>";
+		};
 		EE8634731CC71A5F005378C9 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
@@ -327,6 +417,7 @@
 		EE8634B41CC728FD005378C9 /* ShareSMS */ = {
 			isa = PBXGroup;
 			children = (
+				EE55F8131CCB3AE100B99223 /* MTKBleSdk */,
 				EE8634BA1CC728FD005378C9 /* SMS_UILib */,
 				EE8634C01CC728FD005378C9 /* UI */,
 			);
@@ -534,6 +625,8 @@
 		EEC996391CC4794600BD5A45 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EE55F83D1CCB7E2F00B99223 /* MTKUserInfo.h */,
+				EE55F83E1CCB7E2F00B99223 /* MTKUserInfo.m */,
 				EEC9963A1CC4798000BD5A45 /* MTKuserInfo.h */,
 				EEC9963B1CC4798000BD5A45 /* MTKuserInfo.m */,
 			);
@@ -556,6 +649,9 @@
 		EEC996411CC47E7900BD5A45 /* Method */ = {
 			isa = PBXGroup;
 			children = (
+				EE55F8361CCB77C800B99223 /* Archive */,
+				EE55F8321CCB5A8800B99223 /* Peripherals */,
+				EE55F82A1CCB3D9200B99223 /* Business */,
 				EE8634E11CC73165005378C9 /* Category */,
 				EEC996421CC47EAC00BD5A45 /* MTKDefaultinfos.h */,
 				EEC996431CC47EAC00BD5A45 /* MTKDefaultinfos.m */,
@@ -719,6 +815,7 @@
 				EE8B1D371CCA0C4800F990FC /* MTKSettingViewController.m in Sources */,
 				EE8B1D3E1CCA28F900F990FC /* MTKSetTableViewCell.m in Sources */,
 				EEC996011CC46ADA00BD5A45 /* ViewController.m in Sources */,
+				EE55F8351CCB5AA100B99223 /* ScannedPeripheral.m in Sources */,
 				EEC996641CC4CCF400BD5A45 /* MTKLoginViewController.m in Sources */,
 				EE8B1D221CCA097100F990FC /* MTKTabBarButton.m in Sources */,
 				EEC9964F1CC4880900BD5A45 /* MTKNavViewController.m in Sources */,
@@ -729,6 +826,7 @@
 				EEC996521CC4918100BD5A45 /* MTKLocalized.m in Sources */,
 				EE8634E71CC73590005378C9 /* MTKRegisViewController.m in Sources */,
 				EEC996441CC47EAC00BD5A45 /* MTKDefaultinfos.m in Sources */,
+				EE55F82D1CCB3DBA00B99223 /* MTKCoreBlueTool.m in Sources */,
 				EE8B1D2E1CCA0C2200F990FC /* MTKSportViewController.m in Sources */,
 				EE8B1D1F1CCA08ED00F990FC /* MTKTabBar.m in Sources */,
 				EEC995FB1CC46ADA00BD5A45 /* main.m in Sources */,
@@ -739,6 +837,8 @@
 				EE8B1D311CCA0C2E00F990FC /* MTKSleepViewController.m in Sources */,
 				EE8634AC1CC71B33005378C9 /* MTKWebService.m in Sources */,
 				EE8B1D251CCA09CB00F990FC /* MTKBadgeButton.m in Sources */,
+				EE55F83F1CCB7E2F00B99223 /* MTKUserInfo.m in Sources */,
+				EE55F83C1CCB7DA300B99223 /* MTKArchiveTool.m in Sources */,
 				EEC9963C1CC4798000BD5A45 /* MTKuserInfo.m in Sources */,
 				EEC996481CC4851C00BD5A45 /* FirstLunViewController.m in Sources */,
 			);
@@ -906,6 +1006,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Framework/ShareSMS/SMS_SDK",
+					"$(PROJECT_DIR)/Framework/ShareSMS/MTKBleSdk",
 				);
 				GCC_PREFIX_HEADER = /Users/aibaohu/Desktop/MTK/MTK/PrefixHeader.pch;
 				INFOPLIST_FILE = MTK/Info.plist;
@@ -914,6 +1015,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Framework/ableCloudLibSDK",
+					"$(PROJECT_DIR)/Framework/ShareSMS/MTKBleSdk",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.smawatch.MTK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -929,6 +1031,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Framework/ShareSMS/SMS_SDK",
+					"$(PROJECT_DIR)/Framework/ShareSMS/MTKBleSdk",
 				);
 				GCC_PREFIX_HEADER = /Users/aibaohu/Desktop/MTK/MTK/PrefixHeader.pch;
 				INFOPLIST_FILE = MTK/Info.plist;
@@ -937,6 +1040,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Framework/ableCloudLibSDK",
+					"$(PROJECT_DIR)/Framework/ShareSMS/MTKBleSdk",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.smawatch.MTK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
