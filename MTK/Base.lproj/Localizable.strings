@@ -40,5 +40,15 @@
 "beginingseatch_title"="Searching...";
 "binging_title"="Connecting...";
 "begin_experience"="Start Now";
+
+//解绑
+"unpair_success"="Disconnect success";
+"unpair_connect"="Connect again";
+
 //弹框
 "alera_back" = "< Back";
+"aler_can" = "Cancel";
+"aler_confirm"="Confirm";
+"alert_nobang" ="Disconnect device, please connect device";
+"alert_confirst" = "Connect the watch first";
+"alert_relieveband"="If you confirm disconnect, the local data will lost";

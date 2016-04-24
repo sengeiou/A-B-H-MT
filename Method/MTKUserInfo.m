@@ -32,6 +32,7 @@
         self.userWeigh = [decoder decodeObjectForKey:@"userWeigh"];
         self.userHeight = [decoder decodeObjectForKey:@"userHeight"];
         self.userGoal = [decoder decodeObjectForKey:@"userGoal"];
+        self.userUUID = [decoder decodeObjectForKey:@"userUUID"];
         self.userAlEnable = [decoder decodeObjectForKey:@"userAlEnable"];
         self.userRange = [decoder decodeObjectForKey:@"userRange"];
         self.userRanType = [decoder decodeObjectForKey:@"userRanType"];

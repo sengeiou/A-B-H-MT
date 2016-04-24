@@ -7,7 +7,7 @@
 //
 
 #import "MTKSettingViewController.h"
-
+#import "MTKUnPairViewController.h"
 @interface MTKSettingViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     NSArray *settingArr;
@@ -70,7 +70,27 @@
         [self.navigationController pushViewController:pairVC animated:YES];
     }
     else if (indexPath.row == 3) {
-        
+//        [MTKBleMgr forgetPeripheral];
+//        NSLog(@"霍霍fiw%@",MTKBleMgr.peripheral);
+        [MTKProximiService defaultInstance];
+        [MTKBleMgr disConnectWithPeripheral];
+        return;
+        if ([MTKBleMgr checkBleStatus]) {
+            UIAlertController *aler = [UIAlertController alertControllerWithTitle:MtkLocalizedString(@"alert_relieveband") message:nil preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *cancelAct = [UIAlertAction actionWithTitle:MtkLocalizedString(@"aler_can") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                
+            }];
+            UIAlertAction *confim = [UIAlertAction actionWithTitle:MtkLocalizedString(@"aler_confirm") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                MTKUnPairViewController *unPairVC = [MainStoryBoard instantiateViewControllerWithIdentifier:@"MTKUnPairViewController"];
+                 unPairVC.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:unPairVC animated:YES];
+            }];
+            [aler addAction:cancelAct];
+            [aler addAction:confim];
+            [self presentViewController:aler animated:YES completion:^{
+                
+            }];
+        }
     }
 }
 /*

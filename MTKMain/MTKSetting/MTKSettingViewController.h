@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MTKPairViewController.h"
+#import "MTKBleManager.h"
 @interface MTKSettingViewController : UIViewController
 @property (nonatomic, weak) IBOutlet UIImageView *headView;
 @property (nonatomic, weak) IBOutlet UILabel *nameLab;

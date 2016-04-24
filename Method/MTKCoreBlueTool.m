@@ -75,6 +75,11 @@ static MTKCoreBlueTool *instance;
     [mManager forgetPeripheral];
 }
 
+//断开连接
+- (void)disConnectWithPeripheral{
+    [mManager disconnectPeripheral:self.peripheral];
+}
+
 -(void)timeoutToStopScan
 {
     self.mScanTimerStarted = NO;
@@ -82,11 +87,24 @@ static MTKCoreBlueTool *instance;
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(timeoutToStopScan) object:nil];
 }
 
+//查看蓝牙状态
+-(BOOL)checkBleStatus{
+    MTKUserInfo *user = [MTKArchiveTool getUserInfo];
+    if (!user.userUUID || [user.userUUID isEqualToString:@""]) {
+        [MBProgressHUD showError:MtkLocalizedString(@"alert_nobang")];
+         return NO;
+    }
+    else if (self.peripheral.state != CBPeripheralStateConnected){
+        [MBProgressHUD showError:MtkLocalizedString(@"alert_confirst")];
+        return NO;
+    }
+    return YES;
+}
+
 #pragma mrk *******BleDiscoveryDelegate
 - (void) discoveryDidRefresh: (CBPeripheral *)peripheral{
     NSLog(@"***** BleDiscoveryDelegate: **discoveryDidRefresh:%@**",peripheral);
     if ([peripheral.name isEqualToString:@"K88H"] ) {
-        self.peripheral = peripheral;
         [mManager connectPeripheral:peripheral];
         [self MTKStopScan];
         if (self.delegate && [self.delegate respondsToSelector:@selector(MTKBLConnecting)]) {
@@ -107,8 +125,11 @@ static MTKCoreBlueTool *instance;
 #pragma mark *****BleConnectDlegate
 - (void) connectDidRefresh:(int)connectionState deviceName:(CBPeripheral*)peripheral{
     NSLog(@"***** BleConnectDlegate: connectDidRefresh: %d deviceName:%@",connectionState,peripheral);
-    if (self.delegate && [self.delegate respondsToSelector:@selector(MTKBLConnectFinish:)]) {
-        [self.delegate MTKBLConnectFinish:connectionState];
+    if (connectionState == 2) {
+           MTKBleMgr.peripheral = peripheral;
+    }
+    if (self.delegate && [self.delegate respondsToSelector:@selector(MTKBLConnectFinish:Peripheral:)]) {
+        [self.delegate MTKBLConnectFinish:connectionState Peripheral:peripheral];
     }
 }
 - (void) disconnectDidRefresh: (int)connectionState devicename: (CBPeripheral *)peripheral{
@@ -127,6 +148,7 @@ static MTKCoreBlueTool *instance;
 - (void)distanceChangeAlarm: (CBPeripheral *)peripheral distance: (int)distanceValue{
     NSLog(@"***** ProximityAlarmProtocol: distanceChangeAlarm: %@ distance: %d",peripheral,distanceValue);
 }
+
 - (void)alertStatusChangeAlarm: (BOOL)alerted{
     NSLog(@"***** ProximityAlarmProtocol: alertStatusChangeAlarm: %d",alerted);
 }

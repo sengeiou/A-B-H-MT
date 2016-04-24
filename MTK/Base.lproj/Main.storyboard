@@ -832,7 +832,77 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pjW-e2-IPT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3422" y="1305"/>
+            <point key="canvasLocation" x="4069" y="-43"/>
+        </scene>
+        <!--Un Pair View Controller-->
+        <scene sceneID="Yip-aO-mmB">
+            <objects>
+                <viewController storyboardIdentifier="MTKUnPairViewController" id="RPE-Aq-cMh" customClass="MTKUnPairViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BLI-i9-oTH"/>
+                        <viewControllerLayoutGuide type="bottom" id="2nP-x3-tDO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RyN-X2-3Ro">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bound_ succeed_img" translatesAutoresizingMaskIntoConstraints="NO" id="NMl-19-xZ6">
+                                <rect key="frame" x="180" y="74" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="M8M-jj-eBn"/>
+                                    <constraint firstAttribute="height" constant="240" id="n5J-JZ-ssS"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unbind_img_succeed" translatesAutoresizingMaskIntoConstraints="NO" id="VUF-S0-Ru4">
+                                <rect key="frame" x="202" y="165" width="196" height="57"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="57" id="6TS-aT-oLw"/>
+                                    <constraint firstAttribute="width" constant="196" id="7Ai-qr-5Oy"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RuB-HU-Im7">
+                                <rect key="frame" x="180" y="322" width="240" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="8pW-Il-oK8"/>
+                                    <constraint firstAttribute="width" constant="240" id="ZAk-EI-EWx"/>
+                                </constraints>
+                                <state key="normal" title="解绑成功"/>
+                                <connections>
+                                    <action selector="unPairSuccess:" destination="RPE-Aq-cMh" eventType="touchUpInside" id="gNN-Q8-tFi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="upg-Kn-vie">
+                                <rect key="frame" x="180" y="370" width="240" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="btY-Cx-tMt"/>
+                                    <constraint firstAttribute="width" constant="240" id="sI3-eK-ICh"/>
+                                </constraints>
+                                <state key="normal" title="重新连接"/>
+                                <connections>
+                                    <action selector="connectSelect:" destination="RPE-Aq-cMh" eventType="touchUpInside" id="0uN-Dr-7Tw"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.18823529410000001" green="0.5450980392" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="upg-Kn-vie" firstAttribute="top" secondItem="RuB-HU-Im7" secondAttribute="bottom" constant="8" id="Ej7-IK-I2l"/>
+                            <constraint firstItem="VUF-S0-Ru4" firstAttribute="centerX" secondItem="RyN-X2-3Ro" secondAttribute="centerX" id="FNP-uR-YfP"/>
+                            <constraint firstItem="RuB-HU-Im7" firstAttribute="top" secondItem="NMl-19-xZ6" secondAttribute="bottom" constant="8" id="MQt-qs-YKF"/>
+                            <constraint firstItem="NMl-19-xZ6" firstAttribute="centerX" secondItem="RyN-X2-3Ro" secondAttribute="centerX" id="MWo-8a-Suv"/>
+                            <constraint firstItem="NMl-19-xZ6" firstAttribute="top" secondItem="BLI-i9-oTH" secondAttribute="bottom" constant="54" id="Z2j-Y2-qVq"/>
+                            <constraint firstItem="RuB-HU-Im7" firstAttribute="centerX" secondItem="RyN-X2-3Ro" secondAttribute="centerX" id="bYF-H0-tOx"/>
+                            <constraint firstItem="VUF-S0-Ru4" firstAttribute="top" secondItem="BLI-i9-oTH" secondAttribute="bottom" constant="145" id="gsp-rn-B8o"/>
+                            <constraint firstItem="upg-Kn-vie" firstAttribute="centerX" secondItem="RyN-X2-3Ro" secondAttribute="centerX" id="ywT-kb-ABs"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="connectBut" destination="upg-Kn-vie" id="Vah-cN-JDj"/>
+                        <outlet property="upairBut" destination="RuB-HU-Im7" id="D4f-6X-X4J"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ocT-4W-41g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4069" y="613"/>
         </scene>
     </scenes>
     <resources>
@@ -844,6 +914,7 @@
         <image name="mobile_img_bg" width="16" height="26"/>
         <image name="pwd_textfield_ico" width="18" height="25"/>
         <image name="sma_logo" width="88" height="34"/>
+        <image name="unbind_img_succeed" width="334" height="79"/>
         <image name="verifyCode_ico" width="19" height="22"/>
         <image name="区号图标" width="24" height="24"/>
     </resources>

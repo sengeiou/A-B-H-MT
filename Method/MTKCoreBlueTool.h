@@ -15,7 +15,7 @@
 //正在连接
 - (void)MTKBLConnecting;
 //连接成功
-- (void)MTKBLConnectFinish:(int)state;
+- (void)MTKBLConnectFinish:(int)state Peripheral:(CBPeripheral *)p;
 @end
 
 @interface MTKCoreBlueTool : NSObject<BleDiscoveryDelegate,BleConnectDlegate,ProximityAlarmProtocol,BleScanningStateChangeDelegate,BluetoothAdapterStateChangeDelegate,ProximityAlarmProtocol,CalibrateProtocol>
@@ -25,10 +25,14 @@
 @property (nonatomic, assign) BOOL mScanTimerStarted;
 @property (nonatomic, weak) id<MTKCoreBlueToolDelegate> delegate;
 + (MTKCoreBlueTool *)sharedInstance;
+//查看蓝牙状态
+-(BOOL)checkBleStatus;
 //开始搜索
 - (void) MTKStartScan:(BOOL)timeOut;
 //停止搜索
 -(void) MTKStopScan;
 //忘记设备
 - (void)forgetPeripheral;
+//断开连接
+- (void)disConnectWithPeripheral;
 @end

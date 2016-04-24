@@ -50,6 +50,8 @@
 - (void)createUI{
     [_stateBut setTitle:MtkLocalizedString(@"beginingseatch_title") forState:UIControlStateNormal];
     [_connectBut setTitle:MtkLocalizedString(@"seatch_bandtitle") forState:UIControlStateNormal];
+    [_connectBut setTitle:MtkLocalizedString(@"begin_experience") forState:UIControlStateSelected];
+    _connectBut.selected = NO;
 //    _connectBut.layer.borderColor = [[UIColor whiteColor] CGColor];
     _connectBut.layer.borderWidth = 1.0f;
     _connectBut.layer.masksToBounds = YES;
@@ -62,7 +64,13 @@
 }
 
 - (IBAction)connectMTK:(UIButton *)but{
-
+    if (but.selected) {
+          [self.navigationController popToRootViewControllerAnimated:YES];
+    }
+    else{
+        [MTKBL MTKStopScan];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 - (void)scanTimeOut:(NSTimer *)timer{
@@ -73,16 +81,30 @@
 #pragma mark *****MTKCoreBlueToolDelegate
 - (void)MTKBLConnecting{
     NSLog(@"*****MTKBLConnecting*****");
-    [_stateBut setTitle:MtkLocalizedString(@"binging_title") forState:UIControlStateNormal];
-    _imageView.hidden = YES;
+//    if (_connectBut.selected) {
+        [_stateBut setTitle:MtkLocalizedString(@"binging_title") forState:UIControlStateNormal];
+        _imageView.hidden = YES;
+//    }
 }
 
-- (void)MTKBLConnectFinish:(int)state{
+- (void)MTKBLConnectFinish:(int)state Peripheral:(CBPeripheral *)p{
     NSLog(@"*****MTKBLConnectFinish***** %d",state);
     if (state == 2) {
         [_stateBut setTitle:@"" forState:UIControlStateNormal];
         _imageView.hidden = NO;
-        [_connectBut setTitle:MtkLocalizedString(@"begin_experience") forState:UIControlStateNormal];
+        _connectBut.selected = YES;
+        MTKUserInfo *user = [MTKArchiveTool getUserInfo];
+        if (!user) {
+            user = [[MTKUserInfo alloc] init];
+            user.userName = @"welcome";
+            user.userID = @"1";
+            user.userWeigh = @"30";
+            user.userHeight = @"50";
+            user.userGoal = @"4000";
+        }
+        user.userUUID = p.identifier.UUIDString;
+        [MTKArchiveTool saveUser:user];
+//      [_connectBut setTitle:MtkLocalizedString(@"begin_experience") forState:UIControlStateNormal];
     }
 }
 /*

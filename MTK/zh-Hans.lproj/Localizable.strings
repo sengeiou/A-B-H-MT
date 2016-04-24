@@ -39,6 +39,16 @@
 "beginingseatch_title"="正在搜查...";
 "binging_title"="正在连接...";
 "begin_experience"="开始体验";
+
+//解绑
+"unpair_success"="解绑成功";
+"unpair_connect"="重新连接";
+
 //弹框
 "alera_back" = "< 返回";
+"aler_can" = "取消";
+"aler_confirm"="确定";
+"alert_nobang" ="未绑定设备,请绑定设备";
+"alert_confirst" = "请先连接手表";
+"alert_relieveband"="您确定解绑,解除绑定后本地数据会丢失";
 
