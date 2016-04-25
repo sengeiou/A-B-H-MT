@@ -7,11 +7,12 @@
 //
 
 #import "MTKTabBarViewController.h"
-#import "AppDelegate.h"
+#import "MtkAppDelegate.h"
 #import "MTKTabBar.h"
-@interface MTKTabBarViewController ()<MTKTabBarDelegate>
+@interface MTKTabBarViewController ()<MTKTabBarDelegate,StateChangeDelegate>
 {
-    AppDelegate *appDele;
+    MtkAppDelegate *appDele;
+    NSMutableArray* array;
 }
 @property (nonatomic, strong) MTKSportViewController *sportVC;
 @property (nonatomic, strong) MTKSleepViewController *sleepVC;
@@ -25,9 +26,48 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    array = [MTKDeviceParameterRecorder getDeviceParameters];
+    if (array.count != 0)
+    {
+        CachedBLEDevice* device = [CachedBLEDevice defaultInstance];
+        DeviceInfo* para = [array objectAtIndex:0];
+        device.mDeviceIdentifier = para.device_identifier;
+        device.mDeviceName = para.device_name;
+        device.mAlertEnabled = [para.alert_enabler intValue];
+        device.mRangeAlertEnabled = [para.range_alert_enabler intValue];
+        device.mRangeType = [para.range_type intValue];
+        device.mRangeValue = [para.range_value intValue];
+        device.mRingtoneEnabled = [para.ringtone_enabler intValue];
+        device.mVibrationEnabled = [para.vibration_enabler intValue];
+        device.mDisconnectEnabled = [para.disconnect_alert_enabler intValue];
+        [device loadFinished];
+    }
+    else{
+        [[BackgroundManager sharedInstance] stopScan];
+    }
     [self createUI];
+//    [MTKBleManager sharedInstance];
     // Do any additional setup after loading the view.
     
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    NSLog(@"[ScanTableViewController], viewDidAppear Enter");
+    if (array.count != 0)
+    {
+    [[BackgroundManager sharedInstance] registerStateChangeDelegate:self];
+    }
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    if (array.count != 0)
+    {
+    NSLog(@"[ScanTableViewController], viewDidDisappear Enter");
+    [[BackgroundManager sharedInstance] unRegisterStateChangeDelegate:self];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -47,7 +87,7 @@
 
 - (void)createUI{
     if (!appDele) {
-        appDele = (AppDelegate *)[UIApplication sharedApplication].delegate;
+        appDele = (MtkAppDelegate *)[UIApplication sharedApplication].delegate;
     }
     appDele.tabVC = self;
     [self setupTabbar];
@@ -159,6 +199,35 @@
 //        self.customview.frame=CGRectMake(0, 0, 0, 0);
 //    }
 //    [self pushHRView];
+}
+
+-(void)onAdapterStateChange:(int)state{
+    
+}
+-(void)onConnectionStateChange:(CBPeripheral*)peripheral connectionState:(int)state{
+//    if (state == CONNECTION_STATE_CONNECTED){
+//    CachedBLEDevice* device = [CachedBLEDevice defaultInstance];
+//    
+//    device.mDeviceName = [peripheral name];
+//    device.mDeviceIdentifier = [[peripheral identifier] UUIDString];
+//    device.mAlertEnabled = true;
+//    device.mRangeAlertEnabled = true;
+//    device.mRangeType = RANGE_ALERT_OUT;
+//    device.mRangeValue = RANGE_ALERT_FAR;
+//    device.mDisconnectEnabled = true;
+//    device.mRingtoneEnabled = true;
+//    device.mVibrationEnabled = true;
+//    device.mConnectionState = CONNECTION_STATE_CONNECTED;
+//    
+//    [device setDevicePeripheral:peripheral];
+//    
+//    [device persistData:1];
+//    
+//    [[BackgroundManager sharedInstance] stopScan];
+//    }
+}
+-(void)onScanningStateChange:(int)state{
+    
 }
 /*
 #pragma mark - Navigation

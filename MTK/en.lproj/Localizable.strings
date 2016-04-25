@@ -52,3 +52,4 @@
 "alert_nobang" ="Disconnect device, please connect device";
 "alert_confirst" = "Connect the watch first";
 "alert_relieveband"="If you confirm disconnect, the local data will lost";
+"alert_alreadyband"="Connected, please connect again after you disconnect";

@@ -32,6 +32,7 @@
 #pragma mark *****初始化
 - (void)initializeMethod{
     settingArr = @[MtkLocalizedString(@"setting_myinfo"),MtkLocalizedString(@"setting_myplan"),MtkLocalizedString(@"setting_boundsmawatch"),MtkLocalizedString(@"setting_unbindbound")];
+    [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(chectBLstate) userInfo:nil repeats:YES];
 }
 
 #pragma mark *****创建UI
@@ -39,6 +40,16 @@
     self.setTab.tableFooterView = [[UIView alloc] init];
     self.setTab.delegate = self;
     self.setTab.dataSource = self;
+}
+
+- (void)chectBLstate{
+     CachedBLEDevice* device = [CachedBLEDevice defaultInstance];
+    if (device.mConnectionState == 2) {
+        _BLIndexView.image = [UIImage imageNamed:@"bluetooth_link_img"];
+    }
+    else{
+        _BLIndexView.image = [UIImage imageNamed:@"bluetooth_disconnect_img"];
+    }
 }
 
 #pragma mark *****UITableViewDelegate
@@ -65,16 +76,22 @@
       
     }
     else if (indexPath.row == 2) {
-        MTKPairViewController *pairVC = [MainStoryBoard instantiateViewControllerWithIdentifier:@"MTKPairViewController"];
-        pairVC.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:pairVC animated:YES];
+        NSMutableArray* array = [MTKDeviceParameterRecorder getDeviceParameters];
+        if (array.count ==0) {
+            MTKPairViewController *pairVC = [MainStoryBoard instantiateViewControllerWithIdentifier:@"MTKPairViewController"];
+            pairVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:pairVC animated:YES];
+        }
+        else{
+            [MBProgressHUD showError:MtkLocalizedString(@"alert_alreadyband")];
+        }
     }
     else if (indexPath.row == 3) {
 //        [MTKBleMgr forgetPeripheral];
 //        NSLog(@"霍霍fiw%@",MTKBleMgr.peripheral);
-        [MTKProximiService defaultInstance];
-        [MTKBleMgr disConnectWithPeripheral];
-        return;
+//        [MTKProximiService defaultInstance];
+//        [MTKBleMgr disConnectWithPeripheral];
+//        return;
         if ([MTKBleMgr checkBleStatus]) {
             UIAlertController *aler = [UIAlertController alertControllerWithTitle:MtkLocalizedString(@"alert_relieveband") message:nil preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *cancelAct = [UIAlertAction actionWithTitle:MtkLocalizedString(@"aler_can") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {

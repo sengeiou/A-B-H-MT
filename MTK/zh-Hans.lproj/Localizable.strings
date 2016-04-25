@@ -51,4 +51,5 @@
 "alert_nobang" ="未绑定设备,请绑定设备";
 "alert_confirst" = "请先连接手表";
 "alert_relieveband"="您确定解绑,解除绑定后本地数据会丢失";
+"alert_alreadyband"="您已绑定,请解绑后才能重新绑定";
 

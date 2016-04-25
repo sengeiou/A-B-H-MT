@@ -24,11 +24,22 @@
     
 //  [MTKBleMgr forgetPeripheral];
   
-    service = [MTKProximiService defaultInstance];
-    [MTKBleMgr disConnectWithPeripheral];
-     MTKUserInfo *user = [MTKArchiveTool getUserInfo];
-     user.userUUID = @"";
-    [MTKArchiveTool saveUser:user];
+//    service = [MTKProximiService defaultInstance];
+//    [MTKBleMgr disConnectWithPeripheral];
+//     MTKUserInfo *user = [MTKArchiveTool getUserInfo];
+//     user.userUUID = @"";
+//    [MTKArchiveTool saveUser:user];
+    
+    [[BackgroundManager sharedInstance] setDisconnectFromUx:YES];
+    [[MTKBleManager sharedInstance] forgetPeripheral];
+    [[BackgroundManager sharedInstance] disconnectDevice:[[CachedBLEDevice defaultInstance] getDevicePeripheral]];
+//    [[MTKBleManager sharedInstance] forgetPeripheral];
+    ////
+    [MTKDeviceParameterRecorder deleteDevice:[CachedBLEDevice defaultInstance].mDeviceIdentifier];
+    [[BackgroundManager sharedInstance] stopScan];
+    //////
+    [[SOSCallDataManager sosCallDataMgrInstance] clearAllData];
+
 }
 
 - (void)createUI{
@@ -41,7 +52,7 @@
     _upairBut.layer.masksToBounds = YES;
     _upairBut.layer.cornerRadius = 10.0;
     _upairBut.layer.borderColor = [UIColor whiteColor].CGColor;
-     [_connectBut setTitle:MtkLocalizedString(@"unpair_success") forState:UIControlStateNormal];
+     [_upairBut setTitle:MtkLocalizedString(@"unpair_success") forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning {

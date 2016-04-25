@@ -6,14 +6,16 @@
 //  Copyright © 2016年 SmaLife. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "MtkAppDelegate.h"
 #import "ViewController.h"
-@interface AppDelegate ()
+@interface MtkAppDelegate ()
 
 @end
 
-@implementation AppDelegate
-
+@implementation MtkAppDelegate
+@synthesize managedObjectContext;
+@synthesize managedObjectModel;
+@synthesize persistentStoreCoordinator;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
@@ -55,6 +57,72 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+-(void)saveContext
+{
+    NSError* error = nil;
+    NSManagedObjectContext *context = self.managedObjectContext;
+    if (context != nil)
+    {
+        if ([context hasChanges] && ![context save: &error])
+        {
+            NSLog(@"[BLEAppDelegate] [saveContext] %@, %@ ", error, [error userInfo]);
+            abort();
+        }
+    }
+}
+
+-(NSManagedObjectContext*)managedObjectContext
+{
+    if (managedObjectContext != nil)
+    {
+        return managedObjectContext;
+    }
+    NSPersistentStoreCoordinator* corr = [self persistentStoreCoordinator];
+    if (corr != nil)
+    {
+        managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+        [managedObjectContext setPersistentStoreCoordinator:corr];
+    }
+    return managedObjectContext;
+}
+
+-(NSManagedObjectModel*)managedObjectModel
+{
+    if (managedObjectModel != nil)
+    {
+        return managedObjectModel;
+    }
+    NSURL* modelUrl = [[NSBundle mainBundle] URLForResource:@"BLEManagerModel" withExtension:@"momd"];
+    //NSLog(@"init model12312 %@", modelUrl);
+    managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelUrl];
+    //NSLog(@"init model %@", managedObjectModel);
+    return managedObjectModel;
+}
+
+-(NSPersistentStoreCoordinator*)persistentStoreCoordinator
+{
+    if (persistentStoreCoordinator != nil)
+    {
+        return persistentStoreCoordinator;
+    }
+    NSLog(@"persist coordinator enter");
+    NSURL* url = [[self applicationDocumentDirectory] URLByAppendingPathComponent:@"BLEManagerModel.sqlite"];
+    NSError* error = nil;
+    //NSLog(@"persist coordinator %@", self.managedObjectModel);
+    persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
+    
+    if (![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:url options:nil error:&error])
+    {
+        NSLog(@"[BLEAppDelegate] %@, %@", error, [error userInfo]);
+        abort();
+    }
+    return persistentStoreCoordinator;
+}
+
+-(NSURL*)applicationDocumentDirectory
+{
+    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
 @end

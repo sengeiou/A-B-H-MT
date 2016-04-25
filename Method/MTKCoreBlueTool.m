@@ -9,7 +9,7 @@
 #import "MTKCoreBlueTool.h"
 #import "ScannedPeripheral.h"
 
-const static int SCAN_DEVICE_TIMEOUT = 20;
+const static int DEVICE_TIMEOUT = 20;
 @interface MTKCoreBlueTool ()
 {
     NSMutableArray *peripherals;
@@ -55,7 +55,7 @@ static MTKCoreBlueTool *instance;
     if(timeOut == YES)
     {
         self.mScanTimerStarted = YES;
-        [self performSelector:@selector(timeoutToStopScan) withObject:nil afterDelay:SCAN_DEVICE_TIMEOUT];
+        [self performSelector:@selector(timeoutToStopScan) withObject:nil afterDelay:DEVICE_TIMEOUT];
     }
 }
 
@@ -90,12 +90,20 @@ static MTKCoreBlueTool *instance;
 //查看蓝牙状态
 -(BOOL)checkBleStatus{
     MTKUserInfo *user = [MTKArchiveTool getUserInfo];
-    if (!user.userUUID || [user.userUUID isEqualToString:@""]) {
+     NSMutableArray* array = [MTKDeviceParameterRecorder getDeviceParameters];
+     CachedBLEDevice* device = [CachedBLEDevice defaultInstance];
+    if (array.count ==0) {
         [MBProgressHUD showError:MtkLocalizedString(@"alert_nobang")];
+        return NO;
+    }
+    else if (!device.mDeviceIdentifier || [device.mDeviceIdentifier isEqualToString:@""]) {
+        [MBProgressHUD showError:MtkLocalizedString(@"alert_nobang")];
+         BOOL b = [[BackgroundManager sharedInstance] connectDevice:[[CachedBLEDevice defaultInstance] getDevicePeripheral]];
          return NO;
     }
-    else if (self.peripheral.state != CBPeripheralStateConnected){
+    else if (device.mConnectionState != CONNECTION_STATE_CONNECTED){
         [MBProgressHUD showError:MtkLocalizedString(@"alert_confirst")];
+         BOOL b = [[BackgroundManager sharedInstance] connectDevice:[[CachedBLEDevice defaultInstance] getDevicePeripheral]];
         return NO;
     }
     return YES;
