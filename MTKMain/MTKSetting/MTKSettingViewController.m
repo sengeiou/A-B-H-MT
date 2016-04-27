@@ -31,12 +31,13 @@
 
 #pragma mark *****初始化
 - (void)initializeMethod{
+    
     settingArr = @[MtkLocalizedString(@"setting_myinfo"),MtkLocalizedString(@"setting_myplan"),MtkLocalizedString(@"setting_boundsmawatch"),MtkLocalizedString(@"setting_unbindbound")];
     [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(chectBLstate) userInfo:nil repeats:YES];
 }
 
 #pragma mark *****创建UI
-- (void)createUI{
+- (void)createUI{   [self chectBLstate];
     self.setTab.tableFooterView = [[UIView alloc] init];
     self.setTab.delegate = self;
     self.setTab.dataSource = self;
@@ -64,16 +65,17 @@
     return cell;
 }
 
+
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return settingArr.count;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 0) {
-        
+        [self.navigationController pushViewController:[MainStoryBoard instantiateViewControllerWithIdentifier:@"MTKUserTableViewController"] animated:YES];
     }
     else if (indexPath.row == 1) {
-      
+        [self.navigationController pushViewController:[MainStoryBoard instantiateViewControllerWithIdentifier:@"MTKSportPlanViewController"] animated:YES];
     }
     else if (indexPath.row == 2) {
         NSMutableArray* array = [MTKDeviceParameterRecorder getDeviceParameters];

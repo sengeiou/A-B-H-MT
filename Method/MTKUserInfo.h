@@ -11,9 +11,12 @@
 @interface MTKUserInfo : NSObject
 @property (nonatomic, strong) NSString *userName;
 @property (nonatomic, strong) NSString *userID;
+@property (nonatomic, strong) NSString *userPass;
 @property (nonatomic, strong) NSString *userWeigh;
 @property (nonatomic, strong) NSString *userHeight;
 @property (nonatomic, strong) NSString *userGoal;
+@property (nonatomic, strong) NSString *userBLName;
+@property (nonatomic, strong) NSString *userBLVersion;
 @property (nonatomic, strong) NSString *userUUID;
 @property (nonatomic, strong) NSNumber *userAlEnable;
 @property (nonatomic, strong) NSNumber *userRange;

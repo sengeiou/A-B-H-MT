@@ -19,14 +19,29 @@
 
 //运动
 "sport_navtilte"="Sport";
+"sport_plaremark" = "Goal";
+"sport_stepunit" = "Step";
+"sport_distanceunit" = "Km.";
+"sport_hotunit" = "Cal.";
+
+"setplan_navtitle"="Sport goal";
+"setplan_remark"="Setting sport goal";
 
 //睡眠
 "sleep_navtilte"="Sleep";
-
+"sleep_today" = "Today";
+"sleep_hour" = "Hour";
+"sport_minute" = "Min.";
+"sleep_hour1" = "Hour";
+"sport_minute1" = "Min.";
+"sleep_status" = "Sleep quality";
+"sleep_remark" = "Slept last night";
+"sleep_dayunit"="";
+"sleep_monthunit"="";
 //提醒
 "remind_navtilte"="Notice";
 
-//设置
+//*************************设置**************************************************
 "setting_navtitle"="Settings";
 "setting_myinfo"="Personal info.";
 "setting_myplan"="Personal goal";
@@ -41,9 +56,25 @@
 "binging_title"="Connecting...";
 "begin_experience"="Start Now";
 
+//个人信息
+"myinfo_account"="Account";
+"myinfo_accountpwd"="Password";
+"myinfo_nickname"="Nickname";
+"myinfo_age"="Age";
+"myinfo_weight"="Weight";
+"myinfo_height"="Hight";
+"myinfo_sex"="Gender";
+"myinfo_step" = "Step";
+"myinfo_uniwi1" = "kg";
+"myinfo_unithe1" = "cm";
+"myinfo_Wrange" = "Weight is between 30 to 229";
+"myinfo_Hrange" = "Hight is between 50 to 229";
+"myinfo_New" = "Update";
+
 //解绑
 "unpair_success"="Disconnect success";
 "unpair_connect"="Connect again";
+//*************************设置**************************************************
 
 //弹框
 "alera_back" = "< Back";
@@ -53,3 +84,9 @@
 "alert_confirst" = "Connect the watch first";
 "alert_relieveband"="If you confirm disconnect, the local data will lost";
 "alert_alreadyband"="Connected, please connect again after you disconnect";
+"alert_seting"="Setting...";
+"alert_setSuccess"="setting success";
+"alert_failed" = "setting failed";
+"alert_syncing" = "Syncing...";
+"alert_syncsucc" = "Completed!";
+"alert_syncerror" = "Synchronization failed!";

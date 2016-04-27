@@ -13,9 +13,12 @@
 - (void)encodeWithCoder:(NSCoder *)encoder{
     [encoder encodeObject:self.userName forKey:@"userName"];
     [encoder encodeObject:self.userID forKey:@"userID"];
+    [encoder encodeObject:self.userPass forKey:@"userPass"];
     [encoder encodeObject:self.userWeigh forKey:@"userWeigh"];
     [encoder encodeObject:self.userHeight forKey:@"userHeight"];
     [encoder encodeObject:self.userGoal forKey:@"userGoal"];
+    [encoder encodeObject:self.userBLName forKey:@"userBLName"];
+    [encoder encodeObject:self.userBLVersion forKey:@"userBLVersion"];
     [encoder encodeObject:self.userUUID forKey:@"userUUID"];
     [encoder encodeObject:self.userAlEnable forKey:@"userAlEnable"];
     [encoder encodeObject:self.userRange forKey:@"userRange"];
@@ -29,9 +32,12 @@
     if (self = [super init]) {
         self.userName = [decoder decodeObjectForKey:@"userName"];
         self.userID = [decoder decodeObjectForKey:@"userID"];
+        self.userPass = [decoder decodeObjectForKey:@"userPass"];
         self.userWeigh = [decoder decodeObjectForKey:@"userWeigh"];
         self.userHeight = [decoder decodeObjectForKey:@"userHeight"];
         self.userGoal = [decoder decodeObjectForKey:@"userGoal"];
+        self.userBLName = [decoder decodeObjectForKey:@"userBLName"];
+        self.userBLVersion = [decoder decodeObjectForKey:@"userBLVersion"];
         self.userUUID = [decoder decodeObjectForKey:@"userUUID"];
         self.userAlEnable = [decoder decodeObjectForKey:@"userAlEnable"];
         self.userRange = [decoder decodeObjectForKey:@"userRange"];

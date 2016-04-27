@@ -18,20 +18,36 @@
 
 //运动
 "sport_navtilte"="运动";
+"sport_plaremark" = "运动目标";
+"sport_stepunit" = "步";
+"sport_distanceunit" = "千米";
+"sport_hotunit" = "卡";
+"sport_distance" = "路程";
+"sport_calor" = "卡路里";
+"sport_steps" = "步数";
+"setplan_navtitle"="计步目标";
+"setplan_remark"="设置您的目标运动量";
 
 //睡眠
 "sleep_navtilte"="睡眠";
-
+"sleep_today" = "今天";
+"sleep_hour" = "小时";
+"sport_minute" = "分钟";
+"sleep_status" = "睡眠质量";
+"sleep_remark" = "昨晚睡了";
+"sleep_dayunit"="日";
+"sleep_monthunit"="月";
 //提醒
 "remind_navtilte"="提醒";
 
-//设置
+//*********设置******************************************************************************
 "setting_navtitle"="设置";
 "setting_myinfo"="个人信息";
 "setting_myplan"="个人目标";
 "setting_boundsmawatch"="绑定手表";
 "setting_unbindbound"="解绑";
 
+//搜索
 "seatch_title"="请保证手表电量充足，并靠近手机";
 "seatch_remind" = "如果搜索不到手表蓝牙，请先在设置-蓝牙-K88H-忽略此设备。";
 "seatch_bandtitle"="暂不绑定";
@@ -40,9 +56,25 @@
 "binging_title"="正在连接...";
 "begin_experience"="开始体验";
 
+//个人信息
+"myinfo_account"="账号";
+"myinfo_accountpwd"="密码";
+"myinfo_nickname"="昵称";
+"myinfo_age"="年龄";
+"myinfo_weight"="体重";
+"myinfo_height"="身高";
+"myinfo_sex"="性别";
+"myinfo_step" = "步";
+"myinfo_uniwi1" = "kg";
+"myinfo_unithe1" = "cm";
+"myinfo_Wrange" = "体重介于30到229之间";
+"myinfo_Hrange" = "身高介于50到229之间";
+"myinfo_New" = "更新";
+
 //解绑
 "unpair_success"="解绑成功";
 "unpair_connect"="重新连接";
+//*********设置*******************************************************************************
 
 //弹框
 "alera_back" = "< 返回";
@@ -52,4 +84,9 @@
 "alert_confirst" = "请先连接手表";
 "alert_relieveband"="您确定解绑,解除绑定后本地数据会丢失";
 "alert_alreadyband"="您已绑定,请解绑后才能重新绑定";
-
+"alert_seting"="正在设置...";
+"alert_setSuccess"="设置成功";
+"alert_failed" = "设置失败";
+"alert_syncing" = "同步中...";
+"alert_syncsucc" = "同步完成";
+"alert_syncerror" = "同步失败";

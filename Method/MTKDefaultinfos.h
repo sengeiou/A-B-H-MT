@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #define FIRSTLUN @"FIRSTLUN"//首次打开软件
+#define SPORTGOAL @"SPORTGOAL"
 @interface MTKDefaultinfos : NSObject
 +(void)putKey:(NSString *)key andValue:(NSObject *)value;
 +(void)putInt:(NSString *)key andValue:(int)value;

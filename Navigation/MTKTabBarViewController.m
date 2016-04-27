@@ -26,26 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    array = [MTKDeviceParameterRecorder getDeviceParameters];
-    if (array.count != 0)
-    {
-        CachedBLEDevice* device = [CachedBLEDevice defaultInstance];
-        DeviceInfo* para = [array objectAtIndex:0];
-        device.mDeviceIdentifier = para.device_identifier;
-        device.mDeviceName = para.device_name;
-        device.mAlertEnabled = [para.alert_enabler intValue];
-        device.mRangeAlertEnabled = [para.range_alert_enabler intValue];
-        device.mRangeType = [para.range_type intValue];
-        device.mRangeValue = [para.range_value intValue];
-        device.mRingtoneEnabled = [para.ringtone_enabler intValue];
-        device.mVibrationEnabled = [para.vibration_enabler intValue];
-        device.mDisconnectEnabled = [para.disconnect_alert_enabler intValue];
-        [device loadFinished];
-    }
-    else{
-        [[BackgroundManager sharedInstance] stopScan];
-    }
+    [self initializeMethod];
     [self createUI];
 //    [MTKBleManager sharedInstance];
     // Do any additional setup after loading the view.
@@ -85,6 +66,41 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark *****初始化数据
+- (void)initializeMethod{
+    MTKUserInfo *user = [MTKArchiveTool getUserInfo];
+    if (!user) {
+        user = [[MTKUserInfo alloc] init];
+        user.userName = @"welcome";
+        user.userID = @"1";
+        user.userPass = @"123456";
+        user.userWeigh = @"30";
+        user.userHeight = @"50";
+        user.userGoal = @"4000";
+    }
+    [MTKArchiveTool saveUser:user];
+    
+    array = [MTKDeviceParameterRecorder getDeviceParameters];
+    if (array.count != 0)
+    {
+        CachedBLEDevice* device = [CachedBLEDevice defaultInstance];
+        DeviceInfo* para = [array objectAtIndex:0];
+        device.mDeviceIdentifier = para.device_identifier;
+        device.mDeviceName = para.device_name;
+        device.mAlertEnabled = [para.alert_enabler intValue];
+        device.mRangeAlertEnabled = [para.range_alert_enabler intValue];
+        device.mRangeType = [para.range_type intValue];
+        device.mRangeValue = [para.range_value intValue];
+        device.mRingtoneEnabled = [para.ringtone_enabler intValue];
+        device.mVibrationEnabled = [para.vibration_enabler intValue];
+        device.mDisconnectEnabled = [para.disconnect_alert_enabler intValue];
+        [device loadFinished];
+    }
+    else{
+        [[BackgroundManager sharedInstance] stopScan];
+    }
+}
+
 - (void)createUI{
     if (!appDele) {
         appDele = (MtkAppDelegate *)[UIApplication sharedApplication].delegate;
@@ -92,6 +108,7 @@
     appDele.tabVC = self;
     [self setupTabbar];
     [self setupAllChildViewControllers];
+      self.selectedIndex = 0;
     [self addOtherButton];
 }
 
@@ -131,7 +148,7 @@
     [self setupChildViewController:me title:MtkLocalizedString(@"setting_navtitle")  imageName:@"tabbar_person_button" selectedImageName:@"tabbar_person_button_highlighted"];
     self.settingVC=me;
     
-    self.selectedIndex = 0;
+  
 }
 
 -(void)addOtherButton
