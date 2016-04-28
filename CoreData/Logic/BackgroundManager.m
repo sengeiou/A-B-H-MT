@@ -18,7 +18,7 @@
 @private
 
     NSMutableArray* stateChangeDelegateList;
-    CBCentralManagerState centralManagerState;
+    
     int scanningState;
 }
 @end
@@ -27,7 +27,7 @@
 
 @synthesize mManager;
 @synthesize alert;
-
+@synthesize centralManagerState;
 @synthesize tempPeripheral;
 
 @synthesize alertDialog;
@@ -271,6 +271,14 @@ static BackgroundManager* instance;
 -(void)onBluetoothStateChange:(int)state
 {
     NSLog(@"[BackgroundManager] [onBluetoothStateChange] state : %d", state);
+    if (state == 2) {
+        [self performSelector:@selector(sendDate) withObject:nil afterDelay:5];
+//        [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(sendDate) userInfo:nil repeats:NO];
+    }
+    else{
+        _canSendData = NO;
+        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(sendDate) object:nil];
+    }
     if (state != centralManagerState)
     {
         centralManagerState = state;
@@ -307,7 +315,8 @@ static BackgroundManager* instance;
     if (connectionState == CONNECTION_STATE_CONNECTED)
     {
         /* do init cachedBLEDevice action */
-
+        [self performSelector:@selector(sendDate) withObject:nil afterDelay:5];
+//        _canSendData = YES;
         [self stopConnectTimer];
         _conpheral = peripheral;
         [self notifyConnectionStateChange:peripheral connectionState:CONNECTION_STATE_CONNECTED];
@@ -316,6 +325,8 @@ static BackgroundManager* instance;
 
 - (void) disconnectDidRefresh: (int)connectionState devicename: (CBPeripheral *)peripheral
 {
+    _canSendData = NO;
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(sendDate) object:nil];
     [self notifyConnectionStateChange:peripheral connectionState:CONNECTION_STATE_DISCONNECTED];
 }
 
@@ -358,6 +369,7 @@ static BackgroundManager* instance;
 -(void)notifyConnectionStateChange:(CBPeripheral*)perpheral connectionState:(int)state
 {
     [[CachedBLEDevice defaultInstance]updateDeviceConnectionState:perpheral connectionState:state];
+    
     for (id<StateChangeDelegate> delegate in stateChangeDelegateList)
     {
         [delegate onConnectionStateChange:perpheral connectionState:state];
@@ -750,4 +762,8 @@ static BackgroundManager* instance;
     }
 }
 
+//连接成功后5秒才允许进行数据传输
+-(void)sendDate{
+    _canSendData = YES;
+}
 @end

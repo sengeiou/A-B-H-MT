@@ -11,5 +11,6 @@
 @interface MTKSportPlanViewController : UIViewController
 @property (nonatomic, weak) IBOutlet UIImageView *sliderView;
 @property (nonatomic, weak) IBOutlet UILabel *setLab, *disLab, *setDisLab, *stepLab, *setStepLab, *kcaLab, *setCalLab;
+@property (nonatomic, strong) IBOutlet NSLayoutConstraint *backH;
 @property (nonatomic,strong) EFCircularSlider* minuteSlider;
 @end

@@ -147,9 +147,9 @@
         device.mRangeAlertEnabled = true;
         device.mRangeType = RANGE_ALERT_OUT;
         device.mRangeValue = RANGE_ALERT_FAR;
-        device.mDisconnectEnabled = true;
-        device.mRingtoneEnabled = true;
-        device.mVibrationEnabled = true;
+        device.mDisconnectEnabled = NO;
+        device.mRingtoneEnabled = NO;
+        device.mVibrationEnabled = NO;
         device.mConnectionState = CONNECTION_STATE_CONNECTED;
         
         [device setDevicePeripheral:peripheral];

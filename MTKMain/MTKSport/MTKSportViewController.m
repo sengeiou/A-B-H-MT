@@ -23,12 +23,19 @@
     [super viewDidLoad];
     [self initializeMethod];
     [self createUI];
+    mController = [MyController getMyControllerInstance];
+    [mController setDelegate: self];
     // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [self initializeMethod];
+    [self createUI];
 }
 
 //加载dal对象
@@ -56,9 +63,14 @@
 
 #pragma mark*****创建UI
 - (void)createUI{
+    if (MainScreen.size.height > 568) {
+        _backH.constant = 350.0f;
+    }
+    else{
+        _backH.constant = 300.0f;
+    }
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithIcon:@"刷新" highIcon:@"刷新" target:self action:@selector(syncSport)];
     _goalLab.text = MtkLocalizedString(@"sport_plaremark");
-    _goalStepLab.text = [NSString stringWithFormat:@"%d",userInfo.userGoal.intValue*500+4000];
     _disLab.text = MtkLocalizedString(@"sport_distance");
     _stepLab.text = MtkLocalizedString(@"sport_steps");
     _calLab.text = MtkLocalizedString(@"sport_calor");
@@ -176,15 +188,14 @@ int  deffInt=30;
     if ([MTKBleMgr checkBleStatus]) {
         syncError = NO;
         [MBProgressHUD showMessage:MtkLocalizedString(@"alert_syncing")];
-         mController = [MyController getMyControllerInstance];
-        [mController setDelegate: self];
+       
         NSString *setUser = GETDESPORT;
         [mController sendDataWithCmd:setUser mode:GETSDETHEART];
         if (setTimer) {
             [setTimer invalidate];
             setTimer = nil;
         }
-        setTimer = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(timeout) userInfo:nil repeats:NO];
+        setTimer = [NSTimer scheduledTimerWithTimeInterval:40 target:self selector:@selector(timeout) userInfo:nil repeats:NO];
     }
 }
 
@@ -199,6 +210,7 @@ int  deffInt=30;
 }
 
 - (void)refreshData{
+    _goalStepLab.text = [NSString stringWithFormat:@"%d",userInfo.userGoal.intValue*500+4000];
     NSDateFormatter * formatter1 = [[NSDateFormatter alloc]init];
     [formatter1 setDateFormat:@"yyyyMMdd"];
     NSMutableArray *spoArr = [self.sqliData scarchSportWitchDate:[formatter1 stringFromDate:self.data] toDate:[formatter1 stringFromDate:self.data] UserID:userInfo.userID];
@@ -225,32 +237,38 @@ int  deffInt=30;
 
 #pragma mark *****myProtocol代理
 - (void)onDataReceive:(NSString *)recvData mode:(MTKBLEMEDO)mode{
+    userInfo = [MTKArchiveTool getUserInfo];
     if (mode == GETSDETSPORT) {
-        mController = [MyController getMyControllerInstance];
+//        mController = [MyController getMyControllerInstance];
         NSString *setUser = GETDESELEEP;
         [mController sendDataWithCmd:setUser mode:GETSDETSPORT];
         if (setTimer) {
             [setTimer invalidate];
             setTimer = nil;
         }
-        setTimer = [NSTimer scheduledTimerWithTimeInterval:15 target:self selector:@selector(timeout) userInfo:nil repeats:NO];
+        setTimer = [NSTimer scheduledTimerWithTimeInterval:40 target:self selector:@selector(timeout) userInfo:nil repeats:NO];
     }
     else if (mode == GETSDETSLEEP){
-        mController = [MyController getMyControllerInstance];
+//        mController = [MyController getMyControllerInstance];
         NSString *setUser = GETDEDATA;
         [mController sendDataWithCmd:setUser mode:GETSDETSPORT];
         if (setTimer) {
             [setTimer invalidate];
             setTimer = nil;
         }
-        setTimer = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(timeout) userInfo:nil repeats:NO];
+        setTimer = [NSTimer scheduledTimerWithTimeInterval:40 target:self selector:@selector(timeout) userInfo:nil repeats:NO];
+    }
+    else if (mode == GETUSERINFO || mode == SETUSERINFO){
+         [self refreshData];
     }
     else if (mode == GETSDETDATA){
+        NSLog(@"更新运动数据页面");
         [self refreshData];
         if (!syncError) {
             [MBProgressHUD hideHUD];
             [MBProgressHUD showSuccess:MtkLocalizedString(@"alert_syncsucc")];
         }
+       
            if (setTimer) {
             [setTimer invalidate];
             setTimer = nil;

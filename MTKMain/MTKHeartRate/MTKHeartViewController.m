@@ -18,13 +18,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+//     [self initializeMethod];
+//     [self createUI];
     // Do any additional setup after loading the view.
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [self initializeMethod];
     [self createUI];
+ 
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,6 +60,12 @@
 
 #pragma matk *****创建UI
 - (void)createUI{
+    if (MainScreen.size.height > 568) {
+        _backH.constant = 350.0f;
+    }
+    else{
+        _backH.constant = 300.0f;
+    }
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithRed:241/255.0 green:19/255.0 blue:71/255.0 alpha:1] size:MainScreen.size] forBarMetrics:UIBarMetricsDefault];
     _lastTexLab.text = MtkLocalizedString(@"hearRate_monitor");
     _situationLab.text = MtkLocalizedString(@"hearRate_HRmonitor");
@@ -66,17 +74,18 @@
     _maxLab.text = MtkLocalizedString(@"hearRate_MaxHR");
     [_detailBut setTitle:MtkLocalizedString(@"hearReat_detail") forState:UIControlStateNormal];
     CAGradientLayer * _gradientLayer = [CAGradientLayer layer];  // 设置渐变效果
-    _gradientLayer.bounds = _HRView.bounds;
+    _gradientLayer.bounds = CGRectMake(_gradientLayer.bounds.origin.x, _gradientLayer.bounds.origin.y, _gradientLayer.bounds.size.width, _backH.constant);
     _gradientLayer.borderWidth = 0;
     
-    _gradientLayer.frame = _HRView.bounds;
+    _gradientLayer.frame = _HRView.frame;
     _gradientLayer.colors = [NSArray arrayWithObjects:
                              (id)[[UIColor colorWithRed:241/255.0 green:19/255.0 blue:71/255.0 alpha:1] CGColor],
                              (id)[[UIColor colorWithRed:236/255.0 green:18/255.0 blue:105/255.0 alpha:1]  CGColor],  nil];
     _gradientLayer.startPoint = CGPointMake(0,0);
     _gradientLayer.endPoint = CGPointMake(0, 0.5);
-    [_HRView.layer insertSublayer:_gradientLayer atIndex:0];
-    self.dateLab.text=[self dateWithYMD];
+    _HRView.backgroundColor = [UIColor colorWithRed:241/255.0 green:19/255.0 blue:71/255.0 alpha:1];
+//    [_HRView.layer insertSublayer:_gradientLayer atIndex:0];
+       self.dateLab.text=[self dateWithYMD];
     [self refreshData];
 }
 

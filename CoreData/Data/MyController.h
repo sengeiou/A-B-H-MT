@@ -14,7 +14,7 @@
 #define GETDESPORT @"GET,2"  //获取运动详细数据
 #define GETDESELEEP @"GET,3" //获取睡眠详细数据
 #define GETDESHEART @"GET,4" //获取睡眠详细数据
-
+#define GETDEUSER @"PS,GET" //获取个人资料详细数据
 //#define SETUSER   @"PS,SET,DATAS" //设置个人信息
 //typedef enum {
 //    AWAIT_RECEVER1=0,//等待接收
@@ -25,7 +25,7 @@
 typedef enum {
     GETMTKINFO = 0, //等待接收
     GETUSERINFO,    //获取个人信息
-    GETSDETDATA,   //获取详细运动数据
+    GETSDETDATA,    //获取详细运动数据
     GETSDETSPORT,   //获取详细运动数据
     GETSDETSLEEP,   //获取详细睡眠数据
     GETSDETHEART,   //获取详细睡眠数据

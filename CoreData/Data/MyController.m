@@ -45,7 +45,10 @@ static  MyController *instance;
 - (void)sendDataWithCmd:(NSString *)cmd mode:(MTKBLEMEDO)mode{
     self.mode = mode;
     NSData *data =[cmd dataUsingEncoding:NSUTF8StringEncoding];
-    [self sendSOSCAllCMD:[NSString stringWithFormat:@"KCT_PEDOMETER kct_pedometer 0 0 %lu ",(unsigned long)data.length] sendData:data];
+    if ([BackgroundManager sharedInstance].canSendData) {
+        NSLog(@"*******************************************允许进行数据传输");
+        [self sendSOSCAllCMD:[NSString stringWithFormat:@"KCT_PEDOMETER kct_pedometer 0 0 %lu ",(unsigned long)data.length] sendData:data];
+    }
 }
 
 - (void)sendSOSCAllCMD: (NSString *)cmdHeader sendData: (NSData *)data {
@@ -222,14 +225,24 @@ static  MyController *instance;
                }];
              }
         }
-         if (dataArr.count < 3) {
+         if (nowNum == 0) {
              if (delegate && [delegate respondsToSelector:@selector(onDataReceive:mode:)]) {
                  [delegate onDataReceive:dataStr mode:GETSDETDATA];
              }
              [self sendDataWithCmd:@"RET,1" mode:RETDATA];
          }
+     }
+     else if ([dataArr[1] isEqualToString:@"SET"] && [mode isEqualToString:@" PS"]){
+         NSLog(@"MTK个人信息自主返回");
+         NSArray *infoArr = [dataArr[2] componentsSeparatedByString:@"|"];
+         user.userGoal = [NSString stringWithFormat:@"%d",([infoArr[0] intValue]-4000)/500];
+         user.userHeight = infoArr[1];
+         user.userWeigh = infoArr[2];
+         [MTKArchiveTool saveUser:user];
+         if (delegate && [delegate respondsToSelector:@selector(onDataReceive:mode:)]) {
+             [delegate onDataReceive:dataStr mode:SETUSERINFO];
+         }
 
-         
      }
 }
 @end

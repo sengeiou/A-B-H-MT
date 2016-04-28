@@ -13,5 +13,6 @@
 @property (nonatomic, weak) IBOutlet KAProgressLabel *progressLab;
 @property (nonatomic, weak) IBOutlet UIButton *leftBut, *rightBut;
 @property (nonatomic,strong) NSDate *data;
+@property (nonatomic, strong) IBOutlet NSLayoutConstraint *backH;
 @property(nonatomic,strong) MTKSqliteData *sqliData;
 @end

@@ -12,6 +12,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *dateLab, *hourLab, *hourUnLab, *minLab, *minUnLab, *lastSlLab, *situationLab, *qualityLab, *deepLab, *deepTiLab, *lightLab, *lightTiLab, *soberLab, *soberTiLab;
 @property (nonatomic, weak) IBOutlet UIButton *leftBut, *rightBut;
 @property (nonatomic, strong) IBOutlet NSLayoutConstraint *hourLead;
+@property (nonatomic, strong) IBOutlet NSLayoutConstraint *backH;
 @property (nonatomic,strong) NSDate *data;
 @property(nonatomic,strong) MTKSqliteData *sqliData;
 

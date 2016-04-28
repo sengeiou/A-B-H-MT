@@ -57,10 +57,11 @@ const static int ATTRIBUTE_SCAN_STATE_CHANGE = 31;
 @property (nonatomic, strong) CBPeripheral* tempPeripheral;
 
 @property (nonatomic) int mAlertType;
+@property (nonatomic) CBCentralManagerState centralManagerState;
 @property (nonatomic) BOOL mDialogShowedUp;
 @property (nonatomic) BOOL mRingtoneAlerting;
 @property (nonatomic) BOOL mNotificationShowedUp;
-
+@property (nonatomic) BOOL canSendData;
 @property (nonatomic) BOOL mScanTimerStarted;
 @property (nonatomic) BOOL mConnectTimerStarted;
 @property (nonatomic) BOOL mConnectTimeout;

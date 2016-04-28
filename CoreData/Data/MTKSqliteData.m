@@ -125,14 +125,15 @@
         NSLog(@"**************************删除相同时刻心率数据  %d",result);
         result = [db executeUpdate:@"insert into MTKHeart_tb (user_id,web_id,date,time,heart,continuous,heart_web) values(?,?,?,?,?,?,?)",userId,webid,date,time,heart,conti,web];
         NSLog(@"**************************插入心率数据  %d",result);
-        callback(result);
         [db commit];
+        callback(result);
     }];
 }
 
 //查找某天心率数据
 - (NSMutableArray *)scarchHeartWitchDate:(NSString *)date toDate:(NSString *)date1 Userid:(NSString *)userid{
      NSMutableArray *heartArr = [NSMutableArray array];
+    NSLog(@"slef=%@",self.queue);
     [self.queue inDatabase:^(FMDatabase *db) {
         NSString *selAvg = [NSString stringWithFormat:@"select avg(heart) as avgHR,max(heart) as maxHR from MTKHeart_tb where date>=\'%@\' and date<=\'%@\' and user_id=\'%@\' and heart>0",date,date1,userid];
         FMResultSet *rsAvg = [db executeQuery:selAvg];

@@ -12,6 +12,20 @@
 "login_register" = "注册";
 "login_tryout" = "直接试用";
 
+/*计步目标*/
+"myinfo_navtitle"="个人信息";
+"myinfo_account"="账号";
+"myinfo_accountpwd"="密码";
+"myinfo_nickname"="昵称";
+"myinfo_age"="年龄";
+"myinfo_weight"="体重";
+"myinfo_height"="身高";
+"myinfo_sex"="性别";
+"myinfo_step" = "步";
+"myinfo_next" = "下一步";
+/*计步目标*/
+
+
 //注册
 "register_choose_cou" = "国家选择";
 "register_modi_pass" = "修改密码";
@@ -21,6 +35,7 @@
 "sport_plaremark" = "运动目标";
 "sport_stepunit" = "步";
 "sport_distanceunit" = "米";
+"sport_distancekmunit" = "千米";
 "sport_hotunit" = "卡";
 "sport_distance" = "路程";
 "sport_calor" = "卡路里";
@@ -43,7 +58,10 @@
 "sleepdetail_sleeptimelen" = "睡眠时长";
 "sleepdetail_hileleeptimelen" = "深睡时长";
 "sleepdetail_sobertimelen" = "浅睡时长";
-
+"sleepdetail_sobertime" = "清醒时长";
+"sleep_deep" = "深度睡眠";
+"sleep_light" = "浅睡";
+"sleep_awake" = "醒来";
 /*心率界面*/
 "hearRate_title" = "心率";
 "hearRate_monitor" = "最近监测心率";
@@ -99,6 +117,8 @@
 "setting_myplan"="个人目标";
 "setting_boundsmawatch"="绑定手表";
 "setting_unbindbound"="解绑";
+"setting_lost" = "防丢提醒";
+
 
 //搜索
 "seatch_title"="请保证手表电量充足，并靠近手机";
@@ -143,3 +163,6 @@
 "alert_syncing" = "同步中...";
 "alert_syncsucc" = "同步完成";
 "alert_syncerror" = "同步失败";
+"alert_height"="请输入您的身高";
+"alert_weight"="请输入您的体重";
+

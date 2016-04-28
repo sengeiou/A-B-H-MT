@@ -429,6 +429,7 @@ static CachedBLEDevice* instance;
 {
     
 }
+
 - (void)txPowerReadBack: (CBPeripheral *)peripheral status: (int)status txPower: (int)txPwoer
 {
     
@@ -533,7 +534,7 @@ static CachedBLEDevice* instance;
     }
     if (changed == YES)
     {
-        [[MTKBleProximityService getInstance] updatePxpSetting:mDeviceIdentifier alertEnabler:_mAlertEnabled range:_mRangeAlertEnabled rangeType:_mRangeType alertDistance:_mRangeValue disconnectAlertEnabler:_mDisconnectEnabled];
+        [[MTKBleProximityService getInstance] updatePxpSetting:mDeviceIdentifier alertEnabler:_mAlertEnabled range:0 rangeType:_mRangeType alertDistance:_mRangeValue disconnectAlertEnabler:_mDisconnectEnabled];
         
         [self notifyAttributeChanged:which];
         [self persistData:2];

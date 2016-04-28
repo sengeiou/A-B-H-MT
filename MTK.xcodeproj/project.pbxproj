@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		EE3AF60F1CCE449C00126633 /* EFCircularSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = EE3AF60E1CCE449C00126633 /* EFCircularSlider.m */; };
+		EE4885521CD1B54C006CB97C /* SmaNavMyInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE4885501CD1B54C006CB97C /* SmaNavMyInfoController.m */; };
+		EE4885531CD1B54C006CB97C /* SmaNavMyInfoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE4885511CD1B54C006CB97C /* SmaNavMyInfoController.xib */; };
 		EE55F82D1CCB3DBA00B99223 /* MTKCoreBlueTool.m in Sources */ = {isa = PBXBuildFile; fileRef = EE55F82C1CCB3DBA00B99223 /* MTKCoreBlueTool.m */; };
 		EE55F82F1CCB460900B99223 /* libMTKBleManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE55F82E1CCB460900B99223 /* libMTKBleManager.a */; };
 		EE55F8351CCB5AA100B99223 /* ScannedPeripheral.m in Sources */ = {isa = PBXBuildFile; fileRef = EE55F8341CCB5AA100B99223 /* ScannedPeripheral.m */; };
@@ -106,6 +108,9 @@
 /* Begin PBXFileReference section */
 		EE3AF60D1CCE449C00126633 /* EFCircularSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFCircularSlider.h; sourceTree = "<group>"; };
 		EE3AF60E1CCE449C00126633 /* EFCircularSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFCircularSlider.m; sourceTree = "<group>"; };
+		EE48854F1CD1B54C006CB97C /* SmaNavMyInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmaNavMyInfoController.h; sourceTree = SOURCE_ROOT; };
+		EE4885501CD1B54C006CB97C /* SmaNavMyInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmaNavMyInfoController.m; sourceTree = SOURCE_ROOT; };
+		EE4885511CD1B54C006CB97C /* SmaNavMyInfoController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmaNavMyInfoController.xib; sourceTree = SOURCE_ROOT; };
 		EE55F8141CCB3AED00B99223 /* AlertService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertService.h; sourceTree = "<group>"; };
 		EE55F8151CCB3AED00B99223 /* BLEClientProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEClientProfile.h; sourceTree = "<group>"; };
 		EE55F8161CCB3AED00B99223 /* BloodPressureService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BloodPressureService.h; sourceTree = "<group>"; };
@@ -908,6 +913,9 @@
 		EEC9963D1CC47AB000BD5A45 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				EE48854F1CD1B54C006CB97C /* SmaNavMyInfoController.h */,
+				EE4885501CD1B54C006CB97C /* SmaNavMyInfoController.m */,
+				EE4885511CD1B54C006CB97C /* SmaNavMyInfoController.xib */,
 				EEC996461CC4851C00BD5A45 /* FirstLunViewController.h */,
 				EEC996471CC4851C00BD5A45 /* FirstLunViewController.m */,
 				EEC996621CC4CCF400BD5A45 /* MTKLoginViewController.h */,
@@ -1069,6 +1077,7 @@
 				EEC996091CC46ADA00BD5A45 /* LaunchScreen.storyboard in Resources */,
 				EEC9965D1CC4ABEA00BD5A45 /* Localizable.strings in Resources */,
 				EEC996061CC46ADA00BD5A45 /* Assets.xcassets in Resources */,
+				EE4885531CD1B54C006CB97C /* SmaNavMyInfoController.xib in Resources */,
 				EEC996041CC46ADA00BD5A45 /* Main.storyboard in Resources */,
 				EE87679C1CCC662200B53E45 /* MBProgressHUD.bundle in Resources */,
 				EEF6F5DC1CD0FC480061A47B /* SmaQuietTableCell.xib in Resources */,
@@ -1143,6 +1152,7 @@
 				EE7B4A2A1CCF6A75007C4644 /* FMDatabasePool.m in Sources */,
 				EE808B301CCDA67900A213DE /* MTKSendData.m in Sources */,
 				EE808B2D1CCDA5F800A213DE /* MyController.m in Sources */,
+				EE4885521CD1B54C006CB97C /* SmaNavMyInfoController.m in Sources */,
 				EE8B1D311CCA0C2E00F990FC /* MTKSleepViewController.m in Sources */,
 				EE8634AC1CC71B33005378C9 /* MTKWebService.m in Sources */,
 				EE8B1D251CCA09CB00F990FC /* MTKBadgeButton.m in Sources */,
@@ -1345,6 +1355,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Shenzhen Smart Care Technology Co., Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shenzhen Smart Care Technology Co., Ltd.";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1362,6 +1374,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.smawatch.MTK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "ab062576-3266-47f4-ac44-62f529027fa2";
 			};
 			name = Release;
 		};

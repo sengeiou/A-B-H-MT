@@ -13,6 +13,20 @@
 "login_register" = "Register";
 "login_tryout" = "Try directly";
 
+/*计步目标*/
+"myinfo_navtitle"="Personal info.";
+"myinfo_account"="Account";
+"myinfo_accountpwd"="Password";
+"myinfo_nickname"="Nickname";
+"myinfo_age"="Age";
+"myinfo_weight"="Weight";
+"myinfo_height"="Hight";
+"myinfo_sex"="Gender";
+"myinfo_step" = "Step";
+"myinfo_next" = "Next";
+/*计步目标*/
+
+
 //注册
 "register_choose_cou" = "countryChoose";
 "register_modi_pass" = "Modify password";
@@ -43,7 +57,9 @@
 "sleepdetail_sleeptimelen" = "Sleep time";
 "sleepdetail_hileleeptimelen" = "Deep sleep time";
 "sleepdetail_sobertimelen" = "Light sleep time";
-
+"sleep_deep" = "Deep";
+"sleep_light" = "Light";
+"sleep_awake" = "Awake";
 //心率
 "hearRate_title" = "Heart Rate ";
 "hearRate_monitor" = "Last Time";
@@ -98,6 +114,7 @@
 "setting_myplan"="Personal goal";
 "setting_boundsmawatch"="Pair my watch";
 "setting_unbindbound"="Unpair my watch";
+"setting_lost" = "Anti-lost";
 
 "seatch_title"="Please make sure that the watch battery is enough, and close to the phone";
 "seatch_remind" = "If you can't find K88H WATCH bluetooth signal,please go to iphone Setting-bluetooth-forget the device（K88H).";
@@ -141,3 +158,6 @@
 "alert_syncing" = "Syncing...";
 "alert_syncsucc" = "Completed!";
 "alert_syncerror" = "Synchronization failed!";
+"alert_height"="Please enter your height";
+"alert_weight"="Please enter your weight";
+"alert_nickname"="Please enter your nickname";

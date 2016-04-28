@@ -13,6 +13,9 @@
     int newVal;
     NSTimer *setTimer;
     MTKUserInfo *userinfo;
+    MyController *mController;
+    BOOL syncError;
+    UILabel *statelab;
 }
 @property (nonatomic,strong) UILabel *statelab;
 @property (nonatomic,strong) UILabel *unitlab;
@@ -24,9 +27,7 @@
     [super viewDidLoad];
     [self initializeMethod];
     [self createUI];
-    MyController *mController = [MyController getMyControllerInstance];
-    [mController setDelegate: self];
-    [mController sendDataWithCmd:@"PS,GET" mode:GETUSERINFO];
+  
 //    [mController sendDataWithCmd:@"GET,0" mode:GETUSERINFO];
     // Do any additional setup after loading the view.
 }
@@ -39,10 +40,9 @@
 -(void)addClick
 {
     if ([MTKBleMgr checkBleStatus]) {
+         syncError = NO;
        [MBProgressHUD showMessage:MtkLocalizedString(@"alert_seting")];
-        MyController *mController = [MyController getMyControllerInstance];
-         [mController setDelegate: self];
-        NSString *setUser = [NSString stringWithFormat:@"PS,SET,%d|%@|%@",newVal*500+4000,userinfo.userHeight,userinfo.userWeigh];
+              NSString *setUser = [NSString stringWithFormat:@"PS,SET,%d|%@|%@",newVal*500+4000,userinfo.userHeight,userinfo.userWeigh];
         [mController sendDataWithCmd:setUser mode:SETUSERINFO];
         if (setTimer) {
             [setTimer invalidate];
@@ -53,6 +53,7 @@
 }
 
 - (void)timeout{
+    syncError = YES;
     [MBProgressHUD hideHUD];
     [MBProgressHUD showError:MtkLocalizedString(@"alert_failed")];
     if (setTimer) {
@@ -63,24 +64,36 @@
 
 #pragma mark *****初始化
 - (void)initializeMethod{
-    userinfo = [MTKArchiveTool getUserInfo];
+    mController = [MyController getMyControllerInstance];
+    [mController setDelegate: self];
 }
 
 #pragma mark *****创建UI
 - (void)createUI{
+    if (MainScreen.size.height > 568) {
+        _backH.constant = 25.0f;
+    }
+    else{
+        _backH.constant = 20.0f;
+    }
+
+    userinfo = [MTKArchiveTool getUserInfo];
     self.setLab.text = MtkLocalizedString(@"setplan_remark");
     self.title = MtkLocalizedString(@"setplan_navtitle");
     self.disLab.text = MtkLocalizedString(@"sport_distance");
     self.stepLab.text = MtkLocalizedString(@"sport_steps");
     self.kcaLab.text = MtkLocalizedString(@"sport_calor");
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithIcon:@"alarm_submit_bg" highIcon:@"alarm_submit_bg" target:self action:@selector(addClick)];
-     newVal = [MTKDefaultinfos getIntValueforKey:SPORTGOAL];
+    newVal = [MTKArchiveTool getUserInfo].userGoal.intValue;
     UIImage *bodyImg=[UIImage imageLocalWithName:@"plan_slidebar_bg"];
     CGFloat imgViewh=bodyImg.size.height;
     CGFloat frameW=bodyImg.size.width;
     CGFloat marginY=53;
     CGRect minuteSliderFrame = CGRectMake((self.view.frame.size.width-bodyImg.size.width-14)/2,marginY-7,frameW+14, imgViewh+14);
-    
+    if (_minuteSlider) {
+        [_minuteSlider removeFromSuperview];
+        _minuteSlider = nil;
+    }
     _minuteSlider = [[EFCircularSlider alloc] initWithFrame:minuteSliderFrame];
     _minuteSlider.center = CGPointMake([[UIScreen mainScreen] bounds].size.width/2, _minuteSlider.center.y-32);
     _minuteSlider.unfilledColor =[UIColor clearColor];//SmaColor(220, 220, 220);//
@@ -96,7 +109,11 @@
     [self.view  addSubview:self.minuteSlider];
     [self.minuteSlider addTarget:self action:@selector(minuteDidChange:) forControlEvents:UIControlEventValueChanged];
     self.minuteSlider.currentValue=newVal/32.0*100;
-    UILabel *statelab=[[UILabel alloc]init];
+    if (statelab) {
+        [statelab removeFromSuperview];
+        statelab = nil;
+    }
+    statelab=[[UILabel alloc]init];
     statelab.font=[UIFont systemFontOfSize:38];
     statelab.textColor=[UIColor colorWithRed:0/255.0f green:160/255.0f blue:225/255.0f alpha:1.0f];
     statelab.text=@"0";
@@ -145,7 +162,7 @@
 - (void)setPlanView:(int)intAmount{
     
     self.setStepLab.text = [NSString stringWithFormat:@"%d %@",intAmount*500+4000,MtkLocalizedString(@"sport_stepunit")];
-    self.setDisLab.text = [NSString stringWithFormat:@"%@ %@",[self notRounding:[self countDistWithStep:intAmount*500+4000 Height:userinfo.userHeight] afterPoint:1],MtkLocalizedString(@"sport_distanceunit")];
+    self.setDisLab.text = [NSString stringWithFormat:@"%@ %@",[self notRounding:[self countDistWithStep:intAmount*500+4000 Height:userinfo.userHeight] afterPoint:1],MtkLocalizedString(@"sport_distancekmunit")];
     self.setCalLab.text = [NSString stringWithFormat:@"%@ %@",[self notRounding:[self countCalWithSex:@"1" userWeight:userinfo.userWeigh step:intAmount*500+4000] afterPoint:1],MtkLocalizedString(@"sport_hotunit")];
 }
 
@@ -193,8 +210,10 @@
 - (void)onDataReceive:(NSString *)recvData mode:(MTKBLEMEDO)mode{
     if (mode == SETUSERINFO && setTimer) {
         NSLog(@"********************************************设置完成********");
+        if (!syncError) {
         [MBProgressHUD hideHUD];
         [MBProgressHUD showSuccess:MtkLocalizedString(@"alert_setSuccess")];
+        }
         userinfo.userGoal = [NSString stringWithFormat:@"%d",newVal];
         [MTKDefaultinfos putInt:SPORTGOAL andValue:newVal];
         [MTKArchiveTool saveUser:userinfo];
@@ -203,6 +222,10 @@
             setTimer = nil;
         }
     }
+    else if (mode == GETUSERINFO || mode == SETUSERINFO){
+        [self createUI];
+    }
+
 }
 /*
 #pragma mark - Navigation

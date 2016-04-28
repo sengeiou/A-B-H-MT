@@ -26,7 +26,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
+//    [self initializeMethod];
+//    [self createUI];
     // Do any additional setup after loading the view.
 }
 
@@ -66,12 +67,22 @@
 
 #pragma matk *****创建UI
 - (void)createUI{
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithRed:43/255.0 green:57/255.0 blue:121/255.0 alpha:1] size:MainScreen.size] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithRed:32/255.0 green:40/255.0 blue:102/255.0 alpha:1] size:MainScreen.size] forBarMetrics:UIBarMetricsDefault];
+    if (MainScreen.size.height > 568) {
+        _backH.constant = 350.0f;
+    }
+    else{
+        _backH.constant = 300.0f;
+    }
+    
     self.dateLab.text=[self dateWithYMD];
     self.hourUnLab.text = MtkLocalizedString(@"sleep_hour");
     self.minUnLab.text = MtkLocalizedString(@"sport_minute");
     self.lastSlLab.text = MtkLocalizedString(@"sleep_remark");
     self.situationLab.text = MtkLocalizedString(@"sleep_status");
+    self.deepLab.text = MtkLocalizedString(@"sleep_deep");
+    self.lightLab.text = MtkLocalizedString(@"sleep_light");
+    self.soberLab.text = MtkLocalizedString(@"sleep_awake");
     [self refreshData];
 }
 
@@ -242,7 +253,16 @@ static int  deffInt=30;
     
     
     self.hourLab.text = [NSString stringWithFormat:@"%d",sleepHour];
+    if (sleepMin<10) {
+        
+        self.minLab.text = [NSString stringWithFormat:@"0%d",sleepMin];
+        
+    }
+    else{
+        
     self.minLab.text = [NSString stringWithFormat:@"%d",sleepMin];
+        
+    }
     if (_hourLab.text.intValue < 10) {
         self.hourLead.constant = -5;
     }

@@ -98,7 +98,7 @@ static MTKCoreBlueTool *instance;
     }
     else if (!device.mDeviceIdentifier || [device.mDeviceIdentifier isEqualToString:@""]) {
         [MBProgressHUD showError:MtkLocalizedString(@"alert_nobang")];
-         BOOL b = [[BackgroundManager sharedInstance] connectDevice:[[CachedBLEDevice defaultInstance] getDevicePeripheral]];
+//         BOOL b = [[BackgroundManager sharedInstance] connectDevice:[[CachedBLEDevice defaultInstance] getDevicePeripheral]];
          return NO;
     }
     else if (device.mConnectionState != CONNECTION_STATE_CONNECTED){
@@ -106,7 +106,10 @@ static MTKCoreBlueTool *instance;
          BOOL b = [[BackgroundManager sharedInstance] connectDevice:[[CachedBLEDevice defaultInstance] getDevicePeripheral]];
         return NO;
     }
+//    else if (device.mConnectionState == CONNECTION_STATE_CONNECTED){
     return YES;
+//    }
+//    return NO;
 }
 
 #pragma mrk *******BleDiscoveryDelegate

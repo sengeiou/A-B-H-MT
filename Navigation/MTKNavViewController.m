@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"login_navigationBar_bg"] forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithRed:55/255.0 green:139/255.0 blue:254/255.0 alpha:1] size:MainScreen.size] forBarMetrics:UIBarMetricsDefault];
     [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
     self.delegate = self;
 //   [[UINavigationBar appearance] setBarTintColor:[UIColor redColor]];

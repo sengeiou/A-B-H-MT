@@ -9,7 +9,7 @@
 #import "MTKTabBarViewController.h"
 #import "MtkAppDelegate.h"
 #import "MTKTabBar.h"
-@interface MTKTabBarViewController ()<MTKTabBarDelegate,StateChangeDelegate>
+@interface MTKTabBarViewController ()<MTKTabBarDelegate,StateChangeDelegate,myProtocol>
 {
     MtkAppDelegate *appDele;
     NSMutableArray* array;
@@ -61,7 +61,7 @@
         }
     }
 //    [sel]
-     self.selectedIndex = 0;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -71,17 +71,17 @@
 
 #pragma mark *****初始化数据
 - (void)initializeMethod{
-    MTKUserInfo *user = [MTKArchiveTool getUserInfo];
-    if (!user) {
-        user = [[MTKUserInfo alloc] init];
-        user.userName = @"welcome";
-        user.userID = @"1";
-        user.userPass = @"123456";
-        user.userWeigh = @"30";
-        user.userHeight = @"50";
-        user.userGoal = @"4000";
-    }
-    [MTKArchiveTool saveUser:user];
+//    MTKUserInfo *user = [MTKArchiveTool getUserInfo];
+//    if (!user) {
+//        user = [[MTKUserInfo alloc] init];
+//        user.userName = @"welcome";
+//        user.userID = @"1";
+//        user.userPass = @"123456";
+//        user.userWeigh = @"30";
+//        user.userHeight = @"50";
+//        user.userGoal = @"4000";
+//    }
+//    [MTKArchiveTool saveUser:user];
     
     array = [MTKDeviceParameterRecorder getDeviceParameters];
     if (array.count != 0)
@@ -151,7 +151,7 @@
     [self setupChildViewController:me title:MtkLocalizedString(@"setting_navtitle")  imageName:@"tabbar_person_button" selectedImageName:@"tabbar_person_button_highlighted"];
     self.settingVC=me;
     
-  
+  self.selectedIndex = 0;
 }
 
 -(void)addOtherButton
@@ -211,6 +211,12 @@
 - (void)tabBar:(MTKTabBar *)tabBar didSelectedButtonFrom:(int)from to:(int)to
 {
     self.selectedIndex = to;
+    CachedBLEDevice* device = [CachedBLEDevice defaultInstance];
+    if (array.count > 0 && device.mConnectionState != CONNECTION_STATE_CONNECTED && [BackgroundManager sharedInstance].centralManagerState == CBCentralManagerStatePoweredOn) {
+    [[BackgroundManager sharedInstance] connectDevice:[[CachedBLEDevice defaultInstance] getDevicePeripheral]];//当绑定的设备并未连接即主动连接设备
+    }
+    MyController *mController = [MyController getMyControllerInstance];
+    [mController sendDataWithCmd:GETDEUSER mode:GETUSERINFO];
 //    if (self.isOpen.boolValue==1) {
 //        [self dismissSubMenu];
 //    }

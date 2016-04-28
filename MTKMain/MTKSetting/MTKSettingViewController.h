@@ -13,4 +13,5 @@
 @property (nonatomic, weak) IBOutlet UIImageView *headView, *BLIndexView;
 @property (nonatomic, weak) IBOutlet UILabel *nameLab;
 @property (nonatomic, weak) IBOutlet UITableView *setTab;
+@property (nonatomic, weak) IBOutlet UIButton *imageBut;
 @end

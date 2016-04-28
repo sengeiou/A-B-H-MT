@@ -8,6 +8,7 @@
 
 #import "MtkAppDelegate.h"
 #import "ViewController.h"
+#import "SmaNavMyInfoController.h"
 @interface MtkAppDelegate ()
 
 @end
@@ -23,16 +24,19 @@
     [ACloudLib setMode:TEST_MODE Region:REGIONAL_CHINA];//指定地区及开发环境（测试或正式）
     [ACloudLib setMajorDomain:@"lijunhu" majorDomainId:282];//指定主域
     [[UINavigationBar appearance] setBarStyle:UIBarStyleBlackTranslucent];
+//    [MTKDefaultinfos removeValueForKey:FIRSTLUN];
       NSString *firLun = [MTKDefaultinfos getValueforKey:FIRSTLUN];
-//    if (!firLun || [firLun isEqualToString:@""]) {
-//        FirstLunViewController *first = [MainStoryBoard instantiateViewControllerWithIdentifier:@"FirstLunViewController"];
-////        ViewController *first = [[ViewController alloc] init];
-//        MTKNavViewController *nav = [[MTKNavViewController alloc] initWithRootViewController:first];
-//        self.window.rootViewController = nav;
-//    }
+    if (!firLun || [firLun isEqualToString:@""]) {
+        SmaNavMyInfoController *first = [[SmaNavMyInfoController alloc] initWithNibName:@"SmaNavMyInfoController" bundle:nil];
+//        ViewController *first = [[ViewController alloc] init];
+        MTKNavViewController *nav = [[MTKNavViewController alloc] initWithRootViewController:first];
+        self.window.rootViewController = nav;
+    }
 //    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    else{
     MTKTabBarViewController *tabVC = [[MTKTabBarViewController alloc] init];
     self.window.rootViewController = tabVC;
+}
     [UIApplication sharedApplication].statusBarHidden=NO;
     return YES;
 }
