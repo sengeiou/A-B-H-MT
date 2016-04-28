@@ -12,6 +12,8 @@
 {
     MTKUserInfo *userInfo;
     NSTimer *setTimer;
+    MyController *mController;
+    BOOL syncError;
 }
 @end
 
@@ -172,20 +174,22 @@ int  deffInt=30;
 
 - (void)syncSport{
     if ([MTKBleMgr checkBleStatus]) {
+        syncError = NO;
         [MBProgressHUD showMessage:MtkLocalizedString(@"alert_syncing")];
-        MyController *mController = [MyController getMyControllerInstance];
+         mController = [MyController getMyControllerInstance];
         [mController setDelegate: self];
         NSString *setUser = GETDESPORT;
-        [mController sendDataWithCmd:setUser mode:GETSDETSPORT];
+        [mController sendDataWithCmd:setUser mode:GETSDETHEART];
         if (setTimer) {
             [setTimer invalidate];
             setTimer = nil;
         }
-        setTimer = [NSTimer scheduledTimerWithTimeInterval:15 target:self selector:@selector(timeout) userInfo:nil repeats:NO];
+        setTimer = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(timeout) userInfo:nil repeats:NO];
     }
 }
 
 - (void)timeout{
+    syncError = YES;
     [MBProgressHUD hideHUD];
     [MBProgressHUD showError:MtkLocalizedString(@"alert_syncerror")];
     if (setTimer) {
@@ -222,10 +226,32 @@ int  deffInt=30;
 #pragma mark *****myProtocol代理
 - (void)onDataReceive:(NSString *)recvData mode:(MTKBLEMEDO)mode{
     if (mode == GETSDETSPORT) {
-        [self refreshData];
-        [MBProgressHUD hideHUD];
-        [MBProgressHUD showSuccess:MtkLocalizedString(@"alert_syncsucc")];
+        mController = [MyController getMyControllerInstance];
+        NSString *setUser = GETDESELEEP;
+        [mController sendDataWithCmd:setUser mode:GETSDETSPORT];
         if (setTimer) {
+            [setTimer invalidate];
+            setTimer = nil;
+        }
+        setTimer = [NSTimer scheduledTimerWithTimeInterval:15 target:self selector:@selector(timeout) userInfo:nil repeats:NO];
+    }
+    else if (mode == GETSDETSLEEP){
+        mController = [MyController getMyControllerInstance];
+        NSString *setUser = GETDEDATA;
+        [mController sendDataWithCmd:setUser mode:GETSDETSPORT];
+        if (setTimer) {
+            [setTimer invalidate];
+            setTimer = nil;
+        }
+        setTimer = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(timeout) userInfo:nil repeats:NO];
+    }
+    else if (mode == GETSDETDATA){
+        [self refreshData];
+        if (!syncError) {
+            [MBProgressHUD hideHUD];
+            [MBProgressHUD showSuccess:MtkLocalizedString(@"alert_syncsucc")];
+        }
+           if (setTimer) {
             [setTimer invalidate];
             setTimer = nil;
         }

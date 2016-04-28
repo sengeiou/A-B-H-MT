@@ -17,6 +17,7 @@
 @property (nonatomic, strong) MTKSportViewController *sportVC;
 @property (nonatomic, strong) MTKSleepViewController *sleepVC;
 @property (nonatomic, strong) MTKNoticViewController *noticVC;
+@property (nonatomic, strong) MTKHeartViewController *heartVC;
 @property (nonatomic, strong) MTKSettingViewController *settingVC;
 //5.自定义Tabbar
 @property (nonatomic, weak) MTKTabBar *customTabBar;
@@ -59,6 +60,8 @@
             [child removeFromSuperview];
         }
     }
+//    [sel]
+     self.selectedIndex = 0;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -108,8 +111,8 @@
     appDele.tabVC = self;
     [self setupTabbar];
     [self setupAllChildViewControllers];
-      self.selectedIndex = 0;
     [self addOtherButton];
+   
 }
 
 /**
@@ -139,9 +142,9 @@
     [self setupChildViewController:sleep title:MtkLocalizedString(@"sleep_navtilte") imageName:@"tabbar_sleep_button" selectedImageName:@"tabbar_sleep_button_highlighted.png"];
     self.sleepVC=sleep;
     
-    MTKNoticViewController *ramind= [MainStoryBoard instantiateViewControllerWithIdentifier:@"MTKNoticViewController"];
-    [self setupChildViewController:ramind title:MtkLocalizedString(@"remind_navtilte") imageName:@"tabbar_remind_button" selectedImageName:@"tabbar_remind_button_highlighted"];
-    self.noticVC=ramind;
+    MTKHeartViewController *heartVC= [MainStoryBoard instantiateViewControllerWithIdentifier:@"MTKHeartViewController"];
+    [self setupChildViewController:heartVC title:MtkLocalizedString(@"hearRate_title") imageName:@"hearNor" selectedImageName:@"hearSel"];
+    self.heartVC=heartVC;
     
     
     MTKSettingViewController *me= [MainStoryBoard instantiateViewControllerWithIdentifier:@"MTKSettingViewController"];

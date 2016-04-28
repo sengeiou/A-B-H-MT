@@ -9,8 +9,12 @@
 #import "Controller.h"
 #import "ControllerManager.h"
 #import "MTKSqliteData.h"
-#define GETSYSTEM @"GET,0" //获取系统资料（可做是否连接正常和心跳检测作用）
-#define GETDESPORT @"GET,2" //获取运动详细数据（以半小时为节点）
+#define GETSYSTEM @"GET,0"   //获取系统资料（可做是否连接正常和心跳检测作用）
+#define GETDEDATA @"GET,1"  //获取所有数据
+#define GETDESPORT @"GET,2"  //获取运动详细数据
+#define GETDESELEEP @"GET,3" //获取睡眠详细数据
+#define GETDESHEART @"GET,4" //获取睡眠详细数据
+
 //#define SETUSER   @"PS,SET,DATAS" //设置个人信息
 //typedef enum {
 //    AWAIT_RECEVER1=0,//等待接收
@@ -21,9 +25,16 @@
 typedef enum {
     GETMTKINFO = 0, //等待接收
     GETUSERINFO,    //获取个人信息
+    GETSDETDATA,   //获取详细运动数据
     GETSDETSPORT,   //获取详细运动数据
+    GETSDETSLEEP,   //获取详细睡眠数据
+    GETSDETHEART,   //获取详细睡眠数据
     SETUSERINFO,    //设置用户信息
+    RETDATA,        //所有数据响应
     RETSPORT,       //运动数据响应
+    RETSLEEP,       //睡眠数据响应
+    RETHEART,       //心率数据响应
+
 }MTKBLEMEDO;
 
 

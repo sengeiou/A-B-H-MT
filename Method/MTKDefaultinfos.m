@@ -22,9 +22,9 @@
 }
 
 
-+(NSString *)getValueforKey:(NSString *)key{
++(id)getValueforKey:(NSString *)key{
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *result = [defaults objectForKey:key];
+    id result = [defaults objectForKey:key];
     if(!result){
         result = nil;
     }

@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #define FIRSTLUN @"FIRSTLUN"//首次打开软件
-#define SPORTGOAL @"SPORTGOAL"
+#define SPORTGOAL @"SPORTGOAL" //运动目标
+#define QUIETHEART @"QUIETHEART" //静息心率
 @interface MTKDefaultinfos : NSObject
 +(void)putKey:(NSString *)key andValue:(NSObject *)value;
 +(void)putInt:(NSString *)key andValue:(int)value;
-+(NSString *)getValueforKey:(NSString *)key;
++(id)getValueforKey:(NSString *)key;
 +(int)getIntValueforKey:(NSString *)key;
 + (void)removeValueForKey:(NSString *)key;
 @end

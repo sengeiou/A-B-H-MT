@@ -62,6 +62,7 @@
 		EE8B1D371CCA0C4800F990FC /* MTKSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8B1D361CCA0C4800F990FC /* MTKSettingViewController.m */; };
 		EE8B1D3A1CCA26E700F990FC /* MTKPairViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8B1D391CCA26E700F990FC /* MTKPairViewController.m */; };
 		EE8B1D3E1CCA28F900F990FC /* MTKSetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8B1D3D1CCA28F900F990FC /* MTKSetTableViewCell.m */; };
+		EEC208A11CD0BDCD006680AD /* MTKHeartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC208A01CD0BDCD006680AD /* MTKHeartViewController.m */; };
 		EEC995FB1CC46ADA00BD5A45 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC995FA1CC46ADA00BD5A45 /* main.m */; };
 		EEC995FE1CC46ADA00BD5A45 /* MtkAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC995FD1CC46ADA00BD5A45 /* MtkAppDelegate.m */; };
 		EEC996011CC46ADA00BD5A45 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC996001CC46ADA00BD5A45 /* ViewController.m */; };
@@ -78,6 +79,11 @@
 		EEC996521CC4918100BD5A45 /* MTKLocalized.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC996511CC4918100BD5A45 /* MTKLocalized.m */; };
 		EEC9965D1CC4ABEA00BD5A45 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EEC9965F1CC4ABEA00BD5A45 /* Localizable.strings */; };
 		EEC996641CC4CCF400BD5A45 /* MTKLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC996631CC4CCF400BD5A45 /* MTKLoginViewController.m */; };
+		EEF6F5D51CD0FC170061A47B /* SmaQuietViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEF6F5D31CD0FC170061A47B /* SmaQuietViewController.m */; };
+		EEF6F5D61CD0FC170061A47B /* SmaQuietViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEF6F5D41CD0FC170061A47B /* SmaQuietViewController.xib */; };
+		EEF6F5DB1CD0FC480061A47B /* SmaQuietTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EEF6F5D91CD0FC480061A47B /* SmaQuietTableCell.m */; };
+		EEF6F5DC1CD0FC480061A47B /* SmaQuietTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEF6F5DA1CD0FC480061A47B /* SmaQuietTableCell.xib */; };
+		EEF6F5DF1CD0FCC60061A47B /* SmaQuietView.m in Sources */ = {isa = PBXBuildFile; fileRef = EEF6F5DE1CD0FCC60061A47B /* SmaQuietView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -272,6 +278,8 @@
 		EE8B1D391CCA26E700F990FC /* MTKPairViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTKPairViewController.m; sourceTree = "<group>"; };
 		EE8B1D3C1CCA28F900F990FC /* MTKSetTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKSetTableViewCell.h; sourceTree = "<group>"; };
 		EE8B1D3D1CCA28F900F990FC /* MTKSetTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTKSetTableViewCell.m; sourceTree = "<group>"; };
+		EEC2089F1CD0BDCD006680AD /* MTKHeartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKHeartViewController.h; sourceTree = "<group>"; };
+		EEC208A01CD0BDCD006680AD /* MTKHeartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTKHeartViewController.m; sourceTree = "<group>"; };
 		EEC995F61CC46ADA00BD5A45 /* MTK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MTK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEC995FA1CC46ADA00BD5A45 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EEC995FC1CC46ADA00BD5A45 /* MtkAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MtkAppDelegate.h; sourceTree = "<group>"; };
@@ -306,6 +314,14 @@
 		EEC996611CC4AC4000BD5A45 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		EEC996621CC4CCF400BD5A45 /* MTKLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MTKLoginViewController.h; path = Login/MTKLoginViewController.h; sourceTree = SOURCE_ROOT; };
 		EEC996631CC4CCF400BD5A45 /* MTKLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MTKLoginViewController.m; path = Login/MTKLoginViewController.m; sourceTree = SOURCE_ROOT; };
+		EEF6F5D21CD0FC170061A47B /* SmaQuietViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmaQuietViewController.h; sourceTree = "<group>"; };
+		EEF6F5D31CD0FC170061A47B /* SmaQuietViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmaQuietViewController.m; sourceTree = "<group>"; };
+		EEF6F5D41CD0FC170061A47B /* SmaQuietViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmaQuietViewController.xib; sourceTree = "<group>"; };
+		EEF6F5D81CD0FC480061A47B /* SmaQuietTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmaQuietTableCell.h; sourceTree = "<group>"; };
+		EEF6F5D91CD0FC480061A47B /* SmaQuietTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmaQuietTableCell.m; sourceTree = "<group>"; };
+		EEF6F5DA1CD0FC480061A47B /* SmaQuietTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmaQuietTableCell.xib; sourceTree = "<group>"; };
+		EEF6F5DD1CD0FCC60061A47B /* SmaQuietView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmaQuietView.h; sourceTree = "<group>"; };
+		EEF6F5DE1CD0FCC60061A47B /* SmaQuietView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmaQuietView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -716,10 +732,12 @@
 		EE8B1D271CCA0BF500F990FC /* MTKMain */ = {
 			isa = PBXGroup;
 			children = (
+				EEC208981CD0BD5E006680AD /* MTKHeartRate */,
 				EE8B1D2B1CCA0BF500F990FC /* MTKSport */,
 				EE8B1D2A1CCA0BF500F990FC /* MTKSleep */,
 				EE8B1D281CCA0BF500F990FC /* MTKNotic */,
 				EE8B1D291CCA0BF500F990FC /* MTKSetting */,
+				EEF6F5D71CD0FC1F0061A47B /* View */,
 			);
 			path = MTKMain;
 			sourceTree = "<group>";
@@ -769,6 +787,18 @@
 				EE8B1D3D1CCA28F900F990FC /* MTKSetTableViewCell.m */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		EEC208981CD0BD5E006680AD /* MTKHeartRate */ = {
+			isa = PBXGroup;
+			children = (
+				EEC2089F1CD0BDCD006680AD /* MTKHeartViewController.h */,
+				EEC208A01CD0BDCD006680AD /* MTKHeartViewController.m */,
+				EEF6F5D21CD0FC170061A47B /* SmaQuietViewController.h */,
+				EEF6F5D31CD0FC170061A47B /* SmaQuietViewController.m */,
+				EEF6F5D41CD0FC170061A47B /* SmaQuietViewController.xib */,
+			);
+			path = MTKHeartRate;
 			sourceTree = "<group>";
 		};
 		EEC995ED1CC46ADA00BD5A45 = {
@@ -917,6 +947,19 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
+		EEF6F5D71CD0FC1F0061A47B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EEF6F5D81CD0FC480061A47B /* SmaQuietTableCell.h */,
+				EEF6F5D91CD0FC480061A47B /* SmaQuietTableCell.m */,
+				EEF6F5DA1CD0FC480061A47B /* SmaQuietTableCell.xib */,
+				EEF6F5DD1CD0FCC60061A47B /* SmaQuietView.h */,
+				EEF6F5DE1CD0FCC60061A47B /* SmaQuietView.m */,
+			);
+			name = View;
+			path = ../MTK;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1022,11 +1065,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE8634AF1CC72839005378C9 /* country.plist in Resources */,
+				EEF6F5D61CD0FC170061A47B /* SmaQuietViewController.xib in Resources */,
 				EEC996091CC46ADA00BD5A45 /* LaunchScreen.storyboard in Resources */,
 				EEC9965D1CC4ABEA00BD5A45 /* Localizable.strings in Resources */,
 				EEC996061CC46ADA00BD5A45 /* Assets.xcassets in Resources */,
 				EEC996041CC46ADA00BD5A45 /* Main.storyboard in Resources */,
 				EE87679C1CCC662200B53E45 /* MBProgressHUD.bundle in Resources */,
+				EEF6F5DC1CD0FC480061A47B /* SmaQuietTableCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1065,6 +1110,7 @@
 				EE8B1D221CCA097100F990FC /* MTKTabBarButton.m in Sources */,
 				EEC9964F1CC4880900BD5A45 /* MTKNavViewController.m in Sources */,
 				EE808B331CCDAD4200A213DE /* MTKUserViewController.m in Sources */,
+				EEC208A11CD0BDCD006680AD /* MTKHeartViewController.m in Sources */,
 				EE8768321CCC925100B53E45 /* BackgroundManager.m in Sources */,
 				EE8768231CCC91E500B53E45 /* BLEManagerModel.xcdatamodeld in Sources */,
 				EE87679B1CCC662200B53E45 /* MBProgressHUD+MJ.m in Sources */,
@@ -1075,6 +1121,7 @@
 				EE8634E41CC73178005378C9 /* UIImage+CKQ.m in Sources */,
 				EEC996521CC4918100BD5A45 /* MTKLocalized.m in Sources */,
 				EE8634E71CC73590005378C9 /* MTKRegisViewController.m in Sources */,
+				EEF6F5DF1CD0FCC60061A47B /* SmaQuietView.m in Sources */,
 				EEC996441CC47EAC00BD5A45 /* MTKDefaultinfos.m in Sources */,
 				EE7B4A2C1CCF6A75007C4644 /* FMResultSet.m in Sources */,
 				EE55F82D1CCB3DBA00B99223 /* MTKCoreBlueTool.m in Sources */,
@@ -1086,6 +1133,7 @@
 				EEC995FB1CC46ADA00BD5A45 /* main.m in Sources */,
 				EE8634D71CC728FD005378C9 /* SMS_HYZBadgeView.m in Sources */,
 				EE8768261CCC91E500B53E45 /* DeviceParameter.m in Sources */,
+				EEF6F5D51CD0FC170061A47B /* SmaQuietViewController.m in Sources */,
 				EE8B1D1B1CCA084A00F990FC /* MTKTabBarViewController.m in Sources */,
 				EE8768251CCC91E500B53E45 /* DeviceInfo.m in Sources */,
 				EE8B1D341CCA0C3900F990FC /* MTKNoticViewController.m in Sources */,
@@ -1102,6 +1150,7 @@
 				EE8768241CCC91E500B53E45 /* CachedBLEDevice.m in Sources */,
 				EE7B4A291CCF6A75007C4644 /* FMDatabaseAdditions.m in Sources */,
 				EE7B4A171CCF4AC5007C4644 /* TPPropertyAnimation.m in Sources */,
+				EEF6F5DB1CD0FC480061A47B /* SmaQuietTableCell.m in Sources */,
 				EE55F83F1CCB7E2F00B99223 /* MTKUserInfo.m in Sources */,
 				EE8768271CCC91E500B53E45 /* MTKDeviceParameterRecorder.m in Sources */,
 				EE7B4A1B1CCF6A02007C4644 /* MTKSqliteData.m in Sources */,

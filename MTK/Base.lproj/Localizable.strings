@@ -21,11 +21,13 @@
 "sport_navtilte"="Sport";
 "sport_plaremark" = "Goal";
 "sport_stepunit" = "Step";
-"sport_distanceunit" = "Km.";
+"sport_distanceunit" = "m";
 "sport_hotunit" = "Cal.";
-
 "setplan_navtitle"="Sport goal";
 "setplan_remark"="Setting sport goal";
+"sleep_state_average"="Average";
+"sleep_state_comfortable"="Good";
+"sleep_state_enough"="Excellent";
 
 //睡眠
 "sleep_navtilte"="Sleep";
@@ -38,6 +40,55 @@
 "sleep_remark" = "Slept last night";
 "sleep_dayunit"="";
 "sleep_monthunit"="";
+"sleepdetail_sleeptimelen" = "Sleep time";
+"sleepdetail_hileleeptimelen" = "Deep sleep time";
+"sleepdetail_sobertimelen" = "Light sleep time";
+
+//心率
+"hearRate_title" = "Heart Rate ";
+"hearRate_monitor" = "Last Time";
+"hearRate_type1" = "Normal";
+"hearRate_type2" = "Light";
+"hearRate_type3" = "Hard";
+"hearRate_RestHR" = "Resting";
+"hearRate_MeanHR" = "Avg.";
+"hearRate_MaxHR" = "Max";
+"hearRate_HRmonitor" = "Heart Rate ";
+"hearRate_duration" = "Duration";
+"hearRate_distance" = "Distance";
+"hearRate_pacer" = "Pace";
+"hearRate_kcal" = "Calories";
+"hearRate_actue" = "Strenuous exercise";
+"hearRate_anaero" = "Anaerobic exercise";
+"hearRate_aerobic" = "Aerobic exercise";
+"hearRate_bum" = "Fat burning";
+"hearRate_varm" = "Warm up";
+"hearRate_Quiet_remind" = "Please test the static heart rate in fasting status as the static heart rate value, it will be the important reference of your healthy.";
+"hearRate_quiet_last" = "Recent monitor date";
+"hearReat_quietTitle" = "Resting";
+"hearReat_notHR" = "Static heart rate can't be empty";
+"hearReat_detail" = "Hear rate details";
+"hearReat_time" = "Time";
+"hearReat_realTime" = "Real time heart rate";
+"hearReat_detail" = "Details";
+"hearReat_High" = "High";
+"hearReat_normal" = "Normal";
+"hearReat_slow" = "Slow";
+"hearReat_LastDates1" = "Last 7 days";
+"hearReat_LastDates2" = "Last 14 days";
+"hearReat_LastDates3" = "Last 21 days";
+"hearReat_LastDates4" = "Last 30 days";
+"hearReat_dele" = "Delete";
+"hearReat_interval"=" Detection Interva";
+"hearReat_set" = "Hear Rate Settings";
+"hearReat_lnag" = "English Settings";
+"hearReat_light" = "Gesture wake-up";
+"hearReat_vertical" = "Vertical screen";
+"hearReat_15min" = "15 minutes";
+"hearReat_30min" = "30 minutes";
+"hearReat_60min" = "60 minutes";
+"hearReat_setNot" = "Start time must smaller than the end time";
+
 //提醒
 "remind_navtilte"="Notice";
 

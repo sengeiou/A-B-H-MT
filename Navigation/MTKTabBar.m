@@ -80,15 +80,15 @@
  */
 - (void)buttonClick:(MTKTabBarButton *)button
 {
-    // 1.通知代理
-    if ([self.delegate respondsToSelector:@selector(tabBar:didSelectedButtonFrom:to:)]) {
-        [self.delegate tabBar:self didSelectedButtonFrom:(int)self.selectedButton.tag to:(int)button.tag];
-    }
     // 2.设置按钮的状态
     self.selectedButton.selected = NO;
     button.selected = YES;
     
     self.selectedButton = button;
+    // 1.通知代理
+    if ([self.delegate respondsToSelector:@selector(tabBar:didSelectedButtonFrom:to:)]) {
+        [self.delegate tabBar:self didSelectedButtonFrom:(int)self.selectedButton.tag to:(int)button.tag];
+    }
 }
 
 - (void)layoutSubviews

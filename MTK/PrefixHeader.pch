@@ -42,6 +42,8 @@
 #import "MTKUserViewController.h"
 #import "MTKUserTableViewController.h"
 #import "MTKSportPlanViewController.h"
+#import "MTKHeartViewController.h"
+#import "SmaQuietViewController.h"
 /**** category
  */
 #import "UIImage+CKQ.h"
