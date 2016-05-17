@@ -26,6 +26,7 @@
     [[UINavigationBar appearance] setBarStyle:UIBarStyleBlackTranslucent];
 //    [MTKDefaultinfos removeValueForKey:FIRSTLUN];
       NSString *firLun = [MTKDefaultinfos getValueforKey:FIRSTLUN];
+    NSLog(@"firstlun***8%@",firLun);
     if (!firLun || [firLun isEqualToString:@""]) {
         SmaNavMyInfoController *first = [[SmaNavMyInfoController alloc] initWithNibName:@"SmaNavMyInfoController" bundle:nil];
 //        ViewController *first = [[ViewController alloc] init];

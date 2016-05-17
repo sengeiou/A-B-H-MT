@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MTKTabBarViewController : UITabBarController
+@interface MTKTabBarViewController : UITabBarController<UINavigationControllerDelegate>
 
 @end

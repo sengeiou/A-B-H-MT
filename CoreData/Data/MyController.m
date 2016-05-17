@@ -240,7 +240,7 @@ static  MyController *instance;
          user.userWeigh = infoArr[2];
          [MTKArchiveTool saveUser:user];
          if (delegate && [delegate respondsToSelector:@selector(onDataReceive:mode:)]) {
-             [delegate onDataReceive:dataStr mode:SETUSERINFO];
+             [delegate onDataReceive:dataStr mode:GETUSERINFO];
          }
 
      }

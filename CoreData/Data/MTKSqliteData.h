@@ -12,7 +12,7 @@
 //插入运动数据
 - (void)inserSportDateWithUser:(NSString *)userID WebId:(NSString *)webid Date:(NSString *)date Time:(NSString *)time Step:(NSString *)step Distance:(NSString *)dis Calory:(NSString *)cal Web:(NSString *)web callBack:(void(^)(BOOL result))callBack;
 //查找某时间段运动数据
-- (NSMutableArray *)scarchSportWitchDate:(NSString *)date toDate:(NSString *)date1 UserID:(NSString *)userid;
+- (NSMutableArray *)scarchSportWitchDate:(NSString *)date toDate:(NSString *)date1 UserID:(NSString *)userid index:(int)dex;
 //插入睡眠数据
 - (void)inserSleepDataWithUser:(NSString *)userID WebId:(NSString *)webid Date:(NSString *)date Time:(NSString *)time Step:(NSString *)step Quality:(NSString *)quality Web:(NSString *)web callBack:(void(^)(BOOL result))callBack;
 //查找某天睡眠数据

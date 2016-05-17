@@ -63,23 +63,47 @@
 }
 
 //查找某时间段运动数据
-- (NSMutableArray *)scarchSportWitchDate:(NSString *)date toDate:(NSString *)date1 UserID:(NSString *)userid{
+- (NSMutableArray *)scarchSportWitchDate:(NSString *)date toDate:(NSString *)date1 UserID:(NSString *)userid index:(int)dex{
     NSMutableArray *sportArr = [NSMutableArray array];
     [self.queue inDatabase:^(FMDatabase *db) {
-        NSString *selStr = [NSString stringWithFormat:@"select *from MTKSport_tb where date>=\'%@\' and date<=\'%@\' and user_id=\'%@\'",date,date1,userid];
+        NSString *selStr;
+        if (dex == 0) {
+          selStr = [NSString stringWithFormat:@"select *from MTKSport_tb where date>=\'%@\' and date<=\'%@\' and user_id=\'%@\'",date,date1,userid];
+        }
+        else if(dex == 1) {
+            selStr = [NSString stringWithFormat:@"select *from MTKSport_tb where date>=\'%@\' and date<=\'%@\' and user_id=\'%@\'",date,date1,userid];
+        }
+        else{
+             selStr = [NSString stringWithFormat:@"select *from MTKSport_tb where date>=\'%@\' and date<\'%@\' and user_id=\'%@\' group by date",date,date1,userid];
+        }
         FMResultSet *rs = [db executeQuery:selStr];
         NSString *sportC;
         NSString *sportD;
         NSString *sportS;
+        NSString *sportDe;
+        NSString *sportTi;
         while (rs.next) {
             sportD = [rs stringForColumn:@"distance"];
             sportC = [rs stringForColumn:@"calory"];
             sportS = [rs stringForColumn:@"step"];
-            NSDictionary *dic = [[NSDictionary alloc]initWithObjectsAndKeys:sportS,@"STEP",sportD,@"DISTANCE",sportC,@"CAL", nil];
+//            sportDe = [rs stringForColumn:@"date"];
+            sportTi = [rs stringForColumn:@"web_id"];
+            NSDictionary *dic = [[NSDictionary alloc]initWithObjectsAndKeys:sportS,@"STEP",sportD,@"DISTANCE",sportC,@"CAL",sportTi,@"TIME", nil];
             [sportArr addObject:dic];
         }
     }];
     return sportArr;
+}
+
+//获取运动数据详情
+- (NSMutableArray *)getSportCountDate:(NSString *)date toDate:(NSString *)date1{
+    NSMutableArray *nsMutable=[NSMutableArray array];
+[self.queue inDatabase:^(FMDatabase *db) {
+    FMResultSet *rs = nil;
+//    NSString *selStr = [NSString stringWithFormat:@"select *from MTKSport_tb "]
+}];
+    return nsMutable;
+    
 }
 
 //插入睡眠数据

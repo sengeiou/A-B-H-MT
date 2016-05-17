@@ -7,13 +7,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SmaNavMyInfoController">
             <connections>
-                <outlet property="heightFiele" destination="TS1-Lm-lnF" id="jRV-KV-yU6"/>
+                <outlet property="heightFiele" destination="OuT-2o-vcs" id="cYd-eN-Mgx"/>
                 <outlet property="higthbtn" destination="ZBH-CR-CVO" id="64p-lf-S1g"/>
                 <outlet property="imageBut" destination="RrP-Cx-YMK" id="Ls9-jT-bIa"/>
                 <outlet property="nexbtn" destination="1of-aS-ysf" id="uAF-Rb-Qnr"/>
                 <outlet property="nickname" destination="IzW-o3-ciI" id="N5D-PL-Mvt"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-                <outlet property="weightfield" destination="OuT-2o-vcs" id="0B2-Ii-3Li"/>
+                <outlet property="weightfield" destination="TS1-Lm-lnF" id="xPZ-sG-okC"/>
                 <outlet property="weithbtn" destination="i8W-uP-KXH" id="PGh-dw-YlC"/>
             </connections>
         </placeholder>

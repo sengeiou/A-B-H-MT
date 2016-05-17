@@ -39,7 +39,9 @@
     [[BackgroundManager sharedInstance] stopScan];
     //////
     [[SOSCallDataManager sosCallDataMgrInstance] clearAllData];
-
+    CachedBLEDevice* device = [CachedBLEDevice defaultInstance] ;
+    device.mDeviceIdentifier = nil;
+    device.mConnectionState = CONNECTION_STATE_DISCONNECTED;
 }
 
 - (void)createUI{

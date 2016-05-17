@@ -30,6 +30,7 @@ typedef enum {
     GETSDETSLEEP,   //获取详细睡眠数据
     GETSDETHEART,   //获取详细睡眠数据
     SETUSERINFO,    //设置用户信息
+//    RETUSERINFO,    //获取用户信息
     RETDATA,        //所有数据响应
     RETSPORT,       //运动数据响应
     RETSLEEP,       //睡眠数据响应

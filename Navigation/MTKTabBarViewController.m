@@ -29,6 +29,7 @@
     [super viewDidLoad];
     [self initializeMethod];
     [self createUI];
+    
 //    [MTKBleManager sharedInstance];
     // Do any additional setup after loading the view.
     
@@ -82,7 +83,8 @@
 //        user.userGoal = @"4000";
 //    }
 //    [MTKArchiveTool saveUser:user];
-    
+//   MTKBleManager *mManager = [MTKBleManager sharedInstance];
+//   CachedBLEDevice *mDevice = [CachedBLEDevice defaultInstance];
     array = [MTKDeviceParameterRecorder getDeviceParameters];
     if (array.count != 0)
     {
@@ -98,6 +100,12 @@
         device.mVibrationEnabled = [para.vibration_enabler intValue];
         device.mDisconnectEnabled = [para.disconnect_alert_enabler intValue];
         [device loadFinished];
+//        [[MTKBleProximityService getInstance] updatePxpSetting: mDevice.mDeviceIdentifier
+//                                                  alertEnabler: mDevice.mAlertEnabled
+//                                                         range: mDevice.mRangeAlertEnabled
+//                                                     rangeType: mDevice.mRangeType
+//                                                 alertDistance: mDevice.mRangeValue
+//                                        disconnectAlertEnabler: mDevice.mDisconnectEnabled];
     }
     else{
         [[BackgroundManager sharedInstance] stopScan];
@@ -111,7 +119,8 @@
     appDele.tabVC = self;
     [self setupTabbar];
     [self setupAllChildViewControllers];
-    [self addOtherButton];
+    
+//    [self addOtherButton];
    
 }
 
@@ -203,6 +212,7 @@
     [self.customTabBar addTabBarButtonWithItem:childVc.tabBarItem];
 }
 
+
 /**
  *  监听tabbar按钮的改变
  *  @param from   原来选中的位置
@@ -213,6 +223,7 @@
     self.selectedIndex = to;
     CachedBLEDevice* device = [CachedBLEDevice defaultInstance];
     if (array.count > 0 && device.mConnectionState != CONNECTION_STATE_CONNECTED && [BackgroundManager sharedInstance].centralManagerState == CBCentralManagerStatePoweredOn) {
+        [BackgroundManager sharedInstance].tempPeripheral = nil;
     [[BackgroundManager sharedInstance] connectDevice:[[CachedBLEDevice defaultInstance] getDevicePeripheral]];//当绑定的设备并未连接即主动连接设备
     }
     MyController *mController = [MyController getMyControllerInstance];
@@ -253,6 +264,10 @@
 //    }
 }
 -(void)onScanningStateChange:(int)state{
+    
+}
+
+- (void)canConnect:(CBPeripheral *)peripheral{
     
 }
 /*

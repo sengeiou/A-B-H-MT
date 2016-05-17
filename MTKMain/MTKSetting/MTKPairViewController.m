@@ -27,11 +27,11 @@
     if (!appDele) {
         appDele = (MtkAppDelegate *)[UIApplication sharedApplication].delegate;
     }
-    [[MTKBleManager sharedInstance] registerDiscoveryDelgegate:self];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2*NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 //        [MTKBL MTKStartScan:NO];
 //        [[BackgroundManager sharedInstance] forge]
-//         [[MTKBleManager sharedInstance] forgetPeripheral];
+         [[MTKBleManager sharedInstance] forgetPeripheral];
+        [BackgroundManager sharedInstance].tempPeripheral = nil;
          [[BackgroundManager sharedInstance] startScan:YES];
         scanTimer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(scanTimeOut:) userInfo:nil repeats:YES];
     });
@@ -90,6 +90,7 @@
 
 - (void)scanTimeOut:(NSTimer *)timer{
     [[BackgroundManager sharedInstance] stopScan];
+    [BackgroundManager sharedInstance].tempPeripheral = nil;
     [[BackgroundManager sharedInstance] startScan:YES];
 //    [MTKBL MTKStopScan];
 //    [MTKBL MTKStartScan:NO];
@@ -136,18 +137,20 @@
         [_stateBut setTitle:@"" forState:UIControlStateNormal];
         _imageView.hidden = NO;
         _connectBut.selected = YES;
-      [_connectBut setTitle:MtkLocalizedString(@"begin_experience") forState:UIControlStateNormal];
+        [_connectBut setTitle:MtkLocalizedString(@"begin_experience") forState:UIControlStateNormal];
 //        mIsConnectingOneDevice = NO;
 //        
         CachedBLEDevice* device = [CachedBLEDevice defaultInstance];
-        
+        NSArray *array = [MTKDeviceParameterRecorder getDeviceParameters];
+        if (array.count == 0)
+        {
         device.mDeviceName = [peripheral name];
         device.mDeviceIdentifier = [[peripheral identifier] UUIDString];
         device.mAlertEnabled = true;
         device.mRangeAlertEnabled = true;
         device.mRangeType = RANGE_ALERT_OUT;
         device.mRangeValue = RANGE_ALERT_FAR;
-        device.mDisconnectEnabled = NO;
+        device.mDisconnectEnabled = YES;
         device.mRingtoneEnabled = NO;
         device.mVibrationEnabled = NO;
         device.mConnectionState = CONNECTION_STATE_CONNECTED;
@@ -155,10 +158,10 @@
         [device setDevicePeripheral:peripheral];
         
         [device persistData:1];
-        
+        }
         [[BackgroundManager sharedInstance] stopScan];
         
-        CachedBLEDevice* device1 = [CachedBLEDevice defaultInstance];
+         CachedBLEDevice* device1 = [CachedBLEDevice defaultInstance];
 //        UINavigationController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
 //        [self presentViewController:controller animated:YES completion:nil];
         
@@ -182,8 +185,11 @@
     NSLog(@"[MTKPairViewController] [discoveryDidRefresh] enter");
   if ([peripheral.name isEqualToString:@"K88H"] ) {
 //      [[BackgroundManager sharedInstance] stopScan];
-      [[BackgroundManager sharedInstance] connectDevice:peripheral];
+//      [[BackgroundManager sharedInstance] connectDevice:peripheral];
   }
+}
+- (void)canConnect:(CBPeripheral *)peripheral{
+     [[BackgroundManager sharedInstance] connectDevice:peripheral];
 }
 
 -(void)onAdapterStateChange:(int)state{

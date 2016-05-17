@@ -31,6 +31,9 @@
 "register_modi_pass" = "修改密码";
 
 //运动
+"sportdetail_day" = "天";
+"portdetail_week" = "周";
+"sportdetail_tendat" = "月";
 "sport_navtilte"="运动";
 "sport_plaremark" = "运动目标";
 "sport_stepunit" = "步";

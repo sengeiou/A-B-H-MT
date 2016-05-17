@@ -9,29 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CoreData/Logic/BackgroundManager.m"
-            timestampString = "483519298.23823"
+            filePath = "Navigation/MTKTabBarViewController.m"
+            timestampString = "485058690.301752"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "767"
-            endingLineNumber = "767"
-            landmarkName = "-sendDate"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MTKMain/MTKSport/MTKSportViewController.m"
-            timestampString = "483540238.330095"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "216"
-            endingLineNumber = "216"
-            landmarkName = "-refreshData"
+            startingLineNumber = "223"
+            endingLineNumber = "223"
+            landmarkName = "-tabBar:didSelectedButtonFrom:to:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

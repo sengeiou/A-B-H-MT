@@ -32,6 +32,9 @@
 "register_modi_pass" = "Modify password";
 
 //运动
+"sportdetail_day" = "Day";
+"portdetail_week" = "Week";
+"sportdetail_tendat" = "month";
 "sport_navtilte"="Sport";
 "sport_plaremark" = "Goal";
 "sport_stepunit" = "Step";

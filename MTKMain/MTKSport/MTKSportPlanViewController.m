@@ -16,6 +16,7 @@
     MyController *mController;
     BOOL syncError;
     UILabel *statelab;
+    UILabel *unitlab;
 }
 @property (nonatomic,strong) UILabel *statelab;
 @property (nonatomic,strong) UILabel *unitlab;
@@ -25,13 +26,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self initializeMethod];
-    [self createUI];
-  
-//    [mController sendDataWithCmd:@"GET,0" mode:GETUSERINFO];
+   //    [mController sendDataWithCmd:@"GET,0" mode:GETUSERINFO];
     // Do any additional setup after loading the view.
 }
-
+- (void)viewWillAppear:(BOOL)animated{
+    [self initializeMethod];
+    [self createUI];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -48,7 +49,7 @@
             [setTimer invalidate];
             setTimer = nil;
         }
-        setTimer = [NSTimer scheduledTimerWithTimeInterval:8 target:self selector:@selector(timeout) userInfo:nil repeats:NO];
+        setTimer = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(timeout) userInfo:nil repeats:NO];
     }
 }
 
@@ -120,8 +121,11 @@
     _statelab=statelab;
     statelab.text=[NSString stringWithFormat:@"%d",newVal*500+4000];
     CGSize fontsize = [statelab.text sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:38]}];
-    
-    UILabel *unitlab=[[UILabel alloc]init];
+    if (unitlab) {
+        [unitlab removeFromSuperview];
+        unitlab = nil;
+    }
+    unitlab=[[UILabel alloc]init];
     unitlab.font=[UIFont systemFontOfSize:14];
     unitlab.textColor=[UIColor colorWithRed:0/255.0f green:160/255.0f blue:225/255.0f alpha:1.0f];
     unitlab.text=MtkLocalizedString(@"sport_stepunit");
@@ -222,7 +226,7 @@
             setTimer = nil;
         }
     }
-    else if (mode == GETUSERINFO || mode == SETUSERINFO){
+    else if (mode == GETUSERINFO){
         [self createUI];
     }
 

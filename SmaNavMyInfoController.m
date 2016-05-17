@@ -165,14 +165,13 @@
         
         userInfo.userName=self.nickname.text;
     }
-    
+    NSLog(@"%@",self.heightFiele.text);
     if(![self.heightFiele.text isEqualToString:@""])
     {
         if (self.heightFiele.text.intValue <= 229 && self.heightFiele.text.intValue >49) {
             userInfo.userHeight=self.heightFiele.text;
         }
         else{
-            
             [MBProgressHUD showError:MtkLocalizedString(@"myinfo_Hrange")];
              return;
         }

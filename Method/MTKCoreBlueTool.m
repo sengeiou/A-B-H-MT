@@ -37,8 +37,8 @@ static MTKCoreBlueTool *instance;
     [mManager registerConnectDelgegate:self];
     [mManager registerScanningStateChangeDelegate:self];
     
-    mProService = [MTKBleProximityService getInstance];
-    [mProService registerProximityDelgegate:self];
+//    mProService = [MTKBleProximityService getInstance];
+//    [mProService registerProximityDelgegate:self];
 }
 -(void)dealloc
 {
@@ -46,7 +46,7 @@ static MTKCoreBlueTool *instance;
     [mManager unRegisterBluetoothStateChangeDelegate:self];
     [mManager unRegisterConnectDelgegate:self];
     [mManager unRegisterBluetoothStateChangeDelegate:self];
-    [mProService unRegisterProximityDelgegate:self];
+//    [mProService unRegisterProximityDelgegate:self];
 }
 
 //开始搜索
@@ -89,7 +89,6 @@ static MTKCoreBlueTool *instance;
 
 //查看蓝牙状态
 -(BOOL)checkBleStatus{
-    MTKUserInfo *user = [MTKArchiveTool getUserInfo];
      NSMutableArray* array = [MTKDeviceParameterRecorder getDeviceParameters];
      CachedBLEDevice* device = [CachedBLEDevice defaultInstance];
     if (array.count ==0) {
@@ -106,22 +105,19 @@ static MTKCoreBlueTool *instance;
          BOOL b = [[BackgroundManager sharedInstance] connectDevice:[[CachedBLEDevice defaultInstance] getDevicePeripheral]];
         return NO;
     }
-//    else if (device.mConnectionState == CONNECTION_STATE_CONNECTED){
     return YES;
-//    }
-//    return NO;
 }
 
 #pragma mrk *******BleDiscoveryDelegate
 - (void) discoveryDidRefresh: (CBPeripheral *)peripheral{
-    NSLog(@"***** BleDiscoveryDelegate: **discoveryDidRefresh:%@**",peripheral);
-    if ([peripheral.name isEqualToString:@"K88H"] ) {
-        [mManager connectPeripheral:peripheral];
-        [self MTKStopScan];
-        if (self.delegate && [self.delegate respondsToSelector:@selector(MTKBLConnecting)]) {
-            [self.delegate MTKBLConnecting];
-        }
-    }
+//    NSLog(@"***** BleDiscoveryDelegate: **discoveryDidRefresh:%@**",peripheral);
+//    if ([peripheral.name isEqualToString:@"K88H"] ) {
+//        [mManager connectPeripheral:peripheral];
+//        [self MTKStopScan];
+//        if (self.delegate && [self.delegate respondsToSelector:@selector(MTKBLConnecting)]) {
+//            [self.delegate MTKBLConnecting];
+//        }
+//    }
 }
 
 - (void) discoveryStatePoweredOff{

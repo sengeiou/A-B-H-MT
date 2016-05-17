@@ -65,6 +65,9 @@
 		EE8B1D3A1CCA26E700F990FC /* MTKPairViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8B1D391CCA26E700F990FC /* MTKPairViewController.m */; };
 		EE8B1D3E1CCA28F900F990FC /* MTKSetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8B1D3D1CCA28F900F990FC /* MTKSetTableViewCell.m */; };
 		EEC208A11CD0BDCD006680AD /* MTKHeartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC208A01CD0BDCD006680AD /* MTKHeartViewController.m */; };
+		EEC478901CE95F02009510C2 /* CBChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC4788D1CE95F02009510C2 /* CBChartView.m */; };
+		EEC478911CE95F02009510C2 /* UIView+FrameSet.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC4788F1CE95F02009510C2 /* UIView+FrameSet.m */; };
+		EEC478941CE95F55009510C2 /* MTKSportDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC478931CE95F55009510C2 /* MTKSportDetailViewController.m */; };
 		EEC995FB1CC46ADA00BD5A45 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC995FA1CC46ADA00BD5A45 /* main.m */; };
 		EEC995FE1CC46ADA00BD5A45 /* MtkAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC995FD1CC46ADA00BD5A45 /* MtkAppDelegate.m */; };
 		EEC996011CC46ADA00BD5A45 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC996001CC46ADA00BD5A45 /* ViewController.m */; };
@@ -285,6 +288,12 @@
 		EE8B1D3D1CCA28F900F990FC /* MTKSetTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTKSetTableViewCell.m; sourceTree = "<group>"; };
 		EEC2089F1CD0BDCD006680AD /* MTKHeartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKHeartViewController.h; sourceTree = "<group>"; };
 		EEC208A01CD0BDCD006680AD /* MTKHeartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTKHeartViewController.m; sourceTree = "<group>"; };
+		EEC4788C1CE95F02009510C2 /* CBChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBChartView.h; sourceTree = "<group>"; };
+		EEC4788D1CE95F02009510C2 /* CBChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBChartView.m; sourceTree = "<group>"; };
+		EEC4788E1CE95F02009510C2 /* UIView+FrameSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FrameSet.h"; sourceTree = "<group>"; };
+		EEC4788F1CE95F02009510C2 /* UIView+FrameSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FrameSet.m"; sourceTree = "<group>"; };
+		EEC478921CE95F55009510C2 /* MTKSportDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKSportDetailViewController.h; sourceTree = "<group>"; };
+		EEC478931CE95F55009510C2 /* MTKSportDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTKSportDetailViewController.m; sourceTree = "<group>"; };
 		EEC995F61CC46ADA00BD5A45 /* MTK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MTK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEC995FA1CC46ADA00BD5A45 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EEC995FC1CC46ADA00BD5A45 /* MtkAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MtkAppDelegate.h; sourceTree = "<group>"; };
@@ -781,6 +790,9 @@
 				EE8B1D2D1CCA0C2200F990FC /* MTKSportViewController.m */,
 				EE808B401CCE362700A213DE /* MTKSportPlanViewController.h */,
 				EE808B411CCE362700A213DE /* MTKSportPlanViewController.m */,
+				EEC478921CE95F55009510C2 /* MTKSportDetailViewController.h */,
+				EEC478931CE95F55009510C2 /* MTKSportDetailViewController.m */,
+				EEC4788A1CE95EF6009510C2 /* View */,
 			);
 			path = MTKSport;
 			sourceTree = "<group>";
@@ -804,6 +816,25 @@
 				EEF6F5D41CD0FC170061A47B /* SmaQuietViewController.xib */,
 			);
 			path = MTKHeartRate;
+			sourceTree = "<group>";
+		};
+		EEC4788A1CE95EF6009510C2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EEC4788B1CE95F02009510C2 /* CBChart */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		EEC4788B1CE95F02009510C2 /* CBChart */ = {
+			isa = PBXGroup;
+			children = (
+				EEC4788C1CE95F02009510C2 /* CBChartView.h */,
+				EEC4788D1CE95F02009510C2 /* CBChartView.m */,
+				EEC4788E1CE95F02009510C2 /* UIView+FrameSet.h */,
+				EEC4788F1CE95F02009510C2 /* UIView+FrameSet.m */,
+			);
+			path = CBChart;
 			sourceTree = "<group>";
 		};
 		EEC995ED1CC46ADA00BD5A45 = {
@@ -1114,6 +1145,7 @@
 				EE8B1D3E1CCA28F900F990FC /* MTKSetTableViewCell.m in Sources */,
 				EEC996011CC46ADA00BD5A45 /* ViewController.m in Sources */,
 				EE55F8351CCB5AA100B99223 /* ScannedPeripheral.m in Sources */,
+				EEC478941CE95F55009510C2 /* MTKSportDetailViewController.m in Sources */,
 				EE808B421CCE362700A213DE /* MTKSportPlanViewController.m in Sources */,
 				EEC996641CC4CCF400BD5A45 /* MTKLoginViewController.m in Sources */,
 				EE8B1D221CCA097100F990FC /* MTKTabBarButton.m in Sources */,
@@ -1140,6 +1172,7 @@
 				EE8B1D1F1CCA08ED00F990FC /* MTKTabBar.m in Sources */,
 				EE808B361CCDC4BA00A213DE /* MTKUserTableViewController.m in Sources */,
 				EEC995FB1CC46ADA00BD5A45 /* main.m in Sources */,
+				EEC478911CE95F02009510C2 /* UIView+FrameSet.m in Sources */,
 				EE8634D71CC728FD005378C9 /* SMS_HYZBadgeView.m in Sources */,
 				EE8768261CCC91E500B53E45 /* DeviceParameter.m in Sources */,
 				EEF6F5D51CD0FC170061A47B /* SmaQuietViewController.m in Sources */,
@@ -1153,6 +1186,7 @@
 				EE808B301CCDA67900A213DE /* MTKSendData.m in Sources */,
 				EE808B2D1CCDA5F800A213DE /* MyController.m in Sources */,
 				EE4885521CD1B54C006CB97C /* SmaNavMyInfoController.m in Sources */,
+				EEC478901CE95F02009510C2 /* CBChartView.m in Sources */,
 				EE8B1D311CCA0C2E00F990FC /* MTKSleepViewController.m in Sources */,
 				EE8634AC1CC71B33005378C9 /* MTKWebService.m in Sources */,
 				EE8B1D251CCA09CB00F990FC /* MTKBadgeButton.m in Sources */,

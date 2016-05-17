@@ -24,7 +24,7 @@
     [self initializeMethod];
     [self createUI];
     mController = [MyController getMyControllerInstance];
-    [mController setDelegate: self];
+   
     // Do any additional setup after loading the view.
 }
 
@@ -34,6 +34,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
+     [mController setDelegate: self];
     [self initializeMethod];
     [self createUI];
 }
@@ -210,10 +211,10 @@ int  deffInt=30;
 }
 
 - (void)refreshData{
-    _goalStepLab.text = [NSString stringWithFormat:@"%d",userInfo.userGoal.intValue*500+4000];
+   
     NSDateFormatter * formatter1 = [[NSDateFormatter alloc]init];
     [formatter1 setDateFormat:@"yyyyMMdd"];
-    NSMutableArray *spoArr = [self.sqliData scarchSportWitchDate:[formatter1 stringFromDate:self.data] toDate:[formatter1 stringFromDate:self.data] UserID:userInfo.userID];
+    NSMutableArray *spoArr = [self.sqliData scarchSportWitchDate:[formatter1 stringFromDate:self.data] toDate:[formatter1 stringFromDate:self.data] UserID:userInfo.userID index:0];
     if (spoArr.count > 0) {
         self.setDisLab.text = [NSString stringWithFormat:@"%@ %@",[[spoArr lastObject] objectForKey:@"DISTANCE"],MtkLocalizedString(@"sport_distanceunit")];
         self.setStepLab.text = [NSString stringWithFormat:@"%@ %@",[[spoArr lastObject] objectForKey:@"STEP"],MtkLocalizedString(@"sport_stepunit")];
@@ -224,15 +225,19 @@ int  deffInt=30;
         self.setStepLab.text = [NSString stringWithFormat:@"0 %@",MtkLocalizedString(@"sport_stepunit")];
         self.setCalLab.text = [NSString stringWithFormat:@"0 %@",MtkLocalizedString(@"sport_hotunit")];
     }
-    if (!userInfo.userGoal) {
+    if (!userInfo.userGoal || userInfo.userGoal.intValue<0) {
+        userInfo.userGoal = 0;
+        [MTKArchiveTool saveUser:userInfo];
         [self.progressLab setText:@"0"];
     }
     else{
         [self.progressLab setStartDegree:0.0f];
+        NSLog(@"==%@  ",userInfo.userGoal);
         float valu=[_setStepLab.text floatValue]/(userInfo.userGoal.intValue*500+4000);
         [self.progressLab setText:[NSString stringWithFormat:@"%.2f%%",(valu*100)]];
         [self.progressLab setEndDegree:valu*360];
     }
+     _goalStepLab.text = [NSString stringWithFormat:@"%d",userInfo.userGoal.intValue*500+4000];
 }
 
 #pragma mark *****myProtocol代理
@@ -258,7 +263,7 @@ int  deffInt=30;
         }
         setTimer = [NSTimer scheduledTimerWithTimeInterval:40 target:self selector:@selector(timeout) userInfo:nil repeats:NO];
     }
-    else if (mode == GETUSERINFO || mode == SETUSERINFO){
+    else if (mode == GETUSERINFO){
          [self refreshData];
     }
     else if (mode == GETSDETDATA){
@@ -274,6 +279,12 @@ int  deffInt=30;
             setTimer = nil;
         }
     }
+}
+
+- (IBAction)detailSelector:(id)sender{
+    MTKSportDetailViewController *detailVC = [MainStoryBoard instantiateViewControllerWithIdentifier:@"MTKSportDetailViewController"];
+    detailVC.date = self.data;
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 /*
  #pragma mark - Navigation

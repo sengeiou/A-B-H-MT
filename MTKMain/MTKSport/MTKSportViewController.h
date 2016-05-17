@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MTKSportDetailViewController.h"
 @class KAProgressLabel;
 @interface MTKSportViewController : UIViewController
 @property (nonatomic, weak) IBOutlet UILabel *dateLab, *goalLab, *goalStepLab, *steUnitLab, *disLab, *setDisLab, *stepLab, *setStepLab, *calLab, *setCalLab;

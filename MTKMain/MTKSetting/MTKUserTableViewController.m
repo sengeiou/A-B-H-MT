@@ -15,6 +15,7 @@
     NSMutableArray *detialArr;
     NSIndexPath *tabSelect;
     NSTimer *setTimer;
+    MyController *mController;
 }
 @end
 
@@ -22,8 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self intializeMethod];
-    [self createUI];
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -31,6 +31,10 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [self intializeMethod];
+    [self createUI];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -50,6 +54,8 @@
 
 #pragma mark *****创建UI
 - (void)createUI{
+    mController = [MyController getMyControllerInstance];
+    [mController setDelegate: self];
     self.tableView.tableFooterView = [[UIView alloc] init];
 }
 
@@ -218,25 +224,33 @@
 - (void)setUserToMTK{
      if ([MTKBleMgr checkBleStatus]) {
          
-         MyController *mController = [MyController getMyControllerInstance];
+       
          NSString *setUser = [NSString stringWithFormat:@"PS,SET,%@|%@|%@",user.userGoal,user.userHeight,user.userWeigh];
-         [mController setDelegate: self];
+         
          [mController sendDataWithCmd:setUser mode:SETUSERINFO];
          if (setTimer) {
              [setTimer invalidate];
              setTimer = nil;
          }
-         setTimer = [NSTimer scheduledTimerWithTimeInterval:8 target:self selector:@selector(timeout) userInfo:nil repeats:NO];
+         setTimer = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(timeout) userInfo:nil repeats:NO];
          [MBProgressHUD showMessage:MtkLocalizedString(@"alert_seting")];
          
      }
 }
 
 - (void)onDataReceive:(NSString *)recvData mode:(MTKBLEMEDO)mode{
-    if (mode == SETUSERINFO && setTimer) {
+    if (mode == SETUSERINFO ) {
+    if (setTimer) {
         [MBProgressHUD hideHUD];
         [MBProgressHUD showSuccess:MtkLocalizedString(@"alert_setSuccess")];
+    }
          [MTKArchiveTool saveUser:user];
+        [self intializeMethod];
+         [self.tableView reloadData];
+    }
+    if (mode == GETUSERINFO) {
+         [self intializeMethod];
+         [self.tableView reloadData];
     }
     if (setTimer) {
         [setTimer invalidate];

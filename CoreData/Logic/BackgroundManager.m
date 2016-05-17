@@ -172,32 +172,35 @@ static BackgroundManager* instance;
         [self notifyConnectionStateChange:peripheral connectionState:CONNECTION_STATE_DISCONNECTED];
         return NO;
     }
-    tempPeripheral = peripheral;
-    self.mConnectTimerStarted = YES;
-    self.mConnectTimeout = NO;
-    [mManager connectPeripheral:peripheral];
-    [self performSelector:@selector(timeoutToStopConnectAction) withObject:nil afterDelay:CONNECT_DEVICE_TIMEOUT];
-    return YES;
-}
+    if (!tempPeripheral) {
+        tempPeripheral = peripheral;
+        self.mConnectTimerStarted = YES;
+        self.mConnectTimeout = NO;
+        [mManager connectPeripheral:peripheral];
+        [self performSelector:@selector(timeoutToStopConnectAction) withObject:nil afterDelay:CONNECT_DEVICE_TIMEOUT];
+        return YES;
+    }
+    return NO;
+ }
 
 /************************************************************************************/
 /*  */
 /************************************************************************************/
 -(BOOL)disconnectDevice:(CBPeripheral*)peripheral
 {
-//    if (centralManagerState == CBCentralManagerStatePoweredOff)
-//    {
-//        NSLog(@"[BackgroundManager] [disconnectDevice] current state is off, no need do disconnect action");
-//        [self notifyConnectionStateChange:peripheral connectionState:CONNECTION_STATE_DISCONNECTED];
-////        return NO;
-//    }
+    if (centralManagerState == CBCentralManagerStatePoweredOff)
+    {
+        NSLog(@"[BackgroundManager] [disconnectDevice] current state is off, no need do disconnect action");
+        [self notifyConnectionStateChange:peripheral connectionState:CONNECTION_STATE_DISCONNECTED];
+//        return NO;
+    }
     [mManager disconnectPeripheral:peripheral];
-//    tempPeripheral = nil;
-//    if(self.mConnectTimerStarted == YES)
-//    {
-//        [self stopConnectTimer];
-//        self.mConnectTimerStarted = NO;
-//    }
+    tempPeripheral = nil;
+    if(self.mConnectTimerStarted == YES)
+    {
+        [self stopConnectTimer];
+        self.mConnectTimerStarted = NO;
+    }
     return YES;
 }
 
@@ -230,12 +233,18 @@ static BackgroundManager* instance;
 /*  */
 /************************************************************************************/
 - (void) discoveryDidRefresh: (CBPeripheral *)peripheral
-{  if ([peripheral.name isEqualToString:@"K88H"] ) {
+{
+    if ([peripheral.name isEqualToString:@"K88H"] ) {
     
     CachedBLEDevice* device = [CachedBLEDevice defaultInstance];
     if ([device.mDeviceIdentifier length] == 0)
     {
         NSLog(@"[BackgroundManager] [discoveryDidRefresh] deivce is nil");
+        for (id<StateChangeDelegate> delegate in stateChangeDelegateList)
+        {
+            [delegate canConnect:peripheral];
+        }
+
         return;
     }
     NSLog(@"[BackgroundManager] [discoveryDidRefresh] founded identifier : %@", [[peripheral identifier] UUIDString]);
@@ -277,6 +286,7 @@ static BackgroundManager* instance;
     }
     else{
         _canSendData = NO;
+        tempPeripheral = nil;
         [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(sendDate) object:nil];
     }
     if (state != centralManagerState)
@@ -326,6 +336,7 @@ static BackgroundManager* instance;
 - (void) disconnectDidRefresh: (int)connectionState devicename: (CBPeripheral *)peripheral
 {
     _canSendData = NO;
+    tempPeripheral = nil;
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(sendDate) object:nil];
     [self notifyConnectionStateChange:peripheral connectionState:CONNECTION_STATE_DISCONNECTED];
 }
@@ -765,5 +776,6 @@ static BackgroundManager* instance;
 //连接成功后5秒才允许进行数据传输
 -(void)sendDate{
     _canSendData = YES;
+  [[CachedBLEDevice defaultInstance] updateDeviceConfiguration:CONFIG_DISCONNECT_ALERT_SWITCH_STATE_CHANGE changedValue:[CachedBLEDevice defaultInstance].mDisconnectEnabled];
 }
 @end

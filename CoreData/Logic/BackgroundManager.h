@@ -40,7 +40,7 @@ const static int ATTRIBUTE_SCAN_STATE_CHANGE = 31;
 -(void)onAdapterStateChange:(int)state;
 -(void)onConnectionStateChange:(CBPeripheral*)peripheral connectionState:(int)state;
 -(void)onScanningStateChange:(int)state;
-
+-(void)canConnect:(CBPeripheral*)peripheral;
 @end
 
 

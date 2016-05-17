@@ -31,9 +31,11 @@
 //    [mDevice registerAttributeChangedListener:self];
     [self initializeMethod];
     [self createUI];
+     [self.setTab reloadData];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
+   
 //     [mDevice unregisterAttributeChangedListener:self];
 }
 
@@ -63,9 +65,6 @@
     self.setTab.delegate = self;
     self.setTab.dataSource = self;
     _nameLab.text = [MTKArchiveTool getUserInfo].userName;
-    if ([BackgroundManager sharedInstance].canSendData) {
-    [mDevice updateDeviceConfiguration:CONFIG_DISCONNECT_ALERT_SWITCH_STATE_CHANGE changedValue:mDevice.mDisconnectEnabled];
- }
 }
 
 - (void)chectBLstate{
@@ -124,7 +123,7 @@
     }
     else if (indexPath.row == 3) {
 
-        if ([MTKBleMgr checkBleStatus]) {
+//        if ([MTKBleMgr checkBleStatus]) {
             UIAlertController *aler = [UIAlertController alertControllerWithTitle:MtkLocalizedString(@"alert_relieveband") message:nil preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *cancelAct = [UIAlertAction actionWithTitle:MtkLocalizedString(@"aler_can") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
             }];
@@ -138,7 +137,7 @@
             [self presentViewController:aler animated:YES completion:^{
                 
             }];
-        }
+//        }
     }
 }
 
