@@ -63,6 +63,16 @@
 "sleep_deep" = "Deep";
 "sleep_light" = "Light";
 "sleep_awake" = "Awake";
+
+/*睡眠详细界面*/
+"sleepdetail_navtilte"="Sleep patterns";
+"sleepdetail_asleeptime" = "Fell asleep at";
+"sleepdetail_waketime" = "Woke-up at";
+"sleepdetail_sobertime" = "Awake for";
+"sleepdetail_sleeptimelen" = "You slept";
+"sleepdetail_hileleeptimelen" = "Deep sleep";
+"sleepdetail_sobertimelen" = "Light sleep";
+
 //心率
 "hearRate_title" = "Heart Rate ";
 "hearRate_monitor" = "Last Time";

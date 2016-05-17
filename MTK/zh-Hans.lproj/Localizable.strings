@@ -65,6 +65,16 @@
 "sleep_deep" = "深度睡眠";
 "sleep_light" = "浅睡";
 "sleep_awake" = "醒来";
+
+/*睡眠详细界面*/
+"sleepdetail_navtilte"="睡眠详细";
+"sleepdetail_asleeptime" = "入睡时间";
+"sleepdetail_waketime" = "醒来时间";
+"sleepdetail_sobertime" = "清醒时间";
+"sleepdetail_sleeptimelen" = "睡眠时长";
+"sleepdetail_hileleeptimelen" = "深睡时长";
+"sleepdetail_sobertimelen" = "浅睡时长";
+
 /*心率界面*/
 "hearRate_title" = "心率";
 "hearRate_monitor" = "最近监测心率";

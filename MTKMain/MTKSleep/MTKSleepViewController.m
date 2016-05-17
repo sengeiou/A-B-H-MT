@@ -296,6 +296,12 @@ static int  deffInt=30;
         return [NSString stringWithFormat:@"%d",min];
     }
 }
+
+- (IBAction)detailSelector:(id)sender{
+    MTKSleepDetailViewController *detailVC = [MainStoryBoard instantiateViewControllerWithIdentifier:@"MTKSleepDetailViewController"];
+    detailVC.date = self.data;
+    [self.navigationController pushViewController:detailVC animated:YES];
+}
 /*
 #pragma mark - Navigation
 

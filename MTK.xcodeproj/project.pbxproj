@@ -64,6 +64,8 @@
 		EE8B1D371CCA0C4800F990FC /* MTKSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8B1D361CCA0C4800F990FC /* MTKSettingViewController.m */; };
 		EE8B1D3A1CCA26E700F990FC /* MTKPairViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8B1D391CCA26E700F990FC /* MTKPairViewController.m */; };
 		EE8B1D3E1CCA28F900F990FC /* MTKSetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8B1D3D1CCA28F900F990FC /* MTKSetTableViewCell.m */; };
+		EE9D5BBD1CEAB1C500548DA3 /* MTKSleepView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9D5BBC1CEAB1C500548DA3 /* MTKSleepView.m */; };
+		EE9D5BC01CEABE0300548DA3 /* MTKSleepDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9D5BBF1CEABE0300548DA3 /* MTKSleepDetailViewController.m */; };
 		EEC208A11CD0BDCD006680AD /* MTKHeartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC208A01CD0BDCD006680AD /* MTKHeartViewController.m */; };
 		EEC478901CE95F02009510C2 /* CBChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC4788D1CE95F02009510C2 /* CBChartView.m */; };
 		EEC478911CE95F02009510C2 /* UIView+FrameSet.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC4788F1CE95F02009510C2 /* UIView+FrameSet.m */; };
@@ -286,6 +288,10 @@
 		EE8B1D391CCA26E700F990FC /* MTKPairViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTKPairViewController.m; sourceTree = "<group>"; };
 		EE8B1D3C1CCA28F900F990FC /* MTKSetTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKSetTableViewCell.h; sourceTree = "<group>"; };
 		EE8B1D3D1CCA28F900F990FC /* MTKSetTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTKSetTableViewCell.m; sourceTree = "<group>"; };
+		EE9D5BBB1CEAB1C500548DA3 /* MTKSleepView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKSleepView.h; sourceTree = "<group>"; };
+		EE9D5BBC1CEAB1C500548DA3 /* MTKSleepView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTKSleepView.m; sourceTree = "<group>"; };
+		EE9D5BBE1CEABE0300548DA3 /* MTKSleepDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKSleepDetailViewController.h; sourceTree = "<group>"; };
+		EE9D5BBF1CEABE0300548DA3 /* MTKSleepDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTKSleepDetailViewController.m; sourceTree = "<group>"; };
 		EEC2089F1CD0BDCD006680AD /* MTKHeartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKHeartViewController.h; sourceTree = "<group>"; };
 		EEC208A01CD0BDCD006680AD /* MTKHeartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTKHeartViewController.m; sourceTree = "<group>"; };
 		EEC4788C1CE95F02009510C2 /* CBChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBChartView.h; sourceTree = "<group>"; };
@@ -779,6 +785,9 @@
 			children = (
 				EE8B1D2F1CCA0C2E00F990FC /* MTKSleepViewController.h */,
 				EE8B1D301CCA0C2E00F990FC /* MTKSleepViewController.m */,
+				EE9D5BBE1CEABE0300548DA3 /* MTKSleepDetailViewController.h */,
+				EE9D5BBF1CEABE0300548DA3 /* MTKSleepDetailViewController.m */,
+				EE9D5BBA1CEAB1A700548DA3 /* View */,
 			);
 			path = MTKSleep;
 			sourceTree = "<group>";
@@ -802,6 +811,15 @@
 			children = (
 				EE8B1D3C1CCA28F900F990FC /* MTKSetTableViewCell.h */,
 				EE8B1D3D1CCA28F900F990FC /* MTKSetTableViewCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		EE9D5BBA1CEAB1A700548DA3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EE9D5BBB1CEAB1C500548DA3 /* MTKSleepView.h */,
+				EE9D5BBC1CEAB1C500548DA3 /* MTKSleepView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1166,6 +1184,7 @@
 				EEC996441CC47EAC00BD5A45 /* MTKDefaultinfos.m in Sources */,
 				EE7B4A2C1CCF6A75007C4644 /* FMResultSet.m in Sources */,
 				EE55F82D1CCB3DBA00B99223 /* MTKCoreBlueTool.m in Sources */,
+				EE9D5BC01CEABE0300548DA3 /* MTKSleepDetailViewController.m in Sources */,
 				EE8B1D2E1CCA0C2200F990FC /* MTKSportViewController.m in Sources */,
 				EE8768341CCC925100B53E45 /* SOSCallDataManager.m in Sources */,
 				EE8767931CCC5A9700B53E45 /* MTKUnPairViewController.m in Sources */,
@@ -1173,6 +1192,7 @@
 				EE808B361CCDC4BA00A213DE /* MTKUserTableViewController.m in Sources */,
 				EEC995FB1CC46ADA00BD5A45 /* main.m in Sources */,
 				EEC478911CE95F02009510C2 /* UIView+FrameSet.m in Sources */,
+				EE9D5BBD1CEAB1C500548DA3 /* MTKSleepView.m in Sources */,
 				EE8634D71CC728FD005378C9 /* SMS_HYZBadgeView.m in Sources */,
 				EE8768261CCC91E500B53E45 /* DeviceParameter.m in Sources */,
 				EEF6F5D51CD0FC170061A47B /* SmaQuietViewController.m in Sources */,

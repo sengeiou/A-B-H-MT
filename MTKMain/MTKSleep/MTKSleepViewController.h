@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "MTKSleepDetailViewController.h"
 @interface MTKSleepViewController : UIViewController
 @property (nonatomic, weak) IBOutlet UILabel *dateLab, *hourLab, *hourUnLab, *minLab, *minUnLab, *lastSlLab, *situationLab, *qualityLab, *deepLab, *deepTiLab, *lightLab, *lightTiLab, *soberLab, *soberTiLab;
 @property (nonatomic, weak) IBOutlet UIButton *leftBut, *rightBut;

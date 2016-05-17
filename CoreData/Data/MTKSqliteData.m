@@ -80,30 +80,17 @@
         NSString *sportC;
         NSString *sportD;
         NSString *sportS;
-        NSString *sportDe;
         NSString *sportTi;
         while (rs.next) {
             sportD = [rs stringForColumn:@"distance"];
             sportC = [rs stringForColumn:@"calory"];
             sportS = [rs stringForColumn:@"step"];
-//            sportDe = [rs stringForColumn:@"date"];
             sportTi = [rs stringForColumn:@"web_id"];
             NSDictionary *dic = [[NSDictionary alloc]initWithObjectsAndKeys:sportS,@"STEP",sportD,@"DISTANCE",sportC,@"CAL",sportTi,@"TIME", nil];
             [sportArr addObject:dic];
         }
     }];
     return sportArr;
-}
-
-//获取运动数据详情
-- (NSMutableArray *)getSportCountDate:(NSString *)date toDate:(NSString *)date1{
-    NSMutableArray *nsMutable=[NSMutableArray array];
-[self.queue inDatabase:^(FMDatabase *db) {
-    FMResultSet *rs = nil;
-//    NSString *selStr = [NSString stringWithFormat:@"select *from MTKSport_tb "]
-}];
-    return nsMutable;
-    
 }
 
 //插入睡眠数据
@@ -138,6 +125,8 @@
     }];
     return sleepArr;
 }
+
+
 
 //插入心率数据
 - (void)inserHeartDataWithUser:(NSString *)userId webID:(NSString *)webid Date:(NSString *)date Time:(NSString *)time HeartRate:(NSString *)heart Continuous:(NSString *)conti Web:(NSString *)web callBack:(void(^)(BOOL result))callback{
