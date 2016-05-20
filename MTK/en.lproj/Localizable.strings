@@ -45,7 +45,7 @@
 "sport_distance" = "Distance";
 "sport_calor" = "Calories";
 "sport_steps" = "Steps";
-
+"sportdetail_navtilte"="Detail data";
 "setplan_navtitle"="Sport goal";
 "setplan_remark"="Setting sport goal";
 

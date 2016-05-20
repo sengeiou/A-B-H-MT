@@ -61,10 +61,16 @@
 #pragma matk *****创建UI
 - (void)createUI{
     if (MainScreen.size.height > 568) {
-        _backH.constant = 350.0f;
+        _progressH.constant = 270.0f;
+        _progressW.constant = 270.0f;
+        _heartLab.font = [UIFont systemFontOfSize:80.0];
+        _lastTexLab.font = [UIFont systemFontOfSize:25];
     }
     else{
-        _backH.constant = 300.0f;
+        _progressH.constant = 220.0f;
+        _progressW.constant = 220.0f;
+        _heartLab.font = [UIFont systemFontOfSize:70.0];
+        _lastTexLab.font = [UIFont systemFontOfSize:19];
     }
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithRed:241/255.0 green:19/255.0 blue:71/255.0 alpha:1] size:MainScreen.size] forBarMetrics:UIBarMetricsDefault];
     _lastTexLab.text = MtkLocalizedString(@"hearRate_monitor");
@@ -74,7 +80,7 @@
     _maxLab.text = MtkLocalizedString(@"hearRate_MaxHR");
     [_detailBut setTitle:MtkLocalizedString(@"hearReat_detail") forState:UIControlStateNormal];
     CAGradientLayer * _gradientLayer = [CAGradientLayer layer];  // 设置渐变效果
-    _gradientLayer.bounds = CGRectMake(_gradientLayer.bounds.origin.x, _gradientLayer.bounds.origin.y, _gradientLayer.bounds.size.width, _backH.constant);
+    _gradientLayer.bounds = CGRectMake(_gradientLayer.bounds.origin.x, _gradientLayer.bounds.origin.y, _gradientLayer.bounds.size.width, _progressH.constant);
     _gradientLayer.borderWidth = 0;
     
     _gradientLayer.frame = _HRView.frame;
@@ -113,7 +119,7 @@ static int  deffInt=30;
         NSDate *nextDate = [NSDate dateWithTimeInterval:-(24*60*60*(30-deffInt)) sinceDate:[NSDate date]];
         _data=nextDate;
         self.dateLab.text=[self dateWithYMD];
-        if (deffInt == 0) {
+        if (deffInt == 1) {
             self.leftBut.enabled = NO;
         }
         self.rightBut.enabled = YES;

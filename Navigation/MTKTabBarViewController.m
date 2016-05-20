@@ -53,15 +53,25 @@
     }
 }
 
+//- (void)viewWillAppear:(BOOL)animated
+//{
+////    // 删除系统自动生成的UITabBarButton
+//    for (UIView *child in self.tabBar.subviews) {
+//        if ([child isKindOfClass:[UIControl class]]) {
+//            [child setHidden:YES];
+//        }
+//    }
+//}
+
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     // 删除系统自动生成的UITabBarButton
     for (UIView *child in self.tabBar.subviews) {
         if ([child isKindOfClass:[UIControl class]]) {
-            [child removeFromSuperview];
+            [child setHidden:YES];
         }
     }
-//    [sel]
     
 }
 
@@ -160,7 +170,7 @@
     [self setupChildViewController:me title:MtkLocalizedString(@"setting_navtitle")  imageName:@"tabbar_person_button" selectedImageName:@"tabbar_person_button_highlighted"];
     self.settingVC=me;
     
-  self.selectedIndex = 0;
+    self.selectedIndex = 0;
 }
 
 -(void)addOtherButton

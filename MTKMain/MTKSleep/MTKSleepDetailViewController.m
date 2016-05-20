@@ -109,23 +109,38 @@
 
 #pragma mark ********创建UI
 - (void)createUI{
-    
+    self.title = MtkLocalizedString(@"sleepdetail_navtilte");
     self.slTime.text = MtkLocalizedString(@"sleepdetail_asleeptime");
      self.wakeTime.text = MtkLocalizedString(@"sleepdetail_waketime");
      self.awakeTime.text = MtkLocalizedString(@"sleepdetail_sobertime");
      self.slLenght.text = MtkLocalizedString(@"sleepdetail_sleeptimelen");
      self.deLenght.text = MtkLocalizedString(@"sleepdetail_hileleeptimelen");
      self.liLenght.text = MtkLocalizedString(@"sleepdetail_sobertimelen");
-    
-    scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0,MainScreen.size.width, 300)];
-    scrollView.contentSize = CGSizeMake(740, 300);
+    CGFloat scrHight;
+    if (MainScreen.size.height > 568) {
+        scrHight = 420.0f;
+    }
+    else{
+        scrHight = 320.f;
+    }
+
+    scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 20,MainScreen.size.width, scrHight - 30)];
+    scrollView.contentSize = CGSizeMake(740, scrHight - 50);
     scrollView.contentOffset = CGPointMake(220, 0);
+    scrollView.showsHorizontalScrollIndicator = FALSE;
     [self.view addSubview:scrollView];
     [self updateSleepDetail];
 }
 
 - (void)updateSleepDetail{
-    MTKSleepView *sleepView = [[MTKSleepView alloc] initWithFrame:CGRectMake(10, 0,730, 300)];//画图两边各有5像素缩进，为了X轴坐标能显示，故需要在理想长度再增加10像素
+    CGFloat scrHight;
+    if (MainScreen.size.height > 568) {
+        scrHight = 420.0f;
+    }
+    else{
+        scrHight = 320.f;
+    }
+    MTKSleepView *sleepView = [[MTKSleepView alloc] initWithFrame:CGRectMake(10, 0,730,scrHight - 50)];//画图两边各有5像素缩进，为了X轴坐标能显示，故需要在理想长度再增加10像素
     [scrollView addSubview:sleepView];
     sleepView.xTexts = @[@"0",@"6:00",@"12:00",@"18:00",@"24"];
     sleepView.xValues = [sleepArr copy];

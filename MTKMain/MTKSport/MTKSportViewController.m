@@ -21,8 +21,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self initializeMethod];
-    [self createUI];
+//    [self initializeMethod];
+//    [self createUI];
     mController = [MyController getMyControllerInstance];
    
     // Do any additional setup after loading the view.
@@ -65,10 +65,22 @@
 #pragma mark*****创建UI
 - (void)createUI{
     if (MainScreen.size.height > 568) {
-        _backH.constant = 350.0f;
+        _progressH.constant = 270.0f;
+         _progressW.constant = 270.0f;
+        _butH.constant = 270.0f;
+        _butW.constant = 270.0f;
+        [self.progressLab setFont:[UIFont systemFontOfSize:44]];
+        [self.progressLab setTrackWidth:9.0f];//轨迹粗细
+        [self.progressLab setProgressWidth:9.0f];//进度条粗细
     }
     else{
-        _backH.constant = 300.0f;
+        _progressH.constant = 220.0f;
+         _progressW.constant = 220.0f;
+        _butH.constant = 220.0f;
+        _butW.constant = 220.0f;
+        [self.progressLab setFont:[UIFont systemFontOfSize:34]];
+        [self.progressLab setTrackWidth:7.0f];//轨迹粗细
+        [self.progressLab setProgressWidth:7.0f];//进度条粗细
     }
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithIcon:@"刷新" highIcon:@"刷新" target:self action:@selector(syncSport)];
     _goalLab.text = MtkLocalizedString(@"sport_plaremark");
@@ -84,10 +96,9 @@
     [self.progressLab setText:[NSString stringWithFormat:@"%.2f%%",(delta)/3.6]];
     
     [self.progressLab setRoundedCornersWidth:0.0f];//线条头大小
-    [self.progressLab setTrackWidth:7.0f];//轨迹粗细
-    [self.progressLab setProgressWidth:7.0f];//进度条粗细
+
     [self.progressLab setTextColor:[UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1]];
-    [self.progressLab setFont:[UIFont systemFontOfSize:34]];
+  
     
     self.progressLab.fillColor = [[UIColor clearColor] colorWithAlphaComponent:0.0];
     self.progressLab.trackColor = [UIColor colorWithRed:0/255.0 green:200/255.0 blue:255/255.0 alpha:1];//[UIColor clearColor]; //
@@ -177,7 +188,7 @@ int  deffInt=30;
         NSDate *nextDate = [NSDate dateWithTimeInterval:-(24*60*60*(30-deffInt)) sinceDate:[NSDate date]];
         _data=nextDate;
         self.dateLab.text=[self dateWithYMD];
-        if (deffInt == 0) {
+        if (deffInt == 1) {
             self.leftBut.enabled = NO;
         }
         self.rightBut.enabled = YES;
@@ -232,7 +243,6 @@ int  deffInt=30;
     }
     else{
         [self.progressLab setStartDegree:0.0f];
-        NSLog(@"==%@  ",userInfo.userGoal);
         float valu=[_setStepLab.text floatValue]/(userInfo.userGoal.intValue*500+4000);
         [self.progressLab setText:[NSString stringWithFormat:@"%.2f%%",(valu*100)]];
         [self.progressLab setEndDegree:valu*360];

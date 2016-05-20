@@ -45,12 +45,19 @@
 
 #pragma mark *******初始化
 - (void)initializeMethod{
-    charRect = CGRectMake(0, CGRectGetMaxY(self.actualTypeValue.frame)+30, 320, 200);
+    if (MainScreen.size.height > 568) {
+        charRect = CGRectMake(0, CGRectGetMaxY(self.actualTypeValue.frame)+30, MainScreen.size.width, 420.0 - CGRectGetMaxY(self.actualTypeValue.frame)-60);
+    }
+    else{
+        charRect = CGRectMake(0, CGRectGetMaxY(self.actualTypeValue.frame)+30, MainScreen.size.width, 320.0 - CGRectGetMaxY(self.actualTypeValue.frame)-60);
+    }
+
+    
 }
 
 #pragma mark ********创建UI
 - (void)createUI{
-    self.title = MtkLocalizedString(@"sport_navtilte");
+    self.title = MtkLocalizedString(@"sportdetail_navtilte");
     _goalLab.text = MtkLocalizedString(@"sport_plaremark");
     _disLab.text = MtkLocalizedString(@"sport_distance");
     _stepLab.text = MtkLocalizedString(@"sport_steps");
@@ -189,7 +196,7 @@
     self.charView.xValues=sortArray;
     self.charView.yValues=mArray1;
     self.charView.yValueCount=(int)mArray1.count;
-    stepUnit = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMinY(self.charView.frame)-20, 20, 20)];
+    stepUnit = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMinY(self.charView.frame)-20, 30, 20)];
     stepUnit.font = [UIFont systemFontOfSize:13];
     stepUnit.textColor = [UIColor whiteColor];
     stepUnit.text = MtkLocalizedString(@"myinfo_step");

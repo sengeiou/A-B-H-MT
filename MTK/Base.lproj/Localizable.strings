@@ -42,9 +42,7 @@
 "sport_hotunit" = "Cal.";
 "setplan_navtitle"="Sport goal";
 "setplan_remark"="Setting sport goal";
-"sleep_state_average"="Average";
-"sleep_state_comfortable"="Good";
-"sleep_state_enough"="Excellent";
+"sportdetail_navtilte"="Detail data";
 
 //睡眠
 "sleep_navtilte"="Sleep";
@@ -63,6 +61,9 @@
 "sleep_deep" = "Deep";
 "sleep_light" = "Light";
 "sleep_awake" = "Awake";
+"sleep_state_average"="Average";
+"sleep_state_comfortable"="Good";
+"sleep_state_enough"="Excellent";
 
 /*睡眠详细界面*/
 "sleepdetail_navtilte"="Sleep patterns";

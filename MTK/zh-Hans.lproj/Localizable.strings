@@ -31,6 +31,7 @@
 "register_modi_pass" = "修改密码";
 
 //运动
+"sportdetail_navtilte"="运动详细";
 "sportdetail_day" = "天";
 "portdetail_week" = "周";
 "sportdetail_tendat" = "月";
@@ -64,7 +65,7 @@
 "sleepdetail_sobertime" = "清醒时长";
 "sleep_deep" = "深度睡眠";
 "sleep_light" = "浅睡";
-"sleep_awake" = "醒来";
+"sleep_awake" = "清醒";
 
 /*睡眠详细界面*/
 "sleepdetail_navtilte"="睡眠详细";

@@ -69,12 +69,24 @@
 - (void)createUI{
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithRed:32/255.0 green:40/255.0 blue:102/255.0 alpha:1] size:MainScreen.size] forBarMetrics:UIBarMetricsDefault];
     if (MainScreen.size.height > 568) {
-        _backH.constant = 350.0f;
+        _progressH.constant = 270.f;
+        _progressW.constant = 270.f;
+        _hourLab.font = [UIFont systemFontOfSize:45];
+        _hourUnLab.font = [UIFont systemFontOfSize:20];
+        _minLab.font = [UIFont systemFontOfSize:45];
+        _minUnLab.font = [UIFont systemFontOfSize:20];
+        _lastSlLab.font = [UIFont systemFontOfSize:25];
     }
     else{
-        _backH.constant = 300.0f;
+        _progressH.constant = 220.0f;
+        _progressW.constant = 220.0f;
+        _hourLab.font = [UIFont systemFontOfSize:39];
+        _hourUnLab.font = [UIFont systemFontOfSize:17];
+        _minLab.font = [UIFont systemFontOfSize:39];
+        _minUnLab.font = [UIFont systemFontOfSize:17];
+        _lastSlLab.font = [UIFont systemFontOfSize:19];
     }
-    
+
     self.dateLab.text=[self dateWithYMD];
     self.hourUnLab.text = MtkLocalizedString(@"sleep_hour");
     self.minUnLab.text = MtkLocalizedString(@"sport_minute");
@@ -110,7 +122,7 @@ static int  deffInt=30;
         NSDate *nextDate = [NSDate dateWithTimeInterval:-(24*60*60*(30-deffInt)) sinceDate:[NSDate date]];
         _data=nextDate;
         self.dateLab.text=[self dateWithYMD];
-        if (deffInt == 0) {
+        if (deffInt == 1) {
             self.leftBut.enabled = NO;
         }
         self.rightBut.enabled = YES;
@@ -251,8 +263,11 @@ static int  deffInt=30;
     self.lightTiLab.text = [NSString stringWithFormat:@"%d%@%@%@",[self returnHour:simpleSleepAmount],MtkLocalizedString(@"sleep_hour"),[self returnMin:simpleSleepAmount],MtkLocalizedString(@"sport_minute")];
     self.soberTiLab.text = [NSString stringWithFormat:@"%d%@%@%@",[self returnHour:soberAmount],MtkLocalizedString(@"sleep_hour"),[self returnMin:soberAmount],MtkLocalizedString(@"sport_minute")];
     
-    
+    if (sleepHour < 10) {
+        self.hourLab.text = [NSString stringWithFormat:@"0%d",sleepHour];
+    }else{
     self.hourLab.text = [NSString stringWithFormat:@"%d",sleepHour];
+    }
     if (sleepMin<10) {
         
         self.minLab.text = [NSString stringWithFormat:@"0%d",sleepMin];

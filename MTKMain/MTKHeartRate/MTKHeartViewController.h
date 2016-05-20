@@ -14,7 +14,7 @@
 @property (nonatomic,weak) IBOutlet UIView *HRView;
 @property (nonatomic, strong) IBOutlet NSLayoutConstraint *heartLead;
 @property (nonatomic, weak) IBOutlet UIButton *leftBut, *rightBut, *detailBut;
-@property (nonatomic, strong) IBOutlet NSLayoutConstraint *backH;
+@property (nonatomic, strong) IBOutlet NSLayoutConstraint *progressH, *progressW;
 @property (nonatomic,strong) NSDate *data;
 @property(nonatomic,strong) MTKSqliteData *sqliData;
 @end
