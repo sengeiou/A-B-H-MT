@@ -124,8 +124,8 @@
         scrHight = 320.f;
     }
 
-    scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 20,MainScreen.size.width, scrHight - 30)];
-    scrollView.contentSize = CGSizeMake(740, scrHight - 50);
+    scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 10,MainScreen.size.width, scrHight - 20)];
+    scrollView.contentSize = CGSizeMake(740, scrHight - 40);
     scrollView.contentOffset = CGPointMake(220, 0);
     scrollView.showsHorizontalScrollIndicator = FALSE;
     [self.view addSubview:scrollView];
@@ -140,7 +140,7 @@
     else{
         scrHight = 320.f;
     }
-    MTKSleepView *sleepView = [[MTKSleepView alloc] initWithFrame:CGRectMake(10, 0,730,scrHight - 50)];//画图两边各有5像素缩进，为了X轴坐标能显示，故需要在理想长度再增加10像素
+    MTKSleepView *sleepView = [[MTKSleepView alloc] initWithFrame:CGRectMake(10, 10,730,scrHight - 50)];//画图两边各有5像素缩进，为了X轴坐标能显示，故需要在理想长度再增加10像素
     [scrollView addSubview:sleepView];
     sleepView.xTexts = @[@"0",@"6:00",@"12:00",@"18:00",@"24"];
     sleepView.xValues = [sleepArr copy];

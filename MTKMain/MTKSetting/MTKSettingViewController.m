@@ -124,6 +124,11 @@
     else if (indexPath.row == 3) {
 
 //        if ([MTKBleMgr checkBleStatus]) {
+        CachedBLEDevice* device = [CachedBLEDevice defaultInstance];
+        if (!device.mDeviceIdentifier || [device.mDeviceIdentifier isEqualToString:@""]) {
+            [MBProgressHUD showError:MtkLocalizedString(@"alert_nobang")];
+            return;
+        }
             UIAlertController *aler = [UIAlertController alertControllerWithTitle:MtkLocalizedString(@"alert_relieveband") message:nil preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *cancelAct = [UIAlertAction actionWithTitle:MtkLocalizedString(@"aler_can") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
             }];
@@ -137,8 +142,8 @@
             [self presentViewController:aler animated:YES completion:^{
                 
             }];
-//        }
-    }
+        }
+//    }
 }
 
 - (void)lostSet:(UISwitch *)sender{

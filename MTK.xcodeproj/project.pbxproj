@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE34B1081CFC090200CF0208 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EE34B0F81CFC090200CF0208 /* MJRefresh.bundle */; };
+		EE34B1091CFC090200CF0208 /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE34B0FB1CFC090200CF0208 /* MJRefreshBaseView.m */; };
+		EE34B10A1CFC090200CF0208 /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = EE34B0FD1CFC090200CF0208 /* MJRefreshConst.m */; };
+		EE34B10B1CFC090200CF0208 /* MJRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE34B0FF1CFC090200CF0208 /* MJRefreshFooterView.m */; };
+		EE34B10C1CFC090200CF0208 /* MJRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE34B1011CFC090200CF0208 /* MJRefreshHeaderView.m */; };
+		EE34B10D1CFC090200CF0208 /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = EE34B1031CFC090200CF0208 /* UIScrollView+MJExtension.m */; };
+		EE34B10E1CFC090200CF0208 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = EE34B1051CFC090200CF0208 /* UIScrollView+MJRefresh.m */; };
+		EE34B10F1CFC090200CF0208 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = EE34B1071CFC090200CF0208 /* UIView+MJExtension.m */; };
 		EE3AF60F1CCE449C00126633 /* EFCircularSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = EE3AF60E1CCE449C00126633 /* EFCircularSlider.m */; };
 		EE4885521CD1B54C006CB97C /* SmaNavMyInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE4885501CD1B54C006CB97C /* SmaNavMyInfoController.m */; };
 		EE4885531CD1B54C006CB97C /* SmaNavMyInfoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE4885511CD1B54C006CB97C /* SmaNavMyInfoController.xib */; };
@@ -86,6 +94,7 @@
 		EEC996521CC4918100BD5A45 /* MTKLocalized.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC996511CC4918100BD5A45 /* MTKLocalized.m */; };
 		EEC9965D1CC4ABEA00BD5A45 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EEC9965F1CC4ABEA00BD5A45 /* Localizable.strings */; };
 		EEC996641CC4CCF400BD5A45 /* MTKLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC996631CC4CCF400BD5A45 /* MTKLoginViewController.m */; };
+		EED63B851CF3FECF00B8DB10 /* Alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EED63B841CF3FECF00B8DB10 /* Alarm.mp3 */; };
 		EEF6F5D51CD0FC170061A47B /* SmaQuietViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEF6F5D31CD0FC170061A47B /* SmaQuietViewController.m */; };
 		EEF6F5D61CD0FC170061A47B /* SmaQuietViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEF6F5D41CD0FC170061A47B /* SmaQuietViewController.xib */; };
 		EEF6F5DB1CD0FC480061A47B /* SmaQuietTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EEF6F5D91CD0FC480061A47B /* SmaQuietTableCell.m */; };
@@ -111,6 +120,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EE34B0F81CFC090200CF0208 /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
+		EE34B0F91CFC090200CF0208 /* MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefresh.h; sourceTree = "<group>"; };
+		EE34B0FA1CFC090200CF0208 /* MJRefreshBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBaseView.h; sourceTree = "<group>"; };
+		EE34B0FB1CFC090200CF0208 /* MJRefreshBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshBaseView.m; sourceTree = "<group>"; };
+		EE34B0FC1CFC090200CF0208 /* MJRefreshConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshConst.h; sourceTree = "<group>"; };
+		EE34B0FD1CFC090200CF0208 /* MJRefreshConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshConst.m; sourceTree = "<group>"; };
+		EE34B0FE1CFC090200CF0208 /* MJRefreshFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshFooterView.h; sourceTree = "<group>"; };
+		EE34B0FF1CFC090200CF0208 /* MJRefreshFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshFooterView.m; sourceTree = "<group>"; };
+		EE34B1001CFC090200CF0208 /* MJRefreshHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshHeaderView.h; sourceTree = "<group>"; };
+		EE34B1011CFC090200CF0208 /* MJRefreshHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshHeaderView.m; sourceTree = "<group>"; };
+		EE34B1021CFC090200CF0208 /* UIScrollView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MJExtension.h"; sourceTree = "<group>"; };
+		EE34B1031CFC090200CF0208 /* UIScrollView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJExtension.m"; sourceTree = "<group>"; };
+		EE34B1041CFC090200CF0208 /* UIScrollView+MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MJRefresh.h"; sourceTree = "<group>"; };
+		EE34B1051CFC090200CF0208 /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
+		EE34B1061CFC090200CF0208 /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
+		EE34B1071CFC090200CF0208 /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
 		EE3AF60D1CCE449C00126633 /* EFCircularSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFCircularSlider.h; sourceTree = "<group>"; };
 		EE3AF60E1CCE449C00126633 /* EFCircularSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFCircularSlider.m; sourceTree = "<group>"; };
 		EE48854F1CD1B54C006CB97C /* SmaNavMyInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmaNavMyInfoController.h; sourceTree = SOURCE_ROOT; };
@@ -334,6 +359,7 @@
 		EEC996611CC4AC4000BD5A45 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		EEC996621CC4CCF400BD5A45 /* MTKLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MTKLoginViewController.h; path = Login/MTKLoginViewController.h; sourceTree = SOURCE_ROOT; };
 		EEC996631CC4CCF400BD5A45 /* MTKLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MTKLoginViewController.m; path = Login/MTKLoginViewController.m; sourceTree = SOURCE_ROOT; };
+		EED63B841CF3FECF00B8DB10 /* Alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Alarm.mp3; sourceTree = "<group>"; };
 		EEF6F5D21CD0FC170061A47B /* SmaQuietViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmaQuietViewController.h; sourceTree = "<group>"; };
 		EEF6F5D31CD0FC170061A47B /* SmaQuietViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmaQuietViewController.m; sourceTree = "<group>"; };
 		EEF6F5D41CD0FC170061A47B /* SmaQuietViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmaQuietViewController.xib; sourceTree = "<group>"; };
@@ -373,6 +399,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EE34B0F61CFC08C200CF0208 /* Mode */ = {
+			isa = PBXGroup;
+			children = (
+				EE34B0F71CFC090200CF0208 /* TableViewExtension */,
+			);
+			name = Mode;
+			sourceTree = "<group>";
+		};
+		EE34B0F71CFC090200CF0208 /* TableViewExtension */ = {
+			isa = PBXGroup;
+			children = (
+				EE34B0F81CFC090200CF0208 /* MJRefresh.bundle */,
+				EE34B0F91CFC090200CF0208 /* MJRefresh.h */,
+				EE34B0FA1CFC090200CF0208 /* MJRefreshBaseView.h */,
+				EE34B0FB1CFC090200CF0208 /* MJRefreshBaseView.m */,
+				EE34B0FC1CFC090200CF0208 /* MJRefreshConst.h */,
+				EE34B0FD1CFC090200CF0208 /* MJRefreshConst.m */,
+				EE34B0FE1CFC090200CF0208 /* MJRefreshFooterView.h */,
+				EE34B0FF1CFC090200CF0208 /* MJRefreshFooterView.m */,
+				EE34B1001CFC090200CF0208 /* MJRefreshHeaderView.h */,
+				EE34B1011CFC090200CF0208 /* MJRefreshHeaderView.m */,
+				EE34B1021CFC090200CF0208 /* UIScrollView+MJExtension.h */,
+				EE34B1031CFC090200CF0208 /* UIScrollView+MJExtension.m */,
+				EE34B1041CFC090200CF0208 /* UIScrollView+MJRefresh.h */,
+				EE34B1051CFC090200CF0208 /* UIScrollView+MJRefresh.m */,
+				EE34B1061CFC090200CF0208 /* UIView+MJExtension.h */,
+				EE34B1071CFC090200CF0208 /* UIView+MJExtension.m */,
+			);
+			path = TableViewExtension;
+			sourceTree = "<group>";
+		};
 		EE3AF60C1CCE449C00126633 /* EFCircularSlider */ = {
 			isa = PBXGroup;
 			children = (
@@ -725,6 +782,7 @@
 		EE87682A1CCC925100B53E45 /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				EED63B831CF3FEBC00B8DB10 /* Resource */,
 				EE87682B1CCC925100B53E45 /* BackgroundManager.h */,
 				EE87682C1CCC925100B53E45 /* BackgroundManager.m */,
 				EE87682D1CCC925100B53E45 /* BLEManagerConstants.h */,
@@ -802,6 +860,7 @@
 				EEC478921CE95F55009510C2 /* MTKSportDetailViewController.h */,
 				EEC478931CE95F55009510C2 /* MTKSportDetailViewController.m */,
 				EEC4788A1CE95EF6009510C2 /* View */,
+				EE34B0F61CFC08C200CF0208 /* Mode */,
 			);
 			path = MTKSport;
 			sourceTree = "<group>";
@@ -1004,6 +1063,14 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
+		EED63B831CF3FEBC00B8DB10 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				EED63B841CF3FECF00B8DB10 /* Alarm.mp3 */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
 		EEF6F5D71CD0FC1F0061A47B /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1084,6 +1151,11 @@
 				TargetAttributes = {
 					EEC995F51CC46ADA00BD5A45 = {
 						CreatedOnToolsVersion = 7.3;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					EEC9960E1CC46ADA00BD5A45 = {
 						CreatedOnToolsVersion = 7.3;
@@ -1127,6 +1199,8 @@
 				EEC9965D1CC4ABEA00BD5A45 /* Localizable.strings in Resources */,
 				EEC996061CC46ADA00BD5A45 /* Assets.xcassets in Resources */,
 				EE4885531CD1B54C006CB97C /* SmaNavMyInfoController.xib in Resources */,
+				EED63B851CF3FECF00B8DB10 /* Alarm.mp3 in Resources */,
+				EE34B1081CFC090200CF0208 /* MJRefresh.bundle in Resources */,
 				EEC996041CC46ADA00BD5A45 /* Main.storyboard in Resources */,
 				EE87679C1CCC662200B53E45 /* MBProgressHUD.bundle in Resources */,
 				EEF6F5DC1CD0FC480061A47B /* SmaQuietTableCell.xib in Resources */,
@@ -1169,10 +1243,12 @@
 				EE8B1D221CCA097100F990FC /* MTKTabBarButton.m in Sources */,
 				EEC9964F1CC4880900BD5A45 /* MTKNavViewController.m in Sources */,
 				EE808B331CCDAD4200A213DE /* MTKUserViewController.m in Sources */,
+				EE34B10F1CFC090200CF0208 /* UIView+MJExtension.m in Sources */,
 				EEC208A11CD0BDCD006680AD /* MTKHeartViewController.m in Sources */,
 				EE8768321CCC925100B53E45 /* BackgroundManager.m in Sources */,
 				EE8768231CCC91E500B53E45 /* BLEManagerModel.xcdatamodeld in Sources */,
 				EE87679B1CCC662200B53E45 /* MBProgressHUD+MJ.m in Sources */,
+				EE34B10C1CFC090200CF0208 /* MJRefreshHeaderView.m in Sources */,
 				EE8B1D3A1CCA26E700F990FC /* MTKPairViewController.m in Sources */,
 				EEC995FE1CC46ADA00BD5A45 /* MtkAppDelegate.m in Sources */,
 				EE8634DD1CC728FD005378C9 /* SectionsViewController.m in Sources */,
@@ -1191,7 +1267,11 @@
 				EE8B1D1F1CCA08ED00F990FC /* MTKTabBar.m in Sources */,
 				EE808B361CCDC4BA00A213DE /* MTKUserTableViewController.m in Sources */,
 				EEC995FB1CC46ADA00BD5A45 /* main.m in Sources */,
+				EE34B10E1CFC090200CF0208 /* UIScrollView+MJRefresh.m in Sources */,
+				EE34B10D1CFC090200CF0208 /* UIScrollView+MJExtension.m in Sources */,
 				EEC478911CE95F02009510C2 /* UIView+FrameSet.m in Sources */,
+				EE34B1091CFC090200CF0208 /* MJRefreshBaseView.m in Sources */,
+				EE34B10A1CFC090200CF0208 /* MJRefreshConst.m in Sources */,
 				EE9D5BBD1CEAB1C500548DA3 /* MTKSleepView.m in Sources */,
 				EE8634D71CC728FD005378C9 /* SMS_HYZBadgeView.m in Sources */,
 				EE8768261CCC91E500B53E45 /* DeviceParameter.m in Sources */,
@@ -1200,6 +1280,7 @@
 				EE8768251CCC91E500B53E45 /* DeviceInfo.m in Sources */,
 				EE8B1D341CCA0C3900F990FC /* MTKNoticViewController.m in Sources */,
 				EE7B4A161CCF4AC5007C4644 /* KAProgressLabel.m in Sources */,
+				EE34B10B1CFC090200CF0208 /* MJRefreshFooterView.m in Sources */,
 				EE8767A01CCC7F6E00B53E45 /* MTKProximiService.m in Sources */,
 				EEC996361CC478F800BD5A45 /* AccountTool.m in Sources */,
 				EE7B4A2A1CCF6A75007C4644 /* FMDatabasePool.m in Sources */,
@@ -1385,6 +1466,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				ENABLE_BITCODE = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Framework/ShareSMS/SMS_SDK",
@@ -1399,6 +1481,7 @@
 					"$(PROJECT_DIR)/Framework/ableCloudLibSDK",
 					"$(PROJECT_DIR)/Framework/ShareSMS/MTKBleSdk",
 				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.smawatch.MTK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -1412,6 +1495,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Shenzhen Smart Care Technology Co., Ltd.";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shenzhen Smart Care Technology Co., Ltd.";
 				ENABLE_BITCODE = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Framework/ShareSMS/SMS_SDK",
@@ -1426,6 +1510,7 @@
 					"$(PROJECT_DIR)/Framework/ableCloudLibSDK",
 					"$(PROJECT_DIR)/Framework/ShareSMS/MTKBleSdk",
 				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.smawatch.MTK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "ab062576-3266-47f4-ac44-62f529027fa2";

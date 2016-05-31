@@ -775,7 +775,7 @@ static BackgroundManager* instance;
 
 //连接成功后5秒才允许进行数据传输
 -(void)sendDate{
-    _canSendData = YES;
+  _canSendData = YES;
   [[CachedBLEDevice defaultInstance] updateDeviceConfiguration:CONFIG_DISCONNECT_ALERT_SWITCH_STATE_CHANGE changedValue:[CachedBLEDevice defaultInstance].mDisconnectEnabled];
 }
 @end

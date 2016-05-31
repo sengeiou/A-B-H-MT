@@ -8,6 +8,7 @@
 
 #import "MTKSportViewController.h"
 #import "KAProgressLabel.h"
+#import "UIScrollView+MJRefresh.h"
 @interface MTKSportViewController ()<myProtocol>
 {
     MTKUserInfo *userInfo;
@@ -35,7 +36,10 @@
 
 - (void)viewWillAppear:(BOOL)animated{
      [mController setDelegate: self];
+    self.scrolllView.delegate = self;
+    self.scrolllView.showsVerticalScrollIndicator = FALSE;
     [self initializeMethod];
+    [self setupRefresh];
     [self createUI];
 }
 
@@ -67,8 +71,12 @@
     if (MainScreen.size.height > 568) {
         _progressH.constant = 270.0f;
          _progressW.constant = 270.0f;
+        _indH.constant = 25.0f;
+        _indW.constant = 20.0f;
         _butH.constant = 270.0f;
         _butW.constant = 270.0f;
+        _scrollW.constant = [UIScreen mainScreen].bounds.size.width;
+        _scrollH.constant = 420.0f;
         [self.progressLab setFont:[UIFont systemFontOfSize:44]];
         [self.progressLab setTrackWidth:9.0f];//轨迹粗细
         [self.progressLab setProgressWidth:9.0f];//进度条粗细
@@ -76,13 +84,17 @@
     else{
         _progressH.constant = 220.0f;
          _progressW.constant = 220.0f;
+        _indH.constant = 16.0f;
+        _indW.constant = 14.0f;
         _butH.constant = 220.0f;
         _butW.constant = 220.0f;
+        _scrollH.constant = 320.0f;
+        _scrollW.constant = [UIScreen mainScreen].bounds.size.width;
         [self.progressLab setFont:[UIFont systemFontOfSize:34]];
         [self.progressLab setTrackWidth:7.0f];//轨迹粗细
         [self.progressLab setProgressWidth:7.0f];//进度条粗细
     }
-    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithIcon:@"刷新" highIcon:@"刷新" target:self action:@selector(syncSport)];
+//    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithIcon:@"刷新" highIcon:@"刷新" target:self action:@selector(syncSport)];
     _goalLab.text = MtkLocalizedString(@"sport_plaremark");
     _disLab.text = MtkLocalizedString(@"sport_distance");
     _stepLab.text = MtkLocalizedString(@"sport_steps");
@@ -199,7 +211,6 @@ int  deffInt=30;
 - (void)syncSport{
     if ([MTKBleMgr checkBleStatus]) {
         syncError = NO;
-        [MBProgressHUD showMessage:MtkLocalizedString(@"alert_syncing")];
        
         NSString *setUser = GETDESPORT;
         [mController sendDataWithCmd:setUser mode:GETSDETHEART];
@@ -213,8 +224,11 @@ int  deffInt=30;
 
 - (void)timeout{
     syncError = YES;
-    [MBProgressHUD hideHUD];
-    [MBProgressHUD showError:MtkLocalizedString(@"alert_syncerror")];
+    self.scrolllView.scrollEnabled = YES;
+    [self.view endEditing:YES];
+    self.scrolllView.headerRefreshingText = MtkLocalizedString(@"alert_syncerror");
+    [self.scrolllView headerEndRefreshing];
+
     if (setTimer) {
         [setTimer invalidate];
         setTimer = nil;
@@ -250,6 +264,48 @@ int  deffInt=30;
      _goalStepLab.text = [NSString stringWithFormat:@"%d",userInfo.userGoal.intValue*500+4000];
 }
 
+/**
+ *  集成刷新控件
+ */
+- (void)setupRefresh
+{
+    // 1.下拉刷新(进入刷新状态就会调用self的headerRereshing)
+    [self.scrolllView addHeaderWithTarget:self action:@selector(headerRereshing)];
+    
+    // 设置文字(也可以不设置,默认的文字在MJRefreshConst中修改)
+    self.scrolllView.headerPullToRefreshText = MtkLocalizedString(@"aler_downSync");
+    self.scrolllView.headerReleaseToRefreshText = MtkLocalizedString(@"aler_Sync");
+    self.scrolllView.headerRefreshingText = MtkLocalizedString(@"aler_syncing");
+}
+
+#pragma mark 开始进入刷新状态
+- (void)headerRereshing
+{
+    NSLog(@"进入刷新");
+    self.scrolllView.scrollEnabled = NO;
+    if ([MTKBleMgr checkBleStatus]) {
+        self.scrolllView.headerRefreshingText = MtkLocalizedString(@"aler_syncing");
+        syncError = NO;
+        NSString *setUser = GETDESPORT;
+        [mController sendDataWithCmd:setUser mode:GETSDETHEART];
+        if (setTimer) {
+            [setTimer invalidate];
+            setTimer = nil;
+        }
+        setTimer = [NSTimer scheduledTimerWithTimeInterval:40 target:self selector:@selector(timeout) userInfo:nil repeats:NO];
+    }
+    else{
+        // 刷新表格
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            self.scrolllView.scrollEnabled = YES;
+            [self.view endEditing:YES];
+            [self.scrolllView headerEndRefreshing];
+            // (最好在刷新表格后调用)调用endRefreshing可以结束刷新状态
+        });
+    }
+}
+
+
 #pragma mark *****myProtocol代理
 - (void)onDataReceive:(NSString *)recvData mode:(MTKBLEMEDO)mode{
     userInfo = [MTKArchiveTool getUserInfo];
@@ -264,7 +320,6 @@ int  deffInt=30;
         setTimer = [NSTimer scheduledTimerWithTimeInterval:40 target:self selector:@selector(timeout) userInfo:nil repeats:NO];
     }
     else if (mode == GETSDETSLEEP){
-//        mController = [MyController getMyControllerInstance];
         NSString *setUser = GETDEDATA;
         [mController sendDataWithCmd:setUser mode:GETSDETSPORT];
         if (setTimer) {
@@ -280,8 +335,10 @@ int  deffInt=30;
         NSLog(@"更新运动数据页面");
         [self refreshData];
         if (!syncError) {
-            [MBProgressHUD hideHUD];
-            [MBProgressHUD showSuccess:MtkLocalizedString(@"alert_syncsucc")];
+            self.scrolllView.scrollEnabled = YES;
+            [self.view endEditing:YES];
+             self.scrolllView.headerRefreshingText = MtkLocalizedString(@"aler_syncsucc");
+            [self.scrolllView headerEndRefreshing];
         }
        
            if (setTimer) {
@@ -289,6 +346,16 @@ int  deffInt=30;
             setTimer = nil;
         }
     }
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (self.scrolllView == scrollView) {
+    if (scrollView.contentOffset.y >= 0) {
+                scrollView.contentOffset = CGPointMake(0, 0);
+                return;
+        }
+    }
+    return;
 }
 
 - (IBAction)detailSelector:(id)sender{

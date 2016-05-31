@@ -31,17 +31,22 @@
 //    [MTKArchiveTool saveUser:user];
     
     [[BackgroundManager sharedInstance] setDisconnectFromUx:YES];
-    [[MTKBleManager sharedInstance] forgetPeripheral];
-    [[BackgroundManager sharedInstance] disconnectDevice:[[CachedBLEDevice defaultInstance] getDevicePeripheral]];
 //    [[MTKBleManager sharedInstance] forgetPeripheral];
-    ////
+    [[BackgroundManager sharedInstance] disconnectDevice:[[CachedBLEDevice defaultInstance] getDevicePeripheral]];
+    [[MTKBleManager sharedInstance] forgetPeripheral];
     [MTKDeviceParameterRecorder deleteDevice:[CachedBLEDevice defaultInstance].mDeviceIdentifier];
     [[BackgroundManager sharedInstance] stopScan];
-    //////
     [[SOSCallDataManager sosCallDataMgrInstance] clearAllData];
     CachedBLEDevice* device = [CachedBLEDevice defaultInstance] ;
     device.mDeviceIdentifier = nil;
     device.mConnectionState = CONNECTION_STATE_DISCONNECTED;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    [self openBLset];
+    });
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+   
 }
 
 - (void)createUI{
@@ -61,6 +66,15 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)openBLset{
+    NSURL *url = [NSURL URLWithString:@"prefs:root=Bluetooth"];
+    if ([[UIApplication sharedApplication] canOpenURL:url])
+    {
+        [[UIApplication sharedApplication] openURL:url];
+    }
+}
+
 
 - (IBAction)unPairSuccess:(UIButton *)but{
     [self.navigationController popViewControllerAnimated:YES];

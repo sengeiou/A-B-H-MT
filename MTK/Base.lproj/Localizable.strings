@@ -175,3 +175,10 @@
 "alert_height"="Please enter your height";
 "alert_weight"="Please enter your weight";
 "alert_nickname"="Please enter your nickname";
+"aler_syncing" = "Syncing...";
+"aler_syncsucc" = "Completed!";
+"aler_syncerror" = "Synchronization failed!";
+"aler_downSync" = "Drop down to refresh";
+"aler_Sync" = "Release immediately refresh";
+"aler_lastTime" = "latest update:";
+"aler_tamane" = "The label is too long,pls modify";

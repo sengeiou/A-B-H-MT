@@ -179,4 +179,10 @@
 "alert_syncerror" = "同步失败";
 "alert_height"="请输入您的身高";
 "alert_weight"="请输入您的体重";
-
+"aler_syncing" = "同步中...";
+"aler_syncsucc" = "同步完成";
+"aler_syncerror" = "同步失败";
+"aler_downSync" = "下拉可以刷新";
+"aler_Sync" = "松开马上刷新";
+"aler_lastTime" = "最后更新:";
+"aler_tamane" = "标签过长，请修改";

@@ -101,7 +101,7 @@
             //创建路径并获取句柄
             CGMutablePathRef path = CGPathCreateMutable();
             //指定矩形
-            CGRect rectangle = CGRectMake(([dic1[@"TIME"] floatValue])*(self.frame.size.width/86400.0f)+5, 10.0f,([dic2[@"TIME"] floatValue]-[dic1[@"TIME"] floatValue])*(self.frame.size.width/86400.0f),self.frame.size.height-35);
+            CGRect rectangle = CGRectMake(([dic1[@"TIME"] floatValue])*(self.frame.size.width/86400.0f)+5, 15.0f,([dic2[@"TIME"] floatValue]-[dic1[@"TIME"] floatValue])*(self.frame.size.width/86400.0f),self.frame.size.height-40);
             //将矩形添加到路径中
             CGPathAddRect(path,NULL,rectangle);
             //获取上下文
@@ -111,20 +111,27 @@
             CGContextAddPath(currentContext, path);
             //设置矩形填充色
             UIColor *fillColor;
+             UIColor *StrokeColor;
             if ([dic1[@"QUALITY"] intValue] == 0) {
                fillColor = [UIColor colorWithRed:238/255.0 green:190/255.0 blue:255/255.0 alpha:1.0f];
+                StrokeColor = [UIColor colorWithRed:238/255.0 green:190/255.0 blue:255/255.0 alpha:0.8f];
             }
             else if([dic1[@"QUALITY"] intValue] == 1){
                 fillColor = [UIColor colorWithRed:200/255.0 green:126/255.0 blue:238/255.0 alpha:1.0f];
+                StrokeColor = [UIColor colorWithRed:200/255.0 green:126/255.0 blue:238/255.0 alpha:0.8f];
             }
             else{
                 fillColor = [UIColor colorWithRed:133/255.0 green:90/255.0 blue:175/255.0 alpha:1.0f];
+                StrokeColor = [UIColor colorWithRed:133/255.0 green:90/255.0 blue:175/255.0 alpha:0.8f];
             }
             [fillColor setFill];
             //矩形边框颜色
-            [[UIColor brownColor] setStroke];
+            [StrokeColor setStroke];
             //边框宽度
             CGContextSetLineWidth(currentContext,0.0f);
+            
+//            CGContextSetShadowWithColor(currentContext, CGSizeMake(5.0f, -8.0f), 5.0f, [UIColor colorWithRed:214/255.0 green:197/255.0 blue:117/255.0 alpha:1.0f].CGColor);
+//            CGContextSetShadow(currentContext, CGSizeMake(5.0f, -5.0f), 5.0f);
             //绘制
             CGContextDrawPath(currentContext, kCGPathFillStroke);
             CGPathRelease(path);
