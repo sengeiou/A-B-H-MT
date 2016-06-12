@@ -18,6 +18,7 @@
 		EE3AF60F1CCE449C00126633 /* EFCircularSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = EE3AF60E1CCE449C00126633 /* EFCircularSlider.m */; };
 		EE4885521CD1B54C006CB97C /* SmaNavMyInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE4885501CD1B54C006CB97C /* SmaNavMyInfoController.m */; };
 		EE4885531CD1B54C006CB97C /* SmaNavMyInfoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE4885511CD1B54C006CB97C /* SmaNavMyInfoController.xib */; };
+		EE54FF4E1CFD2C9200DCEBDA /* MTKSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE54FF4D1CFD2C9200DCEBDA /* MTKSelectViewController.m */; };
 		EE55F82D1CCB3DBA00B99223 /* MTKCoreBlueTool.m in Sources */ = {isa = PBXBuildFile; fileRef = EE55F82C1CCB3DBA00B99223 /* MTKCoreBlueTool.m */; };
 		EE55F82F1CCB460900B99223 /* libMTKBleManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE55F82E1CCB460900B99223 /* libMTKBleManager.a */; };
 		EE55F8351CCB5AA100B99223 /* ScannedPeripheral.m in Sources */ = {isa = PBXBuildFile; fileRef = EE55F8341CCB5AA100B99223 /* ScannedPeripheral.m */; };
@@ -141,6 +142,8 @@
 		EE48854F1CD1B54C006CB97C /* SmaNavMyInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmaNavMyInfoController.h; sourceTree = SOURCE_ROOT; };
 		EE4885501CD1B54C006CB97C /* SmaNavMyInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmaNavMyInfoController.m; sourceTree = SOURCE_ROOT; };
 		EE4885511CD1B54C006CB97C /* SmaNavMyInfoController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmaNavMyInfoController.xib; sourceTree = SOURCE_ROOT; };
+		EE54FF4C1CFD2C9200DCEBDA /* MTKSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKSelectViewController.h; sourceTree = "<group>"; };
+		EE54FF4D1CFD2C9200DCEBDA /* MTKSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTKSelectViewController.m; sourceTree = "<group>"; };
 		EE55F8141CCB3AED00B99223 /* AlertService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertService.h; sourceTree = "<group>"; };
 		EE55F8151CCB3AED00B99223 /* BLEClientProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEClientProfile.h; sourceTree = "<group>"; };
 		EE55F8161CCB3AED00B99223 /* BloodPressureService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BloodPressureService.h; sourceTree = "<group>"; };
@@ -736,6 +739,8 @@
 			children = (
 				EE8B1D351CCA0C4800F990FC /* MTKSettingViewController.h */,
 				EE8B1D361CCA0C4800F990FC /* MTKSettingViewController.m */,
+				EE54FF4C1CFD2C9200DCEBDA /* MTKSelectViewController.h */,
+				EE54FF4D1CFD2C9200DCEBDA /* MTKSelectViewController.m */,
 				EE8B1D381CCA26E700F990FC /* MTKPairViewController.h */,
 				EE8B1D391CCA26E700F990FC /* MTKPairViewController.m */,
 				EE8767911CCC5A9700B53E45 /* MTKUnPairViewController.h */,
@@ -1304,6 +1309,7 @@
 				EE7B4A281CCF6A75007C4644 /* FMDatabase.m in Sources */,
 				EEC996481CC4851C00BD5A45 /* FirstLunViewController.m in Sources */,
 				EE7B4A2B1CCF6A75007C4644 /* FMDatabaseQueue.m in Sources */,
+				EE54FF4E1CFD2C9200DCEBDA /* MTKSelectViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -20,9 +20,9 @@
 "myinfo_nickname"="Nickname";
 "myinfo_age"="Age";
 "myinfo_weight"="Weight";
-"myinfo_height"="Hight";
+"myinfo_height"="Height";
 "myinfo_sex"="Gender";
-"myinfo_step" = "Step";
+"myinfo_step" = "Steps";
 "myinfo_next" = "Next";
 /*计步目标*/
 
@@ -37,7 +37,7 @@
 "sportdetail_tendat" = "month";
 "sport_navtilte"="Sport";
 "sport_plaremark" = "Goal";
-"sport_stepunit" = "Step";
+"sport_stepunit" = "Steps";
 "sport_distanceunit" = "m";
 "sport_distancekmunit" = "km";
 "sport_hotunit" = "Cal.";
@@ -149,13 +149,13 @@
 "myinfo_nickname"="Nickname";
 "myinfo_age"="Age";
 "myinfo_weight"="Weight";
-"myinfo_height"="Hight";
+"myinfo_height"="Height";
 "myinfo_sex"="Gender";
-"myinfo_step" = "Step";
+"myinfo_step" = "Steps";
 "myinfo_uniwi1" = "kg";
 "myinfo_unithe1" = "cm";
 "myinfo_Wrange" = "Weight is between 30 to 229";
-"myinfo_Hrange" = "Hight is between 50 to 229";
+"myinfo_Hrange" = "Height is between 50 to 229";
 "myinfo_New" = "Update";
 
 //解绑

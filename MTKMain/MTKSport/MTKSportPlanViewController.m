@@ -145,7 +145,7 @@
 }
 
 -(void)minuteDidChange:(EFCircularSlider*)slider {
-    newVal = (int)slider.currentValue <= 100 ? (int)slider.currentValue : 0;
+    newVal = ((int)slider.currentValue <= 100 && (int)slider.currentValue >= 0) ? (int)slider.currentValue : 0;
     
     NSLog(@"%d intval == %d",newVal,newVal*500+4000);
     self.statelab.text=[NSString stringWithFormat:@"%d",newVal*500+4000];

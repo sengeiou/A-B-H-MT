@@ -504,11 +504,11 @@ static CachedBLEDevice* instance;
             
         case CONFIG_DISCONNECT_ALERT_SWITCH_STATE_CHANGE:
             status = [self changeStatus:value];
-            if (status != self.mDisconnectEnabled)
-            {
+//            if (status != self.mDisconnectEnabled)//即使状态不改变也设置一次
+//            {
                 self.mDisconnectEnabled = status;
                 changed = YES;
-            }
+//            }
             break;
             
         case CONFIG_RINGTONE_SWITCH_STATE_CHANGE:
