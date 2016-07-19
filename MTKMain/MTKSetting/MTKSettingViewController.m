@@ -8,6 +8,7 @@
 
 #import "MTKSettingViewController.h"
 #import "MTKUnPairViewController.h"
+#import "FmpGattClient.h"
 @interface MTKSettingViewController ()<UITableViewDelegate,UITableViewDataSource,CachedBLEDeviceDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 {
     NSArray *settingArr;
@@ -47,7 +48,7 @@
 #pragma mark *****初始化
 - (void)initializeMethod{
     
-    settingArr = @[MtkLocalizedString(@"setting_myinfo"),MtkLocalizedString(@"setting_myplan"),MtkLocalizedString(@"setting_boundsmawatch"),MtkLocalizedString(@"setting_unbindbound"),MtkLocalizedString(@"setting_lost")];
+    settingArr = @[MtkLocalizedString(@"setting_myinfo")/*,MtkLocalizedString(@"setting_myplan")*/,MtkLocalizedString(@"setting_boundsmawatch"),MtkLocalizedString(@"setting_unbindbound"),MtkLocalizedString(@"setting_lost"),MtkLocalizedString(@"setting_findDevice")];
     [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(chectBLstate) userInfo:nil repeats:YES];
 }
 
@@ -88,7 +89,7 @@
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.detailTextLabel.font = [UIFont systemFontOfSize:13];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    if (indexPath.row == 4) {
+    if (indexPath.row == 3) {
         UISwitch *lostSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
         cell.accessoryView = lostSwitch;
         [lostSwitch addTarget:self action:@selector(lostSet:) forControlEvents:UIControlEventValueChanged];
@@ -107,10 +108,10 @@
     if (indexPath.row == 0) {
         [self.navigationController pushViewController:[MainStoryBoard instantiateViewControllerWithIdentifier:@"MTKUserTableViewController"] animated:YES];
     }
+//    else if (indexPath.row == 1) {
+//        [self.navigationController pushViewController:[MainStoryBoard instantiateViewControllerWithIdentifier:@"MTKSportPlanViewController"] animated:YES];
+//    }
     else if (indexPath.row == 1) {
-        [self.navigationController pushViewController:[MainStoryBoard instantiateViewControllerWithIdentifier:@"MTKSportPlanViewController"] animated:YES];
-    }
-    else if (indexPath.row == 2) {
         NSMutableArray* array = [MTKDeviceParameterRecorder getDeviceParameters];
         if (array.count ==0) {
             MTKPairViewController *pairVC = [MainStoryBoard instantiateViewControllerWithIdentifier:@"MTKPairViewController"];
@@ -121,8 +122,7 @@
             [MBProgressHUD showError:MtkLocalizedString(@"alert_alreadyband")];
         }
     }
-    else if (indexPath.row == 3) {
-
+    else if (indexPath.row == 2) {
 //        if ([MTKBleMgr checkBleStatus]) {
         CachedBLEDevice* device = [CachedBLEDevice defaultInstance];
         if (!device.mDeviceIdentifier || [device.mDeviceIdentifier isEqualToString:@""]) {
@@ -143,7 +143,45 @@
                 
             }];
         }
-//    }
+    else if (indexPath.row == 4){
+        if ([MTKBleMgr checkBleStatus]) {
+            
+            if (mDevice.mFindingState == FINDING_STATE_ON || mDevice.mAlertState == ALERT_STATE_ON)
+            {
+                if (mDevice.mFindingState == FINDING_STATE_ON)
+                {
+                    BOOL b = [[FmpGattClient getInstance] findTarget: 0];
+                    if (b == YES)
+                    {
+                        NSLog(@"[MainTableViewController] [findAndConnectAction] do stop find action");
+                        [mDevice setDeviceFindingState:FINDING_STATE_OFF];
+                    }
+                    else
+                    {
+                        NSLog(@"[MainTableViewController] [findAndConnectAction] stop action failed");
+                    }
+                }
+                if (mDevice.mAlertState == ALERT_STATE_ON)
+                {
+                    NSLog(@"[MainTableViewController] [findAndConnectAction] do send stop remote alert action");
+                    [mDevice updateAlertState:ALERT_STATE_OFF];
+                }
+            }
+            else
+            {
+                BOOL b = [[FmpGattClient getInstance] findTarget: 2];
+                if (b == YES)
+                {
+                    NSLog(@"[MainTableViewController] [findAndConnectAction] do find action");
+                    [mDevice setDeviceFindingState:FINDING_STATE_ON];
+                }
+                else
+                {
+                    NSLog(@"[MainTableViewController] [findAndConnectAction] start find action failed");
+                }
+            }
+        }
+    }
 }
 
 - (void)lostSet:(UISwitch *)sender{

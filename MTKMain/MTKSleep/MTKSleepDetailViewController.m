@@ -8,6 +8,7 @@
 
 #import "MTKSleepDetailViewController.h"
 #import "MTKSleepView.h"
+
 @interface MTKSleepDetailViewController ()
 {
     UIScrollView *scrollView ;
@@ -27,14 +28,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self initializeMethod];
-    [self createUI];
+
+      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateUI) name:UIApplicationDidBecomeActiveNotification object:nil];
       // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [self initializeMethod];
+    [self createUI];
 }
 
 //加载dal对象
@@ -52,58 +58,58 @@
     NSDateFormatter * formatter1 = [[NSDateFormatter alloc]init];
     [formatter1 setDateFormat:@"yyyyMMdd"];
     sleepArr = [self.sqliData scarchSleepWitchDate:[formatter1 stringFromDate:self.date] Userid:[MTKArchiveTool getUserInfo].userID];
-    if (sleepArr.count > 2) {
-        for (int i = 0; i< sleepArr.count - 1; i++) {
-            NSDictionary *dic1 = sleepArr[i];
-            NSDictionary *dic2 = sleepArr[i+1];
-            if (i == sleepArr.count - 2) {
-                if ([dic1[@"QUALITY"] isEqualToString:dic2[@"QUALITY"]]) {
-                    
-                }
-                
-            }
-            else  if ([dic1[@"QUALITY"] isEqualToString:dic2[@"QUALITY"]]) {
-                [sleepArr removeObject:dic2];
-                i--;
-            }
-        }
-    }
-    NSArray * arr = [sleepArr sortedArrayUsingComparator:^NSComparisonResult(NSDictionary *obj1, NSDictionary *obj2) {
-        
-        if ([obj1[@"TIME"] intValue]<[obj2[@"TIME"] intValue]) {
-            return NSOrderedAscending;
-        }
-        else if ([obj1[@"TIME"] intValue]==[obj2[@"TIME"] intValue])
-            return NSOrderedSame;
-        else
-            return NSOrderedDescending;
-    }];
-    sleepArr = [arr mutableCopy];
+//    if (sleepArr.count > 2) {
+//        for (int i = 0; i< sleepArr.count - 1; i++) {
+//            NSDictionary *dic1 = sleepArr[i];
+//            NSDictionary *dic2 = sleepArr[i+1];
+//            if (i == sleepArr.count - 2) {
+//                if ([dic1[@"QUALITY"] isEqualToString:dic2[@"QUALITY"]]) {
+//                    
+//                }
+//                
+//            }
+//            else  if ([dic1[@"QUALITY"] isEqualToString:dic2[@"QUALITY"]]) {
+//                [sleepArr removeObject:dic2];
+//                i--;
+//            }
+//        }
+//    }
+//    NSArray * arr = [sleepArr sortedArrayUsingComparator:^NSComparisonResult(NSDictionary *obj1, NSDictionary *obj2) {
+//        
+//        if ([obj1[@"TIME"] intValue]<[obj2[@"TIME"] intValue]) {
+//            return NSOrderedAscending;
+//        }
+//        else if ([obj1[@"TIME"] intValue]==[obj2[@"TIME"] intValue])
+//            return NSOrderedSame;
+//        else
+//            return NSOrderedDescending;
+//    }];
+//    sleepArr = [arr mutableCopy];
     prevTime=0;//上一时间点
     prevType=0;//上一类型
     soberAmount=0;//清醒时间
     simpleSleepAmount=0;//浅睡眠时长
     deepSleepAmount=0;//深睡时长
     for (int i = 0; i < sleepArr.count; i ++) {
-        if (i == 0) {
-            slBeTime = [sleepArr[i][@"TIME"] intValue];
-        }
-        else{
+//        if (i == 0) {
+//            slBeTime = [sleepArr[i][@"TIME"] intValue];
+//        }
+//        else{
             atType = [sleepArr[i][@"QUALITY"] intValue];
             int atTime = [sleepArr[i][@"TIME"] intValue];
-            int amount = atTime - prevTime;
-            if (prevType == 0 /*&& (atType == 1 || atType == 2 || atType == 0)*/) {
+            int amount = [sleepArr[i][@"SLEEPTIME"] intValue];
+            if (atType == 0 /*&& (atType == 1 || atType == 2 || atType == 0)*/) {
                 soberAmount = soberAmount + amount;
             }
-            else if (prevType == 1 /*&& (atType == 0 || atType == 2 || atType == 1)*/){
+            else if (atType == 1 /*&& (atType == 0 || atType == 2 || atType == 1)*/){
                 simpleSleepAmount = simpleSleepAmount + amount;
             }
-            else if (prevType == 2 /*&& (atType == 0 || atType == 1 || atType == 2)*/){
+            else if (atType == 2 /*&& (atType == 0 || atType == 1 || atType == 2)*/){
                 deepSleepAmount = deepSleepAmount + amount;
             }
-        }
-        prevType = [sleepArr[i][@"QUALITY"] intValue];
-        prevTime = [sleepArr[i][@"TIME"] intValue];
+//        }
+//        prevType = [sleepArr[i][@"QUALITY"] intValue];
+//        prevTime = [sleepArr[i][@"TIME"] intValue];
     }
 }
 
@@ -130,6 +136,11 @@
     scrollView.showsHorizontalScrollIndicator = FALSE;
     [self.view addSubview:scrollView];
     [self updateSleepDetail];
+}
+
+- (void)updateUI{
+    [self initializeMethod];
+    [self createUI];
 }
 
 - (void)updateSleepDetail{
@@ -167,10 +178,10 @@
     
     self.slDeTime.text = [NSString stringWithFormat:@"%@:%@",[[self returnHour:[[sleepArr firstObject][@"TIME"] intValue]] intValue]<10?[NSString stringWithFormat:@"0%@",[self returnHour:[[sleepArr firstObject][@"TIME"] intValue]]]:[self returnHour:[[sleepArr firstObject][@"TIME"] intValue]],[[self returnMin:[[sleepArr firstObject][@"TIME"] intValue]] intValue]<10?[NSString stringWithFormat:@"0%@",[self returnMin:[[sleepArr firstObject][@"TIME"] intValue]]]:[self returnMin:[[sleepArr firstObject][@"TIME"] intValue]]];
     self.wakeDeTime.text = [NSString stringWithFormat:@"%@:%@",[[self returnHour:[[sleepArr lastObject][@"TIME"] intValue]] intValue]<10?[NSString stringWithFormat:@"0%@",[self returnHour:[[sleepArr lastObject][@"TIME"] intValue]]]:[self returnHour:[[sleepArr lastObject][@"TIME"] intValue]],[[self returnMin:[[sleepArr lastObject][@"TIME"] intValue]] intValue]<10?[NSString stringWithFormat:@"0%@",[self returnMin:[[sleepArr lastObject][@"TIME"] intValue]]]:[self returnMin:[[sleepArr lastObject][@"TIME"] intValue]]];
-    self.awakeDeTime.text = [NSString stringWithFormat:@"%@%@%@%@",[self returnHour:soberAmount],MtkLocalizedString(@"sleep_hour"),[self returnMin:soberAmount],MtkLocalizedString(@"sport_minute")];
-    self.slDeLenght.text = [NSString stringWithFormat:@"%@%@%@%@",hour,MtkLocalizedString(@"sleep_hour"),min,MtkLocalizedString(@"sport_minute")];
-    self.deDeLenght.text = [NSString stringWithFormat:@"%@%@%@%@",[self returnHour:deepSleepAmount],MtkLocalizedString(@"sleep_hour"),[self returnMin:deepSleepAmount],MtkLocalizedString(@"sport_minute")];
-    self.liDeLenght.text = [NSString stringWithFormat:@"%@%@%@%@",[self returnHour:simpleSleepAmount],MtkLocalizedString(@"sleep_hour"),[self returnMin:simpleSleepAmount],MtkLocalizedString(@"sport_minute")];
+    self.awakeDeTime.text = [NSString stringWithFormat:@"%@ %@ %@ %@",[self returnHour:soberAmount],MtkLocalizedString(@"sleep_hour"),[self returnMin:soberAmount],MtkLocalizedString(@"sport_minute")];
+    self.slDeLenght.text = [NSString stringWithFormat:@"%@ %@ %@ %@",hour,MtkLocalizedString(@"sleep_hour"),min.intValue<10?[NSString stringWithFormat:@"0%@",min]:min,MtkLocalizedString(@"sport_minute")];
+    self.deDeLenght.text = [NSString stringWithFormat:@"%@ %@ %@ %@",[self returnHour:deepSleepAmount],MtkLocalizedString(@"sleep_hour"),[self returnMin:deepSleepAmount],MtkLocalizedString(@"sport_minute")];
+    self.liDeLenght.text = [NSString stringWithFormat:@"%@ %@ %@ %@",[self returnHour:simpleSleepAmount],MtkLocalizedString(@"sleep_hour"),[self returnMin:simpleSleepAmount],MtkLocalizedString(@"sport_minute")];
     
 //    self.slDeTime.text = [NSString stringWithFormat:@"%@:%@",[self returnHour:[[sleepArr firstObject][@"TIME"] intValue]],[self returnMin:[[sleepArr firstObject][@"TIME"] intValue]]];
 //    self.wakeDeTime.text = [NSString stringWithFormat:@"%@:%@",[self returnHour:[[sleepArr lastObject][@"TIME"] intValue]],[self returnMin:[[sleepArr lastObject][@"TIME"] intValue]]];
@@ -183,24 +194,24 @@
 
 - (NSString *)returnHour:(int)second{
     int hour = second/3600;
-//    if (hour < 10) {
-//        return [NSString stringWithFormat:@"0%d",hour];
-//    }
-//    else{
+    if (hour < 10) {
         return [NSString stringWithFormat:@"%d",hour];
-//    }
+    }
+    else{
+        return [NSString stringWithFormat:@"%d",hour];
+    }
 
 }
 
 - (NSString *)returnMin:(int)second{
     int min = second%3600/60;
     
-//    if (min < 10) {
-//        return [NSString stringWithFormat:@"0%d",min];
-//    }
-//    else{
+    if (min < 10) {
+        return [NSString stringWithFormat:@"0%d",min];
+    }
+    else{
         return [NSString stringWithFormat:@"%d",min];
-//    }
+    }
 }
 /*
 #pragma mark - Navigation

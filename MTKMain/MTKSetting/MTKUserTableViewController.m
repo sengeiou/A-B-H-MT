@@ -23,7 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -43,13 +43,13 @@
 #pragma mark *****初始化数据
 - (void)intializeMethod{
     self.title = MtkLocalizedString(@"setting_myinfo");
-    titleArr = @[MtkLocalizedString(@"myinfo_account"),MtkLocalizedString(@"myinfo_accountpwd"),MtkLocalizedString(@"myinfo_nickname"),MtkLocalizedString(@"myinfo_weight"),MtkLocalizedString(@"myinfo_height")];
-    imaArr = @[@"account_ico",@"pwd_ico",@"nickname_ico",@"weight_ico",@"height_ico"];
+    titleArr = @[/*MtkLocalizedString(@"myinfo_account"),MtkLocalizedString(@"myinfo_accountpwd"),*/MtkLocalizedString(@"myinfo_nickname"),MtkLocalizedString(@"myinfo_weight"),MtkLocalizedString(@"myinfo_height")];
+    imaArr = @[/*@"account_ico",@"pwd_ico",*/@"nickname_ico",@"weight_ico",@"height_ico"];
     user = [MTKArchiveTool getUserInfo];
-    NSArray *detArr = @[user.userID,@"******",user.userName,[NSString stringWithFormat:@"%@ %@",user.userWeigh,MtkLocalizedString(@"myinfo_uniwi1")],[NSString stringWithFormat:@"%@ %@",user.userHeight,MtkLocalizedString(@"myinfo_unithe1")]];
+    NSArray *detArr = @[/*user.userID,@"******",*/user.userName,[NSString stringWithFormat:@"%@ %@",user.userWeigh,MtkLocalizedString(@"myinfo_uniwi1")],[NSString stringWithFormat:@"%@ %@",user.userHeight,MtkLocalizedString(@"myinfo_unithe1")]];
     detialArr = [NSMutableArray array];
     detialArr = [detArr mutableCopy];
-
+    
 }
 
 #pragma mark *****创建UI
@@ -66,14 +66,14 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 6;
+    return 4;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"USERCELL"];
+    //    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"USERCELL"];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PlayerCell"];
-    if (indexPath.row<5) {
+    if (indexPath.row<3) {
         cell.imageView.image = [UIImage imageNamed:imaArr[indexPath.row]];
         cell.textLabel.text = titleArr[indexPath.row];
         cell.detailTextLabel.text = detialArr[indexPath.row];
@@ -107,19 +107,19 @@
     //        unitLab.backgroundColor = [UIColor greenColor];
     unitLab.font = [UIFont systemFontOfSize:10];
     tabSelect = indexPath;
-    if (indexPath.row == 2) {
+    if (indexPath.row == 0) {
         UIAlertController *alerVC = [UIAlertController alertControllerWithTitle:MtkLocalizedString(@"myinfo_nickname") message:nil preferredStyle:UIAlertControllerStyleAlert];
         [alerVC addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
             
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleTextFieldTextDidChangeNotification:) name:UITextFieldTextDidChangeNotification object:textField];
-
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleTextFieldTextDidChangeNotification:) name:UITextFieldTextDidChangeNotification object:textField];
+            
         }];
         UIAlertAction *cancel = [UIAlertAction actionWithTitle:MtkLocalizedString(@"aler_can") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
             [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:alerVC.textFields.firstObject];
         }];
         UIAlertAction *confim = [UIAlertAction actionWithTitle:MtkLocalizedString(@"aler_confirm") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//            [detialArr replaceObjectAtIndex:2 withObject:user.userName];
-//            [self.tableView reloadData];
+            //            [detialArr replaceObjectAtIndex:2 withObject:user.userName];
+            //            [self.tableView reloadData];
             [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:alerVC.textFields.firstObject];
             UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
             cell.detailTextLabel.text = user.userName;
@@ -131,7 +131,7 @@
             
         }];
     }
-    if (indexPath.row == 3) {
+    if (indexPath.row == 1) {
         UIAlertController *alerVC = [UIAlertController alertControllerWithTitle:MtkLocalizedString(@"myinfo_weight") message:nil preferredStyle:UIAlertControllerStyleAlert];
         [alerVC addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
             
@@ -140,21 +140,21 @@
             textField.keyboardType= UIKeyboardTypePhonePad;
             textField.rightView = unitLab;
             textField.rightViewMode = UITextFieldViewModeAlways;
-           textField.placeholder = @"30 ~~ 229";
+            textField.placeholder = @"30 ~~ 229";
         }];
         UIAlertAction *cancel = [UIAlertAction actionWithTitle:MtkLocalizedString(@"aler_can") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
             [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:alerVC.textFields.firstObject];
         }];
         UIAlertAction *confim = [UIAlertAction actionWithTitle:MtkLocalizedString(@"aler_confirm") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-
-             [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:alerVC.textFields.firstObject];
+            
+            [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:alerVC.textFields.firstObject];
             if (user.userWeigh.intValue <= 229 && user.userWeigh.intValue >29) {
                 UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
                 cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@",user.userWeigh,MtkLocalizedString(@"myinfo_uniwi1")];
             }
             else{
-                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [MBProgressHUD showError:MtkLocalizedString(@"myinfo_Wrange")];
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [MBProgressHUD showError:MtkLocalizedString(@"myinfo_Wrange")];
                 });
             }
         }];
@@ -165,7 +165,7 @@
             
         }];
     }
-    if (indexPath.row == 4) {
+    if (indexPath.row == 2) {
         UIAlertController *alerVC = [UIAlertController alertControllerWithTitle:MtkLocalizedString(@"myinfo_height") message:nil preferredStyle:UIAlertControllerStyleAlert];
         [alerVC addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
             
@@ -188,11 +188,11 @@
                 cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@",user.userHeight,MtkLocalizedString(@"myinfo_unithe1")];
             }
             else{
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [MBProgressHUD showError:MtkLocalizedString(@"myinfo_Hrange")];
-            });
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [MBProgressHUD showError:MtkLocalizedString(@"myinfo_Hrange")];
+                });
             }
-             [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:alerVC.textFields.firstObject];
+            [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:alerVC.textFields.firstObject];
         }];
         
         [alerVC addAction:cancel];
@@ -206,51 +206,51 @@
 
 - (void)handleTextFieldTextDidChangeNotification:(NSNotification *)notification {
     UITextField *textField = notification.object;
-    if (tabSelect.row == 2) {
+    if (tabSelect.row == 0) {
         user.userName = textField.text;
     }
-    if (tabSelect.row == 3) {
-        if (textField.text.intValue <= 229 && textField.text.intValue >29) {
-         user.userWeigh = textField.text;
-        }
+    if (tabSelect.row == 1) {
+        //        if (textField.text.intValue <= 229 && textField.text.intValue >29) {
+        user.userWeigh = textField.text;
+        //        }
     }
-    if (tabSelect.row == 4) {
-         if (textField.text.intValue <= 229 && textField.text.intValue >49) {
+    if (tabSelect.row == 2) {
+        //        if (textField.text.intValue <= 229 && textField.text.intValue >49) {
         user.userHeight = textField.text;
-         }
+        //        }
     }
 }
 
 - (void)setUserToMTK{
-     if ([MTKBleMgr checkBleStatus]) {
-         
-       
-         NSString *setUser = [NSString stringWithFormat:@"PS,SET,%@|%@|%@",user.userGoal,user.userHeight,user.userWeigh];
-         
-         [mController sendDataWithCmd:setUser mode:SETUSERINFO];
-         if (setTimer) {
-             [setTimer invalidate];
-             setTimer = nil;
-         }
-         setTimer = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(timeout) userInfo:nil repeats:NO];
-         [MBProgressHUD showMessage:MtkLocalizedString(@"alert_seting")];
-         
-     }
+    if ([MTKBleMgr checkBleStatus]) {
+        
+        
+        NSString *setUser = [NSString stringWithFormat:@"PS,SET,%@|%@|%@",[NSString stringWithFormat:@"%d",user.userGoal.intValue*500+4000],user.userHeight,user.userWeigh];
+        
+        [mController sendDataWithCmd:setUser mode:SETUSERINFO];
+        if (setTimer) {
+            [setTimer invalidate];
+            setTimer = nil;
+        }
+        setTimer = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(timeout) userInfo:nil repeats:NO];
+        [MBProgressHUD showMessage:MtkLocalizedString(@"alert_seting")];
+        
+    }
 }
 
 - (void)onDataReceive:(NSString *)recvData mode:(MTKBLEMEDO)mode{
     if (mode == SETUSERINFO ) {
-    if (setTimer) {
-        [MBProgressHUD hideHUD];
-        [MBProgressHUD showSuccess:MtkLocalizedString(@"alert_setSuccess")];
-    }
-         [MTKArchiveTool saveUser:user];
+        if (setTimer) {
+            [MBProgressHUD hideHUD];
+            [MBProgressHUD showSuccess:MtkLocalizedString(@"alert_setSuccess")];
+        }
+        [MTKArchiveTool saveUser:user];
         [self intializeMethod];
-         [self.tableView reloadData];
+        [self.tableView reloadData];
     }
     if (mode == GETUSERINFO) {
-         [self intializeMethod];
-         [self.tableView reloadData];
+        [self intializeMethod];
+        [self.tableView reloadData];
     }
     if (setTimer) {
         [setTimer invalidate];
@@ -267,47 +267,47 @@
     }
 }
 /*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
 
 /*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
+ // Override to support editing the table view.
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+ // Delete the row from the data source
+ [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+ } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+ // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+ }
+ }
+ */
 
 /*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+ }
+ */
 
 /*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

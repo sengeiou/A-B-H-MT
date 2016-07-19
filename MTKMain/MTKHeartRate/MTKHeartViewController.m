@@ -127,6 +127,12 @@ static int  deffInt=30;
     }
 }
 
+- (IBAction)clickDetailSelector:(id)sender{
+    MTKHeartDetailViewController *detailVC = [MainStoryBoard instantiateViewControllerWithIdentifier:@"MTKHeartDetailViewController"];
+    detailVC.date = self.data;
+    [self.navigationController pushViewController:detailVC animated:YES];
+}
+
 - (NSString *)dateWithYMD
 {
     NSDateFormatter *fmt = [[NSDateFormatter alloc] init];

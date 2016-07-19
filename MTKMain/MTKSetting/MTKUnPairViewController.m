@@ -30,8 +30,16 @@
 //     user.userUUID = @"";
 //    [MTKArchiveTool saveUser:user];
     
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    NSArray *array = [MTKDeviceParameterRecorder getDeviceParameters];
+    if (array.count != 0)
+    {
+        [self openBLset];
+    }
     [[BackgroundManager sharedInstance] setDisconnectFromUx:YES];
-//    [[MTKBleManager sharedInstance] forgetPeripheral];
+    //    [[MTKBleManager sharedInstance] forgetPeripheral];
     [[BackgroundManager sharedInstance] disconnectDevice:[[CachedBLEDevice defaultInstance] getDevicePeripheral]];
     [[MTKBleManager sharedInstance] forgetPeripheral];
     [MTKDeviceParameterRecorder deleteDevice:[CachedBLEDevice defaultInstance].mDeviceIdentifier];
@@ -40,13 +48,6 @@
     CachedBLEDevice* device = [CachedBLEDevice defaultInstance] ;
     device.mDeviceIdentifier = nil;
     device.mConnectionState = CONNECTION_STATE_DISCONNECTED;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-    [self openBLset];
-    });
-}
-
-- (void)viewDidAppear:(BOOL)animated{
-   
 }
 
 - (void)createUI{

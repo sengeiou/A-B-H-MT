@@ -234,7 +234,7 @@
     CachedBLEDevice* device = [CachedBLEDevice defaultInstance];
     if (array.count > 0 && device.mConnectionState != CONNECTION_STATE_CONNECTED && [BackgroundManager sharedInstance].centralManagerState == CBCentralManagerStatePoweredOn) {
         [BackgroundManager sharedInstance].tempPeripheral = nil;
-    [[BackgroundManager sharedInstance] connectDevice:[[CachedBLEDevice defaultInstance] getDevicePeripheral]];//当绑定的设备并未连接即主动连接设备
+ BOOL res =  [[BackgroundManager sharedInstance] connectDevice:[[CachedBLEDevice defaultInstance] getDevicePeripheral]];//当绑定的设备并未连接即主动连接设备
     }
     MyController *mController = [MyController getMyControllerInstance];
     [mController sendDataWithCmd:GETDEUSER mode:GETUSERINFO];

@@ -9,6 +9,7 @@
 #import "MTKSportViewController.h"
 #import "KAProgressLabel.h"
 #import "UIScrollView+MJRefresh.h"
+#import "MTKSportPlanViewController.h"
 @interface MTKSportViewController ()<myProtocol>
 {
     MTKUserInfo *userInfo;
@@ -25,7 +26,6 @@
 //    [self initializeMethod];
 //    [self createUI];
     mController = [MyController getMyControllerInstance];
-   
     // Do any additional setup after loading the view.
 }
 
@@ -100,6 +100,7 @@
     _stepLab.text = MtkLocalizedString(@"sport_steps");
     _calLab.text = MtkLocalizedString(@"sport_calor");
     _steUnitLab.text = MtkLocalizedString(@"sport_stepunit");
+    _pullLab.text = MtkLocalizedString(@"sport_pull");
     self.dateLab.text=[self dateWithYMD];
     [self.progressLab setStartDegree:0.0f];
     [self.progressLab setEndDegree:0.0f];
@@ -119,6 +120,7 @@
     self.progressLab.isEndDegreeUserInteractive = NO;
     [self refreshData];
 }
+
 
 - (NSString *)dateWithYMD
 {
@@ -208,6 +210,10 @@ int  deffInt=30;
     }
 }
 
+- (IBAction)planSelector:(id)sender{
+    [self.navigationController pushViewController:[MainStoryBoard instantiateViewControllerWithIdentifier:@"MTKSportPlanViewController"] animated:YES];
+}
+
 - (void)syncSport{
     if ([MTKBleMgr checkBleStatus]) {
         syncError = NO;
@@ -253,7 +259,10 @@ int  deffInt=30;
     if (!userInfo.userGoal || userInfo.userGoal.intValue<0) {
         userInfo.userGoal = 0;
         [MTKArchiveTool saveUser:userInfo];
-        [self.progressLab setText:@"0"];
+        [self.progressLab setStartDegree:0.0f];
+        float valu=[_setStepLab.text floatValue]/(userInfo.userGoal.intValue*500+4000);
+        [self.progressLab setText:[NSString stringWithFormat:@"%.2f%%",(valu*100)]];
+        [self.progressLab setEndDegree:valu*360];
     }
     else{
         [self.progressLab setStartDegree:0.0f];
@@ -311,15 +320,6 @@ int  deffInt=30;
     userInfo = [MTKArchiveTool getUserInfo];
     if (mode == GETSDETSPORT) {
 //        mController = [MyController getMyControllerInstance];
-        NSString *setUser = GETDESELEEP;
-        [mController sendDataWithCmd:setUser mode:GETSDETSPORT];
-        if (setTimer) {
-            [setTimer invalidate];
-            setTimer = nil;
-        }
-        setTimer = [NSTimer scheduledTimerWithTimeInterval:40 target:self selector:@selector(timeout) userInfo:nil repeats:NO];
-    }
-    else if (mode == GETSDETSLEEP){
         NSString *setUser = GETDEDATA;
         [mController sendDataWithCmd:setUser mode:GETSDETSPORT];
         if (setTimer) {
@@ -328,6 +328,15 @@ int  deffInt=30;
         }
         setTimer = [NSTimer scheduledTimerWithTimeInterval:40 target:self selector:@selector(timeout) userInfo:nil repeats:NO];
     }
+//    else if (mode == GETSDETSLEEP){
+//        NSString *setUser = GETDEDATA;
+//        [mController sendDataWithCmd:setUser mode:GETSDETSPORT];
+//        if (setTimer) {
+//            [setTimer invalidate];
+//            setTimer = nil;
+//        }
+//        setTimer = [NSTimer scheduledTimerWithTimeInterval:40 target:self selector:@selector(timeout) userInfo:nil repeats:NO];
+//    }
     else if (mode == GETUSERINFO){
          [self refreshData];
     }

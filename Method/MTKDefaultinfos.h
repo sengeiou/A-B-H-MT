@@ -10,6 +10,8 @@
 #define FIRSTLUN @"FIRSTLUN"//首次打开软件
 #define SPORTGOAL @"SPORTGOAL" //运动目标
 #define QUIETHEART @"QUIETHEART" //静息心率
+#define SENDHEALTHSTEP @"SENDHEALTHSTEP"//上传苹果健康步数
+#define HEALTHDAY @"HEALTHDAY"//上传苹果健康日期
 @interface MTKDefaultinfos : NSObject
 +(void)putKey:(NSString *)key andValue:(NSObject *)value;
 +(void)putInt:(NSString *)key andValue:(int)value;

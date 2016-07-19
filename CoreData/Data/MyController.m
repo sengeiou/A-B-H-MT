@@ -166,14 +166,14 @@ static  MyController *instance;
             NSString *time = [[formatter1 stringFromDate:sportDate] substringFromIndex:8];
             NSString *step = spDataArr[1];
             NSString *qual = spDataArr[2];
-            [self.sqliData inserSleepDataWithUser:userID WebId:webID Date:date Time:time Step:step Quality:qual Web:@"0"  callBack:^(BOOL result) {
-                if (i == dataArr.count-1) {
-                    if (delegate && [delegate respondsToSelector:@selector(onDataReceive:mode:)]) {
-                        [delegate onDataReceive:dataStr mode:GETSDETSLEEP];
-                    }
-                    [self sendDataWithCmd:@"RET,3" mode:RETSPORT];
-                }
-            }];
+//            [self.sqliData inserSleepDataWithUser:userID WebId:webID Date:date Time:time Step:step Quality:qual Web:@"0"  callBack:^(BOOL result) {
+//                if (i == dataArr.count-1) {
+//                    if (delegate && [delegate respondsToSelector:@selector(onDataReceive:mode:)]) {
+//                        [delegate onDataReceive:dataStr mode:GETSDETSLEEP];
+//                    }
+//                    [self sendDataWithCmd:@"RET,3" mode:RETSPORT];
+//                }
+//            }];
         }
         if (dataArr.count < 3) {
             if (delegate && [delegate respondsToSelector:@selector(onDataReceive:mode:)]) {
@@ -191,12 +191,15 @@ static  MyController *instance;
 //            [self sendDataWithCmd:@"RET,4" mode:RETHEART];
         }
     }
+
      else if ([dataArr[1] isEqualToString:@"1"] && [mode isEqualToString:@"GET"]){
          NSLog(@"MTK数据返回");
          NSDateFormatter * formatter = [[NSDateFormatter alloc]init];
          [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
          NSDateFormatter * formatter1 = [[NSDateFormatter alloc]init];
          [formatter1 setDateFormat:@"yyyyMMddHHmmss"];
+         NSDateFormatter * formatter2 = [[NSDateFormatter alloc]init];
+         [formatter2 setDateFormat:@"yyyyMMdd"];
          int heartNum = 0;
          int nowNum = 0;
          for (int i = 2; i<dataArr.count; i ++) {
@@ -207,6 +210,39 @@ static  MyController *instance;
          }
          for (int i = 2; i<dataArr.count; i ++) {
              NSArray *spDataArr = [dataArr[i] componentsSeparatedByString:@"|"];
+             if ([spDataArr[0] intValue] == 1) {
+                 nowNum ++;
+                 NSDate *sportDate = [formatter dateFromString:spDataArr[1]];
+                 NSString *userID = user.userID;
+                 NSString *webID = [formatter1 stringFromDate:sportDate];
+                 NSString *date = [[formatter1 stringFromDate:sportDate] substringToIndex:8];
+                 NSString *time = [[formatter1 stringFromDate:sportDate] substringFromIndex:8];
+                 NSInteger chcekTime = [self returnSeconds:time];
+                 NSString *sleep_time = spDataArr[2];
+                 NSString *step = spDataArr[3];
+                 NSString *qual = spDataArr[4];
+                 if (chcekTime + sleep_time.integerValue > 86400) {
+                  NSString *lastSlTime = [NSString stringWithFormat:@"%d",86400 - chcekTime];
+                [self.sqliData inserSleepDataWithUser:userID WebId:webID Date:date Time:time sleepTime:lastSlTime Step:step Quality:qual Web:@"0" callBack:^(BOOL result) {
+                     }];
+                  NSDate *nextDate = [NSDate dateWithTimeInterval:(24*60*60) sinceDate:[formatter2 dateFromString:date]];
+                     webID = [formatter1 stringFromDate:nextDate];
+                     date = [[formatter1 stringFromDate:nextDate] substringToIndex:8];
+                     time = [[formatter1 stringFromDate:nextDate] substringFromIndex:8];
+                     sleep_time = [NSString stringWithFormat:@"%d",sleep_time.integerValue - lastSlTime.integerValue];
+//                  NSString *lastSlTime = [NSString stringWithFormat:@""];
+                 }
+                 [self.sqliData inserSleepDataWithUser:userID WebId:webID Date:date Time:time sleepTime:sleep_time Step:step Quality:qual Web:@"0" callBack:^(BOOL result) {
+                     if (i == dataArr.count-1) {
+                         if (delegate && [delegate respondsToSelector:@selector(onDataReceive:mode:)]) {
+                             [delegate onDataReceive:dataStr mode:GETSDETSLEEP];
+                         }
+                          [self sendDataWithCmd:@"RET,1" mode:RETDATA];
+                     }
+
+                 }];
+             }
+
              if ([spDataArr[0] intValue] == 3) {
                  nowNum ++;
                  NSDate *sportDate = [formatter dateFromString:spDataArr[1]];
@@ -219,6 +255,7 @@ static  MyController *instance;
                    if (i == dataArr.count-1) {
                        if (delegate && [delegate respondsToSelector:@selector(onDataReceive:mode:)]) {
                            [delegate onDataReceive:dataStr mode:GETSDETDATA];
+                           [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"HKHealthNot" object:nil userInfo:nil]];
                        }
                         [self sendDataWithCmd:@"RET,1" mode:RETDATA];
                    }
@@ -228,6 +265,7 @@ static  MyController *instance;
          if (nowNum == 0) {
              if (delegate && [delegate respondsToSelector:@selector(onDataReceive:mode:)]) {
                  [delegate onDataReceive:dataStr mode:GETSDETDATA];
+                 [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"HKHealthNot" object:nil userInfo:nil]];
              }
              [self sendDataWithCmd:@"RET,1" mode:RETDATA];
          }
@@ -244,5 +282,10 @@ static  MyController *instance;
          }
 
      }
+}
+
+- (NSInteger)returnSeconds:(NSString *)time{
+    
+    return [[time substringToIndex:2] intValue]*3600 + [time substringWithRange:NSMakeRange(2, 2)].intValue*60 + [time substringFromIndex:4].intValue;
 }
 @end

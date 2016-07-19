@@ -190,58 +190,58 @@ static int  deffInt=30;
     NSDateFormatter * formatter1 = [[NSDateFormatter alloc]init];
     [formatter1 setDateFormat:@"yyyyMMdd"];
     NSMutableArray *sleepArr = [self.sqliData scarchSleepWitchDate:[formatter1 stringFromDate:self.data] Userid:userInfo.userID];
-    if (sleepArr.count > 2) {
-        for (int i = 0; i< sleepArr.count - 1; i++) {
-            NSDictionary *dic1 = sleepArr[i];
-            NSDictionary *dic2 = sleepArr[i+1];
-            if (i == sleepArr.count - 2) {
-                if ([dic1[@"QUALITY"] isEqualToString:dic2[@"QUALITY"]]) {
-
-                }
-
-            }
-           else  if ([dic1[@"QUALITY"] isEqualToString:dic2[@"QUALITY"]]) {
-                [sleepArr removeObject:dic2];
-                i--;
-            }
-        }
-    }
-    NSArray * arr = [sleepArr sortedArrayUsingComparator:^NSComparisonResult(NSDictionary *obj1, NSDictionary *obj2) {
-        
-        if ([obj1[@"TIME"] intValue]<[obj2[@"TIME"] intValue]) {
-            return NSOrderedAscending;
-        }
-        else if ([obj1[@"TIME"] intValue]==[obj2[@"TIME"] intValue])
-            return NSOrderedSame;
-        else
-            return NSOrderedDescending;
-    }];
-    sleepArr = [arr mutableCopy];
+//    if (sleepArr.count > 2) {
+//        for (int i = 0; i< sleepArr.count - 1; i++) {
+//            NSDictionary *dic1 = sleepArr[i];
+//            NSDictionary *dic2 = sleepArr[i+1];
+//            if (i == sleepArr.count - 2) {
+//                if ([dic1[@"QUALITY"] isEqualToString:dic2[@"QUALITY"]]) {
+//
+//                }
+//
+//            }
+//           else  if ([dic1[@"QUALITY"] isEqualToString:dic2[@"QUALITY"]]) {
+//                [sleepArr removeObject:dic2];
+//                i--;
+//            }
+//        }
+//    }
+//    NSArray * arr = [sleepArr sortedArrayUsingComparator:^NSComparisonResult(NSDictionary *obj1, NSDictionary *obj2) {
+//        
+//        if ([obj1[@"TIME"] intValue]<[obj2[@"TIME"] intValue]) {
+//            return NSOrderedAscending;
+//        }
+//        else if ([obj1[@"TIME"] intValue]==[obj2[@"TIME"] intValue])
+//            return NSOrderedSame;
+//        else
+//            return NSOrderedDescending;
+//    }];
+//    sleepArr = [arr mutableCopy];
     prevTime=0;//上一时间点
     prevType=0;//上一类型
     soberAmount=0;//清醒时间
     simpleSleepAmount=0;//浅睡眠时长
     deepSleepAmount=0;//深睡时长
     for (int i = 0; i < sleepArr.count; i ++) {
-        if (i == 0) {
-            slBeTime = [sleepArr[i][@"TIME"] intValue];
-        }
-        else{
+//        if (i == 0) {
+//            slBeTime = [sleepArr[i][@"TIME"] intValue];
+//        }
+//        else{
             atType = [sleepArr[i][@"QUALITY"] intValue];
             int atTime = [sleepArr[i][@"TIME"] intValue];
-            int amount = atTime - prevTime;
-            if (prevType == 0 /*&& (atType == 1 || atType == 2 || atType == 0)*/) {
+            int amount = [sleepArr[i][@"SLEEPTIME"] intValue];
+            if (atType == 0 /*&& (atType == 1 || atType == 2 || atType == 0)*/) {
                 soberAmount = soberAmount + amount;
             }
-            else if (prevType == 1 /*&& (atType == 0 || atType == 2 || atType == 1)*/){
+            else if (atType == 1 /*&& (atType == 0 || atType == 2 || atType == 1)*/){
                 simpleSleepAmount = simpleSleepAmount + amount;
             }
-            else if (prevType == 2 /*&& (atType == 0 || atType == 1 || atType == 2)*/){
+            else if (atType == 2 /*&& (atType == 0 || atType == 1 || atType == 2)*/){
                 deepSleepAmount = deepSleepAmount + amount;
             }
-        }
-        prevType = [sleepArr[i][@"QUALITY"] intValue];
-        prevTime = [sleepArr[i][@"TIME"] intValue];
+//        }
+//        prevType = [sleepArr[i][@"QUALITY"] intValue];
+//        prevTime = [sleepArr[i][@"TIME"] intValue];
     }
     [self cleanUI];
 }

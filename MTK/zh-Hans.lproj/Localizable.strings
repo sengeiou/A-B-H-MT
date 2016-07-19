@@ -45,6 +45,7 @@
 "sport_calor" = "卡路里";
 "sport_steps" = "步数";
 "sport_minute" = "分钟";
+"sport_pull" = "下拉刷新";
 "setplan_navtitle"="计步目标";
 "setplan_remark"="设置您的目标运动量";
 "sleep_state_average"="差";
@@ -78,7 +79,12 @@
 
 /*心率界面*/
 "hearRate_title" = "心率";
-"hearRate_monitor" = "最近监测心率";
+"hearRate_monitor" = "最近一次监测心率";
+"hearRate_norm" = "人的正常心率为60-100次/分，睡眠时50-70次/分";
+"hearRate_his" = "历史心率";
+"hearRate_date" = "时间";
+"hearRate_bpm" = "心率";
+"hearRate_status" = "状态";
 "hearRate_type1" = "正常";
 "hearRate_type2" = "偏低";
 "hearRate_type3" = "偏高";
@@ -132,12 +138,19 @@
 "setting_boundsmawatch"="绑定手表";
 "setting_unbindbound"="解绑";
 "setting_lost" = "防丢提醒";
-
+"setting_findDevice" = "寻找设备";
 
 //搜索
 "seatch_title"="请保证手表电量充足，并靠近手机";
-"seatch_remind" = "如果搜索不到手表蓝牙，请先在设置-蓝牙-K88H-忽略此设备。";
+"seatch_remind" = "如果搜索不到手表蓝牙，请先在设置-蓝牙-SMA-09-忽略此设备。";
 "seatch_bandtitle"="暂不绑定";
+"search_title" = "搜索附近设备";
+"search_nextit" = "请开启手机蓝牙和设备蓝牙";
+"searct_click" = "点击搜索";
+"search_stopS" = "停止搜索";
+"search_unpar" = "暂不绑定";
+"search_consucc" = "连接成功";
+"search_confail" = "连接失败";
 
 "beginingseatch_title"="正在搜查...";
 "binging_title"="正在连接...";

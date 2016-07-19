@@ -234,7 +234,7 @@ static BackgroundManager* instance;
 /************************************************************************************/
 - (void) discoveryDidRefresh: (CBPeripheral *)peripheral
 {
-    if ([peripheral.name isEqualToString:@"K88H"] ) {
+//    if ([peripheral.name isEqualToString:@"SMA-09"] ) {
     
     CachedBLEDevice* device = [CachedBLEDevice defaultInstance];
     if ([device.mDeviceIdentifier length] == 0)
@@ -259,7 +259,7 @@ static BackgroundManager* instance;
             [device persistData:2];
         }
     }
- }
+// }
 }
 
 - (void) discoveryStatePoweredOff

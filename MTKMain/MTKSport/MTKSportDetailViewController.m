@@ -196,7 +196,7 @@
     self.charView.xValues=sortArray;
     self.charView.yValues=mArray1;
     self.charView.yValueCount=(int)mArray1.count;
-    stepUnit = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMinY(self.charView.frame)-20, 30, 20)];
+    stepUnit = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMinY(self.charView.frame)-20, 35, 20)];
     stepUnit.font = [UIFont systemFontOfSize:13];
     stepUnit.textColor = [UIColor whiteColor];
     stepUnit.text = MtkLocalizedString(@"myinfo_step");

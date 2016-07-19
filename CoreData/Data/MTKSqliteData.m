@@ -25,7 +25,7 @@
     {
         [queue inDatabase:^(FMDatabase *db) {
             BOOL result = [db executeUpdate:@"CREATE TABLE if not exists MTKSport_tb (sport_id INTEGER PRIMARY KEY AUTOINCREMENT, user_id TEXT, web_id TEXT, date TEXT, time TEXT, step TEXT, distance TEXT, calory TEXT, sport_web TEXT)"];
-            result = [db executeUpdate:@"CREATE TABLE if not exists MTKSleep_tb (sleep_id INTEGER PRIMARY KEY AUTOINCREMENT, user_id TEXT, web_id TEXT, date TEXT, time TEXT, step TEXT, quality TEXT, sleep_web TEXT)"];
+            result = [db executeUpdate:@"CREATE TABLE if not exists MTKSleep_tb (sleep_id INTEGER PRIMARY KEY AUTOINCREMENT, user_id TEXT, web_id TEXT, date TEXT, time TEXT, sleep_time TEXT , step TEXT, quality TEXT, sleep_web TEXT)"];
             result = [db executeUpdate:@"CREATE TABLE if not exists MTKHeart_tb (heart_id INTEGER PRIMARY KEY AUTOINCREMENT, user_id TEXT, web_id TEXT, date TEXT, time TEXT, heart TEXT, continuous TEXT, heart_web TEXT)"];
             if (result) {
                 NSLog(@"创表成功");
@@ -94,14 +94,14 @@
 }
 
 //插入睡眠数据
-- (void)inserSleepDataWithUser:(NSString *)userID WebId:(NSString *)webid Date:(NSString *)date Time:(NSString *)time Step:(NSString *)step Quality:(NSString *)quality Web:(NSString *)web callBack:(void(^)(BOOL result))callBack{
+- (void)inserSleepDataWithUser:(NSString *)userID WebId:(NSString *)webid Date:(NSString *)date Time:(NSString *)time sleepTime:(NSString *)slTime Step:(NSString *)step Quality:(NSString *)quality Web:(NSString *)web callBack:(void(^)(BOOL result))callBack{
     [self.queue inDatabase:^(FMDatabase *db) {
         [db beginTransaction];
         NSString *delQuery = [NSString stringWithFormat:@"delete from MTKSleep_tb where web_id=\'%@\' and user_id=\'%@\'",webid,userID];
         BOOL result;
         result = [db executeUpdate:delQuery];
         NSLog(@"**************************删除相同时刻睡眠数据  %d",result);
-        result = [db executeUpdate:@"insert into MTKSleep_tb (user_id,web_id,date,time,step,quality,sleep_web) values(?,?,?,?,?,?,?)",userID,webid,date,time,step,quality,web];
+        result = [db executeUpdate:@"insert into MTKSleep_tb (user_id,web_id,date,time,sleep_time,step,quality,sleep_web) values(?,?,?,?,?,?,?,?)",userID,webid,date,time,slTime,step,quality,web];
         NSLog(@"**************************插入睡眠数据  %d",result);
         [db commit];
         callBack(result);
@@ -116,10 +116,12 @@
         FMResultSet *rs = [db executeQuery:selStr];
         NSString *sleepT;
         NSString *sleepQ;
+        NSString *sleepTI;
         while (rs.next) {
             sleepT = [NSString stringWithFormat:@"%ld",(long)[self returnSeconds:[rs stringForColumn:@"time"]]];
             sleepQ = [rs stringForColumn:@"quality"];
-            NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:sleepT,@"TIME",sleepQ,@"QUALITY", nil];
+            sleepTI = [rs stringForColumn:@"sleep_time"];
+            NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:sleepT,@"TIME",sleepTI,@"SLEEPTIME",sleepQ,@"QUALITY", nil];
             [sleepArr addObject:dic];
         }
     }];
@@ -177,6 +179,25 @@
         }
     }];
     return heartArr;
+}
+
+//查找当天历史心率数据
+- (NSMutableArray *)scarchHisHeartWitchDate:(NSString *)date  userID:(NSString *)userid{
+    NSMutableArray *hisArr = [NSMutableArray array];
+    [self.queue inDatabase:^(FMDatabase *db) {
+        NSString *selStr = [NSString stringWithFormat:@"select *from MTKHeart_tb where date=\'%@\' and user_id=\'%@\' order by heart_id desc ",date,userid];
+        FMResultSet *rs = [db executeQuery:selStr];
+        NSString *heartT;
+        NSString *heartH;
+        NSString *heartD;
+        while (rs.next) {
+            heartD = [rs stringForColumn:@"date"];
+            heartT = [rs stringForColumn:@"time"];
+            heartH = [rs stringForColumn:@"heart"];
+            [hisArr addObject:[NSDictionary dictionaryWithObjectsAndKeys:heartD,@"DATE",heartT,@"TIME",heartH,@"HEART", nil]];
+        }
+    }];
+    return hisArr;
 }
 
 - (NSInteger)returnSeconds:(NSString *)time{

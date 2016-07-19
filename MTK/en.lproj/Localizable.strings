@@ -48,6 +48,7 @@
 "sportdetail_navtilte"="Detail data";
 "setplan_navtitle"="Sport goal";
 "setplan_remark"="Setting sport goal";
+"sport_pull" = "Pull to refresh";
 
 //睡眠
 "sleep_navtilte"="Sleep";
@@ -82,9 +83,14 @@
 //心率
 "hearRate_title" = "Heart Rate ";
 "hearRate_monitor" = "Last Time";
+"hearRate_norm" = "The average resting heart rate is 60-100beats/minute.\nThe average sleeping heart rate is 50-70beats/minute.";
+"hearRate_his" = "Detailed data";
+"hearRate_date" = "Date";
+"hearRate_bpm" = "BPM";
+"hearRate_status" = "Status";
 "hearRate_type1" = "Normal";
-"hearRate_type2" = "Light";
-"hearRate_type3" = "Hard";
+"hearRate_type2" = "Low";
+"hearRate_type3" = "High";
 "hearRate_RestHR" = "Resting";
 "hearRate_MeanHR" = "Avg.";
 "hearRate_MaxHR" = "Max";
@@ -108,7 +114,7 @@
 "hearReat_detail" = "Details";
 "hearReat_High" = "High";
 "hearReat_normal" = "Normal";
-"hearReat_slow" = "Slow";
+"hearReat_slow" = "Low";
 "hearReat_LastDates1" = "Last 7 days";
 "hearReat_LastDates2" = "Last 14 days";
 "hearReat_LastDates3" = "Last 21 days";
@@ -134,10 +140,18 @@
 "setting_boundsmawatch"="Pair my watch";
 "setting_unbindbound"="Unpair my watch";
 "setting_lost" = "Anti-lost";
+"setting_findDevice" = "Find device";
 
 "seatch_title"="Please make sure that the watch battery is enough, and close to the phone";
-"seatch_remind" = "If you can't find K88H WATCH bluetooth signal,please go to iphone Setting-bluetooth-forget the device（K88H).";
+"seatch_remind" = "If you can't find SMA-09 WATCH bluetooth signal,please go to iphone Setting-bluetooth-forget the device（SMA-09).";
 "seatch_bandtitle"="Connect later";
+"search_title" = "Search for Bluetooth devices";
+"search_nextit" = "(Turn on the Bluetooth mobile phone and Bluetooth device)";
+"searct_click" = "Start Search";
+"search_stopS" = "Stop Search";
+"search_unpar" = "Connect later";
+"search_consucc" = "Connection successful";
+"search_confail" = "Connection fails";
 
 "beginingseatch_title"="Searching...";
 "binging_title"="Connecting...";

@@ -95,13 +95,13 @@
 #pragma mark - 画矩形
 - (void)drawRectangular{
     for (int i = 0; i < _xValues.count; i++) {
-        if (i < _xValues.count - 1) {
+//        if (i < _xValues.count - 1) {
             NSDictionary *dic1 = _xValues[i];
-            NSDictionary *dic2 = _xValues[i+1];
+//            NSDictionary *dic2 = _xValues[i+1];
             //创建路径并获取句柄
             CGMutablePathRef path = CGPathCreateMutable();
-            //指定矩形
-            CGRect rectangle = CGRectMake(([dic1[@"TIME"] floatValue])*(self.frame.size.width/86400.0f)+5, 15.0f,([dic2[@"TIME"] floatValue]-[dic1[@"TIME"] floatValue])*(self.frame.size.width/86400.0f),self.frame.size.height-40);
+            //指定矩形 dic1[@"TIME"]
+            CGRect rectangle = CGRectMake(([dic1[@"TIME"] floatValue])*((self.frame.size.width-10)/86400.0f)+5, 15.0f,[dic1[@"SLEEPTIME"] floatValue]*((self.frame.size.width-10)/86400.0f),self.frame.size.height-40);
             //将矩形添加到路径中
             CGPathAddRect(path,NULL,rectangle);
             //获取上下文
@@ -135,7 +135,7 @@
             //绘制
             CGContextDrawPath(currentContext, kCGPathFillStroke);
             CGPathRelease(path);
-        }
+//        }
     }
   }
 @end

@@ -10,7 +10,7 @@
 #import "MTKSportDetailViewController.h"
 @class KAProgressLabel;
 @interface MTKSportViewController : UIViewController<UIScrollViewDelegate>
-@property (nonatomic, weak) IBOutlet UILabel *dateLab, *goalLab, *goalStepLab, *steUnitLab, *disLab, *setDisLab, *stepLab, *setStepLab, *calLab, *setCalLab;
+@property (nonatomic, weak) IBOutlet UILabel *dateLab, *goalLab, *goalStepLab, *steUnitLab, *disLab, *setDisLab, *stepLab, *setStepLab, *calLab, *setCalLab, *pullLab;
 @property (nonatomic, weak) IBOutlet KAProgressLabel *progressLab;
 @property (nonatomic, weak) IBOutlet UIScrollView *scrolllView;
 @property (nonatomic, weak) IBOutlet UIButton *leftBut, *rightBut;

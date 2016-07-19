@@ -24,6 +24,7 @@
 		EE55F8351CCB5AA100B99223 /* ScannedPeripheral.m in Sources */ = {isa = PBXBuildFile; fileRef = EE55F8341CCB5AA100B99223 /* ScannedPeripheral.m */; };
 		EE55F83C1CCB7DA300B99223 /* MTKArchiveTool.m in Sources */ = {isa = PBXBuildFile; fileRef = EE55F83B1CCB7DA300B99223 /* MTKArchiveTool.m */; };
 		EE55F83F1CCB7E2F00B99223 /* MTKUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = EE55F83E1CCB7E2F00B99223 /* MTKUserInfo.m */; };
+		EE752B911D39CCFE00B8314F /* HomeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE752B901D39CCFE00B8314F /* HomeKit.framework */; };
 		EE7B4A161CCF4AC5007C4644 /* KAProgressLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7B4A131CCF4AC5007C4644 /* KAProgressLabel.m */; };
 		EE7B4A171CCF4AC5007C4644 /* TPPropertyAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7B4A151CCF4AC5007C4644 /* TPPropertyAnimation.m */; };
 		EE7B4A1B1CCF6A02007C4644 /* MTKSqliteData.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7B4A1A1CCF6A02007C4644 /* MTKSqliteData.m */; };
@@ -33,6 +34,8 @@
 		EE7B4A2B1CCF6A75007C4644 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7B4A241CCF6A75007C4644 /* FMDatabaseQueue.m */; };
 		EE7B4A2C1CCF6A75007C4644 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7B4A271CCF6A75007C4644 /* FMResultSet.m */; };
 		EE7B4A2E1CCF6B6D007C4644 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EE7B4A2D1CCF6B6D007C4644 /* libsqlite3.0.tbd */; };
+		EE7E105D1D11497200832D25 /* MTKHeartDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7E105C1D11497200832D25 /* MTKHeartDetailViewController.m */; };
+		EE7E10601D115ECE00832D25 /* MTKHeartLab.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7E105F1D115ECE00832D25 /* MTKHeartLab.m */; };
 		EE808B2D1CCDA5F800A213DE /* MyController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE808B2C1CCDA5F800A213DE /* MyController.m */; };
 		EE808B301CCDA67900A213DE /* MTKSendData.m in Sources */ = {isa = PBXBuildFile; fileRef = EE808B2F1CCDA67900A213DE /* MTKSendData.m */; };
 		EE808B331CCDAD4200A213DE /* MTKUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE808B321CCDAD4200A213DE /* MTKUserViewController.m */; };
@@ -76,6 +79,7 @@
 		EE9D5BBD1CEAB1C500548DA3 /* MTKSleepView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9D5BBC1CEAB1C500548DA3 /* MTKSleepView.m */; };
 		EE9D5BC01CEABE0300548DA3 /* MTKSleepDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9D5BBF1CEABE0300548DA3 /* MTKSleepDetailViewController.m */; };
 		EEC208A11CD0BDCD006680AD /* MTKHeartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC208A01CD0BDCD006680AD /* MTKHeartViewController.m */; };
+		EEC2E7621D13E36900222C5F /* MTKHRHisTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC2E7611D13E36900222C5F /* MTKHRHisTableViewCell.m */; };
 		EEC478901CE95F02009510C2 /* CBChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC4788D1CE95F02009510C2 /* CBChartView.m */; };
 		EEC478911CE95F02009510C2 /* UIView+FrameSet.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC4788F1CE95F02009510C2 /* UIView+FrameSet.m */; };
 		EEC478941CE95F55009510C2 /* MTKSportDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC478931CE95F55009510C2 /* MTKSportDetailViewController.m */; };
@@ -173,6 +177,7 @@
 		EE55F83B1CCB7DA300B99223 /* MTKArchiveTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTKArchiveTool.m; sourceTree = "<group>"; };
 		EE55F83D1CCB7E2F00B99223 /* MTKUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MTKUserInfo.h; path = Method/MTKUserInfo.h; sourceTree = SOURCE_ROOT; };
 		EE55F83E1CCB7E2F00B99223 /* MTKUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MTKUserInfo.m; path = Method/MTKUserInfo.m; sourceTree = SOURCE_ROOT; };
+		EE752B901D39CCFE00B8314F /* HomeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HomeKit.framework; path = System/Library/Frameworks/HomeKit.framework; sourceTree = SDKROOT; };
 		EE7B4A121CCF4AC5007C4644 /* KAProgressLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAProgressLabel.h; sourceTree = "<group>"; };
 		EE7B4A131CCF4AC5007C4644 /* KAProgressLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KAProgressLabel.m; sourceTree = "<group>"; };
 		EE7B4A141CCF4AC5007C4644 /* TPPropertyAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPPropertyAnimation.h; sourceTree = "<group>"; };
@@ -191,6 +196,10 @@
 		EE7B4A261CCF6A75007C4644 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		EE7B4A271CCF6A75007C4644 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		EE7B4A2D1CCF6B6D007C4644 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		EE7E105B1D11497200832D25 /* MTKHeartDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKHeartDetailViewController.h; sourceTree = "<group>"; };
+		EE7E105C1D11497200832D25 /* MTKHeartDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTKHeartDetailViewController.m; sourceTree = "<group>"; };
+		EE7E105E1D115ECE00832D25 /* MTKHeartLab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MTKHeartLab.h; path = ../MTKSetting/MTKHeartLab.h; sourceTree = "<group>"; };
+		EE7E105F1D115ECE00832D25 /* MTKHeartLab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MTKHeartLab.m; path = ../MTKSetting/MTKHeartLab.m; sourceTree = "<group>"; };
 		EE808B2A1CCDA5F800A213DE /* ControllerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerManager.h; sourceTree = "<group>"; };
 		EE808B2B1CCDA5F800A213DE /* MyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyController.h; sourceTree = "<group>"; };
 		EE808B2C1CCDA5F800A213DE /* MyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyController.m; sourceTree = "<group>"; };
@@ -296,6 +305,7 @@
 		EE87682F1CCC925100B53E45 /* PhoneRinger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneRinger.m; sourceTree = "<group>"; };
 		EE8768301CCC925100B53E45 /* SOSCallDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOSCallDataManager.h; sourceTree = "<group>"; };
 		EE8768311CCC925100B53E45 /* SOSCallDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOSCallDataManager.m; sourceTree = "<group>"; };
+		EE88097B1D24CD8D00A7172A /* MTK.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MTK.entitlements; sourceTree = "<group>"; };
 		EE8B1D191CCA084A00F990FC /* MTKTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKTabBarViewController.h; sourceTree = "<group>"; };
 		EE8B1D1A1CCA084A00F990FC /* MTKTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTKTabBarViewController.m; sourceTree = "<group>"; };
 		EE8B1D1D1CCA08ED00F990FC /* MTKTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKTabBar.h; sourceTree = "<group>"; };
@@ -322,6 +332,8 @@
 		EE9D5BBF1CEABE0300548DA3 /* MTKSleepDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTKSleepDetailViewController.m; sourceTree = "<group>"; };
 		EEC2089F1CD0BDCD006680AD /* MTKHeartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKHeartViewController.h; sourceTree = "<group>"; };
 		EEC208A01CD0BDCD006680AD /* MTKHeartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTKHeartViewController.m; sourceTree = "<group>"; };
+		EEC2E7601D13E36900222C5F /* MTKHRHisTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MTKHRHisTableViewCell.h; path = ../MTKSleep/MTKHRHisTableViewCell.h; sourceTree = "<group>"; };
+		EEC2E7611D13E36900222C5F /* MTKHRHisTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MTKHRHisTableViewCell.m; path = ../MTKSleep/MTKHRHisTableViewCell.m; sourceTree = "<group>"; };
 		EEC4788C1CE95F02009510C2 /* CBChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBChartView.h; sourceTree = "<group>"; };
 		EEC4788D1CE95F02009510C2 /* CBChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBChartView.m; sourceTree = "<group>"; };
 		EEC4788E1CE95F02009510C2 /* UIView+FrameSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FrameSet.h"; sourceTree = "<group>"; };
@@ -379,6 +391,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE7B4A2E1CCF6B6D007C4644 /* libsqlite3.0.tbd in Frameworks */,
+				EE752B911D39CCFE00B8314F /* HomeKit.framework in Frameworks */,
 				EE8768291CCC920200B53E45 /* CoreData.framework in Frameworks */,
 				EE55F82F1CCB460900B99223 /* libMTKBleManager.a in Frameworks */,
 				EE8634A91CC71A66005378C9 /* libAbleCloudLib.a in Frameworks */,
@@ -537,6 +550,17 @@
 				EE7B4A271CCF6A75007C4644 /* FMResultSet.m */,
 			);
 			path = fmdb;
+			sourceTree = "<group>";
+		};
+		EE7E10611D1169D100832D25 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EE7E105E1D115ECE00832D25 /* MTKHeartLab.h */,
+				EE7E105F1D115ECE00832D25 /* MTKHeartLab.m */,
+				EEC2E7601D13E36900222C5F /* MTKHRHisTableViewCell.h */,
+				EEC2E7611D13E36900222C5F /* MTKHRHisTableViewCell.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		EE808B271CCDA50800A213DE /* CoreData */ = {
@@ -896,6 +920,9 @@
 				EEF6F5D21CD0FC170061A47B /* SmaQuietViewController.h */,
 				EEF6F5D31CD0FC170061A47B /* SmaQuietViewController.m */,
 				EEF6F5D41CD0FC170061A47B /* SmaQuietViewController.xib */,
+				EE7E105B1D11497200832D25 /* MTKHeartDetailViewController.h */,
+				EE7E105C1D11497200832D25 /* MTKHeartDetailViewController.m */,
+				EE7E10611D1169D100832D25 /* View */,
 			);
 			path = MTKHeartRate;
 			sourceTree = "<group>";
@@ -922,6 +949,7 @@
 		EEC995ED1CC46ADA00BD5A45 = {
 			isa = PBXGroup;
 			children = (
+				EE752B901D39CCFE00B8314F /* HomeKit.framework */,
 				EE7B4A2D1CCF6B6D007C4644 /* libsqlite3.0.tbd */,
 				EE8768281CCC920100B53E45 /* CoreData.framework */,
 				EE8768161CCC91C400B53E45 /* CoreData */,
@@ -950,6 +978,7 @@
 		EEC995F81CC46ADA00BD5A45 /* MTK */ = {
 			isa = PBXGroup;
 			children = (
+				EE88097B1D24CD8D00A7172A /* MTK.entitlements */,
 				EEC995FC1CC46ADA00BD5A45 /* MtkAppDelegate.h */,
 				EEC995FD1CC46ADA00BD5A45 /* MtkAppDelegate.m */,
 				EEC996451CC47F0A00BD5A45 /* PrefixHeader.pch */,
@@ -1156,8 +1185,15 @@
 				TargetAttributes = {
 					EEC995F51CC46ADA00BD5A45 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = VHVLE5FL92;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.HealthKit = {
+								enabled = 0;
+							};
+							com.apple.HomeKit = {
 								enabled = 1;
 							};
 						};
@@ -1235,6 +1271,7 @@
 			files = (
 				EE8634D61CC728FD005378C9 /* NSDictionary-DeepMutableCopy.m in Sources */,
 				EE8634EA1CC76050005378C9 /* UIBarButtonItem+CKQ.m in Sources */,
+				EE7E10601D115ECE00832D25 /* MTKHeartLab.m in Sources */,
 				EE8634F31CC76C59005378C9 /* UINavigationController+MTKNaVC.m in Sources */,
 				EE8634F01CC76C25005378C9 /* UINavigationController+SmaNaVC.m in Sources */,
 				EE8B1D371CCA0C4800F990FC /* MTKSettingViewController.m in Sources */,
@@ -1247,6 +1284,7 @@
 				EEC996641CC4CCF400BD5A45 /* MTKLoginViewController.m in Sources */,
 				EE8B1D221CCA097100F990FC /* MTKTabBarButton.m in Sources */,
 				EEC9964F1CC4880900BD5A45 /* MTKNavViewController.m in Sources */,
+				EEC2E7621D13E36900222C5F /* MTKHRHisTableViewCell.m in Sources */,
 				EE808B331CCDAD4200A213DE /* MTKUserViewController.m in Sources */,
 				EE34B10F1CFC090200CF0208 /* UIView+MJExtension.m in Sources */,
 				EEC208A11CD0BDCD006680AD /* MTKHeartViewController.m in Sources */,
@@ -1280,6 +1318,7 @@
 				EE9D5BBD1CEAB1C500548DA3 /* MTKSleepView.m in Sources */,
 				EE8634D71CC728FD005378C9 /* SMS_HYZBadgeView.m in Sources */,
 				EE8768261CCC91E500B53E45 /* DeviceParameter.m in Sources */,
+				EE7E105D1D11497200832D25 /* MTKHeartDetailViewController.m in Sources */,
 				EEF6F5D51CD0FC170061A47B /* SmaQuietViewController.m in Sources */,
 				EE8B1D1B1CCA084A00F990FC /* MTKTabBarViewController.m in Sources */,
 				EE8768251CCC91E500B53E45 /* DeviceInfo.m in Sources */,
@@ -1471,6 +1510,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_ENTITLEMENTS = MTK/MTK.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1480,7 +1522,7 @@
 				);
 				GCC_PREFIX_HEADER = MTK/PrefixHeader.pch;
 				INFOPLIST_FILE = MTK/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1490,6 +1532,7 @@
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.smawatch.MTK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1498,6 +1541,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_ENTITLEMENTS = MTK/MTK.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Shenzhen Smart Care Technology Co., Ltd.";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shenzhen Smart Care Technology Co., Ltd.";
 				ENABLE_BITCODE = NO;
@@ -1509,7 +1553,7 @@
 				);
 				GCC_PREFIX_HEADER = MTK/PrefixHeader.pch;
 				INFOPLIST_FILE = MTK/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

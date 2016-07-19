@@ -9,8 +9,9 @@
 #import "MtkAppDelegate.h"
 #import "ViewController.h"
 #import "SmaNavMyInfoController.h"
+#import "HealthKitManager.h"
 @interface MtkAppDelegate ()
-
+@property (nonatomic, strong)HKHealthStore *healthStore;
 @end
 
 @implementation MtkAppDelegate
@@ -37,7 +38,23 @@
     else{
     MTKTabBarViewController *tabVC = [[MTKTabBarViewController alloc] init];
     self.window.rootViewController = tabVC;
+//        [[HealthKitManager healthkitMgrInstance] requestAuthorization];
 }
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0) {
+        if ([HKHealthStore isHealthDataAvailable]) {
+            self.healthStore = [[HKHealthStore alloc] init];
+            NSSet *writeDataTypes = [self dataTypesToWrite];
+            //        NSSet *readDataTypes = [self dataTypesToRead];
+            [self.healthStore requestAuthorizationToShareTypes:writeDataTypes readTypes:nil completion:^(BOOL success, NSError *error) {
+                
+                if (!success) {
+                    NSLog(@"You didn't allow HealthKit to access these read/write data types. In your app, try to handle this error gracefully when a user decides not to provide access. The error was: %@. If you're using a simulator, try it on a device.", error);
+                    return;
+                }
+            }];
+        }
+    }
+ [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(NotificationHKHealthStore) name:@"HKHealthNot" object:nil];
     [UIApplication sharedApplication].statusBarHidden=NO;
     return YES;
 }
@@ -63,6 +80,7 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
 -(void)saveContext
 {
     NSError* error = nil;
@@ -130,4 +148,74 @@
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
+- (NSSet *)dataTypesToWrite {
+    HKQuantityType *stepCountType = [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
+    HKQuantityType *heartRateType = [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeartRate];
+    return [NSSet setWithObjects:stepCountType,heartRateType,  nil];
+}
+
+-(void)NotificationHKHealthStore{
+    NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
+    fmt.dateFormat = @"yyyyMMdd";
+    MTKSqliteData *dal = [[MTKSqliteData alloc]init];
+    NSDateFormatter * formatter1 = [[NSDateFormatter alloc]init];
+    [formatter1 setDateFormat:@"yyyyMMdd"];
+    NSMutableArray *spoArr = [dal scarchSportWitchDate:[formatter1 stringFromDate:[NSDate date]] toDate:[formatter1 stringFromDate:[NSDate date]] UserID:[MTKArchiveTool getUserInfo].userID index:0];
+    
+    NSMutableArray *heartArr = [dal scarchHeartWitchDate:[formatter1 stringFromDate:[NSDate date]] toDate:[formatter1 stringFromDate:[NSDate date]] Userid:[MTKArchiveTool getUserInfo].userID];
+
+    
+    int lasStep = [MTKDefaultinfos getIntValueforKey:SENDHEALTHSTEP];
+    int HeStep = 0;
+    int heartRate = 0;
+    if ([MTKDefaultinfos getValueforKey:HEALTHDAY] && [[MTKDefaultinfos getValueforKey:HEALTHDAY] isEqualToString:[fmt stringFromDate:[NSDate date]]]) {
+        if ([[[spoArr lastObject] objectForKey:@"STEP"] intValue] > lasStep) {
+            HeStep = [[[spoArr lastObject] objectForKey:@"STEP"] intValue] - lasStep;
+        }
+    }
+    else{
+        HeStep = [[[spoArr lastObject] objectForKey:@"STEP"] intValue];
+    }
+
+    if (heartArr.count>2) {
+        heartRate = [heartArr[2] intValue];
+    }
+
+    //接入苹果健康
+    //    define unit.
+    NSString *unitIdentifier = HKQuantityTypeIdentifierStepCount;
+    NSString *unitHRIdentifier = HKQuantityTypeIdentifierHeartRate;
+    
+    //define quantityType.
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0) {
+        HKQuantityType *quantityTypeIdentifier = [HKObjectType quantityTypeForIdentifier:unitIdentifier];
+        HKQuantityType *quantityHRTypeIdentifier = [HKObjectType quantityTypeForIdentifier:unitHRIdentifier];
+        
+        //init quantity.
+        HKQuantity *quantity = [HKQuantity quantityWithUnit:[HKUnit countUnit] doubleValue:HeStep];
+        
+        //心率单位
+        HKUnit *bpm = [HKUnit unitFromString:@"count/min"];
+        
+        HKQuantity *HRquantity = [HKQuantity quantityWithUnit:bpm doubleValue:heartRate];
+        
+        //init quantity sample.
+        HKQuantitySample *temperatureSample = [HKQuantitySample quantitySampleWithType:quantityTypeIdentifier quantity:quantity startDate:[NSDate date] endDate:[NSDate date] metadata:nil];
+        
+        HKQuantitySample *temperatureHRSample = [HKQuantitySample quantitySampleWithType:quantityHRTypeIdentifier quantity:HRquantity startDate:[NSDate date] endDate:[NSDate date] metadata:nil];
+        //init store object.
+        HKHealthStore *store = [[HKHealthStore alloc] init];
+        
+        //save.
+        [store saveObjects:@[temperatureSample,temperatureHRSample] withCompletion:^(BOOL success, NSError *error) {
+            if (success) {
+                NSLog(@"写入Helath成功==%@  step=%d",temperatureSample,HeStep);
+            }else {
+                NSLog(@"写入Helath失败==%@",error);
+            }
+        }];
+    }
+    [MTKDefaultinfos putKey:HEALTHDAY andValue:[fmt stringFromDate:[NSDate date]]];
+    [MTKDefaultinfos putInt:SENDHEALTHSTEP andValue:[[[spoArr lastObject] objectForKey:@"STEP"] intValue]];
+}
 @end

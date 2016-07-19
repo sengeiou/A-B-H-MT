@@ -8,11 +8,12 @@
 
 #import "MTKPairViewController.h"
 #import "MtkAppDelegate.h"
-@interface MTKPairViewController ()<MTKCoreBlueToolDelegate,StateChangeDelegate,BleDiscoveryDelegate>
+@interface MTKPairViewController ()<MTKCoreBlueToolDelegate,StateChangeDelegate,BleDiscoveryDelegate,UITableViewDelegate,UITableViewDataSource>
 {
     MTKCoreBlueTool *MTKBL;
     NSTimer *scanTimer;
     MtkAppDelegate *appDele;
+    NSMutableArray* foundedDevices;
 }
 @end
 
@@ -20,23 +21,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initializeMethod];
     [self createUI];
-//    MTKBL = [MTKCoreBlueTool sharedInstance];
-//    MTKBL.delegate = self;
-//    [MTKBL forgetPeripheral];
+    
     if (!appDele) {
         appDele = (MtkAppDelegate *)[UIApplication sharedApplication].delegate;
     }
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2*NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        [MTKBL MTKStartScan:NO];
-//        [[BackgroundManager sharedInstance] forge]
-         [[MTKBleManager sharedInstance] forgetPeripheral];
-        [BackgroundManager sharedInstance].tempPeripheral = nil;
-         [[BackgroundManager sharedInstance] startScan:YES];
-        scanTimer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(scanTimeOut:) userInfo:nil repeats:YES];
-    });
+    [[MTKBleManager sharedInstance] forgetPeripheral];
+    [BackgroundManager sharedInstance].tempPeripheral = nil;
+}
 
-    // Do any additional setup after loading the view.
+-(void)viewWillAppear:(BOOL)animated
+{
+    [foundedDevices removeAllObjects];
+    [self.tableView reloadData];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -55,37 +53,48 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)initializeMethod{
+    foundedDevices = [NSMutableArray array];
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+}
+
 #pragma mark *****创建UI
 - (void)createUI{
-    [_stateBut setTitle:MtkLocalizedString(@"beginingseatch_title") forState:UIControlStateNormal];
-    [_connectBut setTitle:MtkLocalizedString(@"seatch_bandtitle") forState:UIControlStateNormal];
-//    [_connectBut setTitle:MtkLocalizedString(@"begin_experience") forState:UIControlStateSelected];
-    _connectBut.selected = NO;
-//    _connectBut.layer.borderColor = [[UIColor whiteColor] CGColor];
-    _connectBut.layer.borderWidth = 1.0f;
-    _connectBut.layer.masksToBounds = YES;
-    _connectBut.layer.cornerRadius = 10.0;
-    _connectBut.layer.borderColor = [UIColor whiteColor].CGColor;
-
-    _imageView.hidden = YES;
-    _headLab.text = MtkLocalizedString(@"seatch_title");
-    _footLab.text = MtkLocalizedString(@"seatch_remind");
+    [_searchBut setTitle:MtkLocalizedString(@"searct_click") forState:UIControlStateNormal];
+    _searchBut.layer.borderWidth = 1.0f;
+    _searchBut.layer.masksToBounds = YES;
+    _searchBut.layer.cornerRadius = _searchBut.frame.size.width/2;
+    _searchBut.layer.borderColor = [UIColor whiteColor].CGColor;
+    [_unpairBut setTitle:MtkLocalizedString(@"search_unpar") forState:UIControlStateNormal];
+//    self.title = MtkLocalizedString(@"search_title");
+    _headLab.text = MtkLocalizedString(@"search_nextit");
+    _headLab1.text = MtkLocalizedString(@"search_title");
 }
 
 - (IBAction)connectMTK:(UIButton *)but{
+    but.selected = !but.selected;
     if (but.selected) {
-          [self.navigationController popToRootViewControllerAnimated:YES];
-        // 删除系统自动生成的UITabBarButton
-        for (UIView *child in appDele.tabVC.tabBar.subviews) {
-            if ([child isKindOfClass:[UIControl class]]) {
-                [child removeFromSuperview];
-            }
-        }
+        [_searchBut setTitle:MtkLocalizedString(@"search_stopS") forState:UIControlStateNormal];
+         [foundedDevices removeAllObjects];
+        [self.tableView reloadData];
+        [[BackgroundManager sharedInstance] startScan:NO];
     }
     else{
+        [_searchBut setTitle:MtkLocalizedString(@"searct_click") forState:UIControlStateNormal];
         [MTKBL MTKStopScan];
-        [self.navigationController popViewControllerAnimated:YES];
     }
+}
+
+- (IBAction)unpairSelector:(id)sender{
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    // 删除系统自动生成的UITabBarButton
+    for (UIView *child in appDele.tabVC.tabBar.subviews) {
+        if ([child isKindOfClass:[UIControl class]]) {
+            [child removeFromSuperview];
+        }
+    }
+
 }
 
 - (void)scanTimeOut:(NSTimer *)timer{
@@ -96,50 +105,80 @@
 //    [MTKBL MTKStartScan:NO];
 }
 
-#pragma mark *****MTKCoreBlueToolDelegate
-- (void)MTKBLConnecting{
-    NSLog(@"*****MTKBLConnecting*****");
-//    if (_connectBut.selected) {
-        [_stateBut setTitle:MtkLocalizedString(@"binging_title") forState:UIControlStateNormal];
-        _imageView.hidden = YES;
-//    }
+#pragma mark *****UITableViewDelegate
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CELL"];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"CELL"];
+    }
+    cell.textLabel.text = [(CBPeripheral *)[foundedDevices objectAtIndex:indexPath.row] name];
+    cell.detailTextLabel.text = [(CBPeripheral *)[foundedDevices objectAtIndex:indexPath.row] identifier].UUIDString;
+    return cell;
 }
 
-- (void)MTKBLConnectFinish:(int)state Peripheral:(CBPeripheral *)p{
-    NSLog(@"*****MTKBLConnectFinish***** %d",state);
-    if (state == 2) {
-        [_stateBut setTitle:@"" forState:UIControlStateNormal];
-        _imageView.hidden = NO;
-        _connectBut.selected = YES;
-        MTKUserInfo *user = [MTKArchiveTool getUserInfo];
-        if (!user) {
-            user = [[MTKUserInfo alloc] init];
-            user.userName = @"welcome";
-            user.userID = @"1";
-            user.userWeigh = @"30";
-            user.userHeight = @"50";
-            user.userGoal = @"4000";
-        }
-        user.userUUID = p.identifier.UUIDString;
-        [MTKArchiveTool saveUser:user];
-      [_connectBut setTitle:MtkLocalizedString(@"begin_experience") forState:UIControlStateNormal];
-    }
+- (NSInteger )tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return  foundedDevices.count;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+//    if (indexPath.section == 0)
+//    {
+//        if([[BackgroundManager sharedInstance] getScanningState] == SCANNING_STATE_OFF)
+//        {
+//            NSLog(@"[ScanTableViewController] [didSelectRowAtIndexPath] start scan action");
+//            [foundedDevices removeAllObjects];
+//            [[BackgroundManager sharedInstance] startScan:YES];
+//        }
+//        else
+//        {
+//            NSLog(@"[ScanTableViewController] [didSelectRowAtIndexPath] stop scan action");
+//            [[BackgroundManager sharedInstance] stopScan];
+//        }
+//    }
+//    else if (indexPath.section == 1)
+//    {
+//        if (mIsConnectingOneDevice == NO)
+//        {
+           [MBProgressHUD showMessage:MtkLocalizedString(@"binging_title")];
+            NSLog(@"[ScanTableViewController] selected row is : %ld", (long)[indexPath row]);
+            // should do connect action, after connect succeed, show main view controller
+            
+            NSLog(@"[ScanTableViewController] [didSelectRowAtIndexPath] call to connect action");
+            
+            CBPeripheral* pp = [foundedDevices objectAtIndex:indexPath.row];
+//            tempPeripheral = pp;
+            NSLog(@"[ScanTableViewController] [didSelectRowAtIndexPath] click devicename : %@ ", [pp name]);
+            
+//            connectingCell = (ScannedDeviceTableCell*)[tableView cellForRowAtIndexPath:indexPath];
+//            [connectingCell showIndicator:true];
+    
+            [[BackgroundManager sharedInstance] connectDevice:pp];
+//        }
+//        else if (mIsConnectingOneDevice == YES)
+//        {
+//            NSLog(@"[ScanTableViewController] [didSelectRowAtIndexPath] current connecting devices");
+//        }
+//    }
+
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
 -(void)onConnectionStateChange:(CBPeripheral*)peripheral connectionState:(int)state
 {
 //    tempPeripheral = nil;
-    
+       [MBProgressHUD hideHUD];
     if (state == CONNECTION_STATE_CONNECTED)
     {
         //        [self hideConnectionIndicator];
         NSLog(@"[ScanTableViewController] [onConnectionStateChange] connection state : CONNECTION_STATE_CONNECTED");
-        [_stateBut setTitle:@"" forState:UIControlStateNormal];
-        _imageView.hidden = NO;
-        _connectBut.selected = YES;
-        [_connectBut setTitle:MtkLocalizedString(@"begin_experience") forState:UIControlStateNormal];
+//        [_stateBut setTitle:@"" forState:UIControlStateNormal];
+//        _imageView.hidden = NO;
+//        _connectBut.selected = YES;
+//        [_connectBut setTitle:MtkLocalizedString(@"begin_experience") forState:UIControlStateNormal];
 //        mIsConnectingOneDevice = NO;
-//        
+//
+        [MBProgressHUD showSuccess:MtkLocalizedString(@"search_consucc")];
         CachedBLEDevice* device = [CachedBLEDevice defaultInstance];
         NSArray *array = [MTKDeviceParameterRecorder getDeviceParameters];
         if (array.count == 0)
@@ -168,6 +207,7 @@
         [[BackgroundManager sharedInstance] stopConnectTimer];
         //
         [[BackgroundManager sharedInstance] unRegisterStateChangeDelegate:self];
+        [self unpairSelector:nil];
     }
     else if (state == CONNECTION_STATE_DISCONNECTED)
     {
@@ -175,7 +215,11 @@
 //        [self hideConnectionIndicator];
 //        mIsConnectingOneDevice = NO;
         [[BackgroundManager sharedInstance] stopConnectTimer];
+         [MBProgressHUD showError:MtkLocalizedString(@"search_confail")];
         
+    }
+    else{
+        [MBProgressHUD showError:MtkLocalizedString(@"search_confail")];
     }
     
 }
@@ -183,13 +227,31 @@
 - (void) discoveryDidRefresh: (CBPeripheral *)peripheral
 {
     NSLog(@"[MTKPairViewController] [discoveryDidRefresh] enter");
-  if ([peripheral.name isEqualToString:@"K88H"] ) {
+//  if ([peripheral.name isEqualToString:@"SMA-09"] ) {
+      if (foundedDevices != nil /*&& [peripheral.name isEqualToString:@"SMA-09"]*/)
+      {
+          if (![foundedDevices containsObject:peripheral])
+          {
+              [foundedDevices addObject:peripheral];
+          }
+      }
+      [self.tableView reloadData];
 //      [[BackgroundManager sharedInstance] stopScan];
 //      [[BackgroundManager sharedInstance] connectDevice:peripheral];
-  }
+//  }
 }
 - (void)canConnect:(CBPeripheral *)peripheral{
-     [[BackgroundManager sharedInstance] connectDevice:peripheral];
+//     [[BackgroundManager sharedInstance] connectDevice:peripheral];
+//    if ([peripheral.name isEqualToString:@"SMA-09"] ) {
+        if (foundedDevices != nil /*&& [peripheral.name isEqualToString:@"SMA-09"]*/)
+        {
+            if (![foundedDevices containsObject:peripheral])
+            {
+                [foundedDevices addObject:peripheral];
+            }
+        }
+        [self.tableView reloadData];
+//    }
 }
 
 -(void)onAdapterStateChange:(int)state{
