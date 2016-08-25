@@ -24,7 +24,6 @@
 		EE55F8351CCB5AA100B99223 /* ScannedPeripheral.m in Sources */ = {isa = PBXBuildFile; fileRef = EE55F8341CCB5AA100B99223 /* ScannedPeripheral.m */; };
 		EE55F83C1CCB7DA300B99223 /* MTKArchiveTool.m in Sources */ = {isa = PBXBuildFile; fileRef = EE55F83B1CCB7DA300B99223 /* MTKArchiveTool.m */; };
 		EE55F83F1CCB7E2F00B99223 /* MTKUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = EE55F83E1CCB7E2F00B99223 /* MTKUserInfo.m */; };
-		EE752B911D39CCFE00B8314F /* HomeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE752B901D39CCFE00B8314F /* HomeKit.framework */; };
 		EE7B4A161CCF4AC5007C4644 /* KAProgressLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7B4A131CCF4AC5007C4644 /* KAProgressLabel.m */; };
 		EE7B4A171CCF4AC5007C4644 /* TPPropertyAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7B4A151CCF4AC5007C4644 /* TPPropertyAnimation.m */; };
 		EE7B4A1B1CCF6A02007C4644 /* MTKSqliteData.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7B4A1A1CCF6A02007C4644 /* MTKSqliteData.m */; };
@@ -34,6 +33,7 @@
 		EE7B4A2B1CCF6A75007C4644 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7B4A241CCF6A75007C4644 /* FMDatabaseQueue.m */; };
 		EE7B4A2C1CCF6A75007C4644 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7B4A271CCF6A75007C4644 /* FMResultSet.m */; };
 		EE7B4A2E1CCF6B6D007C4644 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EE7B4A2D1CCF6B6D007C4644 /* libsqlite3.0.tbd */; };
+		EE7C24671D3F122E00E8A3D0 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE7C24661D3F122E00E8A3D0 /* HealthKit.framework */; };
 		EE7E105D1D11497200832D25 /* MTKHeartDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7E105C1D11497200832D25 /* MTKHeartDetailViewController.m */; };
 		EE7E10601D115ECE00832D25 /* MTKHeartLab.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7E105F1D115ECE00832D25 /* MTKHeartLab.m */; };
 		EE808B2D1CCDA5F800A213DE /* MyController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE808B2C1CCDA5F800A213DE /* MyController.m */; };
@@ -177,7 +177,6 @@
 		EE55F83B1CCB7DA300B99223 /* MTKArchiveTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTKArchiveTool.m; sourceTree = "<group>"; };
 		EE55F83D1CCB7E2F00B99223 /* MTKUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MTKUserInfo.h; path = Method/MTKUserInfo.h; sourceTree = SOURCE_ROOT; };
 		EE55F83E1CCB7E2F00B99223 /* MTKUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MTKUserInfo.m; path = Method/MTKUserInfo.m; sourceTree = SOURCE_ROOT; };
-		EE752B901D39CCFE00B8314F /* HomeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HomeKit.framework; path = System/Library/Frameworks/HomeKit.framework; sourceTree = SDKROOT; };
 		EE7B4A121CCF4AC5007C4644 /* KAProgressLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAProgressLabel.h; sourceTree = "<group>"; };
 		EE7B4A131CCF4AC5007C4644 /* KAProgressLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KAProgressLabel.m; sourceTree = "<group>"; };
 		EE7B4A141CCF4AC5007C4644 /* TPPropertyAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPPropertyAnimation.h; sourceTree = "<group>"; };
@@ -196,6 +195,7 @@
 		EE7B4A261CCF6A75007C4644 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		EE7B4A271CCF6A75007C4644 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		EE7B4A2D1CCF6B6D007C4644 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		EE7C24661D3F122E00E8A3D0 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		EE7E105B1D11497200832D25 /* MTKHeartDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKHeartDetailViewController.h; sourceTree = "<group>"; };
 		EE7E105C1D11497200832D25 /* MTKHeartDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTKHeartDetailViewController.m; sourceTree = "<group>"; };
 		EE7E105E1D115ECE00832D25 /* MTKHeartLab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MTKHeartLab.h; path = ../MTKSetting/MTKHeartLab.h; sourceTree = "<group>"; };
@@ -391,10 +391,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE7B4A2E1CCF6B6D007C4644 /* libsqlite3.0.tbd in Frameworks */,
-				EE752B911D39CCFE00B8314F /* HomeKit.framework in Frameworks */,
 				EE8768291CCC920200B53E45 /* CoreData.framework in Frameworks */,
 				EE55F82F1CCB460900B99223 /* libMTKBleManager.a in Frameworks */,
 				EE8634A91CC71A66005378C9 /* libAbleCloudLib.a in Frameworks */,
+				EE7C24671D3F122E00E8A3D0 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -949,7 +949,7 @@
 		EEC995ED1CC46ADA00BD5A45 = {
 			isa = PBXGroup;
 			children = (
-				EE752B901D39CCFE00B8314F /* HomeKit.framework */,
+				EE7C24661D3F122E00E8A3D0 /* HealthKit.framework */,
 				EE7B4A2D1CCF6B6D007C4644 /* libsqlite3.0.tbd */,
 				EE8768281CCC920100B53E45 /* CoreData.framework */,
 				EE8768161CCC91C400B53E45 /* CoreData */,
@@ -1185,16 +1185,16 @@
 				TargetAttributes = {
 					EEC995F51CC46ADA00BD5A45 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = VHVLE5FL92;
+						DevelopmentTeam = UXHZJEX24R;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
 							com.apple.HealthKit = {
-								enabled = 0;
+								enabled = 1;
 							};
 							com.apple.HomeKit = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -1530,7 +1530,7 @@
 					"$(PROJECT_DIR)/Framework/ShareSMS/MTKBleSdk",
 				);
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.smawatch.MTK;
+				PRODUCT_BUNDLE_IDENTIFIER = com.smawatch.wear;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -1542,8 +1542,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_ENTITLEMENTS = MTK/MTK.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Shenzhen Smart Care Technology Co., Ltd.";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shenzhen Smart Care Technology Co., Ltd.";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Shenzhen Smart Care Technology Co., Ltd (UXHZJEX24R)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shenzhen Smart Care Technology Co., Ltd (UXHZJEX24R)";
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1561,9 +1561,9 @@
 					"$(PROJECT_DIR)/Framework/ShareSMS/MTKBleSdk",
 				);
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.smawatch.MTK;
+				PRODUCT_BUNDLE_IDENTIFIER = com.smawatch.wear;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ab062576-3266-47f4-ac44-62f529027fa2";
+				PROVISIONING_PROFILE = "3edffa3d-d6e6-4b5b-b1e2-6e5b88902146";
 			};
 			name = Release;
 		};
