@@ -86,7 +86,6 @@
         CGContextAddPath(ctx, path);
         CGContextDrawPath(ctx, kCGPathEOFillStroke);
         CGPathRelease(path);
-
     }
     
 }

@@ -121,7 +121,7 @@
              [addString appendString:[str substringWithRange:NSMakeRange(i, 4)]];
         }
         else if (i != 0 && [string isEqualToString:@"/"]){
-            [addString appendString:[str substringWithRange:NSMakeRange(i+2, 2)]];
+            [addString appendString:[str substringWithRange:NSMakeRange(i*2+2, 2)]];
         }
         else if([string isEqualToString:@":"]){
             [addString appendString:[str substringWithRange:NSMakeRange(i, 2)]];
