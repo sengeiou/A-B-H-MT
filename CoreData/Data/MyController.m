@@ -235,7 +235,7 @@ static  MyController *instance;
                  [self.sqliData inserSleepDataWithUser:userID WebId:webID Date:date Time:time sleepTime:sleep_time Step:step Quality:qual Web:@"0" callBack:^(BOOL result) {
                      if (i == dataArr.count-1) {
                          if (delegate && [delegate respondsToSelector:@selector(onDataReceive:mode:)]) {
-                             [delegate onDataReceive:dataStr mode:GETSDETSLEEP];
+                             [delegate onDataReceive:dataStr mode:GETSDETSPORT];
                          }
                           [self sendDataWithCmd:@"RET,1" mode:RETDATA];
                      }

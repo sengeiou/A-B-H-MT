@@ -140,14 +140,14 @@
 
 -(NSString *)FormatStr:(NSString *)str
 {
-    NSString *month=MtkLocalizedString(@"sleep_monthunit");
+    NSString *month=MtkLocalizedString(@"monthunit");
     
     if([month isEqualToString:@""])
     {
-        if([str rangeOfString:@"1月"].location !=NSNotFound){
-            str=[str stringByReplacingOccurrencesOfString:@"1月" withString:@"January "];
-        }else if([str rangeOfString:@"2月"].location !=NSNotFound){
-            str=[str stringByReplacingOccurrencesOfString:@"2月" withString:@"February "];
+        if([str rangeOfString:@"11月"].location !=NSNotFound){
+            str=[str stringByReplacingOccurrencesOfString:@"11月" withString:@"November "];
+        }else if([str rangeOfString:@"12月"].location !=NSNotFound){
+            str=[str stringByReplacingOccurrencesOfString:@"12月" withString:@"December "];
         }else if([str rangeOfString:@"3月"].location !=NSNotFound){
             str=[str stringByReplacingOccurrencesOfString:@"3月" withString:@"March "];
         }else if([str rangeOfString:@"4月"].location !=NSNotFound){
@@ -166,13 +166,13 @@
         else if([str rangeOfString:@"10月"].location !=NSNotFound){
             str=[str stringByReplacingOccurrencesOfString:@"10月" withString:@"October "];
         }
-        else if([str rangeOfString:@"11月"].location !=NSNotFound){
-            str=[str stringByReplacingOccurrencesOfString:@"11月" withString:@"November "];
+        else if([str rangeOfString:@"1月"].location !=NSNotFound){
+            str=[str stringByReplacingOccurrencesOfString:@"1月" withString:@"January "];
         }
-        else if([str rangeOfString:@"12月"].location !=NSNotFound){
-            str=[str stringByReplacingOccurrencesOfString:@"12月" withString:@"December "];
+        else if([str rangeOfString:@"2月"].location !=NSNotFound){
+            str=[str stringByReplacingOccurrencesOfString:@"2月" withString:@"February "];
         }
-        str=[str stringByReplacingOccurrencesOfString:@"日" withString:MtkLocalizedString(@"sleep_dayunit")];
+        str=[str stringByReplacingOccurrencesOfString:@"日" withString:MtkLocalizedString(@"dayunit")];
     }
     
     return str;

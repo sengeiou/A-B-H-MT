@@ -1193,7 +1193,7 @@
 				TargetAttributes = {
 					EEC995F51CC46ADA00BD5A45 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = UXHZJEX24R;
+						DevelopmentTeam = VHVLE5FL92;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -1521,8 +1521,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_ENTITLEMENTS = MTK/MTK.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = UXHZJEX24R;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = VHVLE5FL92;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1540,10 +1540,10 @@
 					"$(PROJECT_DIR)/Framework/ShareSMS/MTKBleSdk",
 				);
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.smawatch.wear;
+				PRODUCT_BUNDLE_IDENTIFIER = com.smawatch.MTK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "90ebd788-3e17-408b-a221-6b664a0e68ec";
-				PROVISIONING_PROFILE_SPECIFIER = liang_sub_dis_wear;
+				PROVISIONING_PROFILE = "391cd069-caa8-47fe-93f1-4dda64f55016";
+				PROVISIONING_PROFILE_SPECIFIER = liang_mtk_develop;
 			};
 			name = Debug;
 		};
@@ -1573,7 +1573,7 @@
 					"$(PROJECT_DIR)/Framework/ShareSMS/MTKBleSdk",
 				);
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.smawatch.wear;
+				PRODUCT_BUNDLE_IDENTIFIER = com.smawatch.MTK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "90ebd788-3e17-408b-a221-6b664a0e68ec";
 				PROVISIONING_PROFILE_SPECIFIER = liang_sub_dis_wear;
