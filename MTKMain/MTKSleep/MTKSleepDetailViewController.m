@@ -21,6 +21,7 @@
     int slBeTime; //睡眠时间
     int slEnTime; //醒来时间
     int atType;// 睡眠状态
+    MTKSleepView *sleepView;
 }
 @end
 
@@ -122,6 +123,15 @@
      self.slLenght.text = MtkLocalizedString(@"sleepdetail_sleeptimelen");
      self.deLenght.text = MtkLocalizedString(@"sleepdetail_hileleeptimelen");
      self.liLenght.text = MtkLocalizedString(@"sleepdetail_sobertimelen");
+    CGSize slLenghtSize = [_slLenght.text sizeWithAttributes:@{NSFontAttributeName:_slLenght.font}];
+    CGSize deLenghtSize = [_deLenght.text sizeWithAttributes:@{NSFontAttributeName:_deLenght.font}];
+    CGSize liLenghtSize = [_liLenght.text sizeWithAttributes:@{NSFontAttributeName:_liLenght.font}];
+    CGSize awakeTimeSize = [_awakeTime.text sizeWithAttributes:@{NSFontAttributeName:_awakeTime.font}];
+    CGSize timeSize = [[NSString stringWithFormat:@"00 %@ 00 %@",MtkLocalizedString(@"sleep_hour"),MtkLocalizedString(@"sport_minute")] sizeWithAttributes:@{NSFontAttributeName:_awakeTime.font}];
+    NSArray *maxArr = @[[NSString stringWithFormat:@"%.0f",slLenghtSize.width],[NSString stringWithFormat:@"%.0f",liLenghtSize.width],[NSString stringWithFormat:@"%.0f",deLenghtSize.width],[NSString stringWithFormat:@"%.0f",awakeTimeSize.width]];
+    CGFloat maxWith = [[maxArr valueForKeyPath:@"@max.floatValue"] floatValue] + 8;
+    _sleepViewW.constant = maxWith + timeSize.width;
+
     CGFloat scrHight;
     if (MainScreen.size.height > 568) {
         scrHight = 420.0f;
@@ -151,7 +161,8 @@
     else{
         scrHight = 320.f;
     }
-    MTKSleepView *sleepView = [[MTKSleepView alloc] initWithFrame:CGRectMake(10, 10,730,scrHight - 50)];//画图两边各有5像素缩进，为了X轴坐标能显示，故需要在理想长度再增加10像素
+    [sleepView removeFromSuperview];
+    sleepView = [[MTKSleepView alloc] initWithFrame:CGRectMake(10, 10,730,scrHight - 50)];//画图两边各有5像素缩进，为了X轴坐标能显示，故需要在理想长度再增加10像素
     [scrollView addSubview:sleepView];
     sleepView.xTexts = @[@"0",@"6:00",@"12:00",@"18:00",@"24"];
     sleepView.xValues = [sleepArr copy];
@@ -168,13 +179,7 @@
     int sleepHour = deeHour + ligHour + sobHour + sleepMin/60;
     sleepMin = sleepMin%60;
     NSString *hour = [NSString stringWithFormat:@"%d",sleepHour];;
-//    if (sleepHour<10) {
-//        hour = [NSString stringWithFormat:@"0%d",sleepHour];
-//    }
     NSString *min = [NSString stringWithFormat:@"%d",sleepMin];
-//    if (sleepMin<10) {
-//        min = [NSString stringWithFormat:@"0%d",sleepMin];
-//    }
     
     self.slDeTime.text = [NSString stringWithFormat:@"%@:%@",[[self returnHour:[[sleepArr firstObject][@"TIME"] intValue]] intValue]<10?[NSString stringWithFormat:@"0%@",[self returnHour:[[sleepArr firstObject][@"TIME"] intValue]]]:[self returnHour:[[sleepArr firstObject][@"TIME"] intValue]],[[self returnMin:[[sleepArr firstObject][@"TIME"] intValue]] intValue]<10?[NSString stringWithFormat:@"0%@",[self returnMin:[[sleepArr firstObject][@"TIME"] intValue]]]:[self returnMin:[[sleepArr firstObject][@"TIME"] intValue]]];
     self.wakeDeTime.text = [NSString stringWithFormat:@"%@:%@",[[self returnHour:[[sleepArr lastObject][@"TIME"] intValue]] intValue]<10?[NSString stringWithFormat:@"0%@",[self returnHour:[[sleepArr lastObject][@"TIME"] intValue]]]:[self returnHour:[[sleepArr lastObject][@"TIME"] intValue]],[[self returnMin:[[sleepArr lastObject][@"TIME"] intValue]] intValue]<10?[NSString stringWithFormat:@"0%@",[self returnMin:[[sleepArr lastObject][@"TIME"] intValue]]]:[self returnMin:[[sleepArr lastObject][@"TIME"] intValue]]];

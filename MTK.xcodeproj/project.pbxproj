@@ -125,6 +125,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EE050A401E2608A300004840 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EE34B0F81CFC090200CF0208 /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
 		EE34B0F91CFC090200CF0208 /* MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefresh.h; sourceTree = "<group>"; };
 		EE34B0FA1CFC090200CF0208 /* MJRefreshBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBaseView.h; sourceTree = "<group>"; };
@@ -1225,6 +1226,7 @@
 				Base,
 				en,
 				"zh-Hans",
+				es,
 			);
 			mainGroup = EEC995ED1CC46ADA00BD5A45;
 			productRefGroup = EEC995F71CC46ADA00BD5A45 /* Products */;
@@ -1425,6 +1427,7 @@
 				EEC9965E1CC4ABEA00BD5A45 /* Base */,
 				EEC996601CC4AC3400BD5A45 /* en */,
 				EEC996611CC4AC4000BD5A45 /* zh-Hans */,
+				EE050A401E2608A300004840 /* es */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1555,7 +1558,7 @@
 				CODE_SIGN_ENTITLEMENTS = MTK/MTK.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Shenzhen Smart Care Technology Co., Ltd (UXHZJEX24R)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = UXHZJEX24R;
+				DEVELOPMENT_TEAM = VHVLE5FL92;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1575,8 +1578,8 @@
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.smawatch.MTK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "90ebd788-3e17-408b-a221-6b664a0e68ec";
-				PROVISIONING_PROFILE_SPECIFIER = liang_sub_dis_wear;
+				PROVISIONING_PROFILE = "a4a1ab4e-7e93-4be8-b861-503eea117dbf";
+				PROVISIONING_PROFILE_SPECIFIER = "XC: com.smawatch.MTK";
 			};
 			name = Release;
 		};

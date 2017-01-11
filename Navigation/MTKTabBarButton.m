@@ -24,7 +24,11 @@
         // 文字居中
         self.titleLabel.textAlignment = NSTextAlignmentCenter;
         // 字体大小
-        self.titleLabel.font = [UIFont systemFontOfSize:11];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSArray *allLanguages = [defaults objectForKey:@"AppleLanguages"];
+        NSString *preferredLan = [[allLanguages objectAtIndex:0] substringToIndex:2];
+        self.titleLabel.font = [UIFont systemFontOfSize:[preferredLan isEqualToString:@"es"] ? 8:11];
+         self.titleLabel.numberOfLines = 0;
         // 文字颜色
         
         [self setTitleColor:MTKTabBarButtonTitleColor forState:UIControlStateNormal];

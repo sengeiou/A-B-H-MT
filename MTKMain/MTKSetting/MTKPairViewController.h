@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface MTKPairViewController : UIViewController
-@property (nonatomic, weak) IBOutlet UILabel *headLab, *headLab1;
+@property (nonatomic, weak) IBOutlet UILabel *headLab, *headLab1, *searchLab;
 @property (nonatomic, weak) IBOutlet UIButton *searchBut, *unpairBut;
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @end

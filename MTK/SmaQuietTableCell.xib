@@ -1,10 +1,14 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -17,7 +21,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="静息心率" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oMq-Im-9ht">
-                        <rect key="frame" x="160" y="14" width="160" height="16"/>
+                        <rect key="frame" x="160" y="0.0" width="160" height="44"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
@@ -27,30 +31,29 @@
                         <fontDescription key="fontDescription" type="system" pointSize="50"/>
                         <inset key="contentEdgeInsets" minX="0.0" minY="-8" maxX="0.0" maxY="0.0"/>
                         <state key="normal" title="+">
-                            <color key="titleColor" red="0.80784313725490198" green="0.12549019607843137" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="titleColor" red="0.80784313725490198" green="0.12549019607843137" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
                         <connections>
                             <action selector="AddSelector:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="6Ib-Ws-XLl"/>
                         </connections>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最近监测日期" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNd-e3-kEq">
-                        <rect key="frame" x="0.0" y="8" width="160" height="27"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最近监测日期" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNd-e3-kEq">
+                        <rect key="frame" x="0.0" y="0.0" width="160" height="43"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="QNd-e3-kEq" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="5G1-Eu-xtk"/>
                     <constraint firstItem="oMq-Im-9ht" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="1/2" id="7ek-7Z-gyJ"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="QNd-e3-kEq" secondAttribute="bottom" id="9em-AK-OLd"/>
                     <constraint firstItem="E1d-VO-wuP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="K24-fI-Qky"/>
                     <constraint firstItem="oMq-Im-9ht" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Q82-Dd-js1"/>
                     <constraint firstItem="oMq-Im-9ht" firstAttribute="leading" secondItem="QNd-e3-kEq" secondAttribute="trailing" id="TfR-y8-QGB"/>
                     <constraint firstItem="QNd-e3-kEq" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="1/2" id="XcS-Vq-LLc"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="QNd-e3-kEq" secondAttribute="bottom" id="Zj3-DJ-uNV"/>
-                    <constraint firstItem="QNd-e3-kEq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="cBR-3c-JGm"/>
+                    <constraint firstItem="oMq-Im-9ht" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ix4-Xe-x18"/>
                     <constraint firstAttribute="bottomMargin" secondItem="E1d-VO-wuP" secondAttribute="bottom" constant="-8" id="lzp-xO-rDP"/>
+                    <constraint firstAttribute="bottom" secondItem="QNd-e3-kEq" secondAttribute="bottom" id="msN-FK-OhD"/>
+                    <constraint firstItem="QNd-e3-kEq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="oDy-U6-7aQ"/>
                     <constraint firstItem="E1d-VO-wuP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="udY-ZP-bvI"/>
                     <constraint firstItem="QNd-e3-kEq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="yli-3r-QgR"/>
                     <constraint firstAttribute="trailingMargin" secondItem="E1d-VO-wuP" secondAttribute="trailing" constant="-8" id="yzE-ST-JeC"/>

@@ -1,0 +1,202 @@
+/*
+ Localizable.strings
+ MTK
+ 
+ Created by 有限公司 深圳市 on 16/4/18.
+ Copyright © 2016年 SmaLife. All rights reserved.
+ */
+//首次启动
+"first_exper" = "开始体验";
+
+//登录
+"login_loginbtn" = "Iniciar sesión";
+"login_register" = "Registro";
+"login_tryout" = "Intente directamente";
+
+/*计步目标*/
+"myinfo_navtitle"="Información personal.";
+"myinfo_account"="Cuenta";
+"myinfo_accountpwd"="Contraseña";
+"myinfo_nickname"="Apodo";
+"myinfo_age"="Edad";
+"myinfo_weight"="Peso";
+"myinfo_height"="Estatura";
+"myinfo_sex"="Sexo";
+"myinfo_step" = "Pasos";
+"myinfo_next" = "Siguiente";
+/*计步目标*/
+
+
+//注册
+"register_choose_cou" = "Elija un pais";
+"register_modi_pass" = "Modificar Contraseña";
+
+//运动
+"sportdetail_day" = "Día";
+"portdetail_week" = "Semana";
+"sportdetail_tendat" = "Mes";
+"sport_navtilte"="Deporte";
+"sport_plaremark" = "Meta";
+"sport_stepunit" = "Pasos";
+"sport_distanceunit" = "Metro";
+"sport_distancekmunit" = "Km";
+"sport_hotunit" = "Calorías";
+"sport_minute" = "Min.";
+"sport_distance" = "Distancia";
+"sport_calor" = "Calorías";
+"sport_steps" = "Pasos";
+"sportdetail_navtilte"="Detalles deportivos";
+"setplan_navtitle"="Meta deportiva";
+"setplan_remark"="Establecer una meta deportiva";
+"sport_pull" = "Tire para refrescar";
+
+//睡眠
+"sleep_navtilte"="sueño";
+"sleep_today" = "Hoy";
+"sleep_hour" = "Hora";
+"sleep_hour1" = "Hora";
+"sport_minute1" = "Min.";
+"sleep_status" = "Calidad del sueño";
+"sleep_remark" = "Dormido anoche";
+"sleep_dayunit"="";
+"sleep_monthunit"="";
+"sleepdetail_sleeptimelen" = "Tiempo de sueño";
+"sleepdetail_hileleeptimelen" = "Tiempo de sueño profundo";
+"sleepdetail_sobertimelen" = "Tiempo de sueño ligero";
+"sleep_state_average"="Promedio";
+"sleep_state_comfortable"="Bueno";
+"sleep_state_enough"="Excelente";
+"sleepdetail_sobertime" = "Tiempo despierto";
+"sleep_deep" = "Profundo";
+"sleep_light" = "Ligero";
+"sleep_awake" = "Despierto";
+
+/*睡眠详细界面*/
+"sleepdetail_navtilte"="Detalles del sueño";
+"sleepdetail_asleeptime" = "Quedarse dormido";
+"sleepdetail_waketime" = "Hora de despertar";
+"sleepdetail_sobertime" = "Tiempo despierto";
+"sleepdetail_sleeptimelen" = "Hora de dormir";
+"sleepdetail_hileleeptimelen" = "sueño profundo";
+"sleepdetail_sobertimelen" = "sueño ligero";
+
+//心率
+"hearRate_title" = "Frecuencia cardiaca  ";
+"hearRate_monitor" = "Ultima vez";
+"hearRate_norm" = "La frecuencia cardíaca promedio en reposo es de 60-100 latidos / minuto. La frecuencia cardíaca promedio del sueño es de 50-70 latidos / minuto.";
+"hearRate_his" = "Datos detallados";
+"hearRate_date" = "Fecha";
+"hearRate_bpm" = "Latidos por minuto";
+"hearRate_status" = "Estado";
+"hearRate_type1" = "Normal";
+"hearRate_type2" = "Bajo";
+"hearRate_type3" = "Alto";
+"hearRate_RestHR" = "Reposo";
+"hearRate_MeanHR" = "Promedio";
+"hearRate_MaxHR" = "Max";
+"hearRate_HRmonitor" = "Frecuencia cardiaca";
+"hearRate_duration" = "Duración";
+"hearRate_distance" = "Distancia";
+"hearRate_pacer" = "Ritmo";
+"hearRate_kcal" = "Calorías";
+"hearRate_actue" = "Ejercicio agotador";
+"hearRate_anaero" = "Ejercicio anaeróbico";
+"hearRate_aerobic" = "Ejercicio aerobico";
+"hearRate_bum" = "quema de grasa";
+"hearRate_varm" = "Calentar";
+"hearRate_Quiet_remind" = "Por favor, pruebe la frecuencia cardíaca estática en estado de ayuno como el valor de la frecuencia cardíaca estática, que será la referencia importante de su salud.";
+"hearRate_quiet_last" = "Fecha de monitoreo reciente";
+"hearReat_quietTitle" = "Reposo";
+"hearReat_notHR" = "La frecuencia cardíaca estática no puede estar vacía";
+"hearReat_detail" = "detalles del la frecuencia cardiaca";
+"hearReat_time" = "Tiempo";
+"hearReat_realTime" = "Frecuencia cardiaca en tiempo real";
+"hearReat_detail" = "Detalles";
+"hearReat_High" = "Alto";
+"hearReat_normal" = "Normal";
+"hearReat_slow" = "Bajo";
+"hearReat_LastDates1" = "últimos 7 días";
+"hearReat_LastDates2" = "últimos 14 días";
+"hearReat_LastDates3" = "últimos 21 días";
+"hearReat_LastDates4" = "últimos 30 días";
+"hearReat_dele" = "Borrar";
+"hearReat_interval"="Intervalo de detección";
+"hearReat_set" = "Configuración de la frecuencia cardiaca";
+"hearReat_lnag" = "Configuración en inglés";
+"hearReat_light" = "Gestos para despertar";
+"hearReat_vertical" = "Pantalla vertical";
+"hearReat_15min" = "15 minutos";
+"hearReat_30min" = "30 minutos";
+"hearReat_60min" = "60 minutos";
+"hearReat_setNot" = "La hora de inicio debe ser anterior a la hora de finalización";
+
+//提醒
+"remind_navtilte"="darse cuenta";
+
+//*************************设置**************************************************
+"setting_navtitle"="Ajuste";
+"setting_myinfo"="Información personal.";
+"setting_myplan"="Meta personal";
+"setting_boundsmawatch"="Conectar mi reloj";
+"setting_unbindbound"="Desconectar mi reloj";
+"setting_lost" = "Antiperdida";
+"setting_findDevice" = "Buscar dispositivo";
+
+"seatch_title"="Asegúrese de que la batería del reloj sea suficiente y este cerca del teléfono";
+"seatch_remind" = "Si usted no puede encontrar la señal del bluetooth SM09 del RELOJ , vaya por favor a ajuste del iPhone-bluetooth-olvida el dispositivo (SM09).";
+"seatch_bandtitle"="Conectar más tarde";
+"search_title" = "Buscar dispositivos Bluetooth";
+"search_nextit" = "(Encienda el teléfono móvil Bluetooth y el dispositivo Bluetooth)";
+"searct_click" = "Iniciar búsqueda";
+"search_stopS" = "Parar la búsqueda";
+"search_unpar" = "Conectar más tarde";
+"search_consucc" = "Conexión exitosa";
+"search_confail" = "Fallo la conexión";
+
+"beginingseatch_title"="Buscando...";
+"binging_title"="Conectando ...";
+"begin_experience"="Iniciar ahora";
+
+//个人信息
+"myinfo_account"="Cuenta";
+"myinfo_accountpwd"="Contraseña";
+"myinfo_nickname"="Apodo";
+"myinfo_age"="Edad";
+"myinfo_weight"="Peso";
+"myinfo_height"="Altura";
+"myinfo_sex"="Sexo";
+"myinfo_step" = "Pasos";
+"myinfo_uniwi1" = "Kg";
+"myinfo_unithe1" = "Cm";
+"myinfo_Wrange" = "El peso está entre 30 a 229";
+"myinfo_Hrange" = "La altura es entre 50 a 229";
+"myinfo_New" = "Actualizar";
+
+//解绑
+"unpair_success"="Desconeccion exitosa";
+"unpair_connect"="Conectar de nuevo";
+//*************************设置**************************************************
+//弹框
+"alera_back" = "<Volver";
+"aler_can" = "Cancelar";
+"aler_confirm"="Confirmar";
+"alert_nobang" ="Desconecte el dispositivo, por favor, conecte el dispositivo";
+"alert_confirst" = "Conecte primero el reloj";
+"alert_relieveband"="Si confirma la desconexión, los datos locales se perderán";
+"alert_alreadyband"="Conectado, por favor, vuelva a conectarlo después de desconectarlo";
+"alert_seting"="Ajuste...";
+"alert_setSuccess"="Ajuste exitoso";
+"alert_failed" = "Falla en la configuración";
+"alert_syncing" = "Sincronizando ...";
+"alert_syncsucc" = "Finalizado!";
+"alert_syncerror" = "La sincronización ha fallado";
+"alert_height"="Por favor, introduzca su estatura";
+"alert_weight"="Ingrese su peso";
+"alert_nickname"="Ingrese su apodo";
+"aler_syncing" = "Sincronizando ...";
+"aler_syncsucc" = "Finalizado!";
+"aler_syncerror" = "La sincronización ha fallado";
+"aler_downSync" = "Desplegar para actualizar";
+"aler_Sync" = "Liberar inmediatamente  para actualizar";
+"aler_lastTime" = "última actualización:";
+"aler_tamane" = "La etiqueta es demasiado larga, por favor modifiquela";

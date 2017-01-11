@@ -61,7 +61,8 @@
 
 #pragma mark *****创建UI
 - (void)createUI{
-    [_searchBut setTitle:MtkLocalizedString(@"searct_click") forState:UIControlStateNormal];
+//    [_searchBut setTitle:MtkLocalizedString(@"searct_click") forState:UIControlStateNormal];
+     _searchLab.text = MtkLocalizedString(@"searct_click");
     _searchBut.layer.borderWidth = 1.0f;
     _searchBut.layer.masksToBounds = YES;
     _searchBut.layer.cornerRadius = _searchBut.frame.size.width/2;
@@ -75,13 +76,15 @@
 - (IBAction)connectMTK:(UIButton *)but{
     but.selected = !but.selected;
     if (but.selected) {
-        [_searchBut setTitle:MtkLocalizedString(@"search_stopS") forState:UIControlStateNormal];
+//        [_searchBut setTitle:MtkLocalizedString(@"search_stopS") forState:UIControlStateNormal];
+         _searchLab.text = MtkLocalizedString(@"search_stopS");
          [foundedDevices removeAllObjects];
         [self.tableView reloadData];
         [[BackgroundManager sharedInstance] startScan:NO];
     }
     else{
-        [_searchBut setTitle:MtkLocalizedString(@"searct_click") forState:UIControlStateNormal];
+//        [_searchBut setTitle:MtkLocalizedString(@"searct_click") forState:UIControlStateNormal];
+          _searchLab.text = MtkLocalizedString(@"searct_click");
         [MTKBL MTKStopScan];
     }
 }

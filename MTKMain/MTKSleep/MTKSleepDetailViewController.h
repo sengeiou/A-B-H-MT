@@ -13,4 +13,5 @@
 @property(nonatomic,strong) MTKSqliteData *sqliData;
 @property (nonatomic, weak) IBOutlet UIView *backView;
 @property (nonatomic, weak) IBOutlet UILabel *slTime, *slDeTime, *wakeTime, *wakeDeTime, *awakeTime, *awakeDeTime, *slLenght, *slDeLenght, *deLenght, *deDeLenght, *liLenght, *liDeLenght;
+@property (nonatomic, strong) IBOutlet NSLayoutConstraint *sleepViewW;
 @end

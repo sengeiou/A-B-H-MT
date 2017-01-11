@@ -95,6 +95,9 @@
     self.deepLab.text = MtkLocalizedString(@"sleep_deep");
     self.lightLab.text = MtkLocalizedString(@"sleep_light");
     self.soberLab.text = MtkLocalizedString(@"sleep_awake");
+    CGSize qualitySize = [_qualityLab.text sizeWithAttributes:@{NSFontAttributeName:_qualityLab.font}];
+    CGSize situationSize = [_situationLab.text sizeWithAttributes:@{NSFontAttributeName:_situationLab.font}];
+    _stateViewW.constant = qualitySize.width + situationSize.width + 8;
     [self refreshData];
 }
 
@@ -295,6 +298,9 @@ static int  deffInt=30;
     else{
          _qualityLab.text = MtkLocalizedString(@"sleep_state_average");
     }
+    CGSize qualitySize = [_qualityLab.text sizeWithAttributes:@{NSFontAttributeName:_qualityLab.font}];
+    CGSize situationSize = [_situationLab.text sizeWithAttributes:@{NSFontAttributeName:_situationLab.font}];
+    _stateViewW.constant = qualitySize.width + situationSize.width + 8;
 }
 
 - (int)returnHour:(int)second{
