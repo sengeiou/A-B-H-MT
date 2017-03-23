@@ -81,7 +81,7 @@
 "sleepdetail_sobertimelen" = "sueño ligero";
 
 //心率
-"hearRate_title" = "Frecuencia cardiaca  ";
+"hearRate_title" = "Frecuencia cardiaca";
 "hearRate_monitor" = "Ultima vez";
 "hearRate_norm" = "La frecuencia cardíaca promedio en reposo es de 60-100 latidos / minuto. La frecuencia cardíaca promedio del sueño es de 50-70 latidos / minuto.";
 "hearRate_his" = "Datos detallados";
