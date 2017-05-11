@@ -9,7 +9,7 @@
 #import "MtkAppDelegate.h"
 #import "ViewController.h"
 #import "SmaNavMyInfoController.h"
-#import "HealthKitManager.h"
+#import <HealthKit/HealthKit.h>
 @interface MtkAppDelegate ()
 @property (nonatomic, strong)HKHealthStore *healthStore;
 @end

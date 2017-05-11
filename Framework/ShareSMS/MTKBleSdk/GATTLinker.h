@@ -9,9 +9,9 @@
 #import "Linker.h"
 #import "MTKBleManager.h"
 
-extern NSString *kDOGPServiceUUIDString;
-extern NSString *kDOGPReadCharUUIDString;
-extern NSString *kDOGPWriteCharUUIDString;
+extern NSString *const kDOGPServiceUUIDString;
+extern NSString *const kDOGPReadCharUUIDString;
+extern NSString *const kDOGPWriteCharUUIDString;
 
 const static int STATE_READ_NONE = 0;
 const static int STATE_READ_WAIT_FOR_RESPONSE = 1;
@@ -27,12 +27,16 @@ const static int STATE_READ_NEED_TO_READ = 2;
 
 @interface GATTLinker : Linker
 
-+ (id) initGattLinkerInstance: (CBPeripheral *)peripheral readChar: (CBCharacteristic *)readCh writeChar: (CBCharacteristic *)writeCh;
++ (id) initGattLinkerInstance;
 + (id) getGattLinkerInstance;
+
+-(void)setGattParameter: (CBPeripheral *)peripheral readChar:(CBCharacteristic *)readCh writeChar:(CBCharacteristic *)writeCh;
 
 -(void)close;
 
 - (void) write: (NSData *)data;
+
+-(void)clearData:(NSString *)tag;
 
 -(void)readNextDataValue;
 
@@ -50,6 +54,10 @@ const static int STATE_READ_NEED_TO_READ = 2;
 -(BOOL)isHandShakeDone;
 
 -(void)setHandShakeDone:(BOOL)done;
+
+-(void)setRemoteDeviceVersion:(int)version;
+
+-(BOOL)setMaxWriteLength:(int)length;
 
 @property (nonatomic) id<LinkerListenerProtocol> mLinkerListener;
 

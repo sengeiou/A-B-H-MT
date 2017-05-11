@@ -16,16 +16,16 @@
 #import "BLEClientProfile.h"
 
 /* Charactistic UUID */
-extern NSString *kAlertLevelCharacteristicUUIDStringNew;
-extern NSString *kTxPowerLevelCharacteristicUUIDString;
+extern NSString *const kAlertLevelCharacteristicUUIDStringNew;
+extern NSString *const kTxPowerLevelCharacteristicUUIDString;
 
-extern NSString *kEnterBackgroundNotification;
-extern NSString *kEnterForegroundNotification;
-extern NSString *kFinishLaunchNotification;
+extern NSString *const kEnterBackgroundNotification;
+extern NSString *const kEnterForegroundNotification;
+extern NSString *const kFinishLaunchNotification;
 
-extern NSString *UserDefaultKey_disconnecManually;
-extern NSString *UserDefaultKey_savedIdentify;
-extern NSString *UserDefaultKey_killedForcely;
+extern NSString *const UserDefaultKey_disconnecManually;
+extern NSString *const UserDefaultKey_savedIdentify;
+extern NSString *const UserDefaultKey_killedForcely;
 
 /*UI Protocols */
 @protocol BleDiscoveryDelegate <NSObject>
@@ -70,18 +70,25 @@ extern NSString *UserDefaultKey_killedForcely;
 
 /******************** scaning state **********************/
 const static int SCANNING_STATE_ON = 1;
-const static int SCANNING_STATE_OFF = 0;//关闭
+const static int SCANNING_STATE_OFF = 0;
 /**********************************************************/
 
 /******************** conntion state **********************/
+/** 连接成功 */
 const static int CONNECT_SUCCESS = 1;
+/** 连接失败 */
 const static int CONNECT_FAILED = 2;
+/** 断连成功 */
 const static int DISCONNECT_SUCCESS = 3;
+/** 断连失败 */
 const static int DISCONNECT_FAILED = 4;
-
+/** 已连接 */
 const static int CONNECTION_STATE_CONNECTED = 2;
+/** 正在连接 */
 const static int CONNECTION_STATE_CONNECTING = 1;
+/** 正在断开连接  */
 const static int CONNECTION_STATE_DISCONNECTING = 3;
+/** 已经断开连接 */
 const static int CONNECTION_STATE_DISCONNECTED = 0;
 /**********************************************************/
 

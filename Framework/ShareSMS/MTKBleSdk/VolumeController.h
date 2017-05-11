@@ -10,8 +10,8 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 #import <MediaPlayer/MediaPlayer.h>
 
-extern NSString *kVolumeControlServiceUUID;
-extern NSString *kVolumeControlCharacteristicUUID;
+extern NSString *const kVolumeControlServiceUUID;
+extern NSString *const kVolumeControlCharacteristicUUID;
 
 @interface VolumeController : NSObject
 

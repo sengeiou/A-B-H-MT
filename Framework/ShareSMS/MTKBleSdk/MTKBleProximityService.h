@@ -11,8 +11,8 @@
 #import <math.h>
 #import "BLEClientProfile.h"
 
-extern NSString *UserDefaultKey_deviceSetting;
-extern NSString *UserDefaultKey_threshHold;
+extern NSString *const UserDefaultKey_deviceSetting;
+extern NSString *const UserDefaultKey_threshHold;
 
 @class MTKBleManager;
 
@@ -25,10 +25,10 @@ const static int RANGE_ALERT_NEAR     = 0;
 const static int RANGE_ALERT_MIDDLE   = 1;
 const static int RANGE_ALERT_FAR      = 2;
 
-//customizable values  system 70-85-98
-const static int RANGE_ALERT_THRESH_NEAR = 70;
-const static int RANGE_ALERT_THRESH_MIDDLE = 85;
-const static int RANGE_ALERT_THRESH_FAR = 98;
+//customizable values
+const static int RANGE_ALERT_THRESH_NEAR = 68;
+const static int RANGE_ALERT_THRESH_MIDDLE = 82;
+const static int RANGE_ALERT_THRESH_FAR = 92;
 
 //link lost alert levle
 const static int LINK_LOST_ALERT_NO     = 0;
@@ -38,8 +38,6 @@ const static int LINK_LOST_ALERT_HIGH   = 2;
 const static int RANGE_ALERT_IN     = 0;
 const static int RANGE_ALERT_OUT    = 1;
 
-//Read RSSI delay time
-const static int RSSI_DELAY_TIME=1.5;
 //Cabibration read RSSI delay time
 const static float CALIBRATE_READ_RSSI_DELAY_TIME=0.2;
 
@@ -50,7 +48,13 @@ const static int IN_RANGE_ALERT = 2;
 const static int OUT_RANGE_ALERT = 3;
 
 //RSSI tolerance
-const static int RSSI_TOLERANCE = 2;
+const static int DEFAULT_RSSI_TOLERANCE = 3;
+
+//PXP algorithm
+const static int DEFAULT_SWITCH_SIZE = 5;
+const static int DEFAULT_AVERAGE_SIZE = 20;
+const static double DEFAULT_ILLEGAL_DIFFRATE = 0.25;
+const static int DEFAULT_READ_RSSI_DELAY = 0;//s
 
 typedef struct {
     BOOL alertEnabler;
@@ -62,14 +66,14 @@ typedef struct {
 }DeviceSetting;
 
 /* Service UUID */
-extern NSString *kLinkLossServiceUUIDString;
-extern NSString *kImmediateAlertServiceUUIDString;
-extern NSString *kTxPowerServiceUUIDString;
-extern NSString *kCurrentTimeUUIDString;
+extern NSString *const kLinkLossServiceUUIDString;
+extern NSString *const kImmediateAlertServiceUUIDString;
+extern NSString *const kTxPowerServiceUUIDString;
+extern NSString *const kCurrentTimeUUIDString;
 
 /* Charactistic UUID */
-extern NSString *kAlertLevelCharactisticUUIDString;
-extern NSString *kTxPowerLevelCharactisticUUIDString;
+extern NSString *const kAlertLevelCharactisticUUIDString;
+extern NSString *const kTxPowerLevelCharactisticUUIDString;
 
 @protocol ProximityAlarmProtocol <NSObject>
 
@@ -96,35 +100,12 @@ extern NSString *kTxPowerLevelCharactisticUUIDString;
 - (void)unRegisterProximityDelgegate: (id<ProximityAlarmProtocol>)proximityDelegate;
 - (void)registerCalibrateDelegate:(id<CalibrateProtocol>)calibrateDelegate;
 - (void)unRegisterCalibrateDelegate:(id<CalibrateProtocol>)calibrateDelegate;
-/* Actions */
-//- (id) initWithPeripheral: (CBPeripheral *)peripheral txpower: (CBCharacteristic *)txPowerChar alertLevel: (CBCharacteristic *)alertLevelChar controller: (NSMutableArray *)controllerList;
 
-//- (void)start;
-//- (void)stop;
-//- (void)setLinkLossAlertLevel: (int)level;
-//- (void)readTxPower;
 - (int)queryDistance: (CBPeripheral *) peripheral;
-//-(void)calibrateThreshold:(int)time;
+
 -(void)calibrateThreshold:(int)distance delay:(int)time;
-
-//- (void)readRssiValue;
-/*- (void) setPxpParameters: (int)alertEnabler
-                    range: (int)rangeAlertEnabler
-                     type: (int)rangeType
-            alertDistance: (int)distance
-               disconnect: (int)disconnectEnabler;
-*/
-
-
-//- (void) readTxPowerResultBack:(CBCharacteristic *)characteristic error: (NSError *)error;
 - (void) writeAlertLevelResultBack:(CBCharacteristic *)characteristic error: (NSError *)error;
-//- (void) getRssiRsultBack:(CBPeripheral *)peripheral error: (NSError *)error;
-//- (void) getRssiRsultBack: (CBPeripheral *)peripheral rssi: (NSNumber *)rssiValue error: (NSError *)error; //add for ios 8
 
-//-(void)addCalibrateDelegate:(id<CalibrateProtocol>)calibrateDelegate;
-//-(void)removeCalibrateDelegate:(id<CalibrateProtocol>)calibrateDelegate;
-
-//testing function
 
 - (void) updatePxpSetting: (NSString *)peripheralId
              alertEnabler: (int)alertEnabler
@@ -132,15 +113,17 @@ extern NSString *kTxPowerLevelCharactisticUUIDString;
                 rangeType: (int)rangeType
             alertDistance: (int)distance
    disconnectAlertEnabler: (int)disconnectAlertEnabler;
-/*
- - (BOOL) setRssiValue: (int)rssi;
-- (void) setRssiAndCheckRangeAlert: (int)newRssi;
-- (void) checkRangeAlert: (int)distance;
-- (void) rangeAlertNofityUxAndInformRemote;
-- (void) setIsNotifyRemote: (BOOL)isNotify;*/
+
 - (BOOL) getIsNotifyRemote: (CBPeripheral *)peripheral;
- 
 - (void) updateAlertThreshold: (int)near midThreshold: (int)middle farThreshold: (int)far;
+
+//set & get algorithm paramerter
+- (void)setTolerance: (int)tolerance;
+- (int)getTolerance;
+- (void)setIllegalDiffRate: (double)illegalRate;
+- (void)setReadRssiDelay: (int)delaySeconds;//0: without delay
+- (void)setRssiPolisherParamerters: (int)switchArraySize averageArraySize: (int)averageArraySize illegalDiffRate: (double)illegalRate;
+- (int)getCurrentThreshold;
 
 @property (readonly) CBPeripheral *peripheral;
 @property int rssi;

@@ -115,6 +115,8 @@ static const int CALL_MODE_MANUAL = 1;
  </code>
  */
 - (void)onWriteCallBack: (int)cmdLabel writeType: (int)type keyId: (int)keyIdVal indexId: (int)indexIdVal valueTag: (NSArray *)valueTagArray;
+
+-(void)onReadyToSend;
 @end
 
 @interface SOSCallOperator : NSObject

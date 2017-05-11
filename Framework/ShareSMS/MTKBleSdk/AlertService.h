@@ -14,10 +14,10 @@
 
 
 //00001802-0000-1000-8000-00805F9B34FB Immediate Alert Service uuid
-extern NSString *kAlertServiceUUIDString;
+extern NSString *const kAlertServiceUUIDString;
 
 //00002A06-0000-1000-8000-00805F9B34FB
-extern NSString *kAlertLevelCharacteristicUUIDString;
+extern NSString *const kAlertLevelCharacteristicUUIDString;
 
 typedef enum{
     kAlertHighLevel=2,

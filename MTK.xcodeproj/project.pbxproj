@@ -20,7 +20,6 @@
 		EE4885531CD1B54C006CB97C /* SmaNavMyInfoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE4885511CD1B54C006CB97C /* SmaNavMyInfoController.xib */; };
 		EE54FF4E1CFD2C9200DCEBDA /* MTKSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE54FF4D1CFD2C9200DCEBDA /* MTKSelectViewController.m */; };
 		EE55F82D1CCB3DBA00B99223 /* MTKCoreBlueTool.m in Sources */ = {isa = PBXBuildFile; fileRef = EE55F82C1CCB3DBA00B99223 /* MTKCoreBlueTool.m */; };
-		EE55F82F1CCB460900B99223 /* libMTKBleManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE55F82E1CCB460900B99223 /* libMTKBleManager.a */; };
 		EE55F8351CCB5AA100B99223 /* ScannedPeripheral.m in Sources */ = {isa = PBXBuildFile; fileRef = EE55F8341CCB5AA100B99223 /* ScannedPeripheral.m */; };
 		EE55F83C1CCB7DA300B99223 /* MTKArchiveTool.m in Sources */ = {isa = PBXBuildFile; fileRef = EE55F83B1CCB7DA300B99223 /* MTKArchiveTool.m */; };
 		EE55F83F1CCB7E2F00B99223 /* MTKUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = EE55F83E1CCB7E2F00B99223 /* MTKUserInfo.m */; };
@@ -75,6 +74,7 @@
 		EE8B1D371CCA0C4800F990FC /* MTKSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8B1D361CCA0C4800F990FC /* MTKSettingViewController.m */; };
 		EE8B1D3A1CCA26E700F990FC /* MTKPairViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8B1D391CCA26E700F990FC /* MTKPairViewController.m */; };
 		EE8B1D3E1CCA28F900F990FC /* MTKSetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8B1D3D1CCA28F900F990FC /* MTKSetTableViewCell.m */; };
+		EE922C501EB17D8800338178 /* libMTKBleManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE922C461EB17D8800338178 /* libMTKBleManager.a */; };
 		EE9D5BBD1CEAB1C500548DA3 /* MTKSleepView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9D5BBC1CEAB1C500548DA3 /* MTKSleepView.m */; };
 		EE9D5BC01CEABE0300548DA3 /* MTKSleepDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9D5BBF1CEABE0300548DA3 /* MTKSleepDetailViewController.m */; };
 		EEC208A11CD0BDCD006680AD /* MTKHeartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC208A01CD0BDCD006680AD /* MTKHeartViewController.m */; };
@@ -149,29 +149,8 @@
 		EE4885511CD1B54C006CB97C /* SmaNavMyInfoController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmaNavMyInfoController.xib; sourceTree = SOURCE_ROOT; };
 		EE54FF4C1CFD2C9200DCEBDA /* MTKSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKSelectViewController.h; sourceTree = "<group>"; };
 		EE54FF4D1CFD2C9200DCEBDA /* MTKSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTKSelectViewController.m; sourceTree = "<group>"; };
-		EE55F8141CCB3AED00B99223 /* AlertService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertService.h; sourceTree = "<group>"; };
-		EE55F8151CCB3AED00B99223 /* BLEClientProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEClientProfile.h; sourceTree = "<group>"; };
-		EE55F8161CCB3AED00B99223 /* BloodPressureService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BloodPressureService.h; sourceTree = "<group>"; };
-		EE55F8171CCB3AED00B99223 /* BodyTemperatureService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BodyTemperatureService.h; sourceTree = "<group>"; };
-		EE55F8181CCB3AED00B99223 /* Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Controller.h; sourceTree = "<group>"; };
-		EE55F8191CCB3AED00B99223 /* DataParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataParser.h; sourceTree = "<group>"; };
-		EE55F81A1CCB3AED00B99223 /* DefaultAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultAlert.h; sourceTree = "<group>"; };
-		EE55F81B1CCB3AED00B99223 /* FmpCentral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FmpCentral.h; sourceTree = "<group>"; };
-		EE55F81C1CCB3AED00B99223 /* FmpGattClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FmpGattClient.h; sourceTree = "<group>"; };
-		EE55F81D1CCB3AED00B99223 /* GATTLinker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GATTLinker.h; sourceTree = "<group>"; };
-		EE55F81E1CCB3AED00B99223 /* HealthKitManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthKitManager.h; sourceTree = "<group>"; };
-		EE55F81F1CCB3AED00B99223 /* IAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAlert.h; sourceTree = "<group>"; };
-		EE55F8201CCB3AED00B99223 /* Linker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Linker.h; sourceTree = "<group>"; };
-		EE55F8211CCB3AED00B99223 /* MTKBleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKBleManager.h; sourceTree = "<group>"; };
-		EE55F8221CCB3AED00B99223 /* MTKBlePeripheralManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKBlePeripheralManager.h; sourceTree = "<group>"; };
-		EE55F8231CCB3AED00B99223 /* MTKBleProximityService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKBleProximityService.h; sourceTree = "<group>"; };
-		EE55F8241CCB3AED00B99223 /* PdmsSleepService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PdmsSleepService.h; sourceTree = "<group>"; };
-		EE55F8251CCB3AED00B99223 /* SOSCallOperator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOSCallOperator.h; sourceTree = "<group>"; };
-		EE55F8261CCB3AED00B99223 /* SOSContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOSContact.h; sourceTree = "<group>"; };
-		EE55F8271CCB3AED00B99223 /* VolumeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VolumeController.h; sourceTree = "<group>"; };
 		EE55F82B1CCB3DBA00B99223 /* MTKCoreBlueTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKCoreBlueTool.h; sourceTree = "<group>"; };
 		EE55F82C1CCB3DBA00B99223 /* MTKCoreBlueTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTKCoreBlueTool.m; sourceTree = "<group>"; };
-		EE55F82E1CCB460900B99223 /* libMTKBleManager.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMTKBleManager.a; sourceTree = "<group>"; };
 		EE55F8331CCB5AA100B99223 /* ScannedPeripheral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScannedPeripheral.h; sourceTree = "<group>"; };
 		EE55F8341CCB5AA100B99223 /* ScannedPeripheral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScannedPeripheral.m; sourceTree = "<group>"; };
 		EE55F83A1CCB7DA300B99223 /* MTKArchiveTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKArchiveTool.h; sourceTree = "<group>"; };
@@ -326,6 +305,26 @@
 		EE8B1D391CCA26E700F990FC /* MTKPairViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTKPairViewController.m; sourceTree = "<group>"; };
 		EE8B1D3C1CCA28F900F990FC /* MTKSetTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKSetTableViewCell.h; sourceTree = "<group>"; };
 		EE8B1D3D1CCA28F900F990FC /* MTKSetTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTKSetTableViewCell.m; sourceTree = "<group>"; };
+		EE922C3C1EB17D8800338178 /* AlertService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertService.h; sourceTree = "<group>"; };
+		EE922C3D1EB17D8800338178 /* BLEClientProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEClientProfile.h; sourceTree = "<group>"; };
+		EE922C3E1EB17D8800338178 /* Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Controller.h; sourceTree = "<group>"; };
+		EE922C3F1EB17D8800338178 /* DefaultAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultAlert.h; sourceTree = "<group>"; };
+		EE922C401EB17D8800338178 /* FmpCentral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FmpCentral.h; sourceTree = "<group>"; };
+		EE922C411EB17D8800338178 /* FmpGattClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FmpGattClient.h; sourceTree = "<group>"; };
+		EE922C421EB17D8800338178 /* FotaOperator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FotaOperator.h; sourceTree = "<group>"; };
+		EE922C431EB17D8800338178 /* FotaVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FotaVersion.h; sourceTree = "<group>"; };
+		EE922C441EB17D8800338178 /* GATTLinker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GATTLinker.h; sourceTree = "<group>"; };
+		EE922C451EB17D8800338178 /* IAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAlert.h; sourceTree = "<group>"; };
+		EE922C461EB17D8800338178 /* libMTKBleManager.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMTKBleManager.a; sourceTree = "<group>"; };
+		EE922C471EB17D8800338178 /* Linker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Linker.h; sourceTree = "<group>"; };
+		EE922C481EB17D8800338178 /* MTKBleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKBleManager.h; sourceTree = "<group>"; };
+		EE922C491EB17D8800338178 /* MTKBlePeripheralManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKBlePeripheralManager.h; sourceTree = "<group>"; };
+		EE922C4A1EB17D8800338178 /* MTKBleProximityService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKBleProximityService.h; sourceTree = "<group>"; };
+		EE922C4B1EB17D8800338178 /* RemoteVxpInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoteVxpInformation.h; sourceTree = "<group>"; };
+		EE922C4C1EB17D8800338178 /* SOSCallOperator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOSCallOperator.h; sourceTree = "<group>"; };
+		EE922C4D1EB17D8800338178 /* SOSContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOSContact.h; sourceTree = "<group>"; };
+		EE922C4E1EB17D8800338178 /* VolumeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VolumeController.h; sourceTree = "<group>"; };
+		EE922C4F1EB17D8800338178 /* VxpOperator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VxpOperator.h; sourceTree = "<group>"; };
 		EE9D5BBB1CEAB1C500548DA3 /* MTKSleepView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKSleepView.h; sourceTree = "<group>"; };
 		EE9D5BBC1CEAB1C500548DA3 /* MTKSleepView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTKSleepView.m; sourceTree = "<group>"; };
 		EE9D5BBE1CEABE0300548DA3 /* MTKSleepDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKSleepDetailViewController.h; sourceTree = "<group>"; };
@@ -391,11 +390,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEC8FB031DCAE9E40054D2B8 /* HealthKit.framework in Frameworks */,
 				EE7B4A2E1CCF6B6D007C4644 /* libsqlite3.0.tbd in Frameworks */,
 				EE8768291CCC920200B53E45 /* CoreData.framework in Frameworks */,
-				EE55F82F1CCB460900B99223 /* libMTKBleManager.a in Frameworks */,
+				EE922C501EB17D8800338178 /* libMTKBleManager.a in Frameworks */,
 				EE8634A91CC71A66005378C9 /* libAbleCloudLib.a in Frameworks */,
-				EEC8FB031DCAE9E40054D2B8 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,27 +458,26 @@
 		EE55F8131CCB3AE100B99223 /* MTKBleSdk */ = {
 			isa = PBXGroup;
 			children = (
-				EE55F82E1CCB460900B99223 /* libMTKBleManager.a */,
-				EE55F8141CCB3AED00B99223 /* AlertService.h */,
-				EE55F8151CCB3AED00B99223 /* BLEClientProfile.h */,
-				EE55F8161CCB3AED00B99223 /* BloodPressureService.h */,
-				EE55F8171CCB3AED00B99223 /* BodyTemperatureService.h */,
-				EE55F8181CCB3AED00B99223 /* Controller.h */,
-				EE55F8191CCB3AED00B99223 /* DataParser.h */,
-				EE55F81A1CCB3AED00B99223 /* DefaultAlert.h */,
-				EE55F81B1CCB3AED00B99223 /* FmpCentral.h */,
-				EE55F81C1CCB3AED00B99223 /* FmpGattClient.h */,
-				EE55F81D1CCB3AED00B99223 /* GATTLinker.h */,
-				EE55F81E1CCB3AED00B99223 /* HealthKitManager.h */,
-				EE55F81F1CCB3AED00B99223 /* IAlert.h */,
-				EE55F8201CCB3AED00B99223 /* Linker.h */,
-				EE55F8211CCB3AED00B99223 /* MTKBleManager.h */,
-				EE55F8221CCB3AED00B99223 /* MTKBlePeripheralManager.h */,
-				EE55F8231CCB3AED00B99223 /* MTKBleProximityService.h */,
-				EE55F8241CCB3AED00B99223 /* PdmsSleepService.h */,
-				EE55F8251CCB3AED00B99223 /* SOSCallOperator.h */,
-				EE55F8261CCB3AED00B99223 /* SOSContact.h */,
-				EE55F8271CCB3AED00B99223 /* VolumeController.h */,
+				EE922C3C1EB17D8800338178 /* AlertService.h */,
+				EE922C3D1EB17D8800338178 /* BLEClientProfile.h */,
+				EE922C3E1EB17D8800338178 /* Controller.h */,
+				EE922C3F1EB17D8800338178 /* DefaultAlert.h */,
+				EE922C401EB17D8800338178 /* FmpCentral.h */,
+				EE922C411EB17D8800338178 /* FmpGattClient.h */,
+				EE922C421EB17D8800338178 /* FotaOperator.h */,
+				EE922C431EB17D8800338178 /* FotaVersion.h */,
+				EE922C441EB17D8800338178 /* GATTLinker.h */,
+				EE922C451EB17D8800338178 /* IAlert.h */,
+				EE922C461EB17D8800338178 /* libMTKBleManager.a */,
+				EE922C471EB17D8800338178 /* Linker.h */,
+				EE922C481EB17D8800338178 /* MTKBleManager.h */,
+				EE922C491EB17D8800338178 /* MTKBlePeripheralManager.h */,
+				EE922C4A1EB17D8800338178 /* MTKBleProximityService.h */,
+				EE922C4B1EB17D8800338178 /* RemoteVxpInformation.h */,
+				EE922C4C1EB17D8800338178 /* SOSCallOperator.h */,
+				EE922C4D1EB17D8800338178 /* SOSContact.h */,
+				EE922C4E1EB17D8800338178 /* VolumeController.h */,
+				EE922C4F1EB17D8800338178 /* VxpOperator.h */,
 			);
 			name = MTKBleSdk;
 			path = ShareSMS/MTKBleSdk;

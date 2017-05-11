@@ -1,4 +1,4 @@
- //
+//
 //  Controller.h
 //  MTKBleManager
 //
@@ -18,12 +18,13 @@ const static int PRIORITY_HIGH = 2;
 
 - (void)send: (NSString *)cmd data: (NSData *)dataBuffer response: (BOOL)re progress: (BOOL)pr priority: (int)priority;
 
--(void)onReceive:(NSData*)data;
+- (void)onReceive:(NSData*)data;
 
--(void)onProgress: (float)sentPercent;
+- (void)onProgress: (float)sentPercent;
 
 - (void)onConnectStateChange: (int)state;
 
+- (void)onHandShakeDone;
 /**
  *    get receiver tags of the controller
  *
@@ -37,5 +38,9 @@ const static int PRIORITY_HIGH = 2;
  *    @param tagStrArray the array which contains tha receiver tag string
  */
 - (void)setReceiversTags: (NSArray *)tagStrArray;
+
+-(NSString*)getControllerTag;
+
+-(void)cancelCurrentSending;
 
 @end

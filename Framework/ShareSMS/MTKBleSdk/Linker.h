@@ -21,7 +21,7 @@ const static int STATE_DISCONNECTING = 6;
 
 @interface Linker : NSObject
 
-- (void) setSentSize: (int)sentSize Tag: (NSString *)tag;
+- (void) setSentSize: (int)sentSize Tag: (NSString *)tag needProgress: (BOOL)progressNeed;
 - (void) changeDataBuffer: (int)SessionDataSize;
 - (void) write: (NSData *)data;
 

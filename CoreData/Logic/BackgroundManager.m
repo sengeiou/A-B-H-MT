@@ -8,9 +8,9 @@
 
 #import "BackgroundManager.h"
 #import "FmpGattClient.h"
-#import "PdmsSleepService.h"
-#import "BloodPressureService.h"
-#import "BodyTemperatureService.h"
+//#import "PdmsSleepService.h"
+//#import "BloodPressureService.h"
+//#import "BodyTemperatureService.h"
 #import "MTKBleProximityService.h"
 
 @interface BackgroundManager()
@@ -60,9 +60,9 @@ static BackgroundManager* instance;
     [FmpGattClient getInstance];
     if([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0) {
         //healthkit operation
-        [PdmsSleepService getInstance];
-        [BloodPressureService getInstance];
-        [BodyTemperatureService getInstance];
+//        [PdmsSleepService getInstance];
+//        [BloodPressureService getInstance];
+//        [BodyTemperatureService getInstance];
     }
     [MTKBleProximityService getInstance];
     
