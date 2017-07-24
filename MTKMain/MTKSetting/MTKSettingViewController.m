@@ -12,6 +12,8 @@
 @interface MTKSettingViewController ()<UITableViewDelegate,UITableViewDataSource,CachedBLEDeviceDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 {
     NSArray *settingArr;
+    BOOL searchDevice;
+    NSTimer *searchTimer;
 }
 @property (weak, nonatomic) CachedBLEDevice *mDevice;
 @end
@@ -29,15 +31,15 @@
 -(void)viewWillAppear:(BOOL)animated {
     
     mDevice = [CachedBLEDevice defaultInstance];
-//    [mDevice registerAttributeChangedListener:self];
+    //    [mDevice registerAttributeChangedListener:self];
     [self initializeMethod];
     [self createUI];
-     [self.setTab reloadData];
+    [self.setTab reloadData];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
-   
-//     [mDevice unregisterAttributeChangedListener:self];
+    
+    //     [mDevice unregisterAttributeChangedListener:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -59,8 +61,8 @@
     NSData *data = [NSData dataWithContentsOfFile:uniquePath];
     UIImage *img = [[UIImage alloc] initWithData:data];
     if(img)
-       [self.imageBut setBackgroundImage:img forState:UIControlStateNormal];
-
+        [self.imageBut setBackgroundImage:img forState:UIControlStateNormal];
+    
     [self chectBLstate];
     self.setTab.tableFooterView = [[UIView alloc] init];
     self.setTab.delegate = self;
@@ -69,7 +71,7 @@
 }
 
 - (void)chectBLstate{
-     CachedBLEDevice* device = [CachedBLEDevice defaultInstance];
+    CachedBLEDevice* device = [CachedBLEDevice defaultInstance];
     if (device.mConnectionState == 2) {
         _BLIndexView.image = [UIImage imageNamed:@"bluetooth_link_img"];
     }
@@ -108,9 +110,9 @@
     if (indexPath.row == 0) {
         [self.navigationController pushViewController:[MainStoryBoard instantiateViewControllerWithIdentifier:@"MTKUserTableViewController"] animated:YES];
     }
-//    else if (indexPath.row == 1) {
-//        [self.navigationController pushViewController:[MainStoryBoard instantiateViewControllerWithIdentifier:@"MTKSportPlanViewController"] animated:YES];
-//    }
+    //    else if (indexPath.row == 1) {
+    //        [self.navigationController pushViewController:[MainStoryBoard instantiateViewControllerWithIdentifier:@"MTKSportPlanViewController"] animated:YES];
+    //    }
     else if (indexPath.row == 1) {
         NSMutableArray* array = [MTKDeviceParameterRecorder getDeviceParameters];
         if (array.count ==0) {
@@ -123,29 +125,36 @@
         }
     }
     else if (indexPath.row == 2) {
-//        if ([MTKBleMgr checkBleStatus]) {
+        //        if ([MTKBleMgr checkBleStatus]) {
         CachedBLEDevice* device = [CachedBLEDevice defaultInstance];
         if (!device.mDeviceIdentifier || [device.mDeviceIdentifier isEqualToString:@""]) {
             [MBProgressHUD showError:MtkLocalizedString(@"alert_nobang")];
             return;
         }
-            UIAlertController *aler = [UIAlertController alertControllerWithTitle:MtkLocalizedString(@"alert_relieveband") message:nil preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction *cancelAct = [UIAlertAction actionWithTitle:MtkLocalizedString(@"aler_can") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-            }];
-            UIAlertAction *confim = [UIAlertAction actionWithTitle:MtkLocalizedString(@"aler_confirm") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                MTKUnPairViewController *unPairVC = [MainStoryBoard instantiateViewControllerWithIdentifier:@"MTKUnPairViewController"];
-                 unPairVC.hidesBottomBarWhenPushed = YES;
-                [self.navigationController pushViewController:unPairVC animated:YES];
-            }];
-            [aler addAction:cancelAct];
-            [aler addAction:confim];
-            [self presentViewController:aler animated:YES completion:^{
-                
-            }];
-        }
+        UIAlertController *aler = [UIAlertController alertControllerWithTitle:MtkLocalizedString(@"alert_relieveband") message:nil preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelAct = [UIAlertAction actionWithTitle:MtkLocalizedString(@"aler_can") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        }];
+        UIAlertAction *confim = [UIAlertAction actionWithTitle:MtkLocalizedString(@"aler_confirm") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            MTKUnPairViewController *unPairVC = [MainStoryBoard instantiateViewControllerWithIdentifier:@"MTKUnPairViewController"];
+            unPairVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:unPairVC animated:YES];
+        }];
+        [aler addAction:cancelAct];
+        [aler addAction:confim];
+        [self presentViewController:aler animated:YES completion:^{
+            
+        }];
+    }
     else if (indexPath.row == 4){
         if ([MTKBleMgr checkBleStatus]) {
-            
+            NSString *str = SEARCHDEVICE(!searchDevice);
+            searchDevice = !searchDevice;
+            [[MyController getMyControllerInstance] sendDataWithCmd:str mode:SEARCHDEVICE];
+            if (searchTimer) {
+                [searchTimer invalidate];
+                searchTimer = nil;
+            }
+            searchTimer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(searchDeviceTimeOut) userInfo:nil repeats:NO];
             if (mDevice.mFindingState == FINDING_STATE_ON || mDevice.mAlertState == ALERT_STATE_ON)
             {
                 if (mDevice.mFindingState == FINDING_STATE_ON)
@@ -181,16 +190,29 @@
                 }
             }
         }
+        else{
+            searchDevice = NO;
+        }
     }
 }
 
-- (void)lostSet:(UISwitch *)sender{
-   
-    if ([MTKBleMgr checkBleStatus]) {
-//         [mDevice updateDeviceConfiguration:CONFIG_ALERT_SWITCH_STATE_CHANGE changedValue:YES];
-         [mDevice updateDeviceConfiguration:CONFIG_DISCONNECT_ALERT_SWITCH_STATE_CHANGE changedValue:sender.isOn];
+- (void)searchDeviceTimeOut{
+    if (searchTimer) {
+        [searchTimer invalidate];
+        searchTimer = nil;
     }
-   sender.on = mDevice.mDisconnectEnabled;
+    NSString *str = SEARCHDEVICE(!searchDevice);
+    searchDevice = !searchDevice;
+    [[MyController getMyControllerInstance] sendDataWithCmd:str mode:SEARCHDEVICE];
+}
+
+- (void)lostSet:(UISwitch *)sender{
+    
+    if ([MTKBleMgr checkBleStatus]) {
+        //         [mDevice updateDeviceConfiguration:CONFIG_ALERT_SWITCH_STATE_CHANGE changedValue:YES];
+        [mDevice updateDeviceConfiguration:CONFIG_DISCONNECT_ALERT_SWITCH_STATE_CHANGE changedValue:sender.isOn];
+    }
+    sender.on = mDevice.mDisconnectEnabled;
 }
 
 - (IBAction)imaSelector:(id)sender{
@@ -201,7 +223,7 @@
     [self presentViewController:picker animated:YES completion:^{
         
     }];
-
+    
 }
 
 -(void)imagePickerController:(UIImagePickerController*)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
@@ -258,13 +280,13 @@ static float i = 0.1; float A = 0;
     
 }
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

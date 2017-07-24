@@ -100,6 +100,7 @@
 		EEC9965D1CC4ABEA00BD5A45 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EEC9965F1CC4ABEA00BD5A45 /* Localizable.strings */; };
 		EEC996641CC4CCF400BD5A45 /* MTKLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC996631CC4CCF400BD5A45 /* MTKLoginViewController.m */; };
 		EED63B851CF3FECF00B8DB10 /* Alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EED63B841CF3FECF00B8DB10 /* Alarm.mp3 */; };
+		EEEF75FA1F25F20F001C6BA0 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEEF75F91F25F20F001C6BA0 /* MediaPlayer.framework */; };
 		EEF6F5D51CD0FC170061A47B /* SmaQuietViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEF6F5D31CD0FC170061A47B /* SmaQuietViewController.m */; };
 		EEF6F5D61CD0FC170061A47B /* SmaQuietViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEF6F5D41CD0FC170061A47B /* SmaQuietViewController.xib */; };
 		EEF6F5DB1CD0FC480061A47B /* SmaQuietTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EEF6F5D91CD0FC480061A47B /* SmaQuietTableCell.m */; };
@@ -375,6 +376,7 @@
 		EEC996621CC4CCF400BD5A45 /* MTKLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MTKLoginViewController.h; path = Login/MTKLoginViewController.h; sourceTree = SOURCE_ROOT; };
 		EEC996631CC4CCF400BD5A45 /* MTKLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MTKLoginViewController.m; path = Login/MTKLoginViewController.m; sourceTree = SOURCE_ROOT; };
 		EED63B841CF3FECF00B8DB10 /* Alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Alarm.mp3; sourceTree = "<group>"; };
+		EEEF75F91F25F20F001C6BA0 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		EEF6F5D21CD0FC170061A47B /* SmaQuietViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmaQuietViewController.h; sourceTree = "<group>"; };
 		EEF6F5D31CD0FC170061A47B /* SmaQuietViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmaQuietViewController.m; sourceTree = "<group>"; };
 		EEF6F5D41CD0FC170061A47B /* SmaQuietViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmaQuietViewController.xib; sourceTree = "<group>"; };
@@ -390,6 +392,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEEF75FA1F25F20F001C6BA0 /* MediaPlayer.framework in Frameworks */,
 				EEC8FB031DCAE9E40054D2B8 /* HealthKit.framework in Frameworks */,
 				EE7B4A2E1CCF6B6D007C4644 /* libsqlite3.0.tbd in Frameworks */,
 				EE8768291CCC920200B53E45 /* CoreData.framework in Frameworks */,
@@ -948,6 +951,7 @@
 		EEC8FB011DCAE9E40054D2B8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EEEF75F91F25F20F001C6BA0 /* MediaPlayer.framework */,
 				EEC8FB021DCAE9E40054D2B8 /* HealthKit.framework */,
 			);
 			name = Frameworks;
@@ -1543,8 +1547,8 @@
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.smawatch.MTK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "391cd069-caa8-47fe-93f1-4dda64f55016";
-				PROVISIONING_PROFILE_SPECIFIER = liang_mtk_develop;
+				PROVISIONING_PROFILE = "bc0df5d6-7850-4c4f-94b0-2e52e54c4db6";
+				PROVISIONING_PROFILE_SPECIFIER = HU_DVE_WEAR_TEXT;
 			};
 			name = Debug;
 		};
@@ -1576,8 +1580,8 @@
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.smawatch.MTK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a4a1ab4e-7e93-4be8-b861-503eea117dbf";
-				PROVISIONING_PROFILE_SPECIFIER = "XC: com.smawatch.MTK";
+				PROVISIONING_PROFILE = "b6e52871-2166-4bea-b00f-7f8b1c718fa7";
+				PROVISIONING_PROFILE_SPECIFIER = hu_dis_wear_text;
 			};
 			name = Release;
 		};

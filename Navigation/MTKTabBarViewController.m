@@ -9,7 +9,7 @@
 #import "MTKTabBarViewController.h"
 #import "MtkAppDelegate.h"
 #import "MTKTabBar.h"
-@interface MTKTabBarViewController ()<MTKTabBarDelegate,StateChangeDelegate,myProtocol>
+@interface MTKTabBarViewController ()<MTKTabBarDelegate,StateChangeDelegate,myProtocol,BleDiscoveryDelegate>
 {
     MtkAppDelegate *appDele;
     NSMutableArray* array;
@@ -67,6 +67,7 @@
 {
     [super viewWillAppear:animated];
     // 删除系统自动生成的UITabBarButton
+//    [[MTKBleManager sharedInstance] registerDiscoveryDelgegate:self];
     for (UIView *child in self.tabBar.subviews) {
         if ([child isKindOfClass:[UIControl class]]) {
             [child setHidden:YES];
@@ -232,6 +233,7 @@
 {
     self.selectedIndex = to;
     CachedBLEDevice* device = [CachedBLEDevice defaultInstance];
+     array = [MTKDeviceParameterRecorder getDeviceParameters];
     if (array.count > 0 && device.mConnectionState != CONNECTION_STATE_CONNECTED && [BackgroundManager sharedInstance].centralManagerState == CBCentralManagerStatePoweredOn) {
         [BackgroundManager sharedInstance].tempPeripheral = nil;
  BOOL res =  [[BackgroundManager sharedInstance] connectDevice:[[CachedBLEDevice defaultInstance] getDevicePeripheral]];//当绑定的设备并未连接即主动连接设备

@@ -9,12 +9,14 @@
 #import "Controller.h"
 #import "ControllerManager.h"
 #import "MTKSqliteData.h"
+#import <MediaPlayer/MediaPlayer.h>
 #define GETSYSTEM @"GET,0"   //获取系统资料（可做是否连接正常和心跳检测作用）
 #define GETDEDATA @"GET,1"  //获取所有数据
 #define GETDESPORT @"GET,2"  //获取运动详细数据
 #define GETDESELEEP @"GET,3" //获取睡眠详细数据
 #define GETDESHEART @"GET,4" //获取睡眠详细数据
 #define GETDEUSER @"PS,GET" //获取个人资料详细数据
+#define SEARCHDEVICE(b)  [NSString stringWithFormat:@"RET,SET,40,%d",b] //寻找手机
 //#define SETUSER   @"PS,SET,DATAS" //设置个人信息
 //typedef enum {
 //    AWAIT_RECEVER1=0,//等待接收
@@ -35,7 +37,7 @@ typedef enum {
     RETSPORT,       //运动数据响应
     RETSLEEP,       //睡眠数据响应
     RETHEART,       //心率数据响应
-
+    SEARCHDEVICE    //寻找手机
 }MTKBLEMEDO;
 
 
@@ -48,6 +50,7 @@ typedef enum {
 @property(nonatomic,strong) id<myProtocol>delegate;
 @property(nonatomic,assign) MTKBLEMEDO mode;
 @property(nonatomic,strong) MTKSqliteData *sqliData;
+@property (nonatomic,strong)AVAudioPlayer *player;
 
 +(id)getMyControllerInstance;
 - (void)sendSOSCAllCMD: (NSString *)cmdHeader sendData: (NSData *)data;
