@@ -63,12 +63,10 @@ static  MyController *instance;
         for (UIView* newView in volumeView.subviews) {
             if ([newView.class.description isEqualToString:@"MPVolumeSlider"]){
                 volumeViewSlider = (UISlider*)newView;
-                volumeViewSlider.value = 10.0;
                 break;
             }
         }
     }
-    
     return volumeViewSlider;
 }
 
@@ -121,7 +119,7 @@ static  MyController *instance;
 }
 
 - (void)parsingMTKData:(NSString *)dataStr{
-    NSLog(@"*****************************数据解析***************************\n%@",dataStr);
+    NSLog(@"*****************************数据解析***************************\n%@",dataStr);    
     MTKUserInfo *user = [MTKArchiveTool getUserInfo];
     NSArray *dataArr = [dataStr componentsSeparatedByString:@","];
     NSString *dataFir = dataArr[0];
@@ -318,7 +316,7 @@ static  MyController *instance;
             [_player play];
         }
         else{
-            [_player stop];
+//            [_player stop];
         }
     }
 }

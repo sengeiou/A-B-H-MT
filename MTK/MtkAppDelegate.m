@@ -40,23 +40,28 @@
     self.window.rootViewController = tabVC;
 //        [[HealthKitManager healthkitMgrInstance] requestAuthorization];
 }
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0) {
-        if ([HKHealthStore isHealthDataAvailable]) {
-            self.healthStore = [[HKHealthStore alloc] init];
-            NSSet *writeDataTypes = [self dataTypesToWrite];
-            //        NSSet *readDataTypes = [self dataTypesToRead];
-            [self.healthStore requestAuthorizationToShareTypes:writeDataTypes readTypes:nil completion:^(BOOL success, NSError *error) {
-                
-                if (!success) {
-                    NSLog(@"You didn't allow HealthKit to access these read/write data types. In your app, try to handle this error gracefully when a user decides not to provide access. The error was: %@. If you're using a simulator, try it on a device.", error);
-                    return;
-                }
-            }];
-        }
-    }
+//    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0) {
+//        if ([HKHealthStore isHealthDataAvailable]) {
+//            self.healthStore = [[HKHealthStore alloc] init];
+//            NSSet *writeDataTypes = [self dataTypesToWrite];
+//            //        NSSet *readDataTypes = [self dataTypesToRead];
+//            [self.healthStore requestAuthorizationToShareTypes:writeDataTypes readTypes:nil completion:^(BOOL success, NSError *error) {
+//                
+//                if (!success) {
+//                    NSLog(@"You didn't allow HealthKit to access these read/write data types. In your app, try to handle this error gracefully when a user decides not to provide access. The error was: %@. If you're using a simulator, try it on a device.", error);
+//                    return;
+//                }
+//            }];
+//        }
+//    }
  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(NotificationHKHealthStore) name:@"HKHealthNot" object:nil];
     [UIApplication sharedApplication].statusBarHidden=NO;
+    [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(checkTimer) userInfo:nil repeats:YES];
     return YES;
+}
+
+- (void)checkTimer{
+    NSLog(@"***********************************checkTimer**************************************");
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

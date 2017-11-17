@@ -48,6 +48,11 @@
     NSLog(@"[ScanTableViewController], viewDidDisappear Enter");
     [[BackgroundManager sharedInstance] unRegisterStateChangeDelegate:self];
 }
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [MTKBL MTKStopScan];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -263,6 +268,10 @@
 
 -(void)onScanningStateChange:(int)state{
     NSLog(@"[MTKPairViewController] [onScanningStateChange] %d",state);
+}
+
+- (void)dealloc{
+    NSLog(@"dealloc");
 }
 /*
 #pragma mark - Navigation

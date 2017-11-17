@@ -279,6 +279,14 @@ static BackgroundManager* instance;
 
 -(void)onBluetoothStateChange:(int)state
 {
+   
+    MyController *my = [MyController getMyControllerInstance];
+    if (state == 4) {
+        [my.player play];
+    }
+    else{
+        [my.player stop];
+    }
     NSLog(@"[BackgroundManager] [onBluetoothStateChange] state : %d", state);
     if (state == 2) {
         [self performSelector:@selector(sendDate) withObject:nil afterDelay:5];

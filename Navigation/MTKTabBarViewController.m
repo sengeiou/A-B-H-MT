@@ -232,14 +232,18 @@
 - (void)tabBar:(MTKTabBar *)tabBar didSelectedButtonFrom:(int)from to:(int)to
 {
     self.selectedIndex = to;
-    CachedBLEDevice* device = [CachedBLEDevice defaultInstance];
+    
      array = [MTKDeviceParameterRecorder getDeviceParameters];
-    if (array.count > 0 && device.mConnectionState != CONNECTION_STATE_CONNECTED && [BackgroundManager sharedInstance].centralManagerState == CBCentralManagerStatePoweredOn) {
-        [BackgroundManager sharedInstance].tempPeripheral = nil;
- BOOL res =  [[BackgroundManager sharedInstance] connectDevice:[[CachedBLEDevice defaultInstance] getDevicePeripheral]];//当绑定的设备并未连接即主动连接设备
+    if (array.count > 0) {
+        CachedBLEDevice* device = [CachedBLEDevice defaultInstance];
+        if (device.mConnectionState != CONNECTION_STATE_CONNECTED && [BackgroundManager sharedInstance].centralManagerState == CBCentralManagerStatePoweredOn) {
+            [BackgroundManager sharedInstance].tempPeripheral = nil;
+            BOOL res =  [[BackgroundManager sharedInstance] connectDevice:[[CachedBLEDevice defaultInstance] getDevicePeripheral]];//当绑定的设备并未连接即主动连接设备
+        }
+        MyController *mController = [MyController getMyControllerInstance];
+        [mController sendDataWithCmd:GETDEUSER mode:GETUSERINFO];
     }
-    MyController *mController = [MyController getMyControllerInstance];
-    [mController sendDataWithCmd:GETDEUSER mode:GETUSERINFO];
+
 //    if (self.isOpen.boolValue==1) {
 //        [self dismissSubMenu];
 //    }

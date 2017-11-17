@@ -10,6 +10,7 @@
 #import "KAProgressLabel.h"
 #import "UIScrollView+MJRefresh.h"
 #import "MTKSportPlanViewController.h"
+#import <HealthKit/HealthKit.h>
 @interface MTKSportViewController ()<myProtocol>
 {
     MTKUserInfo *userInfo;
@@ -17,15 +18,17 @@
     MyController *mController;
     BOOL syncError;
 }
+@property (nonatomic, strong)HKHealthStore *healthStore;
 @end
 
 @implementation MTKSportViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [self initializeMethod];
-//    [self createUI];
+    //    [self initializeMethod];
+    //    [self createUI];
     mController = [MyController getMyControllerInstance];
+    _scrolllView.scrollEnabled = YES;
     // Do any additional setup after loading the view.
 }
 
@@ -35,12 +38,35 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-     [mController setDelegate: self];
+    [mController setDelegate: self];
     self.scrolllView.delegate = self;
+    
     self.scrolllView.showsVerticalScrollIndicator = FALSE;
     [self initializeMethod];
     [self setupRefresh];
     [self createUI];
+    
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0) {
+        if ([HKHealthStore isHealthDataAvailable]) {
+            self.healthStore = [[HKHealthStore alloc] init];
+            NSSet *writeDataTypes = [self dataTypesToWrite];
+            //        NSSet *readDataTypes = [self dataTypesToRead];
+            [self.healthStore requestAuthorizationToShareTypes:writeDataTypes readTypes:nil completion:^(BOOL success, NSError *error) {
+                
+                if (!success) {
+                    NSLog(@"You didn't allow HealthKit to access these read/write data types. In your app, try to handle this error gracefully when a user decides not to provide access. The error was: %@. If you're using a simulator, try it on a device.", error);
+                    return;
+                }
+            }];
+        }
+    }
+    
+}
+
+- (NSSet *)dataTypesToWrite {
+    HKQuantityType *stepCountType = [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
+    HKQuantityType *heartRateType = [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeartRate];
+    return [NSSet setWithObjects:stepCountType,heartRateType,  nil];
 }
 
 //加载dal对象
@@ -70,7 +96,7 @@
 - (void)createUI{
     if (MainScreen.size.height > 568) {
         _progressH.constant = 270.0f;
-         _progressW.constant = 270.0f;
+        _progressW.constant = 270.0f;
         _indH.constant = 25.0f;
         _indW.constant = 20.0f;
         _butH.constant = 270.0f;
@@ -83,7 +109,7 @@
     }
     else{
         _progressH.constant = 220.0f;
-         _progressW.constant = 220.0f;
+        _progressW.constant = 220.0f;
         _indH.constant = 16.0f;
         _indW.constant = 14.0f;
         _butH.constant = 220.0f;
@@ -94,7 +120,7 @@
         [self.progressLab setTrackWidth:7.0f];//轨迹粗细
         [self.progressLab setProgressWidth:7.0f];//进度条粗细
     }
-//    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithIcon:@"刷新" highIcon:@"刷新" target:self action:@selector(syncSport)];
+    //    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithIcon:@"刷新" highIcon:@"刷新" target:self action:@selector(syncSport)];
     _goalLab.text = MtkLocalizedString(@"sport_plaremark");
     _disLab.text = MtkLocalizedString(@"sport_distance");
     _stepLab.text = MtkLocalizedString(@"sport_steps");
@@ -109,9 +135,9 @@
     [self.progressLab setText:[NSString stringWithFormat:@"%.2f%%",(delta)/3.6]];
     
     [self.progressLab setRoundedCornersWidth:0.0f];//线条头大小
-
+    
     [self.progressLab setTextColor:[UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1]];
-  
+    
     
     self.progressLab.fillColor = [[UIColor clearColor] colorWithAlphaComponent:0.0];
     self.progressLab.trackColor = [UIColor colorWithRed:0/255.0 green:200/255.0 blue:255/255.0 alpha:1];//[UIColor clearColor]; //
@@ -125,7 +151,7 @@
 - (NSString *)dateWithYMD
 {
     NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
-    fmt.dateFormat = @"M月d日";
+    fmt.dateFormat = @"MM-dd";
     NSString *selfStr;
     NSString *today = [fmt stringFromDate:[NSDate date]];
     if ([today isEqualToString:[fmt stringFromDate:self.data]]) {
@@ -135,7 +161,7 @@
     else {
         selfStr= [fmt stringFromDate:self.data];
     }
-    return [self FormatStr:selfStr];
+    return selfStr;
 }
 
 -(NSString *)FormatStr:(NSString *)str
@@ -217,7 +243,7 @@ int  deffInt=30;
 - (void)syncSport{
     if ([MTKBleMgr checkBleStatus]) {
         syncError = NO;
-       
+        
         NSString *setUser = GETDESPORT;
         [mController sendDataWithCmd:setUser mode:GETSDETHEART];
         if (setTimer) {
@@ -234,7 +260,7 @@ int  deffInt=30;
     [self.view endEditing:YES];
     self.scrolllView.headerRefreshingText = MtkLocalizedString(@"alert_syncerror");
     [self.scrolllView headerEndRefreshing];
-
+    
     if (setTimer) {
         [setTimer invalidate];
         setTimer = nil;
@@ -242,7 +268,7 @@ int  deffInt=30;
 }
 
 - (void)refreshData{
-   
+    
     NSDateFormatter * formatter1 = [[NSDateFormatter alloc]init];
     [formatter1 setDateFormat:@"yyyyMMdd"];
     NSMutableArray *spoArr = [self.sqliData scarchSportWitchDate:[formatter1 stringFromDate:self.data] toDate:[formatter1 stringFromDate:self.data] UserID:userInfo.userID index:0];
@@ -270,7 +296,7 @@ int  deffInt=30;
         [self.progressLab setText:[NSString stringWithFormat:@"%.2f%%",(valu*100)]];
         [self.progressLab setEndDegree:valu*360];
     }
-     _goalStepLab.text = [NSString stringWithFormat:@"%d",userInfo.userGoal.intValue*500+4000];
+    _goalStepLab.text = [NSString stringWithFormat:@"%d",userInfo.userGoal.intValue*500+4000];
 }
 
 /**
@@ -319,7 +345,7 @@ int  deffInt=30;
 - (void)onDataReceive:(NSString *)recvData mode:(MTKBLEMEDO)mode{
     userInfo = [MTKArchiveTool getUserInfo];
     if (mode == GETSDETSPORT) {
-//        mController = [MyController getMyControllerInstance];
+        //        mController = [MyController getMyControllerInstance];
         NSString *setUser = GETDEDATA;
         [mController sendDataWithCmd:setUser mode:GETSDETSPORT];
         if (setTimer) {
@@ -328,17 +354,17 @@ int  deffInt=30;
         }
         setTimer = [NSTimer scheduledTimerWithTimeInterval:40 target:self selector:@selector(timeout) userInfo:nil repeats:NO];
     }
-//    else if (mode == GETSDETSLEEP){
-//        NSString *setUser = GETDEDATA;
-//        [mController sendDataWithCmd:setUser mode:GETSDETSPORT];
-//        if (setTimer) {
-//            [setTimer invalidate];
-//            setTimer = nil;
-//        }
-//        setTimer = [NSTimer scheduledTimerWithTimeInterval:40 target:self selector:@selector(timeout) userInfo:nil repeats:NO];
-//    }
+    //    else if (mode == GETSDETSLEEP){
+    //        NSString *setUser = GETDEDATA;
+    //        [mController sendDataWithCmd:setUser mode:GETSDETSPORT];
+    //        if (setTimer) {
+    //            [setTimer invalidate];
+    //            setTimer = nil;
+    //        }
+    //        setTimer = [NSTimer scheduledTimerWithTimeInterval:40 target:self selector:@selector(timeout) userInfo:nil repeats:NO];
+    //    }
     else if (mode == GETUSERINFO){
-         [self refreshData];
+        [self refreshData];
     }
     else if (mode == GETSDETDATA){
         NSLog(@"更新运动数据页面");
@@ -346,11 +372,11 @@ int  deffInt=30;
         if (!syncError) {
             self.scrolllView.scrollEnabled = YES;
             [self.view endEditing:YES];
-             self.scrolllView.headerRefreshingText = MtkLocalizedString(@"aler_syncsucc");
+            self.scrolllView.headerRefreshingText = MtkLocalizedString(@"aler_syncsucc");
             [self.scrolllView headerEndRefreshing];
         }
-       
-           if (setTimer) {
+        
+        if (setTimer) {
             [setTimer invalidate];
             setTimer = nil;
         }
@@ -359,9 +385,9 @@ int  deffInt=30;
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if (self.scrolllView == scrollView) {
-    if (scrollView.contentOffset.y >= 0) {
-                scrollView.contentOffset = CGPointMake(0, 0);
-                return;
+        if (scrollView.contentOffset.y >= 0) {
+            scrollView.contentOffset = CGPointMake(0, 0);
+            return;
         }
     }
     return;
